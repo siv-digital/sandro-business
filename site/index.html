@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sandro Business</title>
+
+<!-- Fonts are self-hosted. Never link fonts.googleapis.com: it is unreachable
+     on the build machine and fails silently, leaving you looking at Georgia
+     and Arial without an error to tell you. -->
+<style>
+  @font-face{font-family:'Libre Baskerville';src:url('/assets/fonts/libre-baskerville.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:swap}
+  @font-face{font-family:'Libre Baskerville';src:url('/assets/fonts/libre-baskerville-italic.woff2') format('woff2');font-weight:400 700;font-style:italic;font-display:swap}
+  /* dm-sans.woff2 declares 400 600 — a 300 weight would synthesize. */
+  @font-face{font-family:'DM Sans';src:url('/assets/fonts/dm-sans.woff2') format('woff2');font-weight:400 600;font-style:normal;font-display:swap}
+
+  :root{
+    --titanium:#232B36;
+    --black:#030303;
+    --offwhite:#FFFEF6;
+    --aqua-500:#0BA0BD;
+    --aqua-700:#0B6C84;
+    --aqua-950:#03222B;
+    --serif:'Libre Baskerville',Georgia,serif;
+    --sans:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:var(--sans);
+    color:var(--offwhite);
+    /* The signature sunrise: titanium grading into deep aqua. */
+    background:linear-gradient(180deg,var(--black) 0%,var(--titanium) 34%,var(--aqua-700) 88%,var(--aqua-500) 100%);
+    display:flex;align-items:center;justify-content:center;
+    padding:48px 24px;text-align:center;
+  }
+  .wrap{max-width:680px}
+  .kicker{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(255,254,246,.72);margin-bottom:28px;
+  }
+  .kicker::before{content:"";width:34px;height:1px;background:var(--aqua-500)}
+  h1{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(30px,5.4vw,52px);line-height:1.12;letter-spacing:-.02em;
+    margin-bottom:22px;
+  }
+  p{font-size:17px;line-height:1.6;color:rgba(255,254,246,.78)}
+  .note{
+    margin-top:40px;padding-top:22px;
+    border-top:1px solid rgba(255,254,246,.16);
+    font-size:13px;color:rgba(255,254,246,.55);
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="kicker">Sandro Business</div>
+    <h1>From the business you built to the wealth it becomes.</h1>
+    <p>The community platform prototype is in progress. Screens for review are on the way.</p>
+    <p class="note">Prototype environment. Not a public destination, and not indexed.</p>
+  </main>
+</body>
+</html>

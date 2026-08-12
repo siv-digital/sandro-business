@@ -1,0 +1,137 @@
+/* Sandro Business — colour primitives.
+   EVERY value here is read from the Sandro Prism Figma file (Design-system →
+   Colors, plus the Figma Variable collections). Nothing is invented.
+
+   The v1 pass of this system leaned on Titanium + Ivory alone, which read as
+   Sandro Wealth with a cyan stripe. The file shows the real palette is much
+   wider than that: Violet is the bound brand token (--text-text-brand,
+   --border-border-brand), the primary button is Khaki, and there is a full
+   asset-class palette. Business leads with those. */
+:root{
+  /* ---- Inherited anchors (unchanged) ---- */
+  --sb-titanium:#232B36;
+  --sb-black:#030303;
+  --sb-ivory:#FFFCEC;
+  --sb-offwhite:#FFFEF6;
+  --sb-grey:#474747;
+
+  /* ---- Aqua — the accent -------------------------------------------
+     #0BA0BD is the terminal stop of the SandroWealth brand-book gradient
+     (Titanium → cyan), so it is already sanctioned Sandro colour rather than
+     a new hue. The light tints are the Figma --blue-01…03 ramp verbatim. */
+  --sb-aqua-100:#E1EBF0; /* Figma --blue-01 */
+  --sb-aqua-200:#C2D6E0; /* Figma --blue-02 */
+  --sb-aqua-300:#A3C2D1; /* Figma --blue-03 */
+  --sb-aqua-400:#3FBBD1;
+  --sb-aqua-500:#0BA0BD; /* brand-book gradient terminal — the accent */
+  --sb-aqua-600:#0A83A0;
+  --sb-aqua-700:#0B6C84;
+  --sb-aqua-800:#0A4A5C;
+  --sb-aqua-900:#083441;
+  --sb-aqua-950:#03222B; /* CTA ink on aqua-500 — 5.28:1 */
+
+  /* ---- Sage — the bridge from aqua to the warm side.
+     Figma --greenalt-01…03, verbatim. ---- */
+  --sb-sage-100:#E0EBE2;
+  --sb-sage-200:#C5DBC9;
+  --sb-sage-300:#A6C7AD;
+  --sb-sage-500:#678857; /* Figma semantic POSITIVE */
+
+  /* ---- Khaki / Brand ramp. Figma: --brand-00 … --brand-07 ---- */
+  --sb-khaki-000:#F8F7F4;
+  --sb-khaki-100:#EAE7DC;
+  --sb-khaki-200:#DCD8C3;
+  --sb-khaki-300:#CFC9AA;
+  --sb-khaki-400:#B1A985;
+  --sb-khaki-500:#8E8565; /* the real primary-button fill */
+  --sb-khaki-700:#6E664C;
+  --sb-sand-400:#E0D0A7; /* Figma: --sand-04 */
+
+  /* ---- Azure. Figma: --blue-01…03 + asset class "private equity" ---- */
+  --sb-azure-100:#E1EBF0;
+  --sb-azure-200:#C2D6E0;
+  --sb-azure-300:#A3C2D1;
+  --sb-azure-500:#1781BF;
+  --sb-azure-700:#0F5C8A;
+
+  /* ---- Ember. Figma: asset class "public equity" ---- */
+  --sb-ember-300:#FBC79A;
+  --sb-ember-500:#F78934;
+  --sb-ember-700:#A04515; /* Figma: semantic NEGATIVE */
+
+  /* ---- Titanium ramp. Figma: --dark-00 … --dark-09 ---- */
+  --sb-ink:#141517;   /* --dark-08 */
+  --sb-titanium-900:#1B222C;
+  --sb-titanium-800:#232B36;
+  --sb-titanium-700:#2E3846;
+  --sb-titanium-600:#6E717A; /* --dark-04 */
+  --sb-titanium-500:#797C81; /* --dark-03 */
+  --sb-titanium-400:#8F9398; /* --dark-01 */
+  --sb-titanium-300:#A5A9AB; /* --dark-00 */
+  --sb-titanium-200:#C3C3C2; /* --light-08 */
+  --sb-titanium-100:#E7E6E3; /* --light-05 */
+
+  /* ---- Light ramp. Figma: --light-00 … --light-09 ---- */
+  --sb-light-000:#FFFFFF;
+  --sb-light-100:#F9F8F6;
+  --sb-light-200:#F6F5F4;
+  --sb-light-300:#F2F2F2;
+  --sb-light-400:#ECEBEB;
+  --sb-light-500:#E7E6E3;
+  --sb-light-700:#D6D6D5;
+
+  /* ---- Semantic hues. Figma: Design-system → Colors → SEMANTIC ---- */
+  --sb-positive:#678857;
+  --sb-positive-soft:#C5DBC9; /* --greenalt-02 */
+  --sb-moderate:#DBB257;
+  --sb-moderate-soft:#E0D0A7;
+  --sb-negative:#A04515;
+  --sb-negative-soft:#F3DED3;
+
+  /* ---- Asset-class palette (data viz only) ---- */
+  --sb-ac-public-equity:#F78934;
+  --sb-ac-private-equity:#1781BF;
+  --sb-ac-core-fixed:#4A331E;
+  --sb-ac-opportunistic:#9C6F2F;
+  --sb-ac-private-credit:#C49A5A;
+  --sb-ac-real-public:#4F3B78;
+  --sb-ac-real-private:#AE86A4;
+  --sb-ac-khaki:#8E8565;
+
+  /* ---- Gradients ----------------------------------------------------
+     --sb-gradient-base is the file's own CTA-block gradient, verbatim.
+     The rest are Business extensions built only from tokens above. The story
+     is a sunrise: ink at the top of the frame, aqua at the horizon. */
+  --sb-gradient-base:linear-gradient(90deg,#030303 0%,#232B36 100%); /* @kind other */
+  --sb-gradient-signature:linear-gradient(104deg,#1B222C 0%,#0A4A5C 58%,#0BA0BD 100%); /* @kind other */
+  --sb-gradient-dawn:linear-gradient(168deg,#141517 0%,#232B36 38%,#0A4A5C 74%,#0BA0BD 100%); /* @kind other */
+  --sb-gradient-rail:linear-gradient(180deg,#1B222C 0%,#0A4A5C 66%,#0B6C84 100%); /* @kind other */
+  --sb-gradient-aqua:linear-gradient(120deg,#0BA0BD 0%,#1781BF 100%); /* @kind other */
+  --sb-gradient-warm:linear-gradient(120deg,#E0D0A7 0%,#F78934 100%); /* @kind other */
+  --sb-gradient-keyline:linear-gradient(90deg,rgba(11,160,189,0) 0%,#0BA0BD 24%,#A6C7AD 62%,#E0D0A7 100%); /* @kind other */
+  --sb-gradient-ivory:linear-gradient(180deg,#FFFEF6 0%,#F8F7F4 100%); /* @kind other */
+  /* Animated signature — pair with the sb-gradient-shift keyframe */
+  --sb-gradient-live:linear-gradient(168deg,#141517 0%,#1B222C 22%,#0A4A5C 52%,#0B6C84 72%,#0BA0BD 88%,#A3C2D1 100%); /* @kind other */
+  /* Track gradients. The three entry points are one hue at three depths —
+     they read as stages of the same journey rather than three categories.
+     Intensity climbs with progress: palest for "still exploring", brightest
+     (with a sage tip) for "ready to sell". */
+  --sb-gradient-track-1:linear-gradient(180deg,#A3C2D1 0%,#3FBBD1 100%); /* @kind other */
+  --sb-gradient-track-2:linear-gradient(180deg,#3FBBD1 0%,#0BA0BD 100%); /* @kind other */
+  --sb-gradient-track-3:linear-gradient(180deg,#0BA0BD 0%,#A6C7AD 100%); /* @kind other */
+  --sb-wash-track-1:radial-gradient(88% 74% at 0% 0%,rgba(163,194,209,.13) 0%,rgba(163,194,209,0) 72%); /* @kind other */
+  --sb-wash-track-2:radial-gradient(88% 74% at 0% 0%,rgba(63,187,209,.15) 0%,rgba(63,187,209,0) 72%); /* @kind other */
+  --sb-wash-track-3:radial-gradient(88% 74% at 0% 0%,rgba(11,160,189,.19) 0%,rgba(11,160,189,0) 72%); /* @kind other */
+
+  /* The horizon glow that sits behind the rising sunburst */
+  --sb-glow-horizon:radial-gradient(72% 108% at 50% 100%,rgba(11,160,189,.62) 0%,rgba(10,74,92,.34) 42%,rgba(20,21,23,0) 78%); /* @kind other */
+
+  /* Wider, softer sibling of the horizon glow, for the edgeless `bloom` variant.
+     Carries more aqua than the horizon glow and folds azure into the mid stop:
+     bloom sits on the full-bleed dark CTA, where the job is to lift the field
+     off flat titanium, not just to seat the rays. */
+  --sb-glow-bloom:radial-gradient(118% 124% at 50% 108%,rgba(63,187,209,.42) 0%,rgba(11,160,189,.30) 26%,rgba(23,129,191,.17) 52%,rgba(20,21,23,0) 80%); /* @kind other */
+  /* Second, wider azure wash under the bloom glow — no rays in it, so it lifts
+     the whole lower field rather than tracing the fan. */
+  --sb-glow-bloom-wash:radial-gradient(160% 118% at 50% 112%,rgba(23,129,191,.34) 0%,rgba(11,160,189,.20) 40%,rgba(20,21,23,0) 88%); /* @kind other */
+}

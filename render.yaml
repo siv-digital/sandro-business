@@ -1,0 +1,56 @@
+# Render Blueprint — Sandro Business (siv-digital/sandro-business)
+#
+# One service, one publish path. Everything the public URL serves lives in
+# `site/`; the design system, the design reference and the client source notes
+# stay OUT of the publish path deliberately (14MB of tokens, fonts, a 4.6MB
+# inlined icon set, and internal notes are not for a public host).
+#
+# staticPublishPath is effectively ONE-SHOT: Blueprint syncs apply buildCommand
+# and headers changes to an existing service but SILENTLY IGNORE a changed
+# publish path (hit twice in sandro-pages, 2026-07-10 and 2026-07-27). `./site`
+# is the permanent answer — do the work in buildCommand, never by moving it.
+#
+# Service names are frozen: they define the *.onrender.com URL. The `-prototype`
+# suffix is deliberate. A client ad shipped pointing at a mock URL once
+# (Sandro decisions log, 2026-08-03), and this name cannot be mistaken for
+# production. Real launch runs on a custom domain, not this hostname.
+#
+# First-time setup for this repo: Render dashboard → New + → Blueprint →
+# connect siv-digital/sandro-business. Render reads this file and creates the
+# service. After that, append/edit and push; no dashboard step.
+# Diagnose a missing service with a curl, do not go hunting for a button:
+#   curl -sS -o /dev/null -w "%{http_code}\n" https://sandro-business-prototype.onrender.com/
+# 200 = it exists. `x-render-routing: no-server` = it genuinely does not, and
+# THAT is when you approve the pending sync at Blueprint → Syncs.
+
+services:
+  - type: web
+    name: sandro-business-prototype
+    runtime: static
+    # Overwrite internal markdown rather than deleting it: Render's CDN keeps
+    # serving a path deleted in a new deploy (invalidation only covers CHANGED
+    # files), so a removed file stays live. Two levels, because site/ has
+    # subdirectories — the one-level glob used in sandro-pages would publish a
+    # nested README at a real URL.
+    buildCommand: 'for f in site/*.md site/*/*.md; do if [ -e "$f" ]; then echo Not found. > "$f"; fi; done; rm -rf site/.claude site/.remember'
+    staticPublishPath: ./site
+    autoDeploy: true
+    pullRequestPreviewsEnabled: false
+    headers:
+      # SAMEORIGIN, not DENY. DENY forbids same-origin framing too, which broke
+      # the cta-demo overlay in sandro-pages on 2026-07-27 — and this site will
+      # frame its own assessment copy.
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      # This is a mock the client clicks through. It must never compete with
+      # sandrowealth.com in search.
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex, nofollow

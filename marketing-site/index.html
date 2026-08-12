@@ -1,0 +1,31 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="Sandro Business — marketing site" subtitle="Journey, Tracks, Insights, Assessment — click-through" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sandro Business</title>
+<link rel="stylesheet" href="../design-system/styles.css">
+<style>html,body{margin:0}body{background:var(--surface-page)}#root{min-height:100vh}img{max-width:100%}</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../design-system/_ds_bundle.js"></script>
+</head><body><div id="root"></div>
+<script src="photos.js"></script>
+<script type="text/babel" src="Home.jsx"></script>
+<script type="text/babel" src="Journey.jsx"></script>
+<script type="text/babel" src="Tracks.jsx"></script>
+<script type="text/babel" src="Assessment.jsx"></script>
+<script type="text/babel">
+const {Header,Footer}=window.SandroBusinessDesignSystem_06f5c8;
+const NAV=[{id:'Home',label:'Home'},{id:'Journey',label:'The Journey'},{id:'Tracks',label:'Tracks'},{id:'Assessment',label:'Assessment'}];
+function Site(){
+  const [page,setPage]=React.useState('Home');
+  React.useEffect(()=>{window.scrollTo(0,0)},[page]);
+  const Screen={Home:window.Home,Journey:window.Journey,Tracks:window.Tracks,Assessment:window.Assessment}[page];
+  return <React.Fragment>
+    <Header items={NAV} active={page} onNavigate={setPage} tone={page==='Home'?'transparent':'light'} cta="Take the assessment" />
+    <div style={page==='Home'?{marginTop:'calc(var(--header-h) * -1)'}:null}><Screen go={setPage} /></div>
+    <Footer note="From the business you built to the wealth it becomes."
+      columns={[{title:'The Journey',links:['Discovery','Value & wealth','Pre-sale planning','Sale & transition','Wealth integration']},{title:'Tracks',links:['Still exploring','Build value first','Ready to sell']},{title:'Firm',links:['About Sandro','Form ADV','Privacy']}]} />
+  </React.Fragment>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Site/>);
+</script>
+</body></html>

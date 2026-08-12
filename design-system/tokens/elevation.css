@@ -1,0 +1,50 @@
+/* Sandro Business — shadow, blur, scrim.
+   Shadows stay cool-tinted and shallow; the brand communicates elevation with
+   hairlines first. Violet glows are the one new expressive layer, reserved for
+   hero CTAs and the live gradient's edge. */
+:root{
+  --shadow-none:none;
+  --shadow-hairline:0 0 0 1px rgba(35,43,54,.08);
+  --shadow-xs:0 1px 2px rgba(20,21,23,.06);
+  --shadow-sm:0 2px 6px rgba(20,21,23,.07),0 0 0 1px rgba(35,43,54,.05);
+  --shadow-md:0 8px 24px -8px rgba(20,21,23,.16),0 0 0 1px rgba(35,43,54,.06);
+  --shadow-lg:0 24px 56px -20px rgba(20,21,23,.28),0 0 0 1px rgba(35,43,54,.06);
+  --shadow-inset-top:inset 0 1px 0 rgba(255,255,255,.6);
+  /* Focus ring matches --focus-ring (aqua-500) in semantic.css. */
+  --shadow-focus:0 0 0 3px rgba(11,160,189,.34);
+  --shadow-aqua-glow:0 16px 48px -14px rgba(63,187,209,.55);
+  --shadow-warm-glow:0 16px 48px -14px rgba(142,133,101,.45);
+
+  --blur-chrome:saturate(1.4) blur(14px); /* @kind other */
+  --glass-light:rgba(255,254,246,.78); /* @kind color */
+  --glass-dark:rgba(27,34,44,.72); /* @kind color */
+  /* Scrolled state for sticky chrome. The translucent values above are tuned to
+     the field the header STARTS over; once the page scrolls, arbitrary sections
+     pass underneath and a 72% dark over a white section composites to light grey,
+     which erases ivory logo and links. These near-opaque siblings are what the
+     header switches to on scroll — see .sb-header[data-scrolled]. */
+  --glass-dark-scrolled:rgba(27,34,44,.96); /* @kind color */
+  --glass-light-scrolled:rgba(255,254,246,.97); /* @kind color */
+  /* The open mobile nav sheet is NOT glass. It covers real content — headlines,
+     photographs, the sunburst — and any translucency there puts competing type
+     directly behind its links and CTA. Fully opaque, no exceptions. */
+  --sheet-dark:#1B222C; /* @kind color */
+  --sheet-light:#FFFEF6; /* @kind color */
+
+  /* ---- Scrims ----------------------------------------------------------
+     MANDATORY behind any text that sits over the sunburst or a photograph.
+     --scrim-solid is the strongest: use it when display type must sit over
+     the sunburst field at hero scale. */
+  --scrim-bottom:linear-gradient(180deg,rgba(20,21,23,0) 0%,rgba(20,21,23,.72) 62%,rgba(20,21,23,.94) 100%); /* @kind other */
+  --scrim-left:linear-gradient(90deg,rgba(20,21,23,.94) 0%,rgba(20,21,23,.78) 38%,rgba(20,21,23,.24) 72%,rgba(20,21,23,0) 100%); /* @kind other */
+  /* Mirror of --scrim-left, for photographs whose subject sits on the LEFT and
+     whose type therefore has to go right (the SandroWealth signage shot). Starts
+     its falloff past halfway so the subject side stays untouched. Widened once,
+     when the quote went from four short lines to two long ones: the type then
+     reached ~40% from the left, where the old .34 stop left it at 3.5:1. The dark
+     region now holds to 58% before falling away, and the left fifth is still clear
+     for the subject. */
+  --scrim-right:linear-gradient(270deg,rgba(20,21,23,.93) 0%,rgba(20,21,23,.88) 34%,rgba(20,21,23,.68) 58%,rgba(20,21,23,.30) 78%,rgba(20,21,23,0) 96%); /* @kind other */
+  --scrim-solid:linear-gradient(90deg,rgba(20,21,23,.97) 0%,rgba(20,21,23,.92) 46%,rgba(20,21,23,.55) 78%,rgba(20,21,23,.1) 100%); /* @kind other */
+  --scrim-radial:radial-gradient(120% 90% at 12% 50%,rgba(20,21,23,.95) 0%,rgba(20,21,23,.7) 42%,rgba(20,21,23,0) 78%); /* @kind other */
+}

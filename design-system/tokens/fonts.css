@@ -1,0 +1,5 @@
+/* Sandro Business webfonts.
+   Libre Baskerville (display/serif) + DM Sans (UI/sans) — both inherited from
+   Sandro Wealth. Loaded from Google Fonts; the brand owns no self-hosted
+   binaries in this project yet. See readme.md → "Font substitution note". */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400&display=swap');

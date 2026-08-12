@@ -1,0 +1,82 @@
+/* Sandro Business — responsive layer.
+   ---------------------------------------------------------------------------
+   Everything here is a TOKEN OVERRIDE, not a component rule. The layout tokens
+   (gutters, section rhythm, header height, display type ramp) are the only
+   things that need to change with viewport, so changing them here re-flows
+   every component and both UI kits at once. Component-level breakpoints live
+   in components.css and are limited to things a token cannot express —
+   direction changes (row -> column) and the mobile nav.
+
+   Breakpoints, and why these three:
+     1080px  small laptop / tablet landscape — the 1240 container stops fitting
+             with its gutters, so the container goes fluid.
+     820px   tablet portrait — multi-column editorial layouts stop working;
+             this is where side-by-side becomes stacked.
+     560px   phone — single column, tightest rhythm, smallest display ramp.
+
+   NOTE the display ramp shrinks but body copy does NOT. 16px stays 16px at
+   every width: on a phone the display sizes are what break the layout, and
+   shrinking body text below 16px also triggers iOS input zoom-on-focus. */
+
+@media (max-width:1080px){
+  :root{
+    --container-max:100%;
+    --gutter-lg:32px;
+    --section-y:88px;
+    --section-y-sm:72px;
+    --text-7xl:88px;
+    --text-6xl:68px;
+    --text-5xl:54px;
+    --text-4xl:40px;
+  }
+}
+
+@media (max-width:820px){
+  :root{
+    --gutter:20px;
+    --gutter-lg:24px;
+    --section-y:72px;
+    --section-y-sm:60px;
+    --header-h:64px;
+    --text-7xl:64px;
+    --text-6xl:52px;
+    --text-5xl:44px;
+    --text-4xl:34px;
+    --text-3xl:28px;
+    /* Touch targets. 46px is fine with a mouse; the floor for a finger is 44,
+       and these are the two controls a thumb actually hits. */
+    --control-h:48px;
+    --control-h-sm:40px;
+  }
+}
+
+@media (max-width:560px){
+  :root{
+    --gutter:16px;
+    --gutter-lg:20px;
+    --section-y:56px;
+    --section-y-sm:48px;
+    --header-h:60px;
+    --text-7xl:48px;
+    --text-6xl:40px;
+    --text-5xl:36px;
+    --text-4xl:30px;
+    --text-3xl:26px;
+    --text-2xl:22px;
+    /* A phone in portrait is tall and narrow: a band sized off svh gets absurd,
+       so the sunrise is capped tighter and the hero stops chasing the fold. */
+    --horizon-band:clamp(130px,22svh,210px); /* @kind spacing */
+    /* Stays at or below the :root clearance. This block is an override, so
+       tightening the desktop value does not reach it — and when it was left
+       behind the phone became the LOOSEST case in the system, which inverted the
+       intent. If you change the clearance at :root, change it here too. */
+    --horizon-clearance:clamp(14px,2.2svh,26px); /* @kind spacing */
+    /* The parallax travel is also how far .sb-sun-lift may drop before its bottom
+       edge is clipped, so it has to stay well under the band. The band here is
+       130-210px against a 124px desktop travel, which would push the rays, glow
+       and horizon hairline off the bottom of the hero mid-scroll. */
+    --sun-lift-distance:56px; /* @kind other */
+    --hero-top-clearance:clamp(24px,5svh,56px); /* @kind spacing */
+    --hero-min-h:max(520px,88svh); /* @kind spacing */
+  }
+}
