@@ -5,6 +5,13 @@ Read `design-system/readme.md` in full before writing any UI. It is the source o
 colour, type, spacing, motion, interaction states, accessibility and copy voice, and it records
 several traps that have already cost cycles here.
 
+> **Skin note (2026-08-13):** the prototype in `site/` currently wears the **Sandro Wealth
+> parent palette** via `html[data-skin="wealth"]` overrides in `site/assets/skins.css` (CEO
+> decision — colour preference, not the system). The colour rules below and in the readme
+> describe the **default Sandro Business system**, which stays the unscoped fallback and is
+> untouched. Before writing UI for `site/`, read `README.md → Skins`: under the wealth skin
+> actions are monochrome, brass is editorial trim, and **no aquamarine renders anywhere**.
+
 ## Layout
 
 | Path | What it is |
