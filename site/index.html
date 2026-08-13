@@ -10,7 +10,7 @@
 <meta name="description" content="Sandro connects business owners to vetted specialists in valuation, M&A, lending and estate work, and takes no compensation from any of them.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
 <link rel="stylesheet" href="/assets/ds/styles.css">
-<link rel="stylesheet" href="/assets/app.css">
+<link rel="stylesheet" href="/assets/app.css?v=12">
 </head>
 <body>
 
@@ -35,10 +35,10 @@
   <nav class="sb-nav" aria-label="Primary">
     <a class="sb-nav-link" href="/#how">How it works</a>
     <a class="sb-nav-link" href="/#membership">Membership</a>
-    <a class="sb-nav-link" href="/insights/">Insights</a>
+    <a class="sb-nav-link" href="/#insights">Insights</a>
     <span class="sbp-nav-divider" aria-hidden="true"></span>
-    <a class="sbp-signin" href="/members/sign-in.html">Sign in</a>
-    <a class="sb-btn" data-v="accent" data-size="sm" href="/apply/">Take the assessment</a>
+    <a class="sbp-signin" href="/members/sign-in.html" data-inert="1">Sign in</a>
+    <a class="sb-btn" data-v="accent" data-size="sm" href="/apply/" data-inert="1">Start your application</a>
   </nav>
 </header>
 
@@ -73,14 +73,14 @@
         </h1>
 
         <p class="sb-reveal sbp-hero-sub" data-rv data-rv-i="2">
-          A private collective for business owners with direct access to Sandro&rsquo;s
+          A private alliance for business owners with direct access to Sandro&rsquo;s
           exit-readiness process and a vetted network of M&amp;A, valuation, attorneys, and
           growth partners.
         </p>
 
         <div class="sb-reveal sb-btn-row sbp-hero-actions" data-rv data-rv-i="3">
-          <a class="sb-btn" data-v="accent" data-size="lg" href="/apply/">
-            Take the assessment
+          <a class="sb-btn" data-v="accent" data-size="lg" href="/apply/" data-inert="1">
+            Start your application
             <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
           </a>
           <a class="sb-btn" data-v="secondary" data-size="lg" href="/#how">See how it works</a>
@@ -95,9 +95,14 @@
   <div class="sb-hero-factsbar">
     <div class="sb-hero-facts sbp-hero-facts">
       <div class="sb-reveal" data-rv data-rv-d="500">
+        <!-- "Experts on call" read as a 24/7 call centre, which is the opposite
+             of the register this fact is meant to set. "Talk to a senior
+             partner" is the client's own CTA language on sandrowealth.com/
+             business-owner: seniority carries the premium, the twenty minutes
+             and the absent fee carry the accessibility. -->
         <div class="sb-hero-fact" data-first="1">
-          <span class="sbp-fact-v">Experts on call</span>
-          <span class="sbp-fact-l">Twenty minutes with a specialist</span>
+          <span class="sbp-fact-v">Talk to a senior partner</span>
+          <span class="sbp-fact-l">Twenty minutes, no fee</span>
         </div>
       </div>
       <div class="sb-reveal" data-rv data-rv-i="1" data-rv-d="500">
@@ -128,8 +133,8 @@
       <div class="sb-edcols-aside">
         <div class="sb-kick"><span class="sb-kick-dash"></span><span>How membership works</span></div>
         <p class="sbp-aside-note">
-          Anyone can apply. It opens with the assessment, and you keep your score and
-          your track whether or not you go any further.
+          Anyone can apply. It starts with the assessment. Your assessment score is
+          yours to keep.
         </p>
       </div>
       <hr class="sb-rule" data-o="v" data-t="hairline">
@@ -205,52 +210,6 @@
 </section>
 
 
-<!-- ======================== THE OPEN DOOR ========================
-     Was two panels headed "two ways to join", which fought the membership flow
-     because joining is exactly what they do not do. The valuation half has now
-     moved into the process as step 2, so repeating it here read as the same
-     offer twice.
-
-     What survives is the one mechanic in the client's brief with no home
-     anywhere else on the page: bring a live business problem, get pointed at
-     the partner who has handled it. Framed as the door for someone who is not
-     ready to be assessed at all. -->
-<section class="sb-section" data-size="sm">
-  <div class="sb-section-inner">
-    <div class="sb-cols sbp-opendoor" data-split="a">
-      <div class="sb-reveal" data-rv>
-        <div class="sb-kick"><span class="sb-kick-dash"></span><span>No membership required</span></div>
-        <h2 class="sbp-display sbp-hooks-h2">Stuck on something right now?</h2>
-        <p class="sbp-body">
-          You do not have to be assessed, admitted, or a member to get help with a live
-          problem. Bring it, and we point you at the person in the network who has handled
-          it before. No fee, and no obligation to take it further.
-        </p>
-      </div>
-
-      <div class="sb-reveal sbp-hook-cell" data-rv data-rv-i="1">
-        <div class="sbp-hook">
-          <span class="sbp-hook-icon">
-            <span class="sb-ico" data-ico="SearchLg" data-size="lg" aria-hidden="true"></span>
-          </span>
-          <h3>Bring the problem you are stuck on</h3>
-          <p>
-            Something in the value chain, a question about earnings quality, an operational
-            issue that keeps coming back.
-          </p>
-          <div class="sbp-hook-action">
-            <a class="sb-btn" data-v="accent" data-size="md" data-ink="light" href="/apply/?intent=problem">
-              Describe the problem
-              <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- ========================= PHOTOGRAPHIC BAND =========================
      The photograph decides the composition. Its subject, the SandroWealth
      logo on bright stone, sits on the LEFT at luminance ~173 against ~65 for
@@ -258,7 +217,22 @@
      side, with --scrim-right darkening only past halfway. Left-aligned type
      here would have needed a scrim heavy enough to flood the logo, which is
      the thing the photograph is for.
-     PLACEHOLDER: production photography is still outstanding. -->
+     PLACEHOLDER: production photography is still outstanding.
+
+     The copy is the client's own, lifted from sandrowealth.com/business-owner
+     rather than written here. "The difference between a good deal and a great
+     one is almost never the multiple, it's the structure" is the sharpest line
+     on that page and it is already approved language. The kicker is their
+     section heading, which supplies the scope the quote does not: grow,
+     transition, manage.
+
+     The band sits between the admission steps and what membership gets you, so
+     its job is to demonstrate judgement rather than make a second offer. A
+     claim about deal structure over headline multiples does that, and it sets
+     up the zero-compensation section below.
+
+     The source renders that sentence with an em dash. Rewritten as two
+     sentences here: no em dashes in client-facing copy. -->
 <section class="sb-band sbp-band">
   <img src="/assets/img/sandro-signage.jpg" alt="The Sandro Wealth Management entrance">
   <div class="sb-band-scrim"></div>
@@ -266,11 +240,12 @@
     <div class="sbp-band-copy">
       <p class="sbp-band-quote">
         <span class="sb-wipe-inner" data-rv>
-          Bring us the problem. We name the person who has already solved it.
+          You built the business with a great team. Let our team of experts help you
+          build what comes next.
         </span>
       </p>
       <div class="sb-reveal sbp-band-foot" data-rv data-rv-i="1">
-        <span class="sb-band-kicker sbp-band-kicker">One request, one short list</span>
+        <span class="sb-band-kicker sbp-band-kicker">The full-cycle approach</span>
         <span class="sb-band-keyline"></span>
       </div>
     </div>
@@ -288,26 +263,24 @@
 
     <div class="sbp-eyebrow-row sbp-pillars-head">
       <h2 class="sbp-display sbp-display-inverse">Exclusive access for approved members.</h2>
-      <a class="sb-btn" data-v="link" data-size="md" href="/apply/">Take the assessment</a>
+      <a class="sb-btn" data-v="link" data-size="md" href="/apply/" data-inert="1">Start your application</a>
     </div>
 
     <div class="sbp-five">
       <div class="sb-reveal sbp-pillar-cell" data-rv>
-        <div class="sbp-pillar">
+        <div class="sbp-pillar" data-tone="1">
           <span class="sbp-pillar-wash" data-wash="1"></span>
-          <span class="sbp-pillar-mark" data-mark="1"></span>
           <span class="sb-ico sbp-pillar-ico" data-ico="MessageTextSquare01" data-size="lg" aria-hidden="true"></span>
           <h3>Concierge request</h3>
           <p>
-            Tell us what you need, where, and by when. We come back with two or three ecosystem partners and the reason each one is on the list.
+            Tell us what you need, where, and by when. We come back with the ecosystem partners and the reason each one is on the list.
           </p>
         </div>
       </div>
 
       <div class="sb-reveal sbp-pillar-cell" data-rv data-rv-i="1">
-        <div class="sbp-pillar">
+        <div class="sbp-pillar" data-tone="2">
           <span class="sbp-pillar-wash" data-wash="2"></span>
-          <span class="sbp-pillar-mark" data-mark="2"></span>
           <span class="sb-ico sbp-pillar-ico" data-ico="Building02" data-size="lg" aria-hidden="true"></span>
           <h3>The partner directory</h3>
           <p>
@@ -317,33 +290,30 @@
       </div>
 
       <div class="sb-reveal sbp-pillar-cell" data-rv data-rv-i="2">
-        <div class="sbp-pillar">
+        <div class="sbp-pillar" data-tone="3">
           <span class="sbp-pillar-wash" data-wash="3"></span>
-          <span class="sbp-pillar-mark" data-mark="3"></span>
           <span class="sb-ico sbp-pillar-ico" data-ico="Lock01" data-size="lg" aria-hidden="true"></span>
           <h3>Cases and intelligence</h3>
           <p>
-            Flagship guides on the four inflection points, plus anonymized case work: a redacted valuation snapshot, a redacted estate structure.
+            Guides on the four inflection points: value acceleration, capital and growth, M&amp;A, and estate and wealth. Plus anonymized case work with the numbers left in.
           </p>
         </div>
       </div>
 
       <div class="sb-reveal sbp-pillar-cell" data-rv data-rv-i="3">
-        <div class="sbp-pillar">
+        <div class="sbp-pillar" data-tone="2">
           <span class="sbp-pillar-wash" data-wash="2"></span>
-          <span class="sbp-pillar-mark" data-mark="2"></span>
           <span class="sb-ico sbp-pillar-ico" data-ico="Users01" data-size="lg" aria-hidden="true"></span>
           <h3>Events, forums and chapters</h3>
           <p>
-            Webinars, topic forums and local chapters, organized by where you are in the process rather than as one undifferentiated room.
+            Webinars, topic forums and local chapters, grouped by where you are in the process, so what is worth your time is easy to find.
           </p>
         </div>
       </div>
 
       <div class="sb-reveal sbp-pillar-cell" data-rv data-rv-i="4">
-        <div class="sbp-pillar">
+        <div class="sbp-pillar" data-tone="3">
           <span class="sbp-pillar-wash" data-wash="3"></span>
-          <span class="sbp-pillar-mark" data-mark="3"></span>
           <span class="sb-ico sbp-pillar-ico" data-ico="Route" data-size="lg" aria-hidden="true"></span>
           <h3>The exit-readiness process</h3>
           <p>
@@ -368,19 +338,21 @@
         <div class="sb-kick"><span class="sb-kick-dash"></span><span>How we build our partner ecosystem</span></div>
         <h2 class="sbp-display sbp-statement-h2">No provider pays to be here.</h2>
         <p class="sbp-body">
-          Most owner networks are funded by the firms inside them, which is why their
-          recommendations run long. Sandro takes nothing from any provider, so a shortlist
-          can be three names. Every firm we introduce agrees to three terms in writing.
+          In most owner networks the firms inside are paying for their place, which
+          makes the referral list a roster of advertisers. Sandro takes no money from any
+          provider. A place here cannot be bought, so a firm reaches you because it fits
+          the problem in front of you and for no other reason. Every firm we introduce
+          agrees to the same terms, in writing.
         </p>
 
         <div class="sbp-checks">
           <div class="sbp-check-row">
             <span class="sb-ico" data-ico="CheckCircle" aria-hidden="true"></span>
-            <span>A free 20-minute consult, taken by a partner rather than an associate.</span>
+            <span>A free twenty-minute consult, taken by a senior partner and not an associate.</span>
           </div>
           <div class="sbp-check-row">
             <span class="sb-ico" data-ico="CheckCircle" aria-hidden="true"></span>
-            <span>A fixed-fee proposal in writing before any work starts.</span>
+            <span>A fixed fee agreed in writing before any work starts.</span>
           </div>
           <div class="sbp-check-row">
             <span class="sb-ico" data-ico="CheckCircle" aria-hidden="true"></span>
@@ -470,10 +442,10 @@
 
       <div class="sbp-eyebrow-row sbp-directory-head">
         <div>
-          <div class="sb-kick"><span class="sb-kick-dash"></span><span>The directory, in sample</span></div>
-          <h3 class="sbp-directory-h3">Four categories, two to three firms in each.</h3>
+          <div class="sb-kick"><span class="sb-kick-dash"></span><span>Partner directory</span></div>
+          <h3 class="sbp-directory-h3">Every specialist you&rsquo;ll need, vetted the same way.</h3>
         </div>
-        <a class="sb-btn" data-v="link" data-size="md" href="/directory/">See the full directory</a>
+        <a class="sb-btn" data-v="link" data-size="md" href="/directory/" data-stub="The full directory opens to members.">See the full directory</a>
       </div>
 
       <div class="sb-cols sbp-dircats" data-cols="2">
@@ -485,11 +457,6 @@
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
-          </div>
-          <div class="sbp-dircat-foot">
-            <span>Three firms</span>
-            <span class="sbp-dot" aria-hidden="true"></span>
-            <span>20-minute consult bookable</span>
           </div>
         </div>
       </div>
@@ -503,11 +470,6 @@
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
           </div>
-          <div class="sbp-dircat-foot">
-            <span>Three firms</span>
-            <span class="sbp-dot" aria-hidden="true"></span>
-            <span>20-minute consult bookable</span>
-          </div>
         </div>
       </div>
 
@@ -518,11 +480,6 @@
           <div class="sbp-logos">
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
-          </div>
-          <div class="sbp-dircat-foot">
-            <span>Two firms</span>
-            <span class="sbp-dot" aria-hidden="true"></span>
-            <span>20-minute consult bookable</span>
           </div>
         </div>
       </div>
@@ -535,16 +492,9 @@
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
           </div>
-          <div class="sbp-dircat-foot">
-            <span>Two firms</span>
-            <span class="sbp-dot" aria-hidden="true"></span>
-            <span>20-minute consult bookable</span>
-          </div>
         </div>
       </div>
       </div>
-
-      <p class="sbp-directory-note">Firm marks are placeholders, held for the real logos.</p>
     </div>
   </div>
 </section>
@@ -552,61 +502,256 @@
 
 <!-- ============================= INSIGHTS =============================
      Spec 3.1: four editorial pillars, free to read with no admission of any
-     kind. Saying so on the page is the counterweight to the gate. -->
-<section class="sb-section" data-size="sm">
+     kind. Saying so on the page is the counterweight to the gate.
+
+     FILTERS. The chips filter by FORMAT and each card carries its topic as a
+     kicker, so the four inflection points stay the spine while the formats
+     show the range (Travis, 2026-08-13). Aqua is spent on the active chip,
+     which is the interactive thing; the format tag on each card is khaki,
+     because it is editorial metadata and nothing to click.
+
+     Every card is in the DOM and everything is visible before app.js runs, so
+     a failed script leaves a longer but complete list rather than an empty
+     grid. initFilters() applies "All" on boot. Same contract as the reveals.
+
+     PODCAST. There are no episodes recorded; it is a concept the team is
+     working on (Travis, 2026-08-13). So it is a feature panel rather than
+     three invented episodes, and it converts to the newsletter instead of
+     pretending there is something to play. The show has no name yet, and one
+     is not invented here.
+
+     CASE STUDIES describe the artifact, never a client narrative or an
+     outcome. An SEC-registered adviser cannot publish invented client stories,
+     and a "how we got them 2x" card is exactly that. -->
+<section class="sb-section" data-size="sm" id="insights">
   <div class="sb-section-inner">
     <div class="sbp-eyebrow-row">
       <div>
         <div class="sb-kick"><span class="sb-kick-dash"></span><span>Insights</span></div>
         <h2 class="sbp-display sbp-briefings-h2">Owner resources, free and open to anyone.</h2>
       </div>
-      <a class="sb-btn" data-v="link" data-size="md" href="/insights/">All insights</a>
+      <a class="sb-btn" data-v="link" data-size="md" href="/insights/" data-inert="1">View all insights</a>
     </div>
 
-    <div class="sb-cols sbp-briefings" data-cols="3">
-      <div class="sb-reveal sbp-card-cell" data-rv>
-        <a class="sb-card" data-interactive="1" href="/insights/">
+    <div class="sbp-filters" role="group" aria-label="Filter insights by format">
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="guide" aria-pressed="false">Guides</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="case" aria-pressed="false">Case studies</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="webinar" aria-pressed="false">Webinars</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="podcast" aria-pressed="false">Podcast</button>
+    </div>
+
+    <div class="sb-cols sbp-briefings" data-cols="3" data-filter-grid>
+      <div class="sb-reveal sbp-card-cell" data-rv data-media="guide" data-featured="1">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
             <img src="/assets/img/city-architecture.jpg" alt="">
           </div>
           <div class="sb-card-body">
-            <div class="sb-kick"><span>Estate and wealth</span></div>
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Estate and wealth</span></div>
+              <span class="sbp-media-tag">Guide</span>
+            </div>
             <h3>The work that only counts if it is early</h3>
-            <p class="sbp-card-body-text">
-              Why the tax and estate structures have to exist before a buyer names a number.
-            </p>
+            <p class="sbp-card-body-text">Why the tax and estate structures have to exist before a buyer names a number.</p>
           </div>
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1">
-        <a class="sb-card" data-interactive="1" href="/insights/">
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="guide">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
             <img src="/assets/img/advisors-tablet.jpg" alt="">
           </div>
           <div class="sb-card-body">
-            <div class="sb-kick"><span>Value acceleration</span></div>
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <span class="sbp-media-tag">Guide</span>
+            </div>
             <h3>What a buyer marks down</h3>
-            <p class="sbp-card-body-text">
-              How much of the company runs without you, and what that costs at close.
-            </p>
+            <p class="sbp-card-body-text">How much of the company runs without you, and what that costs at close.</p>
           </div>
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2">
-        <a class="sb-card" data-interactive="1" href="/insights/">
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="guide">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
             <img src="/assets/img/working-session.jpg" alt="">
           </div>
           <div class="sb-card-body">
-            <div class="sb-kick"><span>Capital and growth</span></div>
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Capital and growth</span></div>
+              <span class="sbp-media-tag">Guide</span>
+            </div>
             <h3>Borrowing against a business you plan to sell</h3>
-            <p class="sbp-card-body-text">
-              What a lender looks at, and why a buyer will look at the same thing.
-            </p>
+            <p class="sbp-card-body-text">What a lender looks at, and why a buyer will look at the same thing.</p>
           </div>
         </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-media="case" data-featured="1">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
+          <div class="sb-card-media">
+            <img src="/assets/img/advisors-tablet.jpg" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>M&amp;A</span></div>
+              <span class="sbp-media-tag">Case study</span>
+            </div>
+            <h3>A letter of intent, read clause by clause</h3>
+            <p class="sbp-card-body-text">What each term commits you to, on a real deal with the identifying details removed.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="case">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
+          <div class="sb-card-media">
+            <img src="/assets/img/working-session.jpg" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Estate and wealth</span></div>
+              <span class="sbp-media-tag">Case study</span>
+            </div>
+            <h3>A redacted estate structure</h3>
+            <p class="sbp-card-body-text">The entities involved, and the order they were put in place.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="case">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
+          <div class="sb-card-media">
+            <img src="/assets/img/city-architecture.jpg" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <span class="sbp-media-tag">Case study</span>
+            </div>
+            <h3>A valuation snapshot, redacted</h3>
+            <p class="sbp-card-body-text">What the appraiser flagged, and the questions it sent back to the owner.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-media="webinar" data-featured="1">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
+          <div class="sb-card-media">
+            <img src="/assets/img/working-session.jpg" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Capital and growth</span></div>
+              <span class="sbp-media-tag">Webinar</span>
+            </div>
+            <h3>Your building is part of the deal</h3>
+            <p class="sbp-card-body-text">What happens to the real estate when the operating business sells.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="webinar">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
+          <div class="sb-card-media">
+            <img src="/assets/img/city-architecture.jpg" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>M&amp;A</span></div>
+              <span class="sbp-media-tag">Webinar</span>
+            </div>
+            <h3>Reading an offer past the headline number</h3>
+            <p class="sbp-card-body-text">Earnouts, escrow and working capital, and where the value actually lands.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="webinar">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
+          <div class="sb-card-media">
+            <img src="/assets/img/advisors-tablet.jpg" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <span class="sbp-media-tag">Webinar</span>
+            </div>
+            <h3>The year before you go to market</h3>
+            <p class="sbp-card-body-text">What to fix while there is still time for the fix to count.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sbp-podcast" data-media="podcast">
+      <div class="sbp-podcast-mark" aria-hidden="true">
+        <span class="sb-ico" data-ico="Podcast" data-size="lg"></span>
+      </div>
+      <div class="sbp-podcast-copy">
+        <div class="sb-kick"><span class="sb-kick-dash"></span><span>In development</span></div>
+        <h3 class="sbp-podcast-h3">A podcast, built around the owners rather than the firm.</h3>
+        <p class="sbp-podcast-body">
+          Conversations with business owners about the decisions that shaped what came
+          next, and what they would do differently. Nothing is recorded yet. Tell us
+          where to send the first episode and it will reach you there.
+        </p>
+      </div>
+      <a class="sb-btn sbp-podcast-cta" data-v="accent" data-size="md" data-ink="light" href="/#newsletter">
+        Hear it first
+        <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= INSIGHTS BY EMAIL =========================
+     The spec makes HubSpot email the always-on nurture engine and the client
+     doc lists a newsletter as an outgoing channel, but until now nothing on
+     this page captured an address: the closing field's secondary CTA carried a
+     subscribe label and pointed at a page that captures nothing. That button
+     is now an honest read link and subscription lives here.
+
+     Quiet on purpose, and placed directly after the free editorial so it reads
+     as "you just read three of these" rather than as a second offer competing
+     with the assessment. Khaki field, aqua submit: the readme's rule for a
+     viewport carrying both colours is that khaki does the warm editorial job
+     and aqua does the interactive one.
+
+     No cadence is promised, because Sandro has not set one. The line under the
+     field describes the unsubscribe mechanism and nothing else — the approved
+     email footer and the postal address CAN-SPAM requires are Sandro's to
+     supply and are not written here. -->
+<section class="sb-section sbp-ivory sbp-capture" data-size="sm" id="newsletter">
+  <div class="sb-section-inner">
+    <div class="sb-cols sbp-capture-cols" data-split="b">
+      <div class="sb-reveal" data-rv>
+        <div class="sb-kick"><span class="sb-kick-dash"></span><span>Insights by email</span></div>
+        <h2 class="sbp-blockhead sbp-capture-h2">Get Sandro Business Insights in your inbox.</h2>
+        <p class="sbp-blockbody sbp-capture-body">
+          Valuation, deal structure, estate work, and the questions owners bring us
+          most. No membership, no cost.
+        </p>
+      </div>
+
+      <div class="sb-reveal" data-rv data-rv-i="1">
+        <form class="sbp-capture-form" data-subscribe="1" novalidate>
+          <div class="sb-field">
+            <label class="sb-field-label" for="sbp-sub-email">Email address</label>
+            <div class="sb-input-wrap" data-size="md">
+              <span class="sb-ico" data-ico="Mail01" aria-hidden="true"></span>
+              <input class="sb-input" id="sbp-sub-email" name="email" type="email"
+                     autocomplete="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <button class="sb-btn" data-v="accent" data-size="md" data-ink="light" type="submit">
+            Subscribe
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -614,20 +759,38 @@
 
 
 <!-- ============================ THE ADVISOR PATH ============================
-     Spec 2. One secondary route, a qualification statement and an apply link.
-     Access is earned by referring qualified owners and reviewed annually.
-     There is no advisor "join" button anywhere on this site, and this strip is
-     sized so it cannot read as a second audience. -->
-<section class="sbp-advisor">
-  <div class="sbp-advisor-inner">
-    <div>
-      <div class="sb-kick"><span class="sb-kick-dash"></span><span>For advisors</span></div>
-      <p class="sbp-advisor-note">
-        Advisors do not apply for membership. Access is earned by referring qualified
-        owners, and it is reviewed each year.
-      </p>
+     Spec 2. One secondary route: a qualification statement and a link. There is
+     no advisor "join" button anywhere on this site.
+
+     This was a hairline strip carrying a kicker and a text link, and it read as
+     a footnote. It is now a bounded panel with a headline of its own, so an
+     advisor scanning an owner-facing page actually finds it.
+
+     It stays subordinate by CONTAINMENT rather than by being small: a quiet
+     card inside the page's own measure, and an outlined button rather than the
+     aqua fill that the application CTA owns everywhere else. Making it aqua
+     here would put a second competing action directly above the closing field.
+     The headline states the mechanism positively, because the old opening line
+     led with what an advisor cannot do. -->
+<section class="sb-section sbp-advisor" data-size="sm">
+  <div class="sb-section-inner">
+    <div class="sb-reveal" data-rv>
+      <div class="sbp-advisor-panel">
+        <div>
+          <div class="sb-kick"><span class="sb-kick-dash"></span><span>For advisors</span></div>
+          <h2 class="sbp-blockhead sbp-advisor-title">Advisors earn access by referral.</h2>
+          <p class="sbp-blockbody sbp-advisor-note">
+            Sandro Business is built for owners, so advisors do not apply for
+            membership. Access is earned by referring qualified business owners, and
+            advisor membership eligibility is reviewed annually.
+          </p>
+        </div>
+        <a class="sb-btn sbp-advisor-cta" data-v="secondary" data-size="lg" href="/advisors/">
+          See the advisor path
+          <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+        </a>
+      </div>
     </div>
-    <a class="sb-btn" data-v="link" data-size="md" href="/advisors/">The advisor path</a>
   </div>
 </section>
 
@@ -650,18 +813,18 @@
 
   <div class="sbp-closing-inner">
     <h2 class="sbp-display sbp-display-inverse sbp-closing-h2">
-      <span class="sb-wipe-inner" data-rv>Find out where the business stands.</span>
+      <span class="sb-wipe-inner" data-rv>Find out where your business stands.</span>
     </h2>
     <p class="sb-reveal sbp-closing-sub" data-rv data-rv-i="1">
-      The assessment takes about ten minutes. You keep the result either way, and it is
-      what the first conversation starts from.
+      Get started with a 10-minute assessment. A consultant will review your results
+      and reach out with next steps. Assessment results are yours to keep.
     </p>
     <div class="sb-reveal sb-btn-row sbp-closing-actions" data-rv data-rv-i="2">
-      <a class="sb-btn" data-v="accent" data-size="lg" href="/apply/">
-        Take the assessment
+      <a class="sb-btn" data-v="accent" data-size="lg" href="/apply/" data-inert="1">
+        Start your application
         <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
       </a>
-      <a class="sb-btn" data-v="secondary" data-size="lg" href="/insights/">Get Sandro Business Insights</a>
+      <a class="sb-btn" data-v="secondary" data-size="lg" href="/#insights">View Sandro Business Insights</a>
     </div>
   </div>
 </section>
@@ -689,20 +852,20 @@
         <div class="sb-kicker">The community</div>
         <a href="/#how">How it works</a>
         <a href="/#membership">Membership</a>
-        <a href="/insights/">Insights</a>
-        <a href="/apply/">Apply</a>
+        <a href="/#insights">Insights</a>
+        <a href="/apply/" data-inert="1">Start your application</a>
       </div>
       <div class="sbp-footer-col">
         <div class="sb-kicker">Members</div>
-        <a href="/members/">Member view</a>
-        <a href="/directory/">Directory</a>
-        <a href="/members/sign-in.html">Sign in</a>
+        <a href="/members/" data-inert="1">Members area</a>
+        <a href="/directory/" data-inert="1">Partner directory</a>
+        <a href="/members/sign-in.html" data-inert="1">Sign in</a>
       </div>
       <div class="sbp-footer-col">
         <div class="sb-kicker">Sandro</div>
         <a href="/advisors/">For advisors</a>
-        <a href="/apply/" data-stub="About Sandro Wealth Management is not built in this prototype.">About Sandro</a>
-        <a href="/apply/" data-stub="Contact is not built in this prototype. Apply is the live path.">Contact</a>
+        <a href="/about/" data-inert="1">About Sandro</a>
+        <a href="/contact/" data-inert="1">Contact</a>
       </div>
     </div>
   </div>
@@ -716,6 +879,6 @@
   </div>
 </footer>
 
-<script src="/assets/app.js"></script>
+<script src="/assets/app.js?v=12"></script>
 </body>
 </html>

@@ -154,28 +154,6 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   .sbp-step > .sb-ico{align-self:center;justify-self:end}
 }
 
-/* ---------- Hook panels ----------
-   The two front doors. Deliberately not .sb-card: a card is an index entry that
-   leads somewhere else, and these are the offer itself, so they get a flat warm
-   surface and a real CTA rather than a hover lift. */
-.sbp-hook{
-  display:flex;flex-direction:column;gap:var(--space-5);
-  padding:var(--space-10);
-  background:var(--surface-card);
-  border:1px solid var(--border-hairline);
-  border-radius:var(--radius-md);
-}
-.sbp-hook-icon{
-  width:46px;height:46px;border-radius:var(--radius-button);
-  display:grid;place-items:center;
-  background:var(--surface-warm-soft);color:var(--sb-khaki-700);
-}
-.sbp-hook h3{font:var(--type-h3);max-width:22ch}
-.sbp-hook p{font:var(--type-p3);color:var(--text-muted);max-width:44ch}
-/* The action sits on the panel's floor whatever the copy length, so two panels
-   side by side line their CTAs up. */
-.sbp-hook-action{margin-top:auto;padding-top:var(--space-3)}
-
 /* ---------- Pillars (dark) ----------
    The members-only capabilities. Structure is the reference Home's track cards:
    a soft radial wash, a 3px gradient marker on the leading edge, one hue at
@@ -185,14 +163,81 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   padding:var(--space-8);
   border:1px solid var(--border-hairline);border-radius:var(--radius-md);
   background:var(--surface-card);overflow:hidden;
+  transition:border-color var(--dur-base) var(--ease-out-quart),
+             transform var(--dur-base) var(--ease-out-expo);
 }
-.sbp-pillar-wash{position:absolute;inset:0;pointer-events:none}
-.sbp-pillar-mark{position:absolute;left:0;top:0;bottom:0;width:3px}
-.sbp-pillar > :not(.sbp-pillar-wash):not(.sbp-pillar-mark){position:relative}
+/* The 3px gradient strip that used to run down the leading edge is gone
+   (Travis, 2026-08-13: it reads as a generated-template tell). The card is now
+   flat at rest and earns its texture on hover instead.
+
+   These are not links, so the hover deliberately stops short of anything that
+   promises navigation: no pointer cursor, no underline, no aqua on the label.
+   What moves is the wash already behind the card, which swells and warms, plus
+   an aqua keyline and a 3px lift. Durations are the motion tokens, so the
+   whole thing collapses to 1ms under prefers-reduced-motion with no extra
+   rule here. */
+/* The resting gradient. This is the SAME token that used to paint the 3px edge
+   stripe, spread across the whole card at a fraction of its strength: the
+   colour idea survives, the stripe that gave it away does not. Light titanium
+   grading into aqua down the card, so it reads as one hue at two depths rather
+   than as a second colour, and it sits under the radial wash.
+
+   A ::before rather than another element, and on the CARD rather than on the
+   wash, because the wash scales on hover: a gradient sheet that scaled with it
+   would show only its middle and flatten out exactly when it should deepen. */
+.sbp-pillar::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.07;
+  transition:opacity var(--dur-base) var(--ease-out-quart);
+}
+.sbp-pillar[data-tone="1"]::before{background:var(--sb-gradient-track-1)}
+.sbp-pillar[data-tone="2"]::before{background:var(--sb-gradient-track-2)}
+.sbp-pillar[data-tone="3"]::before{background:var(--sb-gradient-track-3)}
+
+.sbp-pillar:hover{
+  border-color:rgba(63,187,209,.42);
+  transform:translateY(-3px);
+}
+.sbp-pillar:hover::before{opacity:.15}
+.sbp-pillar-wash{
+  position:absolute;inset:0;pointer-events:none;
+  opacity:.85;transform:scale(1);
+  transition:opacity var(--dur-base) var(--ease-out-quart),
+             transform var(--dur-slow) var(--ease-out-expo);
+}
+.sbp-pillar:hover .sbp-pillar-wash{opacity:1;transform:scale(1.45)}
+.sbp-pillar > :not(.sbp-pillar-wash){position:relative}
 .sbp-pillar h3{font:var(--type-h2);color:var(--sb-offwhite);margin-top:var(--space-4)}
 .sbp-pillar p{font:var(--type-p3);color:var(--text-on-inverse-muted);margin-top:var(--space-4)}
 
+/* ---------- In-page anchor targets ----------
+   The header is sticky and opaque once the page moves, so an unadjusted jump
+   to #how / #membership / #insights lands with that section's kicker sitting
+   underneath it. scroll-margin-top moves the landing point down by the
+   header's own height plus a little air, so the section opens on its kicker.
+
+   DO NOT add `scroll-behavior:smooth` here. It was tried and reverted on
+   2026-08-13: it animates PROGRAMMATIC scrolls too, so the below-fold
+   IntersectionObservers stopped landing and three reveals in the closing field
+   never fired at 768 — invisible content, which is the failure the system's
+   "motion must fail open" rule exists to prevent. The jump is instant and
+   lands correctly, which is what this rule is actually for. */
+:is(#how,#membership,#insights,#newsletter){
+  scroll-margin-top:calc(var(--header-h) + var(--space-8));
+}
+
 /* ---------- Small shared pieces ---------- */
+
+/* Kicker -> headline -> body, for the h2-scale blocks: the email-capture band
+   and the advisor panel. Declared once and shared so the two cannot drift
+   apart, which is what happened when each carried its own margins.
+
+   Both steps are space-6. The display-size sections elsewhere open at space-4
+   under their kicker because a 40px+ headline carries enough optical mass to
+   separate itself; at h2 the same 12px reads as crowding. */
+.sbp-blockhead{font:var(--type-h2);margin-top:var(--space-6)}
+.sbp-blockbody{font:var(--type-p3);color:var(--text-muted);margin-top:var(--space-6)}
+
 .sbp-eyebrow-row{
   display:flex;align-items:flex-end;justify-content:space-between;
   gap:var(--space-8);flex-wrap:wrap;
@@ -238,15 +283,6 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
 .sbp-steps{margin-top:var(--space-12)}
 .sbp-step h3{font:var(--type-h3)}
 .sbp-step-body{font:var(--type-p3);color:var(--text-muted);max-width:48ch}
-
-/* ---------- Home: hooks ---------- */
-.sbp-hooks-h2{margin-top:var(--space-4)}
-.sbp-hook-cell,.sbp-hook{height:100%}
-/* Copy on one side, the offer on the other. The panel is centred against the
-   text block rather than stretched, so a short offer does not become a tall
-   empty box next to three lines of prose. */
-.sbp-opendoor{gap:var(--space-16);align-items:center}
-.sbp-opendoor .sbp-hook-cell,.sbp-opendoor .sbp-hook{height:auto}
 
 /* ---------- Home: photographic band ----------
    Composition notes live on the section in index.html. */
@@ -317,9 +353,6 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
 .sbp-pillar-wash[data-wash="1"]{background:var(--sb-wash-track-1)}
 .sbp-pillar-wash[data-wash="2"]{background:var(--sb-wash-track-2)}
 .sbp-pillar-wash[data-wash="3"]{background:var(--sb-wash-track-3)}
-.sbp-pillar-mark[data-mark="1"]{background:var(--sb-gradient-track-1)}
-.sbp-pillar-mark[data-mark="2"]{background:var(--sb-gradient-track-2)}
-.sbp-pillar-mark[data-mark="3"]{background:var(--sb-gradient-track-3)}
 
 /* ---------- Home: how firms get on the list ---------- */
 .sbp-ivory{background:var(--sb-khaki-100)}
@@ -416,7 +449,7 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
    matching. The empty third slot is honest anyway: this is a sample roster. */
 .sbp-logos{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:var(--space-4);margin:var(--space-6) 0 auto;
+  gap:var(--space-4);margin:var(--space-6) 0 0;
 }
 .sbp-logo-plate{
   display:grid;place-items:center;aspect-ratio:16/7;
@@ -425,35 +458,127 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
   color:var(--text-subtle);
 }
-.sbp-dircat-foot{
-  display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;
-  margin-top:var(--space-6);padding-top:var(--space-5);
-  border-top:1px solid var(--border-hairline);
-  font:var(--type-small);color:var(--text-muted);
+
+/* ---------- Home: insights by email ----------
+   A quiet band, so the type steps down: h2 rather than the display size every
+   other section opens with. This one must not compete with the assessment.
+
+   The form is a grid rather than a flex row because the label belongs to the
+   input and the button does not: .sb-field stacks label over field, and
+   align-items:end drops the button onto the input's baseline instead of the
+   label's. A flex row would need the button to know the label's height. */
+.sbp-capture-cols{align-items:center}
+/* Rhythm comes from .sbp-blockhead / .sbp-blockbody; these only set measure. */
+.sbp-capture-h2{max-width:26ch}
+.sbp-capture-body{max-width:46ch}
+.sbp-capture-form{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:var(--space-6);align-items:end;
 }
-.sbp-dot{width:3px;height:3px;border-radius:var(--radius-pill);background:var(--sb-aqua-500);flex:none}
-.sbp-directory-note{font:var(--type-small);color:var(--text-subtle);margin-top:var(--space-6)}
+/* The field sits on the card surface so it reads as an input on the khaki
+   field rather than a hairline drawn on it. surface-card is what
+   .sb-input-wrap already uses; this only stops the khaki showing through the
+   focus ring's offset. */
+.sbp-capture-form .sb-input-wrap{background:var(--surface-card)}
+.sbp-capture-form .sb-input-wrap .sb-ico{color:var(--text-subtle);flex:none}
+@media (max-width:820px){
+  /* Stacked, the button is the only thing in its row, so it takes the full
+     measure rather than sitting as a short pill against a long field. */
+  .sbp-capture-form{grid-template-columns:minmax(0,1fr)}
+  .sbp-capture-form .sb-btn{width:100%}
+  .sbp-capture-h2,.sbp-capture-body{max-width:none}
+}
 
 /* ---------- The advisor path ----------
-   A strip, not a section. It has to be findable and it must not read as a
-   second audience on an owner-facing homepage. */
-.sbp-advisor{
-  padding:var(--space-10) var(--gutter-lg);
-  border-top:1px solid var(--border-hairline);
-}
-.sbp-advisor-inner{
-  max-width:var(--container-max);margin:0 auto;
+   Findable without reading as a second audience on an owner-facing homepage.
+   The old version solved that by being nearly invisible; this one solves it by
+   being contained — a bordered card sitting inside the page measure, with the
+   outlined button variant rather than the aqua fill. */
+.sbp-advisor-panel{
   display:flex;align-items:center;justify-content:space-between;
-  gap:var(--space-8);flex-wrap:wrap;
+  gap:var(--space-12);flex-wrap:wrap;
+  padding:var(--space-10);
+  background:var(--surface-card);
+  border:1px solid var(--border-hairline);
+  border-radius:var(--radius-md);
 }
-.sbp-advisor-note{font:var(--type-p3);color:var(--text-muted);max-width:62ch;margin-top:var(--space-4)}
+/* Rhythm comes from .sbp-blockhead / .sbp-blockbody; these only set measure. */
+.sbp-advisor-title{max-width:22ch}
+.sbp-advisor-note{max-width:62ch}
+/* flex:none so the label never wraps to two lines while the copy column has
+   room left; the panel wraps as a whole instead. */
+.sbp-advisor-cta{flex:none}
+@media (max-width:820px){
+  .sbp-advisor-panel{padding:var(--space-8);gap:var(--space-8)}
+  .sbp-advisor-cta{width:100%}
+}
 
 /* ---------- Home: briefings ---------- */
 .sbp-briefings-h2{margin-top:var(--space-4)}
-.sbp-briefings{margin-top:var(--space-12)}
+.sbp-briefings{margin-top:var(--space-8)}
 .sbp-card-cell{height:100%}
 .sb-card h3{line-height:1.24}
 .sbp-card-body-text{font:var(--type-body-sm);color:var(--text-muted)}
+
+/* The format filters. .sb-tag already ships the active treatment (aqua border,
+   accent text, soft accent fill), so this only lays them out and gives them a
+   real touch target: the tag's own 5px padding lands well under the 40px floor
+   on a phone, and these are the one place on this page where a tag is a
+   control rather than a label. */
+.sbp-filters{
+  display:flex;flex-wrap:wrap;gap:var(--space-3);
+  margin-top:var(--space-8);
+}
+
+/* The filter's hide switch. A data attribute rather than the `hidden`
+   attribute or an inline style: .sbp-card-cell sets its own display, and
+   `hidden` (display:none from the UA sheet) loses to it, while an inline
+   display would beat every media query in this file. This keeps the whole
+   decision in the cascade where it can be read. Set only by app.js, so the
+   page before the script runs shows every card. */
+[data-off]{display:none !important}
+.sbp-filters .sb-tag{min-height:36px;padding-left:var(--space-5);padding-right:var(--space-5)}
+.sbp-filters .sb-tag:focus-visible{box-shadow:var(--shadow-focus);outline:none}
+@media (max-width:820px){
+  .sbp-filters .sb-tag{min-height:44px}
+}
+
+/* Topic on the left, format on the right. The format tag is khaki: it is
+   editorial metadata, and the aqua in this section is spent on the active
+   filter, which is the thing you can actually click. */
+.sbp-card-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--space-4);
+}
+.sbp-media-tag{
+  font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
+  color:var(--sb-khaki-700);white-space:nowrap;
+}
+
+/* The podcast panel. It replaces the grid rather than sitting beside it,
+   because there is nothing to list yet: one panel is honest about that where
+   three "coming soon" cards would look like a back catalogue with the covers
+   missing. */
+.sbp-podcast{
+  display:flex;align-items:center;gap:var(--space-8);flex-wrap:wrap;
+  margin-top:var(--space-8);padding:var(--space-10);
+  background:var(--surface-warm-soft);
+  border:1px solid var(--border-hairline);border-radius:var(--radius-md);
+}
+.sbp-podcast-mark{
+  width:64px;height:64px;flex:none;border-radius:var(--radius-pill);
+  display:grid;place-items:center;
+  background:var(--surface-card);color:var(--sb-khaki-700);
+  border:1px solid var(--border-hairline);
+}
+.sbp-podcast-copy{flex:1 1 340px;min-width:0}
+.sbp-podcast-h3{font:var(--type-h3);margin-top:var(--space-4);max-width:30ch}
+.sbp-podcast-body{font:var(--type-p3);color:var(--text-muted);margin-top:var(--space-4);max-width:62ch}
+.sbp-podcast-cta{flex:none}
+@media (max-width:820px){
+  .sbp-podcast{padding:var(--space-8);gap:var(--space-6)}
+  .sbp-podcast-cta{width:100%}
+}
 
 /* ---------- Home: closing field ---------- */
 .sbp-closing{

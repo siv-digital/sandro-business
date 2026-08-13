@@ -263,6 +263,142 @@
     });
   }
 
+  /* data-inert: a control that must LOOK live and go nowhere.
+
+     The href stays in the markup on purpose. It documents where the control
+     will point once the screen exists, it keeps the element focusable and
+     hoverable, and it keeps the QA link sweep reporting the unbuilt screens as
+     a list rather than losing track of them. Only the navigation is cancelled.
+
+     auxclick as well as click, or a middle click still opens the dead path in
+     a new tab. `aria-disabled` is deliberately NOT used: components.css drops
+     a disabled .sb-btn to 42% opacity with a not-allowed cursor, and these are
+     meant to read as ordinary live controls. */
+  function initInert() {
+    function block(e) {
+      var el = e.target.closest ? e.target.closest('[data-inert]') : null;
+      if (el) e.preventDefault();
+    }
+    document.addEventListener('click', block);
+    document.addEventListener('auxclick', block);
+  }
+
+  /* ---------------------------------------------------------------------
+     6. Email capture.
+
+     The newsletter is the always-on nurture engine in the spec, so the field
+     has to behave like a real one even with no back end: novalidate is on the
+     form so the browser's own bubble does not fire, and this owns the whole
+     response. Validation is deliberately shallow — a real one belongs at the
+     HubSpot end, and rejecting an address a mail server would accept is worse
+     than passing one it would not.
+     ------------------------------------------------------------------- */
+  function initSubscribe() {
+    /* Clear the invalid state the moment the field is touched.
+       Without this, one failed submit leaves data-invalid set, components.css
+       paints the border --feedback-critical, and it STAYS red the whole time
+       the user is typing the correct address. A field that is being fixed must
+       not still be shouting about the old mistake. */
+    document.addEventListener('input', function (e) {
+      var input = e.target;
+      if (!input.closest || !input.closest('form[data-subscribe]')) return;
+      var wrap = input.closest('.sb-input-wrap');
+      if (wrap) wrap.removeAttribute('data-invalid');
+    });
+
+    document.addEventListener('submit', function (e) {
+      var form = e.target.closest ? e.target.closest('form[data-subscribe]') : null;
+      if (!form) return;
+      e.preventDefault();
+
+      var input = form.querySelector('input[type="email"]');
+      var wrap = input && input.closest('.sb-input-wrap');
+      var value = input ? input.value.trim() : '';
+      var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+
+      if (!ok) {
+        if (wrap) wrap.setAttribute('data-invalid', '1');
+        if (input) input.focus();
+        showToast('Enter an email address so we know where to send it.');
+        return;
+      }
+
+      if (wrap) wrap.removeAttribute('data-invalid');
+      input.value = '';
+      showToast('Thanks. This adds you to the Insights list on the live site.');
+    });
+  }
+
+  /* ---------------------------------------------------------------------
+     7. Insights format filters.
+
+     Every card and the podcast panel are in the DOM and visible before this
+     runs, so a page whose script never loads shows the full list rather than
+     an empty grid. This applies "All" on boot and swaps from there. Same
+     fail-open contract as the reveals.
+
+     Filtering is show/hide on markup that already exists rather than rendering
+     from a data array: the cards keep their reveal attributes, their images
+     are fetched by the browser normally, and nothing has to be re-observed.
+     `hidden` is not used, because .sbp-card-cell sets display and an inline
+     display would beat it; a data attribute and a CSS rule keep the cascade
+     where it can be read.
+     ------------------------------------------------------------------- */
+  function initFilters() {
+    var chips = document.querySelectorAll('.sbp-filters [data-filter]');
+    if (!chips.length) return;
+    var grid = document.querySelector('[data-filter-grid]');
+    var panel = document.querySelector('.sbp-podcast');
+    if (!grid) return;
+
+    var cells = grid.querySelectorAll('[data-media]');
+
+    function apply(which) {
+      /* The podcast has no episodes, so its filter shows the panel INSTEAD of
+         the grid rather than an empty three-up. */
+      var podcast = which === 'podcast';
+      grid.toggleAttribute('data-off', podcast);
+      if (panel) panel.toggleAttribute('data-off', !podcast);
+
+      Array.prototype.forEach.call(cells, function (cell) {
+        var show = which === 'all'
+          ? cell.hasAttribute('data-featured')
+          : cell.getAttribute('data-media') === which;
+        cell.toggleAttribute('data-off', !show);
+
+        /* A display:none cell has a zero intersection rectangle, so its
+           observer reports 0 and its reveal never fires. It would then be
+           shown by a filter click while still in the from-state: present in
+           the DOM, correct in the layout, and painted at opacity 0. This is
+           the same failure the wipe/observer note in initReveals describes,
+           arriving from the other direction.
+
+           So anything we hide is marked revealed on the way out. It cannot
+           animate while hidden and it has to be ready the instant a filter
+           brings it back. Cells that stay visible are left to the observer,
+           which is what keeps the section's entrance animation intact. */
+        if (!show) cell.setAttribute('data-in', '1');
+      });
+
+      Array.prototype.forEach.call(chips, function (chip) {
+        var on = chip.getAttribute('data-filter') === which;
+        /* Explicit "1", not toggleAttribute: components.css keys the active
+           tag off [data-active="1"] and toggleAttribute would write "". */
+        if (on) chip.setAttribute('data-active', '1');
+        else chip.removeAttribute('data-active');
+        chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    Array.prototype.forEach.call(chips, function (chip) {
+      chip.addEventListener('click', function () {
+        apply(chip.getAttribute('data-filter'));
+      });
+    });
+
+    apply('all');
+  }
+
   /* Sign in / out controls, usable from any screen. */
   function initSessionControls() {
     document.addEventListener('click', function (e) {
@@ -302,6 +438,9 @@
     initReveals();
     initHeader();
     initStubs();
+    initInert();
+    initSubscribe();
+    initFilters();
     initSessionControls();
     var year = document.querySelectorAll('[data-year]');
     Array.prototype.forEach.call(year, function (el) {
