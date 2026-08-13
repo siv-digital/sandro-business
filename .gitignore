@@ -3,3 +3,12 @@ node_modules/
 .env
 .claude/
 .remember/
+
+# QA output. qa.js writes <prefix>-<width>.png into the working directory, so a
+# sweep leaves a pile of screenshots at the repo root. They are build output,
+# not source, and regenerate on every run.
+*-desktop.png
+*-laptop.png
+*-tablet-l.png
+*-tablet-p.png
+*-phone.png
