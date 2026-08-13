@@ -25,6 +25,23 @@ Home, `/advisors/` and a styled `404.html`. The Members Area, Insights, Apply an
 
 `site/assets/ds/` is the design system ported verbatim (tokens + `components.css`) plus two files that are ours: `fonts.css`, which self-hosts and replaces the CDN link, and `icons.css`, a 24-glyph subset of the 4.6MB `icon-data.js` rendered as SVG data-URI masks. `site/assets/app.css` is the prototype layer and is `.sbp-` prefixed so it can never be confused with a ported `.sb-` style. `site/assets/app.js` carries motion arming, reveals, the sticky-header ground swap, the mobile sheet, stub toasts and the `sb.demo.v1` session.
 
+## Skins
+
+The Sandro Business tokens in `site/assets/ds/` are the **unscoped default** and are
+never edited by a re-skin. `site/assets/skins.css` defines `html[data-skin="wealth"]`
+— the Sandro Wealth parent palette (CEO decision, 2026-08-13): monochrome actions
+(titanium on light, ivory on dark), brass editorial accents sourced from the authored
+Framer tokens on sandrowealth.com/business-owner, and a warm ivory sunrise. All three
+page shells currently set the attribute; **removing it returns the site to aqua with
+current content** — that switch, not a snapshot, is the preservation mechanism. Tag
+`skin/sandro-business-aqua` bookmarks the last pre-decision build.
+
+Rules that travel with the skin: `skins.css` carries its own `?v=` — bump it like
+app.css; brass-600 `#9C6F2F` is **non-text only** on light fields (4.39:1) — brass
+text on light is `#876B3D`; the dawn/bloom glows are re-authored, not retinted, and
+the dark ray-silhouette over the bloom's bright core is the composition's own
+behaviour in both skins.
+
 ## Local preview
 
 Serve from inside the folder you are working on, not the repo root:
@@ -59,7 +76,7 @@ Every one of these has already cost time somewhere in this engagement.
 
 - **Render's edge can negative-cache a path, and a rebuild will not clear it.** Seen on the very first deploy: `/assets/fonts/libre-baskerville.woff2` returned 404 with `x-render-routing: no-server` while the same path with `?v=1` returned 200, proving the file was published and only the cached path was poisoned. CDN invalidation only covers *changed* files, so the fix is to change the URL, not to redeploy. Font URLs carry `?v=` for exactly this reason — bump it on any font swap. When something 404s that you know you shipped, retry with a query string before you go looking for a build problem.
 - **Google Fonts fails silently on the build machine.** `design-system/tokens/fonts.css` and the marketing-site reference load Libre Baskerville and DM Sans from the CDN, which is unreachable and fails without an error. You will build the whole thing looking at Georgia and Arial and not notice. Self-host `.woff2` for anything in `site/`.
-- **Aquamarine carries the actions, not khaki.** `--action-primary` resolves to khaki in the tokens, but the marketing site never uses it that way: the header CTA, hero CTA and light-section CTAs are all aqua, bright on dark fields and deeper on light ones. Khaki is editorial trim. Restraint comes from field discipline (most sections quiet, carrying one aqua element), not from rationing the colour.
+- **Aquamarine carries the actions, not khaki** *(describes the default Sandro Business system; under the currently-active `data-skin="wealth"` no aqua paints at all — see Skins)*. `--action-primary` resolves to khaki in the tokens, but the marketing site never uses it that way: the header CTA, hero CTA and light-section CTAs are all aqua, bright on dark fields and deeper on light ones. Khaki is editorial trim. Restraint comes from field discipline (most sections quiet, carrying one aqua element), not from rationing the colour.
 - **Motion must fail open.** Resting states are the unconditional CSS default; hidden from-states live under `html[data-sb-motion="1"]`, set only after two consecutive `requestAnimationFrame` callbacks land. Never gate legibility on an animation running.
 - **No inline styles on anything a breakpoint changes.** An inline style beats a media query. This broke the photographic band three times.
 - **Never `#FFFFFF` as a page background.** Off-White is `#FFFEF6`.

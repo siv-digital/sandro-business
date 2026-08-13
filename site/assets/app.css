@@ -11,6 +11,21 @@
    Class prefix is .sbp- so a prototype-only style can never be mistaken for a
    ported design-system style (.sb-). */
 
+/* ---------- Prototype-layer tokens ----------
+   The layer's own custom properties, so no rule below carries a raw colour and
+   the skin layer (assets/skins.css) has something to re-point.
+   The four on-dark constants mirror .sb-dark's semantic values but cannot
+   reference them: their consumers (toast, 404 field, eco diagram, band kicker)
+   are dark in BOTH page contexts and don't sit inside a .sb-dark container. */
+:root{
+  --sbp-dark-hairline:rgba(255,254,246,.16);   /* = .sb-dark --border-hairline */
+  --sbp-dark-quiet-hover:rgba(255,254,246,.08);/* = .sb-dark --action-quiet-hover */
+  --sbp-dark-body:rgba(255,254,246,.82);       /* = .sb-dark --text-body */
+  --sbp-dark-kicker:rgba(255,254,246,.72);     /* between muted .6 and body .82 */
+  /* The one chromatic value: the membership-pillar hover keyline. */
+  --sbp-pillar-hover-border:rgba(63,187,209,.42);
+}
+
 /* ---------- Design-system gap-fillers ----------
    Not overrides. These restate a default that the React component supplies as a
    prop default and that components.css therefore never declares, so that
@@ -195,7 +210,7 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
 .sbp-pillar[data-tone="3"]::before{background:var(--sb-gradient-track-3)}
 
 .sbp-pillar:hover{
-  border-color:rgba(63,187,209,.42);
+  border-color:var(--sbp-pillar-hover-border);
   transform:translateY(-3px);
 }
 .sbp-pillar:hover::before{opacity:.15}
@@ -315,7 +330,7 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
 }
 .sbp-band-kicker{
   font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
-  color:rgba(255,254,246,.72);
+  color:var(--sbp-dark-kicker);
 }
 
 /* ---------- Home: the five member benefits ----------
@@ -398,7 +413,7 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   /* The system's own on-dark muted value is .6, which is documented as fine at
      18px and above. This is 13px over an aqua ground, so it steps up to the
      .82 body value instead. */
-  fill:rgba(255,254,246,.82);text-anchor:middle;
+  fill:var(--sbp-dark-body);text-anchor:middle;
 }
 /* White rather than off-white: the pills sit on the ivory field, and they have
    to lift off it. The keyline is aqua so the nodes belong to the same drawing
@@ -618,7 +633,7 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   display:flex;align-items:center;gap:var(--space-4);
   padding:var(--space-4) var(--space-6);
   background:var(--sb-titanium-900);color:var(--sb-offwhite);
-  border:1px solid rgba(255,254,246,.16);border-radius:var(--radius-md);
+  border:1px solid var(--sbp-dark-hairline);border-radius:var(--radius-md);
   box-shadow:var(--shadow-lg);
   font:var(--type-p3);
   opacity:0;pointer-events:none;
@@ -646,7 +661,7 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   font:var(--type-p3);
   transition:var(--transition-hover);
 }
-.sbp-index a:hover{background:rgba(255,254,246,.08);border-color:var(--sb-aqua-400)}
+.sbp-index a:hover{background:var(--sbp-dark-quiet-hover);border-color:var(--sb-aqua-400)}
 .sbp-index a .sb-ico{color:var(--sb-aqua-400)}
 /* .sb-logo is inline-flex, so a margin-bottom alone leaves the kicker running
    on the same line beside it. */
