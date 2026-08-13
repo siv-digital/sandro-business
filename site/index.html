@@ -10,7 +10,7 @@
 <meta name="description" content="Sandro connects business owners to vetted specialists in valuation, M&A, lending and estate work, and takes no compensation from any of them.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
 <link rel="stylesheet" href="/assets/ds/styles.css">
-<link rel="stylesheet" href="/assets/app.css?v=13">
+<link rel="stylesheet" href="/assets/app.css?v=14">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
 </head>
 <body>
@@ -427,13 +427,25 @@
           </g>
         </svg>
 
+        <!-- Phone fallback: not a bare tag row. A bare row floats unanchored
+             in the ivory field and loses the diagram's whole statement, so the
+             fallback keeps the composition's spine: the concierge core, a
+             dashed stem in the orbit lines' own treatment, then the six
+             disciplines clustered beneath it, all bounded by a sunken panel. -->
         <div class="sbp-eco-list">
-          <span class="sb-tag">Valuation</span>
-          <span class="sb-tag">M&amp;A advisory</span>
-          <span class="sb-tag">Attorneys</span>
-          <span class="sb-tag">Lending</span>
-          <span class="sb-tag">Growth partners</span>
-          <span class="sb-tag">Estate and tax</span>
+          <div class="sbp-eco-mini-core">
+            <span class="sbp-eco-mini-name">Sandro</span>
+            <span class="sbp-eco-mini-role">Concierge</span>
+          </div>
+          <span class="sbp-eco-mini-stem" aria-hidden="true"></span>
+          <div class="sbp-eco-mini-tags">
+            <span class="sb-tag">Valuation</span>
+            <span class="sb-tag">M&amp;A advisory</span>
+            <span class="sb-tag">Attorneys</span>
+            <span class="sb-tag">Lending</span>
+            <span class="sb-tag">Growth partners</span>
+            <span class="sb-tag">Estate and tax</span>
+          </div>
         </div>
       </div>
     </div>

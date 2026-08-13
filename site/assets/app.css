@@ -425,8 +425,41 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
 }
 /* Scaled to a phone the SVG labels land well under the 16px floor, and body
    copy in this system never shrinks. Below the tablet width the diagram is
-   replaced by the same six disciplines as tags. */
-.sbp-eco-list{display:none;flex-wrap:wrap;gap:var(--space-3)}
+   replaced by a miniature of its own composition — core, stem, disciplines —
+   inside a bounded sunken panel. A bare tag row was tried first and read as
+   chips floating unanchored in the ivory field (Travis, 8/13). */
+.sbp-eco-list{
+  display:none;flex-direction:column;align-items:center;
+  padding:var(--space-8) var(--space-5);
+  background:var(--surface-sunken);
+  border:1px solid var(--border-hairline);border-radius:var(--radius-md);
+}
+/* Transcription of the SVG's #sbEcoCore sunrise gradient (titanium-900 →
+   aqua-800 → aqua-600, stops as tokens). If the defs change, change this in
+   the same commit. Ends deep at the top so the serif wordmark sits over the
+   dark middle, same as the drawn core. */
+.sbp-eco-mini-core{
+  width:118px;height:118px;border-radius:50%;
+  background:linear-gradient(180deg,var(--sb-titanium-900) 0%,var(--sb-aqua-800) 55%,var(--sb-aqua-600) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+}
+.sbp-eco-mini-name{font-family:var(--font-display);font-size:22px;color:var(--sb-offwhite)}
+.sbp-eco-mini-role{
+  font-family:var(--font-sans);font-size:11px;font-weight:var(--weight-medium);
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--sbp-dark-body); /* same step-up as .sbp-eco-core-role */
+}
+/* The orbit lines' own treatment: dashed, accent, .58 — so the stem reads as
+   one of the diagram's connectors rather than a new rule style. */
+.sbp-eco-mini-stem{
+  width:0;height:var(--space-6);
+  border-left:1.5px dashed var(--sb-aqua-500);opacity:.58;
+  margin-top:var(--space-4);
+}
+.sbp-eco-mini-tags{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:var(--space-3);
+  margin-top:var(--space-4);max-width:34em;
+}
 @media (max-width:820px){
   .sbp-eco-svg{display:none}
   .sbp-eco-list{display:flex}
