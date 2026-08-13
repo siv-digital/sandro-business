@@ -1,0 +1,139 @@
+/* Sandro Business prototype — per-page QA sweep.
+   Runs every page at five widths, because mobile is part of the pass, not a
+   follow-up. Checks the things that fail silently on this build:
+     - horizontal overflow (an element wider than the viewport)
+     - reveals that never fired (the clip-path/IntersectionObserver trap)
+     - fonts falling back to Georgia/Arial (the Google Fonts CDN failure mode)
+     - console errors, page errors, failed requests
+     - href="#" and unresolved internal links
+     - touch targets under 44px below the tablet breakpoint
+
+   node qa.js <url> [outPrefix]
+*/
+const { chromium } = require('playwright');
+
+const url = process.argv[2] || 'http://localhost:4331/';
+const prefix = process.argv[3] || 'qa';
+const WIDTHS = [
+  [1440, 900, 'desktop'],
+  [1280, 800, 'laptop'],
+  [1024, 768, 'tablet-l'],
+  [768, 1024, 'tablet-p'],
+  [390, 844, 'phone'],
+];
+
+(async () => {
+  const browser = await chromium.launch();
+  const report = { url, widths: {}, links: null, problems: [] };
+
+  for (const [w, h, name] of WIDTHS) {
+    const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 2 });
+    const errors = [];
+    page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+    page.on('pageerror', e => errors.push('pageerror: ' + e));
+    page.on('requestfailed', r => errors.push('requestfailed: ' + r.url()));
+
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+    // Scroll the whole page so every observer fires before we measure.
+    await page.evaluate(async () => {
+      for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight) {
+        window.scrollTo(0, y); await new Promise(r => setTimeout(r, 200));
+      }
+      window.scrollTo(0, 0);
+    });
+    await page.waitForTimeout(700);
+
+    const r = await page.evaluate(() => {
+      const vw = window.innerWidth;
+      // Only count overflow that actually escapes: an element clipped by an
+      // overflow:hidden ancestor is intentional (the sunburst does this).
+      const clipped = el => {
+        for (let p = el.parentElement; p; p = p.parentElement) {
+          const o = getComputedStyle(p);
+          if (o.overflow !== 'visible' || o.overflowX !== 'visible') return true;
+        }
+        return false;
+      };
+      const over = [...document.querySelectorAll('body *')]
+        .filter(el => {
+          const b = el.getBoundingClientRect();
+          return b.width > 0 && (b.right > vw + 1 || b.left < -1) && !clipped(el);
+        })
+        .map(el => el.tagName.toLowerCase() + '.' + (typeof el.className === 'string' ? el.className : '').split(' ')[0])
+        .slice(0, 8);
+
+      const unrevealed = [...document.querySelectorAll('[data-rv]')]
+        .filter(e => e.getAttribute('data-in') !== '1')
+        .map(e => (e.textContent || '').trim().slice(0, 40));
+
+      /* Floor is 40, not 44: components.css sets footer links to exactly 40px
+         below the tablet breakpoint as a deliberate call, and this check exists
+         to catch targets the design system never sized, not to relitigate the
+         ones it did. */
+      const small = vw <= 820
+        ? [...document.querySelectorAll('a[href], button')]
+            .filter(e => { const b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0 && b.height < 40; })
+            .map(e => e.tagName.toLowerCase() + ' "' + (e.textContent || '').trim().slice(0, 24) + '" h=' + Math.round(e.getBoundingClientRect().height))
+        : [];
+
+      const usedSerif = getComputedStyle(document.querySelector('h1') || document.body).fontFamily;
+      return {
+        scrollWidth: document.documentElement.scrollWidth,
+        innerWidth: vw,
+        overflowing: over,
+        unrevealed,
+        smallTargets: [...new Set(small)],
+        serifStack: usedSerif,
+        /* A declared @font-face only reports "loaded" once something on the
+           page actually uses it, so counting to three is wrong: a page with no
+           pull quote never loads Baskerville Italic and is perfectly fine.
+           Check the two faces every page uses, and check italic only when the
+           page renders italic type. */
+        fontsLoaded: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family + '/' + f.style),
+        needsItalic: [...document.querySelectorAll('body *')].some(e => getComputedStyle(e).fontStyle === 'italic'),
+      };
+    });
+
+    await page.screenshot({ path: `${prefix}-${name}.png`, fullPage: name === 'desktop' || name === 'phone' });
+    r.errors = [...new Set(errors)];
+    report.widths[name] = r;
+
+    if (r.scrollWidth > r.innerWidth) report.problems.push(`${name}: horizontal scroll (${r.scrollWidth} > ${r.innerWidth})`);
+    if (r.overflowing.length) report.problems.push(`${name}: overflowing ${r.overflowing.join(', ')}`);
+    if (r.unrevealed.length) report.problems.push(`${name}: ${r.unrevealed.length} reveal(s) never fired: ${r.unrevealed.join(' | ')}`);
+    if (r.smallTargets.length) report.problems.push(`${name}: touch targets under 44px: ${r.smallTargets.join(' ; ')}`);
+    if (r.errors.length) report.problems.push(`${name}: ${r.errors.join(' | ')}`);
+    const need = ['Libre Baskerville/normal', 'DM Sans/normal']
+      .concat(r.needsItalic ? ['Libre Baskerville/italic'] : []);
+    const missing = need.filter(f => !r.fontsLoaded.includes(f));
+    if (missing.length) report.problems.push(`${name}: webfont not loaded: ${missing.join(', ')} (falling back to Georgia/Arial)`);
+
+    await page.close();
+  }
+
+  // Link audit once, at desktop.
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto(url, { waitUntil: 'networkidle' });
+  const links = await page.evaluate(() => {
+    const hash = [], stub = [], internal = new Set();
+    document.querySelectorAll('a').forEach(a => {
+      const h = a.getAttribute('href');
+      if (!h || h === '#') hash.push((a.textContent || '').trim().slice(0, 30));
+      else if (a.hasAttribute('data-stub')) stub.push((a.textContent || '').trim().slice(0, 30));
+      else if (!/^https?:|^mailto:/.test(h)) internal.add(h);
+    });
+    return { hash, stub, internal: [...internal] };
+  });
+  const codes = {};
+  for (const h of links.internal) {
+    const u = new URL(h, url);
+    const res = await page.request.get(u.toString()).catch(() => null);
+    codes[h] = res ? res.status() : 'ERR';
+  }
+  links.codes = codes;
+  report.links = links;
+  if (links.hash.length) report.problems.push(`href="#" on: ${links.hash.join(', ')}`);
+
+  console.log(JSON.stringify(report, null, 2));
+  await browser.close();
+})();

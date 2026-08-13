@@ -9,12 +9,19 @@ Sandro Business is the unit spinning off from Sandro Wealth Management. This rep
 | Path | What | Published? |
 |---|---|---|
 | `site/` | The prototype. Everything here is served at the public URL. | **Yes** |
+| `qa/` | Per-page QA sweep and screenshot helper. See `qa/README.md`. | No |
 | `design-system/` | Tokens, 22 components with `.d.ts` contracts, logo lockups, sunburst, photography, `SKILL.md`. Read `design-system/readme.md` in full before writing UI. | No |
 | `marketing-site/` | Four design-reference screens (Home, The Journey, Tracks, Assessment). Browser-transpiled prototypes showing intended look, not production code. | No |
 | `reference/_notes/` | Extracted text of the two client source documents. All site copy derives from these. | No |
 | `CLAUDE.md` | Design-system project context. Auto-loads when working in this repo. | No |
 
 Only `site/` is in the publish path. That is deliberate: the design system is 14MB including a 4.6MB inlined icon set, and the reference notes are internal.
+
+## What is built
+
+Home, `/advisors/` and a styled `404.html`. The Members Area, Insights, Apply and Directory screens are not started; links to them resolve to the 404 by design, and the 404 carries the full screen index so a click never dead-ends.
+
+`site/assets/ds/` is the design system ported verbatim (tokens + `components.css`) plus two files that are ours: `fonts.css`, which self-hosts and replaces the CDN link, and `icons.css`, a 24-glyph subset of the 4.6MB `icon-data.js` rendered as SVG data-URI masks. `site/assets/app.css` is the prototype layer and is `.sbp-` prefixed so it can never be confused with a ported `.sb-` style. `site/assets/app.js` carries motion arming, reveals, the sticky-header ground swap, the mobile sheet, stub toasts and the `sb.demo.v1` session.
 
 ## Local preview
 
@@ -23,6 +30,8 @@ Serve from inside the folder you are working on, not the repo root:
 ```bash
 python3 -m http.server 4324 --directory site
 ```
+
+Python's `http.server` is single-threaded and drops requests when a page load and a QA run overlap. It dies fairly often. Restart it rather than debugging the site.
 
 For the design reference screens:
 
@@ -53,6 +62,10 @@ Every one of these has already cost time somewhere in this engagement.
 - **No inline styles on anything a breakpoint changes.** An inline style beats a media query. This broke the photographic band three times.
 - **Never `#FFFFFF` as a page background.** Off-White is `#FFFEF6`.
 - **Two different sunbursts exist** (hero fan: 23 rays; logo symbol: 15). They look interchangeable at small sizes and are not.
+- **An SVG data-URI mask must have its double quotes percent-encoded.** Leave them raw and the CSS string closes early, the mask never resolves, and the element paints as a solid box — indistinguishable from a design decision. Cost a cycle on the icon subset. The generator and its safe-character set are recorded in `site/assets/ds/icons.css`.
+- **Never point an IntersectionObserver at a `.sb-wipe-inner` element.** Its from-state is `clip-path: inset(100%)`, which zeroes the element's own intersection rectangle, so the observer reports 0 forever. Every below-fold wipe stays permanently invisible while `.sb-reveal` on the same page works, which is maddening to debug from a screenshot. `Reveal.jsx` observes the OUTER element; `site/assets/app.js` does the same via its `probe` / `target` split.
+- **A `.sb-btn` with no `data-size` has no padding and collapses to ~26px.** `Button.jsx` supplies `md` as a prop default, so `components.css` never declares an unattributed fallback. Hand-authored HTML has to set it.
+- **The ray fan is an external SVG used as a CSS mask**, not inlined path data, so 9.5KB is not duplicated into every page that shows a sunrise. Safe only because it is vector — the warning above about masks that fetch 200 and then paint the unmasked box is about **raster** masks. Never point `.sbp-rays` at a PNG.
 - **Compliance.** Sandro Wealth Management is an SEC-registered investment adviser. No performance promises, no specific investment advice, no superlatives, no testimonials. **Never write disclosure or citation copy and never leave a bracketed placeholder for it** — omit the line and flag that Sandro's approved language is required.
 
 ## Known gaps in the design system
