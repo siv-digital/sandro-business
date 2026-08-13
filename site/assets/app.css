@@ -1,0 +1,534 @@
+/* Sandro Business prototype — the thin layer above the design system.
+
+   RULE OF ADMISSION for this file: a style belongs here only if it is prototype
+   chrome (the demo panel, the fake-auth gate, the toast) or a composition the
+   design system does not ship a component for. It is NOT a place to restate,
+   tune or "improve" a system value. If a colour, size, radius or duration is
+   wanted, it comes from a token. There are no raw hex values below the demo
+   panel section, and the ones there are deliberately outside the brand because
+   the panel is scaffolding the client should read as scaffolding.
+
+   Class prefix is .sbp- so a prototype-only style can never be mistaken for a
+   ported design-system style (.sb-). */
+
+/* ---------- Design-system gap-fillers ----------
+   Not overrides. These restate a default that the React component supplies as a
+   prop default and that components.css therefore never declares, so that
+   hand-authored HTML behaves the same way. */
+
+/* Button.jsx defaults `size` to "md", so components.css keys padding and height
+   off data-size with no unattributed fallback. A button authored without the
+   attribute gets no padding and collapses to a ~26px unpadded pill, which reads
+   as a styling choice rather than as a missing attribute. Values copied from
+   .sb-btn[data-size="md"]; if that rule changes, this changes with it. */
+.sb-btn:not([data-size]){font-size:var(--text-xs);padding:0 24px;height:var(--control-h)}
+
+/* ---------- Chrome ---------- */
+
+/* The lockup. Logo.jsx composes it live from the symbol plus "SandroBusiness"
+   set in Libre Baskerville, deriving gap and word size from a height prop
+   (0.24x and 0.72x of 28px). Those ratios are transcribed here so the markup
+   carries no inline styles.
+   The composed wordmark is a close approximation of the parent lockup, not a
+   match: the parent's letterfit is tighter than Libre Baskerville produces,
+   which suggests custom lettering. Flagged in the design system as the largest
+   remaining fidelity gap. */
+.sbp-logo{gap:7px}
+.sbp-logo img{height:28px;width:28px}
+.sbp-logo .sb-logo-word{font-size:20px}
+.sb-header[data-t="light"] .sbp-logo .sb-logo-word{color:var(--sb-titanium-800)}
+.sb-header[data-t="dark"] .sbp-logo .sb-logo-word,
+.sb-header[data-t="transparent"] .sbp-logo .sb-logo-word,
+.sb-footer .sbp-logo .sb-logo-word{color:var(--sb-ivory)}
+.sb-footer .sbp-logo{gap:8px}
+.sb-footer .sbp-logo img{height:30px;width:30px}
+.sb-footer .sbp-logo .sb-logo-word{font-size:22px}
+
+/* The header composition. The system's Header ships logo + nav + one CTA; this
+   site also needs a quiet sign-in affordance, because the whole argument of the
+   prototype is that there IS something behind a login. */
+.sbp-signin{
+  display:inline-flex;align-items:center;gap:var(--space-2);
+  font:var(--type-nav);color:var(--text-muted);
+  text-decoration:none;border:0;background:none;cursor:pointer;
+  padding:4px 8px;border-radius:var(--radius-sm);
+  transition:var(--transition-hover);
+}
+.sbp-signin:hover{color:var(--text-display);background:var(--action-quiet-hover)}
+.sbp-nav-divider{width:1px;height:20px;background:var(--border-hairline);flex:none}
+
+@media (max-width:820px){
+  /* In the stacked sheet a 1x20px vertical rule reads as a stray tick between
+     two rows. The row rhythm is the separation there. */
+  .sbp-nav-divider{display:none}
+  /* The lockup is a link home and it is 28px tall, which is a poor thumb
+     target on the one layout where the logo is the only way back. Grow the hit
+     area, not the artwork. */
+  .sb-header .sbp-logo{min-height:44px}
+  /* Same reasoning as the design system's own rule for inline link-buttons:
+     these are type, not boxes, so on touch they need a real target without the
+     text moving. */
+  .sb-nav .sbp-signin{
+    min-height:48px;padding:var(--space-3) var(--space-2);
+    font-size:var(--text-lg);border-radius:var(--radius-sm);
+  }
+}
+
+/* A page whose first section is a full-bleed dark field pulls up under the
+   sticky header, so the header floats ON the hero rather than sitting in a
+   band above it. Without this the transparent header composites against the
+   off-white page background and the ivory lockup disappears into it. The
+   reference site does the same thing, one level up, in its page shell. */
+.sbp-under-header{margin-top:calc(var(--header-h) * -1)}
+
+/* Footer links. base.css gives every <a> the accent colour and a rest-state
+   underline, which is right in prose and wrong in a link column. */
+.sb-footer a{color:var(--sb-ivory);border-bottom-color:transparent;font:var(--type-body-sm)}
+.sb-footer a:hover{color:var(--sb-offwhite);border-bottom-color:currentColor}
+.sbp-footer-note{font:var(--type-small);color:var(--text-on-inverse-muted)}
+.sbp-footer-bottom{
+  display:flex;justify-content:space-between;gap:var(--space-6);flex-wrap:wrap;
+  margin-top:var(--space-5);
+}
+
+/* ---------- The sunburst ray fan ----------
+   The system renders the fan as an inline <svg> whose paths are currentColor,
+   and components.css tints it with `color`. Inlining 9.5 KB of path data into
+   every page that shows a sunrise is the one thing that would make these files
+   unreadable, so the fan is a single external SVG used as a MASK and painted
+   with background-color, which reaches the same result from the same file.
+
+   This is safe specifically because it is a VECTOR mask. The readme records
+   that a RASTER mask-image is the one masking technique that does not render
+   across the surfaces this system ships into: it resolves, fetches 200, and
+   then silently paints the unmasked box. Never point these two rules at a PNG.
+
+   Geometry below is copied from components.css `.sb-sun-rays :is(img,svg)` and
+   `.sb-sun-bloom :is(img,svg)`; it is a transcription, not a redesign. If the
+   system changes those numbers, change them here in the same commit. */
+.sbp-rays{
+  position:absolute;left:17%;bottom:-82%;width:66%;aspect-ratio:738/739;display:block;
+  background-color:var(--ray-color,var(--sb-offwhite));
+  -webkit-mask:url('/assets/img/sunburst-rays.svg?v=1') center/contain no-repeat;
+  mask:url('/assets/img/sunburst-rays.svg?v=1') center/contain no-repeat;
+  /* The reference hero passes opacity={0.72} to Sunburst. At full strength the
+     fan stops being a sunrise behind the type and becomes a graphic in front
+     of it. Declared here rather than inline because the phone breakpoint's
+     shorter band wants the rays reading softer still. */
+  opacity:.72;
+}
+html[data-sb-motion="1"] .sbp-rays{animation:sb-drift var(--dur-ambient) var(--ease-in-out) 1900ms infinite}
+.sb-sun-bloom .sbp-rays{
+  position:static;width:100%;
+  background-color:var(--bloom-ray-color);
+}
+html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-ambient) var(--ease-in-out) infinite}
+
+/* ---------- Numbered steps ----------
+   Same grid as .sb-phase (numeral · glyph · label · body) so the two read as one
+   system, but the numerals are arabic here: these are steps in a process a
+   member completes, not the five Roman-numeral phases of the Journey. Using
+   .sb-phase directly would have been the tempting shortcut and would have said
+   the wrong thing. */
+.sbp-step{
+  display:grid;grid-template-columns:54px 34px minmax(160px,250px) minmax(0,1.35fr);
+  gap:var(--space-6);align-items:baseline;
+  padding:var(--space-6) 0;border-top:1px solid var(--border-hairline);
+}
+.sbp-step > .sb-ico{align-self:baseline;color:var(--sb-khaki-500)}
+.sbp-step-n{
+  font-family:var(--font-display);font-size:var(--text-3xl);line-height:1;
+  color:var(--text-accent);
+}
+.sbp-step-label{
+  font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
+  color:var(--text-subtle);display:block;margin-top:6px;
+}
+@media (max-width:980px){
+  .sbp-step{grid-template-columns:54px 34px minmax(0,1fr);row-gap:var(--space-3)}
+  .sbp-step > :last-child{grid-column:3}
+}
+@media (max-width:560px){
+  .sbp-step{grid-template-columns:auto minmax(0,1fr);column-gap:var(--space-4)}
+  .sbp-step > :nth-child(3),.sbp-step > :last-child{grid-column:1 / -1}
+  .sbp-step > .sb-ico{align-self:center;justify-self:end}
+}
+
+/* ---------- Hook panels ----------
+   The two front doors. Deliberately not .sb-card: a card is an index entry that
+   leads somewhere else, and these are the offer itself, so they get a flat warm
+   surface and a real CTA rather than a hover lift. */
+.sbp-hook{
+  display:flex;flex-direction:column;gap:var(--space-5);
+  padding:var(--space-10);
+  background:var(--surface-card);
+  border:1px solid var(--border-hairline);
+  border-radius:var(--radius-md);
+}
+.sbp-hook-icon{
+  width:46px;height:46px;border-radius:var(--radius-button);
+  display:grid;place-items:center;
+  background:var(--surface-warm-soft);color:var(--sb-khaki-700);
+}
+.sbp-hook h3{font:var(--type-h3);max-width:22ch}
+.sbp-hook p{font:var(--type-p3);color:var(--text-muted);max-width:44ch}
+/* The action sits on the panel's floor whatever the copy length, so two panels
+   side by side line their CTAs up. */
+.sbp-hook-action{margin-top:auto;padding-top:var(--space-3)}
+
+/* ---------- Pillars (dark) ----------
+   The members-only capabilities. Structure is the reference Home's track cards:
+   a soft radial wash, a 3px gradient marker on the leading edge, one hue at
+   three depths so they read as facets of one thing rather than three products. */
+.sbp-pillar{
+  position:relative;height:100%;box-sizing:border-box;
+  padding:var(--space-8);
+  border:1px solid var(--border-hairline);border-radius:var(--radius-md);
+  background:var(--surface-card);overflow:hidden;
+}
+.sbp-pillar-wash{position:absolute;inset:0;pointer-events:none}
+.sbp-pillar-mark{position:absolute;left:0;top:0;bottom:0;width:3px}
+.sbp-pillar > :not(.sbp-pillar-wash):not(.sbp-pillar-mark){position:relative}
+.sbp-pillar h3{font:var(--type-h2);color:var(--sb-offwhite);margin-top:var(--space-4)}
+.sbp-pillar p{font:var(--type-p3);color:var(--text-on-inverse-muted);margin-top:var(--space-4)}
+
+/* ---------- Small shared pieces ---------- */
+.sbp-eyebrow-row{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:var(--space-8);flex-wrap:wrap;
+}
+.sbp-media{overflow:hidden;border-radius:var(--radius-md)}
+.sbp-media img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
+
+/* A checked list. The glyph is khaki (editorial trim); the aqua in this section
+   is spent on the CTA. */
+.sbp-checks{display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-6)}
+.sbp-check-row{display:flex;gap:var(--space-4);align-items:flex-start;font:var(--type-p3);color:var(--text-body)}
+.sbp-check-row .sb-ico{color:var(--sb-khaki-500);margin-top:1px}
+
+/* ---------- Home: hero ----------
+   Sizes are transcribed from marketing-site/Home.jsx, where they were inline on
+   a React element. They live in CSS here because that is the house rule: an
+   inline style beats a media query, so anything a breakpoint may ever want to
+   touch cannot be inline. */
+.sbp-hero-h1{
+  font:var(--type-hero);
+  font-size:clamp(38px,min(5.1vw,8.2svh),76px);
+  color:var(--sb-offwhite);
+  max-width:25ch;margin:var(--space-4) auto 0;
+}
+.sbp-hero-sub{
+  font:var(--type-subtitle);letter-spacing:var(--tracking-sub);
+  color:var(--text-on-inverse-muted);
+  max-width:62ch;margin:var(--space-5) auto 0;
+}
+.sbp-hero-actions{margin-top:var(--space-10);justify-content:center}
+.sbp-hero-facts{max-width:var(--container-max);margin:0 auto}
+.sbp-fact-v{font:var(--type-h3);color:var(--sb-offwhite)}
+.sbp-fact-l{
+  font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
+  color:var(--text-on-inverse-muted);
+}
+
+/* ---------- Home: shared editorial ---------- */
+.sbp-display{font:var(--type-display);max-width:24ch}
+.sbp-display-inverse{color:var(--sb-offwhite)}
+.sbp-aside-note{font:var(--type-p3);color:var(--text-muted)}
+.sbp-body{font:var(--type-p1);color:var(--text-muted);max-width:48ch;margin-top:var(--space-6)}
+.sbp-steps{margin-top:var(--space-12)}
+.sbp-step h3{font:var(--type-h3)}
+.sbp-step-body{font:var(--type-p3);color:var(--text-muted);max-width:48ch}
+
+/* ---------- Home: hooks ---------- */
+.sbp-hooks-h2{margin-top:var(--space-4)}
+.sbp-hook-cell,.sbp-hook{height:100%}
+/* Copy on one side, the offer on the other. The panel is centred against the
+   text block rather than stretched, so a short offer does not become a tall
+   empty box next to three lines of prose. */
+.sbp-opendoor{gap:var(--space-16);align-items:center}
+.sbp-opendoor .sbp-hook-cell,.sbp-opendoor .sbp-hook{height:auto}
+
+/* ---------- Home: photographic band ----------
+   Composition notes live on the section in index.html. */
+.sbp-band{
+  position:relative;min-height:62vh;
+  display:flex;align-items:flex-end;overflow:hidden;
+}
+.sbp-band > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sbp-band-inner{
+  position:relative;z-index:2;
+  max-width:var(--container-max);margin:0 auto;width:100%;
+  padding:var(--space-20) var(--gutter-lg);
+  display:flex;justify-content:flex-end;
+}
+/* WIDTH, not max-width. This is a flex item, so with a max-width alone it
+   shrinks to the balanced text width and the quote's own measure never governs,
+   which stacks the sentence into four short lines. */
+.sbp-band-copy{text-align:right;width:min(720px,100%)}
+/* The measure is in em so it scales WITH the type. A fixed px measure holds two
+   lines at 1280 and then collapses the whole sentence onto one line at 1024,
+   which shoots it across the frame into the unscrimmed bright half. */
+.sbp-band-quote{
+  font:var(--type-quote);font-size:clamp(23px,2.6vw,40px);
+  color:var(--sb-offwhite);
+  margin:0 0 0 auto;width:min(21em,100%);text-wrap:balance;
+}
+.sbp-band-foot{
+  display:flex;align-items:center;justify-content:flex-end;
+  gap:var(--space-5);margin-top:var(--space-8);
+}
+.sbp-band-kicker{
+  font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
+  color:rgba(255,254,246,.72);
+}
+
+/* ---------- Home: the five member benefits ----------
+   Five items in an equal three-up grid leaves a two-item orphan row that reads
+   as unfinished. A six-column base fixes it: the first three span two columns
+   each, the last two span three each, so both rows are full and the emphasis
+   lands on the row of two rather than on a gap.
+   Below the tablet breakpoint it becomes two columns with the fifth spanning
+   both, then one column, and the span rules are reset per breakpoint rather
+   than fought with !important. */
+.sbp-pillars-head{margin-top:var(--space-5)}
+.sbp-pillar-cell{height:100%}
+.sbp-five{
+  display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:var(--space-6);margin-top:var(--space-16);
+}
+.sbp-five > *{grid-column:span 2}
+.sbp-five > *:nth-child(4),
+.sbp-five > *:nth-child(5){grid-column:span 3}
+@media (max-width:980px){
+  .sbp-five{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sbp-five > *{grid-column:span 1}
+  .sbp-five > *:nth-child(4){grid-column:span 1}
+  .sbp-five > *:nth-child(5){grid-column:span 2}
+}
+@media (max-width:820px){
+  .sbp-five{grid-template-columns:minmax(0,1fr)}
+  .sbp-five > *,
+  .sbp-five > *:nth-child(4),
+  .sbp-five > *:nth-child(5){grid-column:span 1}
+}
+/* Khaki, because the aqua in this section is spent on the marker, the kicker
+   and the text link. The glyph is editorial trim. */
+.sbp-pillar-ico{color:var(--sb-sand-400);display:block;margin-bottom:var(--space-5)}
+.sbp-pillar-wash[data-wash="1"]{background:var(--sb-wash-track-1)}
+.sbp-pillar-wash[data-wash="2"]{background:var(--sb-wash-track-2)}
+.sbp-pillar-wash[data-wash="3"]{background:var(--sb-wash-track-3)}
+.sbp-pillar-mark[data-mark="1"]{background:var(--sb-gradient-track-1)}
+.sbp-pillar-mark[data-mark="2"]{background:var(--sb-gradient-track-2)}
+.sbp-pillar-mark[data-mark="3"]{background:var(--sb-gradient-track-3)}
+
+/* ---------- Home: how firms get on the list ---------- */
+.sbp-ivory{background:var(--sb-khaki-100)}
+.sbp-statement{gap:var(--space-24);align-items:center}
+.sbp-statement-h2{margin-top:var(--space-5)}
+
+/* ---------- Interior pages ----------
+   A page that opens on an editorial field rather than a dark hero: the header
+   sits in a band above the content, so there is no negative pull-up and the h1
+   is display size rather than hero size. */
+.sbp-page-h1{font:var(--type-display);max-width:22ch}
+.sbp-page-lede{margin-top:var(--space-6);max-width:64ch}
+.sbp-advisor-h2{font:var(--type-h2);margin-top:var(--space-12)}
+.sbp-advisor-action{margin-top:var(--space-10)}
+.sbp-advisor-foot{
+  font:var(--type-small);color:var(--text-muted);
+  margin-top:var(--space-8);max-width:60ch;
+}
+
+/* ---------- Home: the partner-ecosystem diagram ----------
+   Ported from the business-owner LP's nucleus diagram and re-drawn on this
+   palette: the original used the parent brand's brass ramp, which does not
+   exist here. Everything is one inline SVG with a viewBox, so it scales as a
+   unit rather than needing a breakpoint per label. */
+.sbp-eco{position:relative}
+.sbp-eco-svg{width:100%;height:auto;display:block;overflow:visible}
+/* Aqua carries the structure here, not titanium. Drawn in the neutral hairline
+   the rings all but vanished on an ivory field and the whole diagram read as
+   the parent firm's palette. Aqua is also the honest colour for it: these lines
+   are the connections, which is the interactive idea in this brand. */
+.sbp-eco-ring{fill:none;stroke:var(--sb-aqua-500);stroke-opacity:.30;stroke-dasharray:2 7}
+.sbp-eco-ring[data-solid="1"]{stroke-opacity:.46;stroke-dasharray:none}
+.sbp-eco-lines line{stroke:var(--sb-aqua-500);stroke-opacity:.58;stroke-dasharray:3 6;stroke-width:1.5}
+/* Fill comes from the sunrise gradient in the SVG's own defs. */
+.sbp-eco-core{fill:var(--sb-aqua-800)}
+.sbp-eco-core-name{
+  font-family:var(--font-display);font-size:30px;fill:var(--sb-offwhite);
+  text-anchor:middle;
+}
+.sbp-eco-core-role{
+  font-family:var(--font-sans);font-size:13px;font-weight:var(--weight-medium);
+  letter-spacing:.16em;text-transform:uppercase;
+  /* The system's own on-dark muted value is .6, which is documented as fine at
+     18px and above. This is 13px over an aqua ground, so it steps up to the
+     .82 body value instead. */
+  fill:rgba(255,254,246,.82);text-anchor:middle;
+}
+/* White rather than off-white: the pills sit on the ivory field, and they have
+   to lift off it. The keyline is aqua so the nodes belong to the same drawing
+   as the lines reaching them. */
+.sbp-eco-node rect{fill:var(--sb-light-000);stroke:var(--sb-aqua-300)}
+.sbp-eco-node text{
+  font-family:var(--font-sans);font-size:19px;fill:var(--text-body);
+  text-anchor:middle;dominant-baseline:middle;
+}
+/* Scaled to a phone the SVG labels land well under the 16px floor, and body
+   copy in this system never shrinks. Below the tablet width the diagram is
+   replaced by the same six disciplines as tags. */
+.sbp-eco-list{display:none;flex-wrap:wrap;gap:var(--space-3)}
+@media (max-width:820px){
+  .sbp-eco-svg{display:none}
+  .sbp-eco-list{display:flex}
+}
+
+/* ---------- The directory sample ----------
+   GFOC's own directory, read off the live site, is logo-led: the firm's mark is
+   the primary identifier and the prose sits under it. Home reserves that real
+   estate per category and holds the marks with plates; the per-firm blocks
+   belong on /directory/, which is the screen that gets the full treatment.
+
+   No ratings and no stars anywhere in here. The brief's post-engagement
+   scorecard is a real mechanic, but a score displayed against a named firm on a
+   public page is an endorsement, and endorsements are the thing an SEC-
+   registered adviser cannot hand out casually. */
+.sbp-directory{margin-top:var(--space-20)}
+.sbp-directory-head{margin-top:var(--space-12)}
+.sbp-directory-h3{font:var(--type-h2);margin-top:var(--space-4);max-width:28ch}
+.sbp-dircats{margin-top:var(--space-10);gap:var(--space-6)}
+.sbp-dircat-cell{height:100%}
+.sbp-dircat{
+  display:flex;flex-direction:column;height:100%;box-sizing:border-box;
+  padding:var(--space-8);
+  background:var(--surface-card);
+  border:1px solid var(--border-hairline);border-radius:var(--radius-md);
+}
+.sbp-dircat-name{font:var(--type-h3);color:var(--text-display)}
+.sbp-dircat-blurb{font:var(--type-p3);color:var(--text-muted);margin-top:var(--space-4);max-width:44ch}
+
+/* The reserved logo real estate. Deliberately unmistakable as a placeholder:
+   a client reading this must not think these are firms that have signed. */
+/* Always three columns, never auto-fit. With auto-fit a two-firm category
+   divides the row between two plates instead of three, so its marks render
+   larger than the three-firm categories beside them and the cards stop
+   matching. The empty third slot is honest anyway: this is a sample roster. */
+.sbp-logos{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:var(--space-4);margin:var(--space-6) 0 auto;
+}
+.sbp-logo-plate{
+  display:grid;place-items:center;aspect-ratio:16/7;
+  background:var(--surface-sunken);
+  border:1px dashed var(--border-strong);border-radius:var(--radius-sm);
+  font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
+  color:var(--text-subtle);
+}
+.sbp-dircat-foot{
+  display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap;
+  margin-top:var(--space-6);padding-top:var(--space-5);
+  border-top:1px solid var(--border-hairline);
+  font:var(--type-small);color:var(--text-muted);
+}
+.sbp-dot{width:3px;height:3px;border-radius:var(--radius-pill);background:var(--sb-aqua-500);flex:none}
+.sbp-directory-note{font:var(--type-small);color:var(--text-subtle);margin-top:var(--space-6)}
+
+/* ---------- The advisor path ----------
+   A strip, not a section. It has to be findable and it must not read as a
+   second audience on an owner-facing homepage. */
+.sbp-advisor{
+  padding:var(--space-10) var(--gutter-lg);
+  border-top:1px solid var(--border-hairline);
+}
+.sbp-advisor-inner{
+  max-width:var(--container-max);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:var(--space-8);flex-wrap:wrap;
+}
+.sbp-advisor-note{font:var(--type-p3);color:var(--text-muted);max-width:62ch;margin-top:var(--space-4)}
+
+/* ---------- Home: briefings ---------- */
+.sbp-briefings-h2{margin-top:var(--space-4)}
+.sbp-briefings{margin-top:var(--space-12)}
+.sbp-card-cell{height:100%}
+.sb-card h3{line-height:1.24}
+.sbp-card-body-text{font:var(--type-body-sm);color:var(--text-muted)}
+
+/* ---------- Home: closing field ---------- */
+.sbp-closing{
+  background:var(--sb-gradient-base);
+  padding:var(--section-y) var(--gutter-lg);
+  position:relative;overflow:hidden;
+}
+/* Sunburst.jsx sets this pair inline for the bloom variant; the markup here
+   carries no inline styles, so it is declared once. */
+.sbp-closing .sb-sun[data-variant="bloom"]{position:absolute;inset:0}
+.sbp-closing-inner{
+  position:relative;z-index:3;max-width:900px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;
+  gap:var(--space-6);text-align:center;
+}
+.sbp-closing-h2{max-width:22ch}
+.sbp-closing-sub{
+  font:var(--type-subtitle);letter-spacing:var(--tracking-sub);
+  color:var(--text-on-inverse-muted);max-width:52ch;
+}
+.sbp-closing-actions{margin-top:var(--space-4);justify-content:center}
+
+/* ---------- Footer layout ---------- */
+.sbp-footer-top{max-width:var(--container-max);margin:0 auto}
+.sbp-footer-brand{display:flex;flex-direction:column;gap:var(--space-5)}
+.sbp-footer-brand .sbp-footer-note{max-width:28ch}
+.sbp-footer-col{display:flex;flex-direction:column;gap:var(--space-3)}
+.sbp-footer-bottom-wrap{max-width:var(--container-max);margin:var(--space-16) auto 0}
+
+/* ---------- Toast ----------
+   Every link in this prototype resolves. The ones that would resolve into
+   unbuilt product carry data-stub and land here instead, so a click is always
+   answered and never 404s. */
+.sbp-toast{
+  position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(12px);
+  z-index:80;max-width:min(520px,calc(100vw - 32px));
+  display:flex;align-items:center;gap:var(--space-4);
+  padding:var(--space-4) var(--space-6);
+  background:var(--sb-titanium-900);color:var(--sb-offwhite);
+  border:1px solid rgba(255,254,246,.16);border-radius:var(--radius-md);
+  box-shadow:var(--shadow-lg);
+  font:var(--type-p3);
+  opacity:0;pointer-events:none;
+  transition:opacity var(--dur-base) var(--ease-out-quart),transform var(--dur-base) var(--ease-out-expo);
+}
+.sbp-toast[data-open="1"]{opacity:1;transform:translateX(-50%) translateY(0)}
+.sbp-toast .sb-ico{color:var(--sb-aqua-400);flex:none}
+
+/* ---------- 404 ---------- */
+.sbp-404{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  padding:var(--section-y) var(--gutter-lg);
+  background:var(--sb-gradient-dawn);
+}
+.sbp-404-inner{max-width:var(--container-narrow);margin:0 auto;width:100%}
+.sbp-index{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:var(--space-3);margin-top:var(--space-8);
+}
+.sbp-index a{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);
+  padding:var(--space-4) var(--space-5);
+  border:1px solid var(--border-hairline);border-radius:var(--radius-button);
+  color:var(--sb-offwhite);border-bottom-color:var(--border-hairline);
+  font:var(--type-p3);
+  transition:var(--transition-hover);
+}
+.sbp-index a:hover{background:rgba(255,254,246,.08);border-color:var(--sb-aqua-400)}
+.sbp-index a .sb-ico{color:var(--sb-aqua-400)}
+/* .sb-logo is inline-flex, so a margin-bottom alone leaves the kicker running
+   on the same line beside it. */
+.sbp-404-logo{display:flex;width:fit-content;margin-bottom:var(--space-16)}
+.sbp-404-kick{color:var(--text-on-inverse-muted)}
+.sbp-404-h1{font:var(--type-display);color:var(--sb-offwhite);margin-top:var(--space-5);max-width:20ch}
+.sbp-404-sub{
+  font:var(--type-subtitle);letter-spacing:var(--tracking-sub);
+  color:var(--text-on-inverse-muted);margin-top:var(--space-5);
+}

@@ -1,0 +1,23 @@
+/* Sandro Business prototype — single stylesheet entry point.
+
+   Mirrors design-system/styles.css import-for-import and in the same order, with
+   two deliberate differences:
+     - fonts.css is OURS (self-hosted), not the system's Google Fonts CDN link.
+     - icons.css is a 22-glyph subset standing in for the 4.6 MB icon-data.js.
+   Everything else in tokens/ and components/components.css is the ported system,
+   verbatim. Do not re-derive a value here; change it in the design system and
+   re-port. */
+
+@import url('fonts.css');
+@import url('figma/fig-tokens.css');
+@import url('figma/fig-typography.css');
+@import url('colors.css');
+@import url('typography.css');
+@import url('spacing.css');
+@import url('elevation.css');
+@import url('motion.css');
+@import url('semantic.css');
+@import url('base.css');
+@import url('responsive.css');
+@import url('components.css');
+@import url('icons.css');
