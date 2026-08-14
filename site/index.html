@@ -212,13 +212,18 @@
 
 
 <!-- ========================= PHOTOGRAPHIC BAND =========================
-     The photograph decides the composition. Its subject, the SandroWealth
-     logo on bright stone, sits on the LEFT at luminance ~173 against ~65 for
-     the glass on the right, so the quote goes right, over the naturally dark
-     side, with --scrim-right darkening only past halfway. Left-aligned type
-     here would have needed a scrim heavy enough to flood the logo, which is
-     the thing the photograph is for.
-     PLACEHOLDER: production photography is still outstanding.
+     The signage photograph was replaced on 2026-08-13: the client read it as
+     too foreboding. Its successor is the opposite problem. The signage shot
+     was dark on the right, which is why the quote sat there over a
+     --scrim-right that only darkened past halfway. This one is a bright
+     cloudscape over a city, and its luminance runs top to bottom rather than
+     left to right, so that composition logic does not transfer.
+
+     Hence --scrim-bottom, overridden in app.css. It is fully transparent at
+     the top and ramps up toward the floor, so the sky, which is the entire
+     reason for the new image, is untouched, and only the strip of city under
+     the quote gets a ground. A flat overlay would have bought the same
+     legibility by throwing away the photograph.
 
      The copy is the client's own, lifted from sandrowealth.com/business-owner
      rather than written here. "The difference between a good deal and a great
@@ -235,7 +240,7 @@
      The source renders that sentence with an em dash. Rewritten as two
      sentences here: no em dashes in client-facing copy. -->
 <section class="sb-band sbp-band">
-  <img src="/assets/img/sandro-signage.jpg" alt="The Sandro Wealth Management entrance">
+  <img src="/assets/img/manhattan-skyline.jpg" alt="A city skyline seen from above under a broad, open cloudscape">
   <div class="sb-band-scrim"></div>
   <div class="sb-band-inner sbp-band-inner">
     <div class="sbp-band-copy">

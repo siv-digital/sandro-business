@@ -306,6 +306,13 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   display:flex;align-items:flex-end;overflow:hidden;
 }
 .sbp-band > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* The system's Band ships --scrim-right, which suited the signage photograph
+   because that image was dark down its right side. The replacement runs bright
+   at the top and dark at the bottom instead, so the scrim has to turn ninety
+   degrees with it. --scrim-bottom is a system token, not a tuned value: it is
+   transparent at 0% and ramps to .94 at the floor, which leaves the sky
+   completely alone and grounds only the strip the quote sits on. */
+.sbp-band .sb-band-scrim{background:var(--scrim-bottom)}
 .sbp-band-inner{
   position:relative;z-index:2;
   max-width:var(--container-max);margin:0 auto;width:100%;
