@@ -1,9 +1,12 @@
 # Sandro Business — project context
 
-This repo contains the **Sandro Business design system** and a **marketing-site design reference**.
+This repo contains the **deployed community-platform prototype** (`site/`, served at
+`sandro-business-prototype.onrender.com`), the **Sandro Business design system** it is built on,
+and a **marketing-site design reference**.
 Read `design-system/readme.md` in full before writing any UI. It is the source of truth for
 colour, type, spacing, motion, interaction states, accessibility and copy voice, and it records
-several traps that have already cost cycles here.
+several traps that have already cost cycles here. Deploy mechanics, build state and the working
+trap list live in `README.md`.
 
 > **Skin note (2026-08-13):** the prototype in `site/` currently wears the **Sandro Wealth
 > parent palette** via `html[data-skin="wealth"]` overrides in `site/assets/skins.css` (CEO
@@ -16,6 +19,9 @@ several traps that have already cost cycles here.
 
 | Path | What it is |
 |---|---|
+| `site/` | The deployed prototype — the only folder in the publish path. Its `assets/ds/` is the design system ported verbatim plus two files of ours (`fonts.css`, `icons.css`); `assets/app.css`/`app.js` are the `.sbp-`-prefixed prototype layer. |
+| `qa/` | Per-page QA sweep (`qa.js`), screenshot helper (`shot.js`), icon-subset generator (`genIcon.js`). Shots land in `qa/shots/` (gitignored). |
+| `render.yaml` | The Render Blueprint. Deploy mechanics and traps in its header comments and `README.md`. |
 | `design-system/readme.md` | The complete system documentation. Read first. |
 | `design-system/SKILL.md` | Front-matter skill definition — usable as a Claude Code skill (see below). |
 | `design-system/styles.css` | Single CSS entry point. `@import` list only. |
@@ -24,7 +30,7 @@ several traps that have already cost cycles here.
 | `design-system/assets/` | Logo lockups (SVG + PNG), the sunburst illustration (vector), photography. |
 | `design-system/_ds_bundle.js` | Prebuilt bundle exposing every component on `window.SandroBusinessDesignSystem_06f5c8`. Used only by the HTML references. |
 | `marketing-site/` | The design reference: `index.html` shell + `Home.jsx`, `Journey.jsx`, `Tracks.jsx`, `Assessment.jsx`, `photos.js`. Open `marketing-site/index.html` in a browser to see the intended design. |
-| `reference/_notes/` | Extracted text of the two client source documents (Business Owner Journey playbook v2, business owner personas). All site copy derives from these. |
+| `reference/_notes/` | Extracted text of the three client source documents (Business Owner Journey playbook v2, business owner personas, the SandroBusiness community draft v1). All site copy derives from these. |
 
 ## What these files are
 
