@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en" data-skin="wealth" data-sb-signed-in="0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Insights · Sandro Business</title>
+<meta name="description" content="The Sandro Business library: guides, case studies and webinar recordings across the four inflection points of an owner's exit.">
+<link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
+<link rel="stylesheet" href="/assets/ds/styles.css?v=2">
+<link rel="stylesheet" href="/assets/app.css?v=35">
+<link rel="stylesheet" href="/assets/skins.css?v=3">
+</head>
+<body>
+
+<!-- ========================== INSIGHTS LIBRARY ==========================
+     The full library behind the dashboard's four-card sample. Same console
+     shell as the roadmap; the rail is identical except that Insights carries
+     the marker and Roadmap is a plain link.
+
+     THE ROSTER IS THE CLIENT DOC'S §5, not a guess: 8 flagship guides mapped
+     to the four inflection points (value acceleration, capital and growth,
+     M&A, estate and wealth), 3 anonymized case studies including the redacted
+     valuation snapshot and the redacted estate structure, plus the webinar
+     recordings. Titles already shown on the homepage and the dashboard appear
+     here under the SAME title, because a member will see both screens.
+
+     Filters are by FORMAT, topics stay as each card's kicker (locked 8/13),
+     and "All" on this grid means all: data-filter-full opts out of the home
+     page's featured-only curation. The podcast filter shows the feature panel
+     instead of the grid, because nothing is recorded and three invented
+     episodes would read as a back catalogue with the covers missing.
+
+     THUMBNAILS ARE DESIGNED PLATES, not photographs (Travis, 8/14): format
+     mark over a quiet ray fan, presentation driven entirely by data-format
+     and data-access. Real cover art later replaces the plate with a plain
+     .sb-card-media img. The minutes figure on every card is placeholder
+     editorial like the titles around it, format-aware on purpose: a guide is
+     read, a webinar is watched, an episode is listened to. -->
+<div class="sbp-console">
+
+  <div class="sbp-rail-col">
+  <aside class="sb-rail sb-dark">
+    <div class="sb-rail-brand">
+      <a class="sb-logo sbp-logo" href="/" aria-label="SandroBusiness, home">
+        <img src="/assets/img/sandro-symbol-ivory.png" alt="">
+        <span class="sb-logo-word sbp-rail-word">SandroBusiness</span>
+      </a>
+    </div>
+
+    <nav class="sb-rail-nav" aria-label="Members area">
+      <a class="sb-rail-link" href="/members/">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="Route" aria-hidden="true"></span>
+        <span>Roadmap</span>
+      </a>
+      <a class="sb-rail-link" href="/members/insights.html" data-active="1" aria-current="page">
+        <span class="sb-rail-marker" aria-hidden="true"></span>
+        <span class="sb-ico sbp-rail-link-ico" data-ico="FileCheck02" aria-hidden="true"></span>
+        <span>Insights</span>
+      </a>
+      <a class="sb-rail-link" href="/members/requests.html"
+         data-stub="Every request you&rsquo;ve made, with its full history.">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="MessageTextSquare01" aria-hidden="true"></span>
+        <span>Requests</span>
+      </a>
+      <a class="sb-rail-link" href="/directory/">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="Building02" aria-hidden="true"></span>
+        <span>Directory</span>
+      </a>
+      <a class="sb-rail-link" href="/members/diagnostics.html"
+         data-stub="Run the readiness assessment again whenever something changes.">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="ClipboardCheck" aria-hidden="true"></span>
+        <span>Diagnostics</span>
+      </a>
+      <a class="sb-rail-link" href="/members/events.html"
+         data-stub="Forums, chapter dinners and closed sessions.">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="CalendarCheck01" aria-hidden="true"></span>
+        <span>Events</span>
+      </a>
+    </nav>
+
+    <div class="sb-rail-foot">
+      <div>
+        <div class="sbp-rail-label">Your consultant</div>
+        <a class="sbp-rail-consultant" href="/members/consultant.html"
+           data-stub="Your consultant&rsquo;s page, with everything you&rsquo;ve discussed and what&rsquo;s booked next.">
+          <img class="sbp-rail-photo" src="/assets/img/alok-gupta.jpg?v=1" alt="" width="512" height="512">
+          <span>
+            <span class="sbp-rail-consultant-name" data-session-field="consultant.name">Alok Gupta</span>
+            <span class="sbp-rail-consultant-role" data-session-field="consultant.role">Senior partner</span>
+          </span>
+        </a>
+      </div>
+      <div class="sbp-rail-sep" aria-hidden="true"></div>
+      <a class="sb-rail-link" href="/" data-session-action="signout" data-session-to="/">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="LogOut01" aria-hidden="true"></span>
+        <span>Sign out</span>
+      </a>
+    </div>
+  </aside>
+  </div>
+
+  <main class="sbp-mmain">
+    <div class="sbp-mwrap">
+
+      <div class="sb-kick"><span class="sb-kick-dash"></span><span>Insights</span></div>
+      <h1 class="sbp-lib-title">Everything we&rsquo;ve published, in one place.</h1>
+      <p class="sbp-lib-lede">
+        The guides and webinar recordings are open to any owner. The case studies,
+        drawn from finished engagements with the identifying detail removed, are
+        part of your membership.
+      </p>
+
+      <div class="sbp-filters" role="group" aria-label="Filter insights by format">
+        <button type="button" class="sb-tag" data-clickable="1" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="sb-tag" data-clickable="1" data-filter="guide" aria-pressed="false">Guides</button>
+        <button type="button" class="sb-tag" data-clickable="1" data-filter="case" aria-pressed="false">Case studies</button>
+        <button type="button" class="sb-tag" data-clickable="1" data-filter="webinar" aria-pressed="false">Webinars</button>
+        <button type="button" class="sb-tag" data-clickable="1" data-filter="podcast" aria-pressed="false">Podcast</button>
+      </div>
+
+      <div class="sb-cols sbp-lib" data-cols="3" data-filter-grid data-filter-full>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-media="guide" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <h3>The levers that move earnings and multiples</h3>
+              <p class="sbp-card-body-text">Which parts of the business a buyer prices up, and which ones get discounted.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>9 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="case" data-access="member" data-format="case-study">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="Members-only. The full case study opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="Scales02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <h3>A redacted valuation snapshot</h3>
+              <p class="sbp-card-body-text">The valuation and gap analysis from a finished engagement, with the identifying detail removed.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Case study</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>12 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="webinar" data-access="free" data-format="webinar">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The recording plays here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="PlayCircle" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Capital and growth</span></div>
+              <h3>Your building is part of the deal</h3>
+              <p class="sbp-card-body-text">What happens to the real estate when the operating business sells.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Webinar</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>52 min watch</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-media="guide" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>M&amp;A</span></div>
+              <h3>What a letter of intent actually locks in</h3>
+              <p class="sbp-card-body-text">The terms that stop being negotiable the day you sign one.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>7 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="guide" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Estate and wealth</span></div>
+              <h3>The work that only counts if it is early</h3>
+              <p class="sbp-card-body-text">Why the tax and estate structures have to exist before a buyer names a number.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>8 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="case" data-access="member" data-format="case-study">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="Members-only. The full case study opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="Scales02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Estate and wealth</span></div>
+              <h3>A redacted estate structure</h3>
+              <p class="sbp-card-body-text">The gifting and trust structure behind a sale, stripped of anything that identifies the owner.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Case study</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>14 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-media="webinar" data-access="free" data-format="webinar">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The recording plays here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="PlayCircle" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>M&amp;A</span></div>
+              <h3>Reading an offer past the headline number</h3>
+              <p class="sbp-card-body-text">Earnouts, escrow and working capital, and where the value actually lands.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Webinar</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>47 min watch</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="guide" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <h3>What a buyer marks down</h3>
+              <p class="sbp-card-body-text">How much of the company runs without you, and what that costs at close.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>6 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="guide" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Estate and wealth</span></div>
+              <h3>The number the sale has to clear</h3>
+              <p class="sbp-card-body-text">What the proceeds have to fund, for how long, and the gap most owners find late.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>8 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-media="case" data-access="member" data-format="case-study">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="Members-only. The full case study opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="Scales02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>M&amp;A</span></div>
+              <h3>A letter of intent, read clause by clause</h3>
+              <p class="sbp-card-body-text">What each term commits you to, on a real deal with the identifying details removed.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Case study</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>15 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="guide" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Capital and growth</span></div>
+              <h3>Borrowing against a business you plan to sell</h3>
+              <p class="sbp-card-body-text">What a lender looks at, and why a buyer will look at the same thing.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>7 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="webinar" data-access="free" data-format="webinar">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The recording plays here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="PlayCircle" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <h3>The year before you go to market</h3>
+              <p class="sbp-card-body-text">What to fix while there is still time for the fix to count.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Webinar</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>58 min watch</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-media="guide" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Capital and growth</span></div>
+              <h3>Taking on capital without losing the company</h3>
+              <p class="sbp-card-body-text">What growth capital costs in control, and the terms that decide it.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>9 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="guide" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sbp-plate" aria-hidden="true">
+              <span class="sbp-rays"></span>
+              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>M&amp;A</span></div>
+              <h3>Four kinds of buyer, and what each one pays for</h3>
+              <p class="sbp-card-body-text">Strategic, financial, family office and search fund, and how each prices the same company.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>10 min read</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- The podcast filter shows this INSTEAD of the grid, same contract as
+           the homepage: nothing is recorded and a title was never invented, so
+           one honest panel beats three fabricated episodes. No CTA here, unlike
+           home: a member is already on the list, so the panel says so rather
+           than asking for an address it has. -->
+      <div class="sbp-podcast" data-media="podcast">
+        <div class="sbp-podcast-mark" aria-hidden="true">
+          <span class="sb-ico" data-ico="Podcast" data-size="lg"></span>
+        </div>
+        <div class="sbp-podcast-copy">
+          <div class="sb-kick"><span class="sb-kick-dash"></span><span>In development</span></div>
+          <h3 class="sbp-podcast-h3">A podcast, built around the owners rather than the firm.</h3>
+          <p class="sbp-podcast-body">
+            Conversations with business owners about the decisions that shaped what
+            came next, and what they would do differently. Nothing is recorded yet.
+            Episode one lands here first, and you&rsquo;ll get it in your inbox.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Same soft gate as every members screen: the real content renders behind a
+     blur rather than a redirect, because the thing behind the glass is the
+     argument for the build. Sibling of the console so the blur cannot reach it. -->
+<div class="sbp-gate" data-when="out">
+  <div class="sbp-gate-card">
+    <span class="sbp-avatar" data-size="lg" data-on="light" aria-hidden="true"
+          data-session-field="member.initials">RH</span>
+    <h1 class="sbp-gate-h1">The members area is behind a login.</h1>
+    <p class="sbp-gate-body">
+      This is a demonstration account for <span data-session-field="member.name">Ray Halloran</span>,
+      an owner on the Ready to Sell track. Sign in to see the members area the way he
+      would.
+    </p>
+    <div class="sbp-gate-actions">
+      <button type="button" class="sb-btn" data-v="accent" data-size="lg"
+              data-session-action="signin">
+        <span>Sign in as <span data-session-field="member.first">Ray</span></span>
+      </button>
+      <a class="sb-btn" data-v="secondary" data-size="lg" href="/members/sign-in.html">
+        Go to the sign-in screen
+      </a>
+    </div>
+    <p class="sbp-gate-foot">No real member account exists behind this prototype.</p>
+  </div>
+</div>
+
+<script src="/assets/app.js?v=15"></script>
+</body>
+</html>

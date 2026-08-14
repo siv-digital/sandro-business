@@ -373,6 +373,10 @@
 
     var cells = grid.querySelectorAll('[data-media]');
 
+    /* Home curates "All" down to the featured cards; the members library IS
+       the full list, so its grid opts out with data-filter-full. */
+    var full = grid.hasAttribute('data-filter-full');
+
     function apply(which) {
       /* The podcast has no episodes, so its filter shows the panel INSTEAD of
          the grid rather than an empty three-up. */
@@ -382,7 +386,7 @@
 
       Array.prototype.forEach.call(cells, function (cell) {
         var show = which === 'all'
-          ? cell.hasAttribute('data-featured')
+          ? (full || cell.hasAttribute('data-featured'))
           : cell.getAttribute('data-media') === which;
         cell.toggleAttribute('data-off', !show);
 

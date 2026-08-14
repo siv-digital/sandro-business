@@ -20,4 +20,7 @@
 @import url('base.css');
 @import url('responsive.css');
 @import url('components.css');
-@import url('icons.css');
+/* ?v= is load-bearing, same rule as app.css: icons.css is ours and grows a
+   glyph when a screen needs one, and a stale cached copy paints the new glyph
+   as a solid unmasked box. Bump it whenever icons.css changes. */
+@import url('icons.css?v=2');

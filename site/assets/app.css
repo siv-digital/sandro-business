@@ -1360,3 +1360,59 @@ html[data-sb-request="introduced"] .sbp-req-state[data-state="introduced"]{displ
   font:var(--type-subtitle);letter-spacing:var(--tracking-sub);
   color:var(--text-on-inverse-muted);margin-top:var(--space-5);
 }
+
+/* ---------- Members: the insights library ----------
+   The gallery behind /members/insights.html. Every thumbnail is a DESIGNED
+   PLATE rather than a photograph (Travis, 8/14): three 439x597 brand-book
+   crops cycling across fourteen cards would visibly repeat, and the dashboard
+   Insights block already skipped them for the same reason. The plate is the
+   format's mark over a quiet ray fan, so a card's whole presentation still
+   comes from the two attributes a CMS can set (data-format + data-access).
+   Real cover art or photography later replaces .sbp-plate with a plain
+   .sb-card-media <img> and none of this fights it. */
+.sbp-lib-title{font:var(--type-h2);margin-top:var(--space-4)}
+.sbp-lib-lede{font:var(--type-p3);color:var(--text-muted);margin-top:var(--space-4);max-width:64ch}
+.sbp-lib{margin-top:var(--space-8)}
+/* The body must flex so .sbp-ins-foot's margin-top:auto pins every foot row to
+   the card's bottom edge whatever the title and blurb do above it (Travis,
+   8/14: the metadata has to sit at one height across a row). Same pair of
+   rules the dashboard grid carries on .sbp-ins. */
+.sbp-lib .sb-card-body{flex:1}
+.sbp-lib .sb-card h3{text-wrap:balance}
+
+.sbp-plate{
+  position:relative;overflow:hidden;aspect-ratio:16/10;
+  display:grid;place-items:center;
+  background:var(--surface-sunken);color:var(--text-warm);
+  border-bottom:1px solid var(--border-hairline);
+}
+/* The fan reuses the hero's vector mask at a whisper. It peeks from the bottom
+   edge the way every brand field composes it, and it must NOT inherit the
+   heroes' ambient drift: fourteen infinite animations on one grid is a cost
+   with no reader. currentColor ties it to the plate's own ink. */
+.sbp-plate .sbp-rays{left:26%;bottom:-64%;width:48%;--ray-color:currentColor;opacity:.16}
+html[data-sb-motion="1"] .sbp-plate .sbp-rays{animation:none}
+.sbp-plate-mark{
+  position:relative;z-index:1;
+  width:64px;height:64px;display:grid;place-items:center;
+  border-radius:var(--radius-sm);
+  background:var(--surface-card);color:var(--text-warm);
+  border:1px solid var(--border-hairline);
+}
+/* Webinars sit on the warm editorial ground with the khaki ink the media tag
+   already uses; brass under the wealth skin, khaki in the aqua system. */
+.sbp-card-cell[data-format="webinar"] .sbp-plate{background:var(--surface-warm-soft);color:var(--sb-khaki-700)}
+/* Case studies are the members tier and the heavier artifact: the one dark
+   plate, ivory fan, solid mark. Same weight logic as the dashboard's solid
+   .sbp-fmt-mark, extended to the plate. */
+.sbp-card-cell[data-format="case-study"] .sbp-plate{background:var(--sb-titanium);color:var(--sbp-dark-body);border-bottom-color:transparent}
+.sbp-card-cell[data-format="case-study"] .sbp-plate .sbp-rays{opacity:.2}
+.sbp-card-cell[data-format="case-study"] .sbp-plate-mark{background:var(--sb-offwhite);color:var(--sb-titanium);border-color:transparent}
+
+/* Format and minutes read as one metadata phrase on the left; the Members
+   badge keeps the right edge, exactly like the dashboard foot row. */
+.sbp-lib-meta{display:flex;align-items:center;gap:var(--space-4);min-width:0}
+.sbp-time{
+  display:inline-flex;align-items:center;gap:var(--space-2);
+  font:var(--type-small);color:var(--text-muted);white-space:nowrap;
+}
