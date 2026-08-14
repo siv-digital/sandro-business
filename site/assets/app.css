@@ -1076,11 +1076,11 @@ html[data-sb-request="submitted"] .sbp-req-state[data-state="submitted"],
 html[data-sb-request="matched"] .sbp-req-state[data-state="matched"],
 html[data-sb-request="introduced"] .sbp-req-state[data-state="introduced"]{display:block}
 
-/* The matched shortlist. Firms are described, never named, and their marks are
-   the same dashed placeholder plate the homepage directory sample uses: a
-   named firm on a members screen reads as a firm that has signed, and none
-   have. No ratings and no stars, for the same reason they are absent from the
-   homepage. */
+/* The matched shortlist. Naming rule, second scoped amendment (Travis, 8/14):
+   a request card may carry a SIGNED firm's real mark (solid plate, roster and
+   logos from /directory/) so the member can see who the upcoming introduction
+   might be. A dashed plate still means unsigned/pending, described rather than
+   named. No ratings and no stars, same as the homepage and the directory. */
 .sbp-shortlist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5);margin-top:var(--space-6)}
 .sbp-firm{
   display:flex;flex-direction:column;height:100%;box-sizing:border-box;

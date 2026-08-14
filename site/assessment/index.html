@@ -156,10 +156,19 @@
     /* ============ MAST + PROGRESS ============ */
     .mast { border-bottom: 1px solid var(--ink-08); background: var(--offwhite); }
     .mast-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .logo { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); }
+    .logo { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); min-height: 44px; }
     .logo svg.mark { width: 26px; height: 26px; display: block; }
     .logo .wordmark { font-family: var(--serif); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; line-height: 1; }
     .mast-right { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-50); }
+    /* The exit is always available: the flow must never read as a corridor with
+       no door (Travis, 8/14). Present on every screen because the mast is.
+       The 44px minimum is the touch target; the underline stays on the spans
+       so the visual weight doesn't grow with the hit area. */
+    .mast-exit { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-80); text-decoration: none; transition: color .25s; }
+    .mast-exit > span { border-bottom: 1px solid var(--ink-30); padding-bottom: 4px; transition: border-color .25s; }
+    .mast-exit:hover { color: var(--ink); }
+    .mast-exit:hover > span { border-bottom-color: var(--ink); }
+    .mast-exit .mx-short { display: none; }
     .progress { height: 2px; background: var(--ink-08); }
     .progress-fill { height: 100%; width: 0%; background: var(--signal); transition: width .35s ease; }
 
@@ -411,7 +420,8 @@
     @media (max-width: 640px) {
       :root { --gutter: 20px; }
       section[data-screen] { padding: 40px 0 56px; }
-      .mast-right { display: none; }
+      .mast-exit .mx-full { display: none; }
+      .mast-exit .mx-short { display: inline; }
       .kbd-hint { display: none; }
       .opt { padding: 16px 16px; grid-template-columns: 28px 1fr; gap: 12px; font-size: 15px; }
       .opt .k { width: 24px; height: 24px; font-size: 11px; }
@@ -509,7 +519,10 @@
       <svg class="mark" aria-hidden="true"><use href="#sunburst"/></svg>
       <span class="wordmark">SandroBusiness</span>
     </a>
-    <span class="mast-right">The Business Owner Journey</span>
+    <a class="mast-right mast-exit" href="/">
+      <span class="mx-full">Exit to the homepage</span>
+      <span class="mx-short">Exit</span>
+    </a>
   </div>
 </header>
 <div class="progress" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
