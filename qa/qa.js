@@ -14,6 +14,19 @@ const { chromium } = require('playwright');
 
 const url = process.argv[2] || 'http://localhost:4331/';
 const prefix = process.argv[3] || 'qa';
+
+/* Members screens open on the soft gate, which blurs the console behind a card.
+   QA'd in that state a members page reports one card and no content, so
+   SB_SIGNED_IN=1 seeds the demo session into localStorage BEFORE the page runs.
+   addInitScript, not an evaluate after goto: app.js reads the session during
+   boot, and seeding afterwards would measure a page that painted signed out.
+   The shape must stay in step with DEFAULT_SESSION in assets/app.js. */
+const SEED_SIGNED_IN = process.env.SB_SIGNED_IN === '1';
+const seed = page => SEED_SIGNED_IN
+  ? page.addInitScript(() => {
+      try { localStorage.setItem('sb.demo.v1', JSON.stringify({ signedIn: true })); } catch (e) {}
+    })
+  : Promise.resolve();
 const WIDTHS = [
   [1440, 900, 'desktop'],
   [1280, 800, 'laptop'],
@@ -28,6 +41,7 @@ const WIDTHS = [
 
   for (const [w, h, name] of WIDTHS) {
     const page = await browser.newPage({ viewport: { width: w, height: h }, deviceScaleFactor: 2 });
+    await seed(page);
     const errors = [];
     page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
     page.on('pageerror', e => errors.push('pageerror: ' + e));
@@ -76,11 +90,22 @@ const WIDTHS = [
             .map(e => e.tagName.toLowerCase() + ' "' + (e.textContent || '').trim().slice(0, 24) + '" h=' + Math.round(e.getBoundingClientRect().height))
         : [];
 
+      /* An image that responds 200 but fails to DECODE clears every other check
+         here: no console error, no failed request, no layout problem. A broken
+         SVG paints Chrome's broken-image glyph and looks like a missing file.
+         naturalWidth === 0 on a complete image is the only reliable tell.
+         (Found 2026-08-14: a double hyphen inside an XML comment made an SVG
+         avatar unparseable, and this sweep reported the page clean.) */
+      const brokenImages = [...document.querySelectorAll('img')]
+        .filter(i => i.complete && i.naturalWidth === 0)
+        .map(i => i.getAttribute('src'));
+
       const usedSerif = getComputedStyle(document.querySelector('h1') || document.body).fontFamily;
       return {
         scrollWidth: document.documentElement.scrollWidth,
         innerWidth: vw,
         overflowing: over,
+        brokenImages,
         unrevealed,
         smallTargets: [...new Set(small)],
         serifStack: usedSerif,
@@ -100,6 +125,7 @@ const WIDTHS = [
 
     if (r.scrollWidth > r.innerWidth) report.problems.push(`${name}: horizontal scroll (${r.scrollWidth} > ${r.innerWidth})`);
     if (r.overflowing.length) report.problems.push(`${name}: overflowing ${r.overflowing.join(', ')}`);
+    if (r.brokenImages.length) report.problems.push(`${name}: image(s) responded but failed to render: ${r.brokenImages.join(', ')}`);
     if (r.unrevealed.length) report.problems.push(`${name}: ${r.unrevealed.length} reveal(s) never fired: ${r.unrevealed.join(' | ')}`);
     if (r.smallTargets.length) report.problems.push(`${name}: touch targets under 44px: ${r.smallTargets.join(' ; ')}`);
     if (r.errors.length) report.problems.push(`${name}: ${r.errors.join(' | ')}`);
@@ -113,6 +139,7 @@ const WIDTHS = [
 
   // Link audit once, at desktop.
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await seed(page);
   await page.goto(url, { waitUntil: 'networkidle' });
   const links = await page.evaluate(() => {
     const hash = [], stub = [], internal = new Set();
