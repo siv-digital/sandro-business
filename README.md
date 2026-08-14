@@ -12,14 +12,27 @@ Sandro Business is the unit spinning off from Sandro Wealth Management. This rep
 | `qa/` | Per-page QA sweep and screenshot helper. See `qa/README.md`. | No |
 | `design-system/` | Tokens, 22 components with `.d.ts` contracts, logo lockups, sunburst, photography, `SKILL.md`. Read `design-system/readme.md` in full before writing UI. | No |
 | `marketing-site/` | Four design-reference screens (Home, The Journey, Tracks, Assessment). Browser-transpiled prototypes showing intended look, not production code. | No |
-| `reference/_notes/` | Extracted text of the two client source documents. All site copy derives from these. | No |
+| `reference/_notes/` | Extracted text of the three client source documents, including the requirements draft the members area is built against. All site copy derives from these. | No |
 | `CLAUDE.md` | Design-system project context. Auto-loads when working in this repo. | No |
 
 Only `site/` is in the publish path. That is deliberate: the design system is 14MB including a 4.6MB inlined icon set, and the reference notes are internal.
 
 ## What is built
 
-Home, `/advisors/` and a styled `404.html`. The Members Area, Insights, Apply and Directory screens are not started.
+Home, `/advisors/`, a styled `404.html`, and the Members Area's first two screens: `site/members/` (the Roadmap dashboard) and `site/members/sign-in.html`. Insights, Apply and Directory are not started, and the remaining members screens (insights, requests, directory, diagnostics, events, consultant) are stubs off the rail. The members rail is Roadmap, Insights, Requests, Directory, Diagnostics, Events.
+
+**The members area is the argument for why this is not Framer**, so it demonstrates state rather than describing it:
+
+- **The shell** is the design system's own `.sb-rail` (including its 820px collapse to a horizontal bar) inside a `.sbp-rail-col` that carries the ground full height, with `.sbp-console` page-scrolling rather than `.sb-console`'s inner scroller. Reasoning is on the rules in `app.css`.
+- **The soft gate, never a redirect.** Signed out, `/members/` still renders its real content, blurred behind a small card. A redirect to a login screen would hide the exact thing the prototype exists to show.
+- **The session is `localStorage`, not `sessionStorage`.** The first thing anyone does with a members link is open it in a new tab, and `sessionStorage` would land them signed out and reading it as a broken login.
+- **The demo member is the Committed Seller** (Ready to Sell track, Phase III, two phases complete). Seeded from `reference/_notes/business-owner-personas`, marked `Demonstration account` on the page so it cannot be taken for a real member.
+- **Firms are described, never named**, and their marks are the same dashed placeholder plate the homepage directory sample uses. A named firm on a members screen reads as a firm that has signed, and none have. No ratings and no stars, same as the homepage.
+- **Freemium vs premium is one attribute.** `data-access="free|member"` on an Intelligence card drives the Members badge and the warm ground, and nothing else distinguishes the tiers. The badge markup sits in every card and CSS hides it for free items, so flipping the attribute is genuinely the whole change. It is the seam a CMS field plugs into later.
+- **An Intelligence card's whole presentation comes from two attributes.** `data-access` gives it the tier, `data-format` gives it the media-type mark (guides outlined with a brass glyph, case studies solid titanium). Adding a format later is a glyph in the markup plus one CSS rule. Both are the seams a CMS plugs into.
+- **`site/assets/img/member-placeholder.svg` is a vector figure, not a stock photo.** The demo member does not exist, so a real face would invite "who is that?" beside a Demonstration account tag. A real headshot drops in as a square `<img>` with no CSS change.
+- **`site/assets/img/alok-gupta.jpg` is a client-supplied headshot**, cropped square and circled in CSS, used at 72px in the lede card and 36px in the rail. A replacement only has to be square. Note it is served from the public prototype URL; the same photograph is already public on sandrowealth.com/business-owner.
+- **Nothing here holds client financial records.** The Documents module was cut rather than deferred: a member document vault commits an SEC-registered adviser to Reg S-P safeguards and a records-retention answer. Diagnostics shows a last-run date, not a stored report list, for the same reason.
 
 **No control on the site reaches a 404 any more.** A link into unbuilt product either goes silent (`data-inert`, used for small affordances: buttons, nav links, the footer) or answers with a toast (`data-stub`, used for large ones: the Insights cards, the directory). Both keep the `href` in the markup, because it documents where the control will point, it keeps the element focusable, and it keeps the QA link sweep reporting the unbuilt screens as a list. `data-inert` cancels `auxclick` as well as `click`, or a middle click still opens the dead path in a new tab. The 404 remains as the catch-all with its full screen index.
 

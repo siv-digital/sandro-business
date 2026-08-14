@@ -1,0 +1,165 @@
+SandroBusiness Community_draft v1_081126.docx
+Client source document (Arianna, 2026-08-11), extracted 2026-08-14. Same pattern
+as the other two files in this folder. The .docx lives outside the repo; Travis
+attached it from ~/Desktop and it is no longer at that path.
+
+This is the requirements document the members area is built against. Section 5
+(content depth) and the "Source of actionable, relevant and timely Intelligence"
+bullet are why the dashboard carries an Intelligence block.
+
+================================================================================
+
+Business Owner Community Platform (DRAFT)
+Positioning, Provider Network, Content & Process
+
+The concept work so far, positioning, channels, monetization, EPI, and a website
+mockup brief, is strong tactical thinking, but a few pieces need to be built out
+concretely. Everything here is meant to be marked up, not accepted as-is.
+
+1. POSITIONING: WHAT DIFFERENTIATES US?
+
+  - Draft tagline: "A private collective for business owners preparing to grow or
+    sell, with direct access to Sandro's exit-readiness process and a vetted
+    network of M&A, valuation, attorneys, growth partners." Need alternatives to
+    "collective"
+  - Source of actionable, relevant and timely Intelligence: Get educated,
+    building relationships, gaining trust in the eco-system partners
+  - Eco-system: provide intelligence. Relevant + also have an expert available
+  - Incoming requests: Get connected with eco-system partners
+  - Outgoing topics: Cases + Newsletter + Client success transition announcement
+  - Put broad content with deeper engagement available if owner is interested
+  - Calendly links with eco-system partners
+  - L/S, Asset protection, CRAT don't care about SIC/NAICS
+  - A dedicated Alts-goes-mainstream-like anchor podcast that interviews
+    SIC-specific business owners
+  - Marketing: Cross connections / promotions with Trade Associations, advertise
+    in their newsletters. Get the Glass manufacturers Seal of Approval
+  - Reach out to the trade associations and co-market with the major
+    associations, cross podcast, cross-advertise
+  - Access to actionable SMEs: Value Exchange via 20 min calls
+  - Community: Interact with others in events etc.
+  - Events, Forums, Webinars, local chapters
+  - A platform to help them exit: Exit at your terms
+
+One-line internal framing: This is a client-acquisition funnel with a brand halo,
+not a standalone business (??). It exists to produce qualified introductions into
+Sandro's core advisory process (Maybe not). Maybe we do not call this platform
+Sandro collective, but call the investment management piece Sandro. Member count
+and content output are not the metrics that matter, but rather introductions
+made, advisory engagements opened, and AUM won.
+
+What this rules out: No positioning language about "networking," "peer
+community," or "content hub" as the lead, since that's EPI and Kitces' territory
+and competing there head-on is a losing frame. The site, directory, and content
+all exist to support the access-to-Sandro claim above, not to stand alone as a
+media property.
+
+Branding: Sandro Business Owner Advisory Exchange/Collective OR Sandro Business
+Owner Consortium
+
+2. SCOPE: SECTIONS OF THE INITIAL MOCK-UP BUILD WITH FURTHER ENHANCEMENTS
+
+Recommend five sections for the mockup, no more. Each earns its place; a fifth
+(events, member portal, etc.) can wait for a real build.
+
+  - Home: the page that has to convert a skeptical owner in ten seconds. Get the
+    benefits mentioned above. One time free. 5 things that members benefit
+  - Transactional interchange, incoming requests: Get connected with eco-system
+    partners, 20 min call with SME
+  - Business Consulting problem: You call me with your business problem, I will
+    give you the eco-system partner that will help you solve the problem
+  - Membership & Apply: the interview gate shown as a real flow, not just a
+    contact form
+  - Provider Directory (sample): 3 to 4 categories, 2 to 3 firms each, GFOC-style
+    category pages
+  - Insights (lean): a handful of flagship pieces, not a full content hub, see
+    Section 5
+
+3. AUDIENCE: WHO IS THE TARGET?
+
+The site should read as owner-facing, not dual-audience. The moment advisors
+appear as a co-equal audience on the homepage, owners read it as a referral
+network instead of an exclusive community, which breaks the positioning.
+
+Advisors get a separate, secondary path, not a "join" button, but an "Advisor
+Partner" application, structurally identical to how Sandro Wealth's real site
+already separates Advisors from Business Owners in its own navigation. The gate:
+an advisor doesn't get community access by applying; they earn it by referring
+qualified owners (a minimum number of vetted introductions per year, reviewed
+annually), the same spirit as the provider scorecard.
+
+On the mockup, this only needs to be a single "For Advisors" page with a short
+qualification statement and an apply link. It doesn't need its own flow yet.
+
+4. CAPABILITIES: WHAT CAN A BUSINESS OWNER/ADVISOR DO ON THE WEBSITE?
+
+A diagnostic / assessment survey. It's the single highest-leverage thing on the
+site, because it turns an anonymous visitor into a qualified, scored lead before
+a human ever talks to them.
+
+For the mockup, build one: a short Exit-Readiness / Value Gap Assessment (10 to
+15 questions covering EBITDA range, growth stage, owner-dependency,
+time-to-exit) that outputs a simple score and 2 to 3 flagged risk areas. This
+doubles as the "onboarding audit" the Year-1 model already depends on. Don't try
+to fake a real valuation calculator or trust-document review in the mockup; those
+need real data models (Quist, Luminary) behind them and would look hollow as a
+static demo.
+
+The Sandro "5-step process" is an already-formalized internal methodology. That's
+a prerequisite for this page.
+
+5. CONTENT DEPTH: WHAT WILL THE AUDIENCE SEE/READ/ENGAGE WITH?
+
+Don't aim for a Kitces-style publishing engine at launch. That's effectively a
+full-time editorial job and the wrong scope for a pre-launch mockup. Recommend
+three content types, small and high-signal: (NOTE: For mock-up this will be empty
+or have existing few pieces of content from our website)
+
+  - 8 to 12 flagship guides, mapped to the four inflection points (value
+    acceleration, capital/growth, M&A, estate/wealth), written in a
+    point-of-view voice, not generic advice content
+  - 2 to 3 anonymized case studies, a redacted valuation snapshot and a redacted
+    estate structure, doubling as proof of the provider "sample deliverable"
+    mandate
+  - Sandro Value proposition
+  - A short founder Q&A, one or two pieces in an Alt Goes Mainstream interview
+    voice, not a weekly cadence, since there's no host or producer function
+    built yet
+    [NOTE, not in the client doc: Travis has ruled out founder-interview framing
+    in Sandro client materials. This bullet is deliberately not built.]
+
+6. REFERENCE ELEMENTS: FROM OTHER LEADING COMMUNITIES
+
+  - From Kitces.com: the "Start Here" onboarding path for first-time visitors,
+    and the map/directory format (their AdvisorTech Map) applied to the provider
+    directory, categorized, filterable, credibility-forward
+  - From Global Family Office Community: the Expert Councils structure (peer
+    groups organized by topic, not one undifferentiated forum) as a FUTURE model
+    for member cohorts by inflection point; the Approved Supplier Directory
+    pattern for the provider roster; and, most importantly, the gate mechanic,
+    "contact us to apply for membership," with no self-serve signup button
+    anywhere on the site
+  - From Alt Goes Mainstream: just the interview and editorial voice for future
+    content, not the distribution model. AGM is deliberately open because its
+    business is audience size; this platform is deliberately closed because its
+    business is trust. Borrow the format, not the openness
+
+7. MEMBERSHIP MECHANICS AND JOURNEY: HOW SOMEONE ACTUALLY JOINS
+
+Structure: Free membership. The interview and application gate, already scoped in
+the website mockup brief, is the exclusivity mechanic, not price. The assessment
+tool doubles as the qualifying step: an owner completes it, gets a score and
+flagged gaps, and that output feeds directly into whether and how they're invited
+to apply.
+
+Confirmation flow: Apply, then assessment, then a short review (internal, not
+automated), then either an invitation to a scoping conversation with a Sandro
+partner, or a polite decline with a resource (the flagship guide library) offered
+instead. No one is auto-approved into "membership" with no human touch. The human
+step is the product.
+
+  [NOTE, not in the client doc: this paragraph is the source of the join-order
+  contradiction. The bullet in section 7 above says the assessment qualifies you
+  for the invitation to apply; this paragraph says apply first. Travis ruled
+  assessment-first on 8/13. Requirements spec 3.4 still follows the other
+  reading and needs correcting.]
