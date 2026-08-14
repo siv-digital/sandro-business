@@ -5,15 +5,27 @@
      - reveals that never fired (the clip-path/IntersectionObserver trap)
      - fonts falling back to Georgia/Arial (the Google Fonts CDN failure mode)
      - console errors, page errors, failed requests
-     - href="#" and unresolved internal links
-     - touch targets under 44px below the tablet breakpoint
+     - href="#" and unresolved internal links (a live link that 404s fails the
+       sweep; links marked data-inert or data-stub are documented placeholders
+       and are reported but never fail)
+     - touch targets under 40px below the tablet breakpoint (the build aims
+       for 44px on primary paths; 40 is the floor so documented 40px footer
+       links do not false-fail)
 
    node qa.js <url> [outPrefix]
+   Screenshots land in qa/shots/ (created on demand, gitignored).
 */
 const { chromium } = require('playwright');
+const fs = require('fs');
+const path = require('path');
 
 const url = process.argv[2] || 'http://localhost:4331/';
 const prefix = process.argv[3] || 'qa';
+
+/* Shots go to qa/shots/ relative to the repo root (this script's parent),
+   not the cwd — a sweep used to leave a pile of PNGs wherever it was run. */
+const SHOTS = path.join(__dirname, 'shots');
+fs.mkdirSync(SHOTS, { recursive: true });
 
 /* Members screens open on the soft gate, which blurs the console behind a card.
    QA'd in that state a members page reports one card and no content, so
@@ -119,7 +131,7 @@ const WIDTHS = [
       };
     });
 
-    await page.screenshot({ path: `${prefix}-${name}.png`, fullPage: name === 'desktop' || name === 'phone' });
+    await page.screenshot({ path: path.resolve(SHOTS, `${prefix}-${name}.png`), fullPage: name === 'desktop' || name === 'phone' });
     r.errors = [...new Set(errors)];
     report.widths[name] = r;
 
@@ -127,7 +139,7 @@ const WIDTHS = [
     if (r.overflowing.length) report.problems.push(`${name}: overflowing ${r.overflowing.join(', ')}`);
     if (r.brokenImages.length) report.problems.push(`${name}: image(s) responded but failed to render: ${r.brokenImages.join(', ')}`);
     if (r.unrevealed.length) report.problems.push(`${name}: ${r.unrevealed.length} reveal(s) never fired: ${r.unrevealed.join(' | ')}`);
-    if (r.smallTargets.length) report.problems.push(`${name}: touch targets under 44px: ${r.smallTargets.join(' ; ')}`);
+    if (r.smallTargets.length) report.problems.push(`${name}: touch targets under 40px: ${r.smallTargets.join(' ; ')}`);
     if (r.errors.length) report.problems.push(`${name}: ${r.errors.join(' | ')}`);
     const need = ['Libre Baskerville/normal', 'DM Sans/normal']
       .concat(r.needsItalic ? ['Libre Baskerville/italic'] : []);
@@ -142,24 +154,36 @@ const WIDTHS = [
   await seed(page);
   await page.goto(url, { waitUntil: 'networkidle' });
   const links = await page.evaluate(() => {
-    const hash = [], stub = [], internal = new Set();
+    /* Two classes of internal link, judged per ELEMENT: a link carrying
+       data-inert or data-stub is a documented placeholder (non-failing); one
+       carrying neither is live and must resolve. The same href can appear in
+       both classes (footer /directory/ is inert, the rail's is live) — an href
+       with any live element is judged live. */
+    const hash = [], stub = [], internal = new Set(), documented = new Set();
     document.querySelectorAll('a').forEach(a => {
       const h = a.getAttribute('href');
-      if (!h || h === '#') hash.push((a.textContent || '').trim().slice(0, 30));
-      else if (a.hasAttribute('data-stub')) stub.push((a.textContent || '').trim().slice(0, 30));
-      else if (!/^https?:|^mailto:/.test(h)) internal.add(h);
+      if (!h || h === '#') { hash.push((a.textContent || '').trim().slice(0, 30)); return; }
+      if (/^https?:|^mailto:/.test(h)) return;
+      if (a.hasAttribute('data-stub') || a.hasAttribute('data-inert')) {
+        if (a.hasAttribute('data-stub')) stub.push((a.textContent || '').trim().slice(0, 30));
+        documented.add(h);
+      } else internal.add(h);
     });
-    return { hash, stub, internal: [...internal] };
+    return { hash, stub, internal: [...internal], documented: [...documented].filter(h => !internal.has(h)) };
   });
   const codes = {};
-  for (const h of links.internal) {
+  for (const h of [...links.internal, ...links.documented]) {
     const u = new URL(h, url);
     const res = await page.request.get(u.toString()).catch(() => null);
     codes[h] = res ? res.status() : 'ERR';
   }
   links.codes = codes;
+  if (links.documented.length) links.documentedNote = `inert/stub documented targets: ${links.documented.length} (non-failing)`;
   report.links = links;
   if (links.hash.length) report.problems.push(`href="#" on: ${links.hash.join(', ')}`);
+  for (const h of links.internal.filter(h => codes[h] !== 200)) {
+    report.problems.push(`live link resolves to ${codes[h]}: ${h}`);
+  }
 
   console.log(JSON.stringify(report, null, 2));
   await browser.close();

@@ -4,8 +4,15 @@ Per-page sweep for the prototype. Mobile is part of every pass here, not a
 follow-up: `qa.js` runs a page at 1440 / 1280 / 1024 / 768 / 390 and fails on
 horizontal overflow, reveals that never fired, images that respond but fail to
 render, webfonts falling back to Georgia/Arial, console and page errors, failed
-requests, `href="#"`, and touch targets under 40px. It also resolves every internal link and reports the status
-codes, so an unbuilt screen shows up as a 404 rather than as a silent dead end.
+requests, `href="#"`, and touch targets under 40px. It also resolves every
+internal link and reports the status codes, and a **live link that resolves
+non-200 fails the sweep**. Links carrying `data-inert` or `data-stub` are
+documented placeholders: their statuses still appear in the report (labelled
+`inert/stub documented targets: N`) but they never fail. Judged per element —
+an href that appears on any undocumented link is live.
+
+Screenshots from both scripts land in `qa/shots/` (created on demand,
+gitignored), never the cwd.
 
 Playwright is not vendored here. It lives with the Broadridge QA skill, so both
 scripts run with `NODE_PATH` pointed at it:

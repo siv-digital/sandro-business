@@ -6,12 +6,17 @@
    node shot.js <url> <out.png> [--w=1440] [--h=900] [--full] [--fonts]
      --fonts injects self-hosted @font-face over the design system's Google
      Fonts CDN link, which is unreachable here and fails silently. Only needed
-     for marketing-site/ (the reference); site/ self-hosts already.            */
+     for marketing-site/ (the reference); site/ self-hosts already.
+   A relative <out.png> lands in qa/shots/ (created on demand, gitignored),
+   not the cwd; an absolute path is honoured as given.                         */
 const { chromium } = require('playwright');
+const fs = require('fs');
+const path = require('path');
 
 const args = process.argv.slice(2);
 const url = args[0];
-const out = args[1];
+const out = path.resolve(path.join(__dirname, 'shots'), args[1]);
+fs.mkdirSync(path.dirname(out), { recursive: true });
 const flag = (n, d) => { const a = args.find(x => x.startsWith(`--${n}=`)); return a ? +a.split('=')[1] : d; };
 const has = n => args.includes(`--${n}`);
 

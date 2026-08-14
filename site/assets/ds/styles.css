@@ -3,7 +3,7 @@
    Mirrors design-system/styles.css import-for-import and in the same order, with
    two deliberate differences:
      - fonts.css is OURS (self-hosted), not the system's Google Fonts CDN link.
-     - icons.css is a 22-glyph subset standing in for the 4.6 MB icon-data.js.
+     - icons.css is a subset standing in for the 4.6 MB icon-data.js.
    Everything else in tokens/ and components/components.css is the ported system,
    verbatim. Do not re-derive a value here; change it in the design system and
    re-port. */
@@ -23,4 +23,4 @@
 /* ?v= is load-bearing, same rule as app.css: icons.css is ours and grows a
    glyph when a screen needs one, and a stale cached copy paints the new glyph
    as a solid unmasked box. Bump it whenever icons.css changes. */
-@import url('icons.css?v=2');
+@import url('icons.css?v=3');
