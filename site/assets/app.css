@@ -502,8 +502,11 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
 .sbp-dircat-name{font:var(--type-h3);color:var(--text-display)}
 .sbp-dircat-blurb{font:var(--type-p3);color:var(--text-muted);margin-top:var(--space-4);max-width:44ch}
 
-/* The reserved logo real estate. Deliberately unmistakable as a placeholder:
-   a client reading this must not think these are firms that have signed. */
+/* The logo real estate. Since 8/14 (Travis) the CEO-named roster from
+   /directory/ shows here too, logo only: solid border = named firm (the
+   .sbp-dirfirm-plate rule arriving at card scale), dashed = a slot the roster
+   has not filled. The dashed plate must stay unmistakable as a placeholder —
+   a client reading this must not think an unnamed slot is a firm that signed. */
 /* Always three columns, never auto-fit. With auto-fit a two-firm category
    divides the row between two plates instead of three, so its marks render
    larger than the three-firm categories beside them and the cards stop
@@ -512,12 +515,42 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
   gap:var(--space-4);margin:var(--space-6) 0 0;
 }
+/* Inside a category card the logo row anchors to the card FOOT (the card is a
+   flex column), so plates line up across cards whose blurbs run different
+   line counts. The auto margin absorbs the slack; the padding keeps the
+   space-6 minimum when there is none. Scoped: the /directory/ pending block
+   is not a flex context and keeps the plain margin above. */
+.sbp-dircat .sbp-logos{margin-top:auto;padding-top:var(--space-6)}
 .sbp-logo-plate{
   display:grid;place-items:center;aspect-ratio:16/7;
   background:var(--surface-sunken);
   border:1px dashed var(--border-strong);border-radius:var(--radius-sm);
   font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
   color:var(--text-subtle);
+}
+.sbp-logo-plate[data-firm]{
+  border-style:solid;border-color:var(--border-hairline);
+  padding:var(--space-3) var(--space-4);box-sizing:border-box;
+}
+/* Marks are dark-on-light rasters of different native ratios; the box fits
+   them, same contract as .sbp-dirfirm-plate. */
+.sbp-logo-plate[data-firm] img{max-width:100%;max-height:30px;width:auto;height:auto}
+/* A firm that only publishes a white mark gets a dark plate, so its logo
+   ships untouched. Never recolor a partner's mark to fit the page. */
+.sbp-logo-plate[data-ground="dark"]{background:var(--sb-titanium-800);border-color:var(--sb-titanium-800)}
+/* Sandro's own slot composes symbol + wordmark, like its directory entry;
+   sized down to plate scale, titanium so it reads on the light ground. */
+.sbp-logo-plate .sb-logo{gap:5px}
+.sbp-logo-plate .sb-logo img{width:15px;height:15px;max-height:none}
+/* The plate's placeholder styling uppercases; the wordmark must not inherit it. */
+.sbp-logo-plate .sb-logo-word{font-size:13px;color:var(--sb-titanium-800);text-transform:none}
+@media (max-width:480px){
+  .sbp-logo-plate[data-firm]{padding:var(--space-2) var(--space-3)}
+  /* 22px is the tallest a mark can be without a tall-ratio logo (Quest, 2.3:1)
+     pushing its plate past the 16/7 aspect height and unlining the row. */
+  .sbp-logo-plate[data-firm] img{max-height:22px}
+  .sbp-logo-plate .sb-logo img{width:12px;height:12px}
+  .sbp-logo-plate .sb-logo-word{font-size:10px}
 }
 
 /* ---------- Home: insights by email ----------

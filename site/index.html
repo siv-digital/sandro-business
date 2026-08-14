@@ -10,7 +10,7 @@
 <meta name="description" content="Sandro connects business owners to vetted specialists in valuation, M&A, lending and estate work, and takes no compensation from any of them.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
 <link rel="stylesheet" href="/assets/ds/styles.css">
-<link rel="stylesheet" href="/assets/app.css?v=30">
+<link rel="stylesheet" href="/assets/app.css?v=34">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
 </head>
 <body>
@@ -464,57 +464,101 @@
     <div class="sbp-directory">
       <hr class="sb-rule" data-o="h" data-t="hairline">
 
+      <!-- The seven categories mirror /directory/ exactly, same order (Journey
+           phase), same ledes, and the CEO-named marks show here too (Travis,
+           8/14): logo only, never the per-firm block, which is the "Home
+           reserves the logo real estate" decision doing what it always said.
+           Solid border = named firm, dashed = a slot the roster hasn't filled;
+           Strazzeri publishes only a white mark so its plate goes dark, and
+           Sandro's own slot composes symbol + wordmark like its directory
+           entry. NO "see the full directory" control: the page is member-only,
+           so a public link to it can only apologise (Travis, 8/14). -->
       <div class="sbp-eyebrow-row sbp-directory-head">
         <div>
           <div class="sb-kick"><span class="sb-kick-dash"></span><span>Partner directory</span></div>
           <h3 class="sbp-directory-h3">Every specialist you&rsquo;ll need, vetted the same way.</h3>
         </div>
-        <a class="sb-btn" data-v="link" data-size="md" href="/directory/" data-stub="The full directory opens to members.">See the full directory</a>
       </div>
 
       <div class="sb-cols sbp-dircats" data-cols="2">
       <div class="sb-reveal sbp-dircat-cell" data-rv>
         <div class="sbp-dircat">
-          <h4 class="sbp-dircat-name">Valuation</h4>
-          <p class="sbp-dircat-blurb">Independent appraisal and baseline valuation, read by industry rather than by multiple.</p>
+          <h4 class="sbp-dircat-name">Business value acceleration</h4>
+          <p class="sbp-dircat-blurb">Grow the transferable value of the business before you sell, and close the gap between what it&rsquo;s worth today and what you need it to be worth.</p>
           <div class="sbp-logos">
-            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
-            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
-            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/exitology.png" alt="Exitology"></span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/quest-valuation.png" alt="Quest Valuation &amp; Advisors"></span>
           </div>
         </div>
       </div>
 
       <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="1">
         <div class="sbp-dircat">
-          <h4 class="sbp-dircat-name">M&amp;A advisory</h4>
-          <p class="sbp-dircat-blurb">Sell-side representation and buyer processes built for owner-led companies.</p>
+          <h4 class="sbp-dircat-name">M&amp;A and investment banking</h4>
+          <p class="sbp-dircat-blurb">Sell-side representation and buyer processes built for owner-led companies, run by bankers who do this and nothing else.</p>
           <div class="sbp-logos">
-            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
-            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
-            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/edgepoint.png" alt="EdgePoint Capital"></span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/cornerstone.png" alt="Cornerstone Business Services"></span>
           </div>
         </div>
       </div>
 
       <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="2">
         <div class="sbp-dircat">
-          <h4 class="sbp-dircat-name">Estate and tax counsel</h4>
+          <h4 class="sbp-dircat-name">Estate planning</h4>
           <p class="sbp-dircat-blurb">Trust, estate and transaction structures, set well before a buyer appears.</p>
           <div class="sbp-logos">
-            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
-            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP"></span>
           </div>
         </div>
       </div>
 
       <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="3">
         <div class="sbp-dircat">
-          <h4 class="sbp-dircat-name">Specialty lending</h4>
-          <p class="sbp-dircat-blurb">Credit against a company you intend to sell, including multi-state and SBA.</p>
+          <h4 class="sbp-dircat-name">Taxes</h4>
+          <p class="sbp-dircat-blurb">What the tax bill looks like under each structure, and what it takes to change it while there&rsquo;s still time to.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-dircat-cell" data-rv>
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Asset protection</h4>
+          <p class="sbp-dircat-blurb">Structures that protect what you&rsquo;ve built, before the sale and after it.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="1">
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Commercial banking</h4>
+          <p class="sbp-dircat-blurb">Credit and banking relationships for a company you intend to grow or sell, including multi-state and SBA lending.</p>
           <div class="sbp-logos">
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
             <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
+            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sandro is the only firm here BY DESIGN (it runs Phase V itself), so
+           no dashed slots: a placeholder would promise other investment
+           managers joining a roster that is deliberately closed. -->
+      <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="2">
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Investment management</h4>
+          <p class="sbp-dircat-blurb">Replace the business&rsquo;s income without taking on new risk.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm role="img" aria-label="Sandro Wealth Management">
+              <span class="sb-logo" aria-hidden="true">
+                <img src="/assets/img/sandro-symbol-titanium.png" alt="">
+                <span class="sb-logo-word">SandroWealth</span>
+              </span>
+            </span>
           </div>
         </div>
       </div>
