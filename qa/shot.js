@@ -26,6 +26,14 @@ const FONT_CSS = `
     viewport: { width: flag('w', 1440), height: flag('h', 900) },
     deviceScaleFactor: 2,
   });
+  /* Same contract as qa.js: SB_SIGNED_IN=1 seeds the demo session BEFORE the
+     page boots, or a members screen is captured as the soft gate over a blur.
+     The shape must stay in step with DEFAULT_SESSION in assets/app.js. */
+  if (process.env.SB_SIGNED_IN === '1') {
+    await page.addInitScript(() => {
+      try { localStorage.setItem('sb.demo.v1', JSON.stringify({ signedIn: true })); } catch (e) {}
+    });
+  }
   const errors = [];
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
   page.on('pageerror', e => errors.push(String(e)));
