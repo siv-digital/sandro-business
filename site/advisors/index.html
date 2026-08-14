@@ -8,7 +8,7 @@
 <meta name="description" content="Advisors earn access to Sandro Business by referring qualified owners. Reviewed annually.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
 <link rel="stylesheet" href="/assets/ds/styles.css">
-<link rel="stylesheet" href="/assets/app.css?v=26">
+<link rel="stylesheet" href="/assets/app.css?v=30">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
 </head>
 <body>
@@ -37,7 +37,13 @@
     <a class="sb-nav-link" href="/#membership">Membership</a>
     <a class="sb-nav-link" href="/#insights">Insights</a>
     <span class="sbp-nav-divider" aria-hidden="true"></span>
-    <a class="sbp-signin" href="/members/sign-in.html" data-inert="1">Sign in</a>
+    <!-- Both routes into the gated side, deliberately. "Members area" is for
+         someone walking the prototype who wants to see what is behind the
+         login: signed out it lands on the soft gate, blurred real dashboard
+         behind a sign-in card, which is the most persuasive screen here.
+         "Sign in" keeps the narrative beat of crossing a threshold. -->
+    <a class="sbp-signin" href="/members/">Members area</a>
+    <a class="sbp-signin" href="/members/sign-in.html">Sign in</a>
     <a class="sb-btn" data-v="accent" data-size="sm" data-ink="light" href="/apply/" data-inert="1">Start your application</a>
   </nav>
 </header>
@@ -130,9 +136,9 @@
       </div>
       <div class="sbp-footer-col">
         <div class="sb-kicker">Members</div>
-        <a href="/members/" data-inert="1">Member view</a>
+        <a href="/members/">Member view</a>
         <a href="/directory/" data-inert="1">Directory</a>
-        <a href="/members/sign-in.html" data-inert="1">Sign in</a>
+        <a href="/members/sign-in.html">Sign in</a>
       </div>
       <div class="sbp-footer-col">
         <div class="sb-kicker">Sandro</div>
@@ -152,6 +158,6 @@
   </div>
 </footer>
 
-<script src="/assets/app.js?v=13"></script>
+<script src="/assets/app.js?v=14"></script>
 </body>
 </html>

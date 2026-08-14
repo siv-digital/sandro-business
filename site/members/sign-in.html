@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-skin="wealth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sign in · Sandro Business</title>
+<meta name="description" content="Sign in to the Sandro Business members area.">
+<link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
+<link rel="stylesheet" href="/assets/ds/styles.css">
+<link rel="stylesheet" href="/assets/app.css?v=30">
+<link rel="stylesheet" href="/assets/skins.css?v=3">
+</head>
+<body>
+
+<!-- A real screen rather than a modal, because it is a narrative beat: the CEO
+     should cross a threshold, not dismiss a dialog.
+
+     Prefilled and unvalidated on purpose. There is no account behind it, and
+     the button says what it actually does. Building a password field that
+     rejects the wrong password would be the one place this prototype pretended
+     to be something it is not, and the first thing anyone tries is a wrong
+     password. The field is disabled rather than absent so the screen still
+     shows the shape of the real one. -->
+<main class="sbp-signin-page">
+  <div class="sbp-signin-inner">
+
+    <a class="sb-logo sbp-logo sbp-signin-logo" href="/" aria-label="SandroBusiness, home">
+      <img src="/assets/img/sandro-symbol-ivory.png" alt="">
+      <span class="sb-logo-word">SandroBusiness</span>
+    </a>
+
+    <div class="sbp-signin-card">
+      <div class="sb-kick"><span class="sb-kick-dash"></span><span>Members</span></div>
+      <h1 class="sbp-signin-h1">Sign in.</h1>
+      <p class="sbp-signin-sub">
+        Membership is by application. If yours is still under review, your consultant
+        will be in touch before anything opens here.
+      </p>
+
+      <div class="sbp-signin-fields">
+        <div class="sb-field">
+          <label class="sb-field-label" for="signin-email">Email</label>
+          <div class="sb-input-wrap" data-size="md">
+            <span class="sb-ico" data-ico="Mail01" data-size="sm" aria-hidden="true"></span>
+            <input class="sb-input" id="signin-email" type="email" autocomplete="username"
+                   value="ray@halloranindustrial.com" readonly>
+          </div>
+        </div>
+
+        <div class="sb-field">
+          <label class="sb-field-label" for="signin-pw">Password</label>
+          <div class="sb-input-wrap" data-size="md" data-disabled="1">
+            <span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>
+            <input class="sb-input" id="signin-pw" type="password" autocomplete="current-password"
+                   value="prototype" disabled>
+          </div>
+          <span class="sb-field-hint">Prefilled. There is no account behind this prototype.</span>
+        </div>
+
+        <button type="button" class="sb-btn" data-v="accent" data-size="lg"
+                data-session-action="signin" data-session-to="/members/">
+          Sign in as Ray Halloran
+          <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <p class="sbp-signin-foot">
+      Not a member yet? <a href="/apply/" data-stub="The application opens with the assessment, which is step one.">Start your application</a>
+    </p>
+  </div>
+</main>
+
+<script src="/assets/app.js?v=14"></script>
+</body>
+</html>

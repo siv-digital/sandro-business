@@ -160,15 +160,34 @@
      ------------------------------------------------------------------- */
   var KEY = 'sb.demo.v1';
 
+  /* The demo member is the COMMITTED SELLER (Travis, 2026-08-14): Ready to
+     Sell track, assessment band 8 to 10, fast-tracked past value acceleration,
+     currently in Phase III. Chosen over the Value Builder because his roadmap
+     has two phases complete, one live and two ahead, which is the state with
+     the most to show on a dashboard. reference/_notes/business-owner-personas
+     is the source; nothing here is invented beyond the name.
+
+     The consultant is Alok Gupta, standing in until Sandro names the real one
+     (Travis, 2026-08-14). A real person's name rather than an invented one, so
+     nobody reads a stranger's byline on their own platform. */
   var DEFAULT_SESSION = {
     signedIn: false,
     member: {
       name: 'Ray Halloran',
       first: 'Ray',
+      initials: 'RH',
       company: 'Halloran Industrial',
       sector: 'Industrial services',
-      track: 'Build value first',
+      track: 'Ready to sell',
+      phase: 'III',
+      phaseName: 'Put your plans in place',
       joined: 'March 2026'
+    },
+    consultant: {
+      name: 'Alok Gupta',
+      first: 'Alok',
+      initials: 'AG',
+      role: 'Senior partner'
     },
     /* submitted -> matched -> introduced. The demo panel steps this. */
     requestState: 'matched'
@@ -184,6 +203,7 @@
       return {
         signedIn: !!parsed.signedIn,
         member: Object.assign({}, DEFAULT_SESSION.member, parsed.member || {}),
+        consultant: Object.assign({}, DEFAULT_SESSION.consultant, parsed.consultant || {}),
         requestState: parsed.requestState || DEFAULT_SESSION.requestState
       };
     } catch (e) {

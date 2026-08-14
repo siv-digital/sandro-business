@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Member placeholder portrait">
+  <!-- Placeholder portrait for the seeded demo member.
+
+       Deliberately a figure rather than a stock photograph. Ray Halloran does
+       not exist, he sits beside a "Demonstration account" tag, and putting a
+       real person's face on him invites "who is that?" and risks a CEO reading
+       the account as a member who actually signed up. The repo's own
+       photography is 439x597 brand-book crops of people looking down, which
+       makes a poor avatar at any size.
+
+       Palette is the Wealth skin's own: titanium ground (the gradient-rail token
+       stops verbatim), ivory figure. Vector, so it is crisp at 52px and at
+       512px, and a real headshot drops in as a square img with no CSS change.
+
+       NOTE: an XML comment cannot contain a double hyphen, so CSS custom
+       property names must not be written out in here. Doing so makes the whole
+       file fail to parse and the browser paints a broken-image glyph, which
+       reads as a missing file rather than as a syntax error. Cost a cycle. -->
+  <defs>
+    <linearGradient id="mpGround" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1B222C"/>
+      <stop offset="66%" stop-color="#232B36"/>
+      <stop offset="100%" stop-color="#2E3846"/>
+    </linearGradient>
+    <clipPath id="mpClip"><rect width="512" height="512"/></clipPath>
+  </defs>
+
+  <rect width="512" height="512" fill="url(#mpGround)"/>
+
+  <g clip-path="url(#mpClip)" fill="#FFFCEC" fill-opacity="0.88">
+    <circle cx="256" cy="196" r="82"/>
+    <!-- Shoulders: a wide arc rising from below the frame, so the figure reads
+         as head and shoulders rather than a head floating in a disc. -->
+    <path d="M256 300c-92 0-166 62-166 139v73h332v-73c0-77-74-139-166-139z"/>
+  </g>
+</svg>

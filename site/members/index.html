@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en" data-skin="wealth" data-sb-signed-in="0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The header is set at the edge too (render.yaml). The meta tag is here
+     because headers cannot be verified on localhost and this can. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Your roadmap · Sandro Business</title>
+<meta name="description" content="The Sandro Business members area: where you are on the Business Owner Journey and where each of your requests stands.">
+<link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
+<link rel="stylesheet" href="/assets/ds/styles.css">
+<link rel="stylesheet" href="/assets/app.css?v=30">
+<link rel="stylesheet" href="/assets/skins.css?v=3">
+</head>
+<body>
+
+<!-- ========================== THE CONSOLE SHELL ==========================
+     The rail is the design system's own .sb-rail, including its 820px collapse
+     to a horizontal bar. The container is .sbp-console rather than .sb-console
+     so the page scrolls normally; the reasoning is on the rule in app.css.
+
+     Only Roadmap is built. Every other rail item carries data-stub and answers
+     with a sentence describing what opens there, which is the same contract the
+     homepage holds: a click is always answered and nothing reaches a 404. As
+     each screen lands, its stub becomes an href. -->
+<div class="sbp-console">
+
+  <!-- The column carries the ground and stretches the full page; .sb-rail
+       sticks inside it at one viewport tall. Reasoning on the rule in app.css. -->
+  <div class="sbp-rail-col">
+  <aside class="sb-rail sb-dark">
+    <div class="sb-rail-brand">
+      <a class="sb-logo sbp-logo" href="/" aria-label="SandroBusiness, home">
+        <img src="/assets/img/sandro-symbol-ivory.png" alt="">
+        <span class="sb-logo-word sbp-rail-word">SandroBusiness</span>
+      </a>
+    </div>
+
+    <nav class="sb-rail-nav" aria-label="Members area">
+      <a class="sb-rail-link" href="/members/" data-active="1" aria-current="page">
+        <span class="sb-rail-marker" aria-hidden="true"></span>
+        <span class="sb-ico sbp-rail-link-ico" data-ico="Route" aria-hidden="true"></span>
+        <span>Roadmap</span>
+      </a>
+      <!-- Insights sits second on purpose. The client doc names intelligence as
+           the second thing the platform is for, ahead of matching, and it is the
+           only thing here that changes between visits. It is what brings a
+           member back in a week with nothing in flight. -->
+      <a class="sb-rail-link" href="/members/insights.html"
+         data-stub="Everything published for members, free and members-only, in one place.">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="FileCheck02" aria-hidden="true"></span>
+        <span>Insights</span>
+      </a>
+      <a class="sb-rail-link" href="/members/requests.html"
+         data-stub="Every request you&rsquo;ve made, with its full history.">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="MessageTextSquare01" aria-hidden="true"></span>
+        <span>Requests</span>
+      </a>
+      <a class="sb-rail-link" href="/directory/"
+         data-stub="The partner roster, by category.">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="Building02" aria-hidden="true"></span>
+        <span>Directory</span>
+      </a>
+      <a class="sb-rail-link" href="/members/diagnostics.html"
+         data-stub="Run the readiness assessment again whenever something changes.">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="ClipboardCheck" aria-hidden="true"></span>
+        <span>Diagnostics</span>
+      </a>
+      <a class="sb-rail-link" href="/members/events.html"
+         data-stub="Forums, chapter dinners and closed sessions.">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="CalendarCheck01" aria-hidden="true"></span>
+        <span>Events</span>
+      </a>
+    </nav>
+
+    <div class="sb-rail-foot">
+      <div>
+        <div class="sbp-rail-label">Your consultant</div>
+        <a class="sbp-rail-consultant" href="/members/consultant.html"
+           data-stub="Your consultant&rsquo;s page, with everything you&rsquo;ve discussed and what&rsquo;s booked next.">
+          <img class="sbp-rail-photo" src="/assets/img/alok-gupta.jpg?v=1" alt="" width="512" height="512">
+          <span>
+            <span class="sbp-rail-consultant-name" data-session-field="consultant.name">Alok Gupta</span>
+            <span class="sbp-rail-consultant-role" data-session-field="consultant.role">Senior partner</span>
+          </span>
+        </a>
+      </div>
+      <div class="sbp-rail-sep" aria-hidden="true"></div>
+      <a class="sb-rail-link" href="/" data-session-action="signout" data-session-to="/">
+        <span class="sb-ico sbp-rail-link-ico" data-ico="LogOut01" aria-hidden="true"></span>
+        <span>Sign out</span>
+      </a>
+    </div>
+  </aside>
+  </div>
+
+  <main class="sbp-mmain">
+    <div class="sbp-mwrap">
+
+      <!-- ===================== IDENTITY STRIP =====================
+           The demonstration tag is not decoration. This is a seeded persona
+           from reference/_notes/business-owner-personas, and a CEO walking the
+           prototype must never take it for a member who actually signed up. -->
+      <div class="sbp-mhead">
+        <div class="sbp-mhead-id">
+          <img class="sbp-member-photo" src="/assets/img/member-placeholder.svg?v=2" alt="" width="512" height="512">
+          <div>
+            <div class="sbp-mhead-name">Welcome back, <span data-session-field="member.name">Ray Halloran</span></div>
+            <div class="sbp-mhead-meta">
+              <span data-session-field="member.company">Halloran Industrial</span>
+              <span aria-hidden="true">&middot;</span>
+              <span data-session-field="member.sector">Industrial services</span>
+              <span aria-hidden="true">&middot;</span>
+              <span>Member since <span data-session-field="member.joined">March 2026</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The track used to sit here as a bare "Ready to sell" pill, which
+             stated a fact without saying what kind of fact it was (Travis,
+             8/14). Labelled and given the phase, it becomes a status readout:
+             where you are, on which track, at which phase. -->
+        <div class="sbp-mhead-actions">
+          <span class="sb-tag sbp-demo-tag">Demonstration account</span>
+          <div class="sbp-status-block">
+            <span class="sbp-status-label">Where you are</span>
+            <span class="sbp-status-value">
+              <span data-session-field="member.track">Ready to sell</span>
+              <span class="sbp-status-sep" aria-hidden="true"></span>
+              <span>Phase <span data-session-field="member.phase">III</span></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================== WHERE YOU STAND + YOUR PARTNER ==================
+           The consultant sits BESIDE the phase headline rather than in a panel
+           two thirds down the page (Travis, 8/14): the fastest way to reach a
+           person should be the second thing on the screen, not something you
+           scroll to. Folding the two into one block also removes a box from a
+           page he called text and box heavy.
+
+           His note is general on purpose. It used to open "Phase III is the one
+           with a clock on it", which Travis called AI slop, and it was: a
+           manufactured urgency line that would have to be rewritten every time a
+           member changed phase. The replacement is the client's own copy from
+           sandrowealth.com/business-owner ("your lead senior partner", "think
+           through the decisions ahead, at your pace and on your terms") and it
+           holds in every phase, which is what makes it maintainable. -->
+      <div class="sbp-mlede sbp-lede-cols">
+        <div>
+          <div class="sb-reveal" data-rv>
+            <div class="sb-kick"><span class="sb-kick-dash"></span><span>Where you stand</span></div>
+          </div>
+          <h1 class="sbp-mlede-h1">
+            <span class="sb-wipe-inner" data-rv data-rv-i="1">Phase III. Put your plans in place.</span>
+          </h1>
+          <p class="sb-reveal sbp-mlede-sub" data-rv data-rv-i="2">
+            Two phases behind you. The valuation and the financial plan are done, and the
+            gap between them was small enough to skip value acceleration. What&rsquo;s left is
+            the estate and tax work, and it has to be finished before a buyer is at the
+            table.
+          </p>
+        </div>
+
+        <div class="sb-reveal sbp-consult" data-rv data-rv-i="1">
+          <img class="sbp-consult-photo" src="/assets/img/alok-gupta.jpg?v=1"
+               alt="Alok Gupta" width="512" height="512">
+          <div class="sbp-consult-copy">
+            <div class="sbp-consult-name" data-session-field="consultant.name">Alok Gupta</div>
+            <div class="sbp-consult-role">Your lead senior partner</div>
+            <p class="sbp-consult-note">
+              Alok stays with you across all five phases. He can help you think through
+              the decisions ahead, at your pace and on your terms.
+            </p>
+            <div class="sbp-consult-actions">
+              <a class="sb-btn" data-v="accent" data-size="md" href="/members/book.html"
+                 data-stub="Your senior partner&rsquo;s calendar opens here. Twenty minutes, no fee.">
+                <span>Book 20 minutes with <span data-session-field="consultant.first">Alok</span></span>
+                <span class="sb-ico" data-ico="CalendarCheck01" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= THE FIVE PHASES =======================
+           The Business Owner Journey playbook v2, verbatim: phase name,
+           discipline, and the artifact each one produces. Roman numerals
+           because these are the Journey's phases; the homepage uses arabic for
+           the four steps of the gate, and the distinction is deliberate.
+
+           This member is on the Ready to Sell track, which enters at Phase I
+           and is fast-tracked past value acceleration, so II closed quickly
+           and III is live. -->
+      <section class="sbp-mblock" aria-labelledby="roadmap-h">
+        <div class="sbp-mblock-head">
+          <div>
+            <div class="sb-kick"><span class="sb-kick-dash"></span><span>The Business Owner Journey</span></div>
+            <h2 class="sbp-mblock-h2" id="roadmap-h">Your path to exit, phase by phase.</h2>
+          </div>
+        </div>
+
+        <div class="sbp-phases">
+          <div class="sb-reveal sbp-phase-cell" data-state="complete" data-rv>
+            <span class="sbp-phase-dot" aria-hidden="true"></span>
+            <span class="sbp-phase-n">I</span>
+            <span class="sbp-phase-name">Know where you stand</span>
+            <span class="sbp-phase-disc">Discovery &amp; diagnostics</span>
+            <span class="sbp-phase-state">
+              <span class="sb-ico" data-ico="CheckCircle" data-size="sm" aria-hidden="true"></span>
+              Baseline valuation delivered
+            </span>
+          </div>
+
+          <div class="sb-reveal sbp-phase-cell" data-state="complete" data-rv data-rv-i="1">
+            <span class="sbp-phase-dot" aria-hidden="true"></span>
+            <span class="sbp-phase-n">II</span>
+            <span class="sbp-phase-name">See the full picture</span>
+            <span class="sbp-phase-disc">Value &amp; wealth assessment</span>
+            <span class="sbp-phase-state">
+              <span class="sb-ico" data-ico="CheckCircle" data-size="sm" aria-hidden="true"></span>
+              Personal financial plan delivered
+            </span>
+          </div>
+
+          <div class="sb-reveal sbp-phase-cell" data-state="active" data-rv data-rv-i="2">
+            <span class="sbp-phase-dot" aria-hidden="true"></span>
+            <span class="sbp-phase-n">III</span>
+            <span class="sbp-phase-name">Put your plans in place</span>
+            <span class="sbp-phase-disc">Pre-sale planning</span>
+            <span class="sbp-phase-state">
+              <span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>
+              In progress
+            </span>
+          </div>
+
+          <div class="sb-reveal sbp-phase-cell" data-state="ahead" data-rv data-rv-i="3">
+            <span class="sbp-phase-dot" aria-hidden="true"></span>
+            <span class="sbp-phase-n">IV</span>
+            <span class="sbp-phase-name">Sell the business</span>
+            <span class="sbp-phase-disc">Sale &amp; transition</span>
+            <span class="sbp-phase-state">Still ahead</span>
+          </div>
+
+          <div class="sb-reveal sbp-phase-cell" data-state="ahead" data-rv data-rv-i="4">
+            <span class="sbp-phase-dot" aria-hidden="true"></span>
+            <span class="sbp-phase-n">V</span>
+            <span class="sbp-phase-name">Manage the wealth</span>
+            <span class="sbp-phase-disc">Wealth integration</span>
+            <span class="sbp-phase-state">Still ahead</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================== THE SEQUENCE ========================
+           Was three parallel open questions, each the same size and each
+           demanding a decision. Travis, 8/14: it should be telegraphic and walk
+           the member through the process step by step, done / next / coming up,
+           smaller cards and more direct language, mapped back to the phases.
+
+           So the three cards are now ONE sequence rather than three peers: each
+           carries its state, the phase it belongs to, and one line. Only the
+           NEXT card asks for anything, which is the point — a member should be
+           able to see what to do without reading three cards to work out which
+           one is live.
+
+           The status chips reuse .sbp-status and its three tones, the same
+           treatment the concierge request uses, so a state means the same thing
+           everywhere on the page. -->
+      <section class="sbp-mblock" aria-labelledby="seq-h">
+        <div class="sbp-mblock-head">
+          <div>
+            <div class="sb-kick"><span class="sb-kick-dash"></span><span>From your assessment</span></div>
+            <h2 class="sbp-mblock-h2" id="seq-h">What&rsquo;s done, and what&rsquo;s next.</h2>
+          </div>
+        </div>
+
+        <div class="sbp-seq">
+          <div class="sb-reveal sbp-seq-card" data-state="done" data-rv>
+            <div class="sbp-seq-top">
+              <span class="sb-badge sbp-status" data-tone="done">
+                <span class="sb-badge-dot" aria-hidden="true"></span>Done
+              </span>
+              <span class="sbp-seq-phase">Phase II</span>
+            </div>
+            <h3 class="sbp-seq-h3">Valuation and financial plan</h3>
+            <p class="sbp-seq-body">
+              Both delivered. The gap between them was small enough to skip value
+              acceleration.
+            </p>
+          </div>
+
+          <div class="sb-reveal sbp-seq-card" data-state="next" data-rv data-rv-i="1">
+            <div class="sbp-seq-top">
+              <span class="sb-badge sbp-status" data-tone="live">
+                <span class="sb-badge-dot" aria-hidden="true"></span>Next
+              </span>
+              <span class="sbp-seq-phase">Phase III</span>
+            </div>
+            <h3 class="sbp-seq-h3">Estate and tax structures</h3>
+            <p class="sbp-seq-body">
+              Set them before a letter of intent. Sign one and most of this work closes
+              off.
+            </p>
+            <div class="sbp-seq-foot">
+              <a class="sb-btn" data-v="accent" data-size="sm" href="/members/request.html"
+                 data-stub="The concierge request form opens here: what you need, where, and by when.">
+                Request an introduction
+                <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="sb-reveal sbp-seq-card" data-state="upcoming" data-rv data-rv-i="2">
+            <div class="sbp-seq-top">
+              <span class="sb-badge sbp-status" data-tone="wait">
+                <span class="sb-badge-dot" aria-hidden="true"></span>Coming up
+              </span>
+              <span class="sbp-seq-phase">Phase IV</span>
+            </div>
+            <h3 class="sbp-seq-h3">Quality of earnings</h3>
+            <p class="sbp-seq-body">
+              Run yours before a buyer&rsquo;s team runs theirs. Introductions already made.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ INSIGHTS ============================
+           The client doc names this SECOND, ahead of matching: "Source of
+           actionable, relevant and timely Intelligence." Labelled INSIGHTS on the
+           page, matching the rail item and the "See all insights" link (Travis,
+           8/14); "Intelligence" survives here only as the client's own word for
+           it. An earlier pass had it
+           as one card at the foot of the page, which is the weakest possible
+           treatment of the doc's strongest value proposition (Travis, 8/14).
+
+           FREEMIUM / PREMIUM IS ONE ATTRIBUTE: data-access on the cell, and
+           nothing else. It drives the Members badge and the warm card ground,
+           so flipping "free" to "member" on a single item changes everything
+           about how it presents. That is deliberately the shape a CMS field
+           takes later (Travis, 8/14) — one flag per item, no second template,
+           no second content system. The badge markup sits in every card and is
+           hidden by CSS for free items, so the flag is the only thing that
+           moves.
+
+           WHICH ITEMS ARE PREMIUM follows the doc rather than a guess: the
+           flagship guides publish free, and the anonymized case studies, which
+           the doc calls the provider "sample deliverable" proof, are the
+           members tier. One production pipeline, two access levels.
+
+           No images. Every photograph in this build is a 439x597 brand-book
+           crop, and four of them at 240px would be leaning hard on the weakest
+           asset in the repo. -->
+      <section class="sbp-mblock" aria-labelledby="ins-h">
+        <div class="sbp-mblock-head">
+          <div>
+            <div class="sb-kick"><span class="sb-kick-dash"></span><span>Insights</span></div>
+            <h2 class="sbp-mblock-h2" id="ins-h">The latest from Sandro Business.</h2>
+          </div>
+          <a class="sb-btn" data-v="link" href="/members/insights.html"
+             data-stub="Every guide and case study, free and members-only, in one place.">
+            See all insights
+          </a>
+        </div>
+
+        <div class="sb-cols sbp-ins" data-cols="4">
+          <div class="sb-reveal sbp-card-cell" data-rv data-access="free" data-format="guide">
+            <a class="sb-card" data-interactive="1" href="/members/insights.html"
+               data-stub="This guide opens here once the Insights section is built.">
+              <div class="sb-card-body">
+                <span class="sbp-fmt-mark" aria-hidden="true"><span class="sb-ico" data-ico="FileCheck02" data-size="md"></span></span>
+                <div class="sb-kick"><span>Value acceleration</span></div>
+                <h3>The levers that move earnings and multiples</h3>
+                <p class="sbp-card-body-text">Which parts of the business a buyer prices up, and which ones get discounted.</p>
+                <div class="sbp-ins-foot">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="guide">
+            <a class="sb-card" data-interactive="1" href="/members/insights.html"
+               data-stub="This guide opens here once the Insights section is built.">
+              <div class="sb-card-body">
+                <span class="sbp-fmt-mark" aria-hidden="true"><span class="sb-ico" data-ico="FileCheck02" data-size="md"></span></span>
+                <div class="sb-kick"><span>Sale and transition</span></div>
+                <h3>What a letter of intent actually locks in</h3>
+                <p class="sbp-card-body-text">The terms that stop being negotiable the day you sign one.</p>
+                <div class="sbp-ins-foot">
+                  <span class="sbp-media-tag">Guide</span>
+                  <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="member" data-format="case-study">
+            <a class="sb-card" data-interactive="1" href="/members/insights.html"
+               data-stub="Members-only. This case study opens here once the Insights section is built.">
+              <div class="sb-card-body">
+                <span class="sbp-fmt-mark" aria-hidden="true"><span class="sb-ico" data-ico="Scales02" data-size="md"></span></span>
+                <div class="sb-kick"><span>Value acceleration</span></div>
+                <h3>A redacted valuation snapshot</h3>
+                <p class="sbp-card-body-text">The valuation and gap analysis from a finished engagement, with the identifying detail removed.</p>
+                <div class="sbp-ins-foot">
+                  <span class="sbp-media-tag">Case study</span>
+                  <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="3" data-access="member" data-format="case-study">
+            <a class="sb-card" data-interactive="1" href="/members/insights.html"
+               data-stub="Members-only. This case study opens here once the Insights section is built.">
+              <div class="sb-card-body">
+                <span class="sbp-fmt-mark" aria-hidden="true"><span class="sb-ico" data-ico="Scales02" data-size="md"></span></span>
+                <div class="sb-kick"><span>Estate and wealth</span></div>
+                <h3>A redacted estate structure</h3>
+                <p class="sbp-card-body-text">The gifting and trust structure behind a sale, stripped of anything that identifies the owner.</p>
+                <div class="sbp-ins-foot">
+                  <span class="sbp-media-tag">Case study</span>
+                  <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================== REQUESTS ==========================
+           The core transaction. The first request's state is driven by the
+           demo session (submitted -> matched -> introduced) so the stepper in
+           the demo panel moves something the CEO can watch. All three states
+           are in the DOM; CSS shows one.
+
+           Firms are DESCRIBED, never named, and their marks are the dashed
+           placeholder plate the homepage directory sample uses. A named firm
+           on a members screen reads as a firm that has signed, and none have.
+           No ratings and no stars, for the same reason. -->
+      <section class="sbp-mblock" aria-labelledby="requests-h">
+        <div class="sbp-mblock-head">
+          <div>
+            <div class="sb-kick"><span class="sb-kick-dash"></span><span>Concierge</span></div>
+            <h2 class="sbp-mblock-h2" id="requests-h">Introductions we&rsquo;re lining up.</h2>
+            <p class="sbp-mblock-lede">
+              Tell us what you need and Sandro finds the firms, checks they are right for
+              your situation and makes the introduction. No provider pays Sandro anything
+              for a place on the list.
+            </p>
+          </div>
+          <a class="sb-btn" data-v="accent" data-size="sm" href="/members/request.html"
+             data-stub="The concierge request form opens here: what you need, where, and by when.">
+            New request
+            <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="sbp-reqs">
+
+          <article class="sb-reveal sbp-req" data-rv>
+            <div class="sbp-req-top">
+              <div>
+                <h3 class="sbp-req-h3">Estate and tax counsel</h3>
+                <div class="sbp-req-meta">Submitted August 8 &middot; Ohio and nearby states &middot; Ahead of a letter of intent</div>
+              </div>
+              <span class="sb-badge sbp-status sbp-req-state" data-state="submitted" data-tone="wait">
+                <span class="sb-badge-dot" aria-hidden="true"></span>Submitted
+              </span>
+              <span class="sb-badge sbp-status sbp-req-state" data-state="matched" data-tone="live">
+                <span class="sb-badge-dot" aria-hidden="true"></span>Shortlist ready
+              </span>
+              <span class="sb-badge sbp-status sbp-req-state" data-state="introduced" data-tone="done">
+                <span class="sb-badge-dot" aria-hidden="true"></span>Introduced
+              </span>
+            </div>
+
+            <p class="sbp-req-body">
+              Counsel who has set trust and gifting structures for closely held businesses
+              before a sale, and who will work at the same table as the Sandro wealth
+              team.
+            </p>
+
+            <div class="sbp-req-state" data-state="submitted">
+              <p class="sbp-req-body">
+                <span data-session-field="consultant.first">Alok</span> has your request and
+                is confirming capacity with firms that fit the timeline. Nothing is shared
+                with any of them until you approve it.
+              </p>
+              <div class="sbp-req-actions">
+                <a class="sb-btn" data-v="secondary" data-size="sm" href="/members/book.html"
+                   data-stub="Your senior partner&rsquo;s calendar opens here. Twenty minutes, no fee.">
+                  <span>Book 20 minutes with <span data-session-field="consultant.first">Alok</span></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="sbp-req-state" data-state="matched">
+              <div class="sbp-shortlist">
+                <div class="sbp-firm">
+                  <span class="sbp-logo-plate">Firm mark</span>
+                  <p class="sbp-firm-why">
+                    A regional estate and tax practice, four decades in closely held
+                    transitions. Brings the owner&rsquo;s wealth team in from the start.
+                  </p>
+                </div>
+                <div class="sbp-firm">
+                  <span class="sbp-logo-plate">Firm mark</span>
+                  <p class="sbp-firm-why">
+                    A national firm with a dedicated pre-transaction group. Deeper bench,
+                    and used to running alongside an M&amp;A process already in motion.
+                  </p>
+                </div>
+                <div class="sbp-firm">
+                  <span class="sbp-logo-plate">Firm mark</span>
+                  <p class="sbp-firm-why">
+                    A boutique taking a small number of engagements a year. The named partner
+                    does the work, not an associate.
+                  </p>
+                </div>
+              </div>
+              <div class="sbp-req-actions">
+                <a class="sb-btn" data-v="accent" data-size="sm" href="/members/book.html"
+                   data-stub="Your senior partner&rsquo;s calendar opens here. Twenty minutes, no fee.">
+                  Request these introductions
+                  <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="sbp-req-state" data-state="introduced">
+              <p class="sbp-req-body">
+                Introductions sent to the two firms you approved. Both have your summary.
+                Neither has your financials, and neither pays Sandro anything for the
+                introduction.
+              </p>
+            </div>
+          </article>
+
+
+          <!-- A SECOND live request, in a different discipline and at an earlier
+               stage. Travis asked what happens when more than estate and tax
+               counsel are at the table (8/14): each request is its own card,
+               stacked newest first, carrying its own discipline and its own
+               state. This one is deliberately short, no shortlist yet, which is
+               what an early-stage request actually looks like and what keeps a
+               member with four live requests from a wall of boxes. Beyond a few,
+               the dashboard shows the live ones and Requests holds the rest. -->
+          <article class="sb-reveal sbp-req" data-rv data-rv-i="1">
+            <div class="sbp-req-top">
+              <div>
+                <h3 class="sbp-req-h3">M&amp;A advisor</h3>
+                <div class="sbp-req-meta">Submitted August 12 &middot; National &middot; Ahead of going to market</div>
+              </div>
+              <span class="sb-badge sbp-status" data-tone="wait">
+                <span class="sb-badge-dot" aria-hidden="true"></span>Submitted
+              </span>
+            </div>
+            <p class="sbp-req-body">
+              A banker who has sold industrial services businesses at this size and will
+              run a real process rather than take it to one buyer. Sandro is confirming
+              who fits before anything is shared.
+            </p>
+          </article>
+
+
+        </div>
+      </section>
+
+
+      <!-- ========================== ALSO OPEN ==========================
+           Two cards, not four (Travis, 8/14). Insights was promoted to its
+           own block above. DOCUMENTS WAS CUT, and deliberately: it was the one
+           module that committed Sandro to holding client financial records
+           (valuations, plans, engagement letters), which for an SEC-registered
+           adviser is a Reg S-P safeguards obligation and a records-retention
+           question in exchange for the least member value of the four. Nothing
+           on this page should read as a place financial documents live.
+
+           Diagnostics shows when it was last run and offers to run it again. It
+           does NOT list stored reports, for the same reason. -->
+      <section class="sbp-mblock" aria-labelledby="modules-h">
+        <div class="sbp-mblock-head">
+          <div>
+            <div class="sb-kick"><span class="sb-kick-dash"></span><span>Your membership</span></div>
+            <h2 class="sbp-mblock-h2" id="modules-h">Other tools included with your membership.</h2>
+          </div>
+        </div>
+
+        <div class="sbp-modules">
+          <a class="sb-reveal sbp-module" href="/members/diagnostics.html" data-rv
+             data-stub="Run the readiness assessment again whenever something changes.">
+            <span class="sb-ico" data-ico="ClipboardCheck" data-size="lg" aria-hidden="true"></span>
+            <span class="sbp-module-name">Diagnostics</span>
+            <span class="sbp-module-note">Run the readiness assessment again whenever something changes.</span>
+            <span class="sbp-module-count">Last run in March</span>
+          </a>
+          <a class="sb-reveal sbp-module" href="/members/events.html" data-rv data-rv-i="1"
+             data-stub="Forums, chapter dinners and closed sessions.">
+            <span class="sb-ico" data-ico="CalendarCheck01" data-size="lg" aria-hidden="true"></span>
+            <span class="sbp-module-name">Events</span>
+            <span class="sbp-module-note">Forums, chapter dinners and closed sessions, in person and online.</span>
+            <span class="sbp-module-count">Next on September 9</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- ============================= THE SOFT GATE =============================
+     A member page always renders its real content; signed out, the console is
+     blurred behind this card rather than replaced by a redirect to a login
+     screen. A redirect hides the exact thing the prototype exists to show.
+
+     Sibling of the console, not a child, so the blur filter on the console
+     cannot reach it. -->
+<div class="sbp-gate" data-when="out">
+  <div class="sbp-gate-card">
+    <span class="sbp-avatar" data-size="lg" data-on="light" aria-hidden="true"
+          data-session-field="member.initials">RH</span>
+    <h1 class="sbp-gate-h1">The members area is behind a login.</h1>
+    <p class="sbp-gate-body">
+      This is a demonstration account for <span data-session-field="member.name">Ray Halloran</span>,
+      an owner on the Ready to Sell track. Sign in to see the members area the way he
+      would.
+    </p>
+    <div class="sbp-gate-actions">
+      <button type="button" class="sb-btn" data-v="accent" data-size="lg"
+              data-session-action="signin">
+        <!-- One span, not a text node beside a span: .sb-btn is inline-flex with
+             a 10px gap, so two children would be spaced twice. -->
+        <span>Sign in as <span data-session-field="member.first">Ray</span></span>
+      </button>
+      <a class="sb-btn" data-v="secondary" data-size="lg" href="/members/sign-in.html">
+        Go to the sign-in screen
+      </a>
+    </div>
+    <p class="sbp-gate-foot">No real member account exists behind this prototype.</p>
+  </div>
+</div>
+
+<script src="/assets/app.js?v=14"></script>
+</body>
+</html>
