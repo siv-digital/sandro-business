@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Readiness Assessment · Sandro Business" />
   <meta name="twitter:description" content="A short assessment for business owners: your provisional track, a readiness read across five dimensions, the moves worth making first, and step one of your application to the Sandro Business community." />
-  <meta name="twitter:image" content="https://sandro-readiness-assessment.onrender.com/share-card.png" />
+  <meta name="twitter:image" content="https://sandro-business-prototype.onrender.com/assessment/share-card.png" />
   <script>
   /* Failsafe: if the main script fails to parse or throws, surface a visible
      message instead of a page that silently does nothing. Resource errors do
@@ -430,6 +430,12 @@
       .r-cta { padding: 26px 24px; }
       .gate-card { padding: 34px 24px 28px; }
       .gate-row { grid-template-columns: 1fr; }
+      /* Thumb targets (8/14 QA): Back, "Back to the last question" and
+         "Retake the assessment" measured 34-35px on a phone. 44px minimum at
+         phone widths; the text bottom-aligns inside the grown hit area so the
+         underline keeps its distance from the type. */
+      .q-back { min-height: 44px; }
+      .tiny-link { min-height: 44px; align-items: flex-end; }
     }
 
     /* ============ MOTION + PRINT ============ */

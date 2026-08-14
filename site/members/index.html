@@ -9,8 +9,8 @@
 <title>Your roadmap · Sandro Business</title>
 <meta name="description" content="The Sandro Business members area: where you are on the Business Owner Journey and where each of your requests stands.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
-<link rel="stylesheet" href="/assets/ds/styles.css?v=2">
-<link rel="stylesheet" href="/assets/app.css?v=36">
+<link rel="stylesheet" href="/assets/ds/styles.css?v=3">
+<link rel="stylesheet" href="/assets/app.css?v=37">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
 </head>
 <body>
@@ -432,9 +432,10 @@
 
       <!-- ========================== REQUESTS ==========================
            The core transaction. The first request's state is driven by the
-           demo session (submitted -> matched -> introduced) so the stepper in
-           the demo panel moves something the CEO can watch. All three states
-           are in the DOM; CSS shows one.
+           demo session (submitted -> matched -> introduced); all three states
+           are in the DOM and CSS shows one. There is no stepper UI, on purpose
+           (Travis, 8/14): flip requestState from the console via SB.write when
+           a walkthrough needs to show movement.
 
            Naming rule (amended 8/14, Travis, this is the SECOND scoped
            amendment): a request card may carry a signed firm's real mark, so
@@ -502,7 +503,7 @@
             <div class="sbp-req-state" data-state="matched">
               <div class="sbp-shortlist">
                 <div class="sbp-firm">
-                  <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP"></span>
+                  <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" loading="lazy" alt="Strazzeri Mancini, LLP"></span>
                   <p class="sbp-firm-why">
                     An integrated tax, estate and succession practice for affluent
                     families. Brings your wealth team in from the start, so the plan
@@ -569,7 +570,7 @@
             </p>
             <div class="sbp-shortlist">
               <div class="sbp-firm">
-                <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/edgepoint.png" alt="EdgePoint Capital"></span>
+                <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/edgepoint.png" loading="lazy" alt="EdgePoint Capital"></span>
                 <p class="sbp-firm-why">
                   An independent M&amp;A advisory firm, founded 2000, with a dedicated
                   family-business practice and depth in industrials.
@@ -656,6 +657,6 @@
   </div>
 </div>
 
-<script src="/assets/app.js?v=15"></script>
+<script src="/assets/app.js?v=16"></script>
 </body>
 </html>

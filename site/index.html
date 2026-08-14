@@ -9,8 +9,8 @@
 <title>Sandro Business</title>
 <meta name="description" content="Sandro connects business owners to vetted specialists in valuation, M&A, lending and estate work, and takes no compensation from any of them.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
-<link rel="stylesheet" href="/assets/ds/styles.css?v=2">
-<link rel="stylesheet" href="/assets/app.css?v=36">
+<link rel="stylesheet" href="/assets/ds/styles.css?v=3">
+<link rel="stylesheet" href="/assets/app.css?v=37">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
 </head>
 <body>
@@ -22,18 +22,20 @@
      ivory logo and links.
 
      The directory is a MEMBER page (spec 4), so it is not in the public nav.
-     It is reachable from the membership section and the footer. -->
+     It is reachable from the members rail only: the footer link stays inert on
+     purpose, and the home sample carries no link to it (Travis, 8/14 — a
+     public link to a member-only page can only apologise). -->
 <header class="sb-header sb-dark" data-t="transparent">
   <a class="sb-logo sbp-logo" href="/" aria-label="SandroBusiness, home">
     <img src="/assets/img/sandro-symbol-ivory.png" alt="">
     <span class="sb-logo-word">SandroBusiness</span>
   </a>
 
-  <button type="button" class="sb-nav-toggle" aria-label="Open menu" aria-expanded="false">
+  <button type="button" class="sb-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
     <span class="sb-ico" data-ico="Menu01" data-size="lg" aria-hidden="true"></span>
   </button>
 
-  <nav class="sb-nav" aria-label="Primary">
+  <nav class="sb-nav" id="site-nav" aria-label="Primary">
     <a class="sb-nav-link" href="/#how">How it works</a>
     <a class="sb-nav-link" href="/#membership">Membership</a>
     <a class="sb-nav-link" href="/#insights">Insights</a>
@@ -246,7 +248,7 @@
      The source renders that sentence with an em dash. Rewritten as two
      sentences here: no em dashes in client-facing copy. -->
 <section class="sb-band sbp-band">
-  <img src="/assets/img/brooklyn-bridge-sunset.jpg" alt="Lower Manhattan at sunset, seen across the East River past the Brooklyn Bridge">
+  <img src="/assets/img/brooklyn-bridge-sunset.jpg" loading="lazy" alt="Lower Manhattan at sunset, seen across the East River past the Brooklyn Bridge">
   <div class="sb-band-scrim"></div>
   <div class="sb-band-inner sbp-band-inner">
     <div class="sbp-band-copy">
@@ -296,7 +298,7 @@
           <span class="sb-ico sbp-pillar-ico" data-ico="Building02" data-size="lg" aria-hidden="true"></span>
           <h3>The partner directory</h3>
           <p>
-            Every firm we work with, by category and filterable, with a 20-minute call bookable from any listing.
+            Every firm we work with, by discipline. When one fits, ask and Sandro makes the introduction.
           </p>
         </div>
       </div>
@@ -486,8 +488,8 @@
           <h4 class="sbp-dircat-name">Business value acceleration</h4>
           <p class="sbp-dircat-blurb">Grow the transferable value of the business before you sell, and close the gap between what it&rsquo;s worth today and what you need it to be worth.</p>
           <div class="sbp-logos">
-            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/exitology.png" alt="Exitology"></span>
-            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/quest-valuation.png" alt="Quest Valuation &amp; Advisors"></span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/exitology.png" alt="Exitology" loading="lazy"></span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/quest-valuation.png" alt="Quest Valuation &amp; Advisors" loading="lazy"></span>
           </div>
         </div>
       </div>
@@ -497,8 +499,8 @@
           <h4 class="sbp-dircat-name">M&amp;A and investment banking</h4>
           <p class="sbp-dircat-blurb">Sell-side representation and buyer processes built for owner-led companies, run by bankers who do this and nothing else.</p>
           <div class="sbp-logos">
-            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/edgepoint.png" alt="EdgePoint Capital"></span>
-            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/cornerstone.png" alt="Cornerstone Business Services"></span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/edgepoint.png" alt="EdgePoint Capital" loading="lazy"></span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/cornerstone.png" alt="Cornerstone Business Services" loading="lazy"></span>
           </div>
         </div>
       </div>
@@ -508,7 +510,7 @@
           <h4 class="sbp-dircat-name">Estate planning</h4>
           <p class="sbp-dircat-blurb">Trust, estate and transaction structures, set well before a buyer appears.</p>
           <div class="sbp-logos">
-            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP"></span>
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP" loading="lazy"></span>
           </div>
         </div>
       </div>
@@ -518,7 +520,7 @@
           <h4 class="sbp-dircat-name">Taxes</h4>
           <p class="sbp-dircat-blurb">What the tax bill looks like under each structure, and what it takes to change it while there&rsquo;s still time to.</p>
           <div class="sbp-logos">
-            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP"></span>
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP" loading="lazy"></span>
           </div>
         </div>
       </div>
@@ -528,7 +530,7 @@
           <h4 class="sbp-dircat-name">Asset protection</h4>
           <p class="sbp-dircat-blurb">Structures that protect what you&rsquo;ve built, before the sale and after it.</p>
           <div class="sbp-logos">
-            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP"></span>
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP" loading="lazy"></span>
           </div>
         </div>
       </div>
@@ -555,7 +557,7 @@
           <div class="sbp-logos">
             <span class="sbp-logo-plate" data-firm role="img" aria-label="Sandro Wealth Management">
               <span class="sb-logo" aria-hidden="true">
-                <img src="/assets/img/sandro-symbol-titanium.png" alt="">
+                <img src="/assets/img/sandro-symbol-titanium.png" loading="lazy" alt="">
                 <span class="sb-logo-word">SandroWealth</span>
               </span>
             </span>
@@ -604,16 +606,16 @@
     <div class="sbp-filters" role="group" aria-label="Filter insights by format">
       <button type="button" class="sb-tag" data-clickable="1" data-filter="all" aria-pressed="true">All</button>
       <button type="button" class="sb-tag" data-clickable="1" data-filter="guide" aria-pressed="false">Guides</button>
-      <button type="button" class="sb-tag" data-clickable="1" data-filter="case" aria-pressed="false">Case studies</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="case-study" aria-pressed="false">Case studies</button>
       <button type="button" class="sb-tag" data-clickable="1" data-filter="webinar" aria-pressed="false">Webinars</button>
       <button type="button" class="sb-tag" data-clickable="1" data-filter="podcast" aria-pressed="false">Podcast</button>
     </div>
 
     <div class="sb-cols sbp-briefings" data-cols="3" data-filter-grid>
-      <div class="sb-reveal sbp-card-cell" data-rv data-media="guide" data-featured="1">
+      <div class="sb-reveal sbp-card-cell" data-rv data-format="guide" data-featured="1">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/city-architecture.jpg" alt="">
+            <img src="/assets/img/city-architecture.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
@@ -626,10 +628,10 @@
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="guide">
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-format="guide">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/advisors-tablet.jpg" alt="">
+            <img src="/assets/img/advisors-tablet.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
@@ -642,10 +644,10 @@
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="guide">
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-format="guide">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/working-session.jpg" alt="">
+            <img src="/assets/img/working-session.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
@@ -658,10 +660,10 @@
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-media="case" data-featured="1">
+      <div class="sb-reveal sbp-card-cell" data-rv data-format="case-study" data-featured="1">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/advisors-tablet.jpg" alt="">
+            <img src="/assets/img/advisors-tablet.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
@@ -674,10 +676,10 @@
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="case">
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-format="case-study">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/working-session.jpg" alt="">
+            <img src="/assets/img/working-session.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
@@ -690,26 +692,26 @@
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="case">
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-format="case-study">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/city-architecture.jpg" alt="">
+            <img src="/assets/img/city-architecture.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
               <div class="sb-kick"><span>Value acceleration</span></div>
               <span class="sbp-media-tag">Case study</span>
             </div>
-            <h3>A valuation snapshot, redacted</h3>
+            <h3>A redacted valuation snapshot</h3>
             <p class="sbp-card-body-text">What the appraiser flagged, and the questions it sent back to the owner.</p>
           </div>
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-media="webinar" data-featured="1">
+      <div class="sb-reveal sbp-card-cell" data-rv data-format="webinar" data-featured="1">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/working-session.jpg" alt="">
+            <img src="/assets/img/working-session.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
@@ -722,10 +724,10 @@
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-media="webinar">
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-format="webinar">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/city-architecture.jpg" alt="">
+            <img src="/assets/img/city-architecture.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
@@ -738,10 +740,10 @@
         </a>
       </div>
 
-      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-media="webinar">
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-format="webinar">
         <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the Insights section.">
           <div class="sb-card-media">
-            <img src="/assets/img/advisors-tablet.jpg" alt="">
+            <img src="/assets/img/advisors-tablet.jpg" loading="lazy" alt="">
           </div>
           <div class="sb-card-body">
             <div class="sbp-card-meta">
@@ -755,7 +757,7 @@
       </div>
     </div>
 
-    <div class="sbp-podcast" data-media="podcast">
+    <div class="sbp-podcast">
       <div class="sbp-podcast-mark" aria-hidden="true">
         <span class="sb-ico" data-ico="Podcast" data-size="lg"></span>
       </div>
@@ -884,8 +886,8 @@
       <span class="sb-wipe-inner" data-rv>Find out where your business stands.</span>
     </h2>
     <p class="sb-reveal sbp-closing-sub" data-rv data-rv-i="1">
-      Get started with a 10-minute assessment. A consultant will review your results
-      and reach out with next steps. Assessment results are yours to keep.
+      Get started with the assessment; it takes about four minutes. A consultant
+      will review your results and reach out with next steps. Assessment results are yours to keep.
     </p>
     <div class="sb-reveal sb-btn-row sbp-closing-actions" data-rv data-rv-i="2">
       <a class="sb-btn" data-v="accent" data-size="lg" href="/assessment/">
@@ -909,7 +911,7 @@
   <div class="sb-footer-top sbp-footer-top">
     <div class="sbp-footer-brand">
       <span class="sb-logo sbp-logo">
-        <img src="/assets/img/sandro-symbol-ivory.png" alt="">
+        <img src="/assets/img/sandro-symbol-ivory.png" loading="lazy" alt="">
         <span class="sb-logo-word">SandroBusiness</span>
       </span>
       <p class="sbp-footer-note">For business owners preparing to grow or sell.</p>
@@ -947,6 +949,6 @@
   </div>
 </footer>
 
-<script src="/assets/app.js?v=15"></script>
+<script src="/assets/app.js?v=16"></script>
 </body>
 </html>

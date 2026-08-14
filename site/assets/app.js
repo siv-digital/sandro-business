@@ -139,9 +139,20 @@
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       var ico = toggle.querySelector('.sb-ico');
       if (ico) ico.setAttribute('data-ico', open ? 'XClose' : 'Menu01');
+      /* The open sheet locks page scroll (rule in app.css). Without the lock a
+         same-page anchor scrolls the document underneath the open menu. */
+      if (open) root.setAttribute('data-sb-sheet-open', '1');
+      else root.removeAttribute('data-sb-sheet-open');
     }
     toggle.addEventListener('click', function () {
       setOpen(nav.getAttribute('data-open') !== '1');
+    });
+    /* Any link in the sheet closes it. On a cross-page link this is moot; on a
+       same-page anchor it is the whole fix: close first (which releases the
+       scroll lock), then the default navigation scrolls to the section. */
+    nav.addEventListener('click', function (e) {
+      var link = e.target.closest ? e.target.closest('a') : null;
+      if (link) setOpen(false);
     });
     if (typeof matchMedia === 'function') {
       matchMedia('(min-width:821px)').addEventListener('change', function () { setOpen(false); });
@@ -189,7 +200,9 @@
       initials: 'AG',
       role: 'Senior partner'
     },
-    /* submitted -> matched -> introduced. The demo panel steps this. */
+    /* submitted -> matched -> introduced. No stepper UI exists, deliberately
+       (Travis, 8/14): set it from the console via SB.write when a walkthrough
+       needs to show the concierge states moving. */
     requestState: 'matched'
   };
 
@@ -248,7 +261,30 @@
       }
     );
 
-    if (window.SBDemo && window.SBDemo.sync) window.SBDemo.sync(session);
+    /* The soft gate's blur removes neither keyboard focus nor the element from
+       the accessibility tree: signed out, Tab walked every blurred control
+       before ever reaching the gate, and a screen reader read the whole
+       dashboard with no hint a gate existed. `inert` + aria-hidden make the
+       glass real for those users too, and focus lands on the gate card so the
+       first thing announced is the way in. Signed in, both come straight off. */
+    var consoleEl = document.querySelector('.sbp-console');
+    var gate = document.querySelector('.sbp-gate');
+    if (consoleEl && gate) {
+      if (session.signedIn) {
+        consoleEl.removeAttribute('inert');
+        consoleEl.removeAttribute('aria-hidden');
+      } else {
+        consoleEl.setAttribute('inert', '');
+        consoleEl.setAttribute('aria-hidden', 'true');
+        var card = gate.querySelector('.sbp-gate-card');
+        if (card) {
+          gate.setAttribute('role', 'dialog');
+          gate.setAttribute('aria-modal', 'true');
+          card.setAttribute('tabindex', '-1');
+          card.focus({ preventScroll: true });
+        }
+      }
+    }
   }
 
   /* ---------------------------------------------------------------------
@@ -260,14 +296,21 @@
      ------------------------------------------------------------------- */
   var toast, toastTimer;
 
+  /* The live region has to exist BEFORE its first message: several screen
+     readers only announce changes to a region that was already in the tree, so
+     a container created and populated in the same interaction can be silent
+     exactly once. boot() calls this so the region is waiting empty. */
+  function ensureToast() {
+    if (toast) return;
+    toast = document.createElement('div');
+    toast.className = 'sbp-toast';
+    toast.setAttribute('role', 'status');
+    toast.innerHTML = '<span class="sb-ico" data-ico="InfoCircle" aria-hidden="true"></span><span></span>';
+    document.body.appendChild(toast);
+  }
+
   function showToast(msg) {
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'sbp-toast';
-      toast.setAttribute('role', 'status');
-      toast.innerHTML = '<span class="sb-ico" data-ico="InfoCircle" aria-hidden="true"></span><span></span>';
-      document.body.appendChild(toast);
-    }
+    ensureToast();
     toast.lastChild.textContent = msg;
     toast.setAttribute('data-open', '1');
     clearTimeout(toastTimer);
@@ -275,12 +318,19 @@
   }
 
   function initStubs() {
-    document.addEventListener('click', function (e) {
+    /* auxclick as well as click, the same pair initInert registers: a stub
+       keeps a real unbuilt href as documentation, so without this a middle
+       click opened the dead path in a new tab — the one route left to the 404
+       this system exists to close. The toast answers the clicks that stay on
+       this page. */
+    function answer(e) {
       var el = e.target.closest ? e.target.closest('[data-stub]') : null;
       if (!el) return;
       e.preventDefault();
-      showToast(el.getAttribute('data-stub'));
-    });
+      if (e.type === 'click' || e.button === 1) showToast(el.getAttribute('data-stub'));
+    }
+    document.addEventListener('click', answer);
+    document.addEventListener('auxclick', answer);
   }
 
   /* data-inert: a control that must LOOK live and go nowhere.
@@ -371,7 +421,11 @@
     var panel = document.querySelector('.sbp-podcast');
     if (!grid) return;
 
-    var cells = grid.querySelectorAll('[data-media]');
+    /* ONE vocabulary: data-format drives the plate/badge presentation AND this
+       filter, so the chips carry the same values (guide / case-study /
+       webinar). A second data-media spelling of the same fact used to sit
+       beside it and had to be hand-synced; retired 8/14. */
+    var cells = grid.querySelectorAll('[data-format]');
 
     /* Home curates "All" down to the featured cards; the members library IS
        the full list, so its grid opts out with data-filter-full. */
@@ -387,7 +441,7 @@
       Array.prototype.forEach.call(cells, function (cell) {
         var show = which === 'all'
           ? (full || cell.hasAttribute('data-featured'))
-          : cell.getAttribute('data-media') === which;
+          : cell.getAttribute('data-format') === which;
         cell.toggleAttribute('data-off', !show);
 
         /* A display:none cell has a zero intersection rectangle, so its
@@ -441,7 +495,10 @@
   }
 
   /* ---------------------------------------------------------------------
-     Public surface, for demo.js and the members screens.
+     Public surface, for the members screens and the browser console. A demo
+     control panel (demo.js) was planned to consume this and then deliberately
+     not built (Travis, 8/14): during a walkthrough, request states step by
+     hand — SB.write(Object.assign(SB.read(), {requestState:'introduced'})).
      ------------------------------------------------------------------- */
   window.SB = {
     key: KEY,
@@ -458,6 +515,7 @@
   };
 
   function boot() {
+    ensureToast(); /* live region must pre-exist its first announcement */
     applySession();
     initReveals();
     initHeader();

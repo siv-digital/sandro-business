@@ -7,8 +7,8 @@
 <title>For advisors &middot; Sandro Business</title>
 <meta name="description" content="Advisors earn access to Sandro Business by referring qualified owners. Reviewed annually.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
-<link rel="stylesheet" href="/assets/ds/styles.css?v=2">
-<link rel="stylesheet" href="/assets/app.css?v=36">
+<link rel="stylesheet" href="/assets/ds/styles.css?v=3">
+<link rel="stylesheet" href="/assets/app.css?v=37">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
 </head>
 <body>
@@ -28,11 +28,11 @@
     <span class="sb-logo-word">SandroBusiness</span>
   </a>
 
-  <button type="button" class="sb-nav-toggle" aria-label="Open menu" aria-expanded="false">
+  <button type="button" class="sb-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
     <span class="sb-ico" data-ico="Menu01" data-size="lg" aria-hidden="true"></span>
   </button>
 
-  <nav class="sb-nav" aria-label="Primary">
+  <nav class="sb-nav" id="site-nav" aria-label="Primary">
     <a class="sb-nav-link" href="/#how">How it works</a>
     <a class="sb-nav-link" href="/#membership">Membership</a>
     <a class="sb-nav-link" href="/#insights">Insights</a>
@@ -44,7 +44,10 @@
          "Sign in" keeps the narrative beat of crossing a threshold. -->
     <a class="sbp-signin" href="/members/">Members area</a>
     <a class="sbp-signin" href="/members/sign-in.html">Sign in</a>
-    <a class="sb-btn" data-v="accent" data-size="sm" data-ink="light" href="/apply/" data-inert="1">Start your application</a>
+    <!-- Live since the 8/14 QA pass: this label navigates to the assessment on
+         every page it appears, and this header had been left behind on the
+         pre-assessment wiring. -->
+    <a class="sb-btn" data-v="accent" data-size="sm" data-ink="light" href="/assessment/">Start your application</a>
   </nav>
 </header>
 
@@ -96,7 +99,11 @@
           </div>
 
           <div class="sbp-advisor-action">
-            <a class="sb-btn" data-v="accent" data-size="md" data-ink="light" href="/apply/?path=advisor" data-inert="1">
+            <!-- The advisor flow is unbuilt, but a large accent CTA may not go
+                 silent (dead-control rule: small affordances go inert, large
+                 ones answer). The href documents where it will point. -->
+            <a class="sb-btn" data-v="accent" data-size="md" data-ink="light" href="/apply/?path=advisor"
+               data-stub="The advisor conversation starts here: a short call about your practice and the owners you refer.">
               Start the advisor conversation
               <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
             </a>
@@ -126,18 +133,21 @@
       <p class="sbp-footer-note">For business owners preparing to grow or sell.</p>
     </div>
 
+    <!-- Mirrors home's footer verbatim (8/14 QA): the columns had drifted to
+         their own labels and a dead Apply while the same block on home was
+         live. One footer, everywhere it appears. -->
     <div class="sb-footer-cols">
       <div class="sbp-footer-col">
         <div class="sb-kicker">The community</div>
         <a href="/#how">How it works</a>
         <a href="/#membership">Membership</a>
         <a href="/#insights">Insights</a>
-        <a href="/apply/" data-inert="1">Apply</a>
+        <a href="/assessment/">Start your application</a>
       </div>
       <div class="sbp-footer-col">
         <div class="sb-kicker">Members</div>
-        <a href="/members/">Member view</a>
-        <a href="/directory/" data-inert="1">Directory</a>
+        <a href="/members/">Members area</a>
+        <a href="/directory/" data-inert="1">Partner directory</a>
         <a href="/members/sign-in.html">Sign in</a>
       </div>
       <div class="sbp-footer-col">
@@ -158,6 +168,6 @@
   </div>
 </footer>
 
-<script src="/assets/app.js?v=15"></script>
+<script src="/assets/app.js?v=16"></script>
 </body>
 </html>
