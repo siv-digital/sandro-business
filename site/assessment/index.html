@@ -1,0 +1,1512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Readiness Assessment · Sandro Business</title>
+  <meta name="description" content="A short assessment for business owners: your provisional track, a readiness read across five dimensions, the moves worth making first, and step one of your application to the Sandro Business community." />
+  <link rel="canonical" href="https://sandro-business-prototype.onrender.com/assessment/" />
+  <!-- Keep the temporary onrender.com home out of search (Travis, 2026-07-27);
+       remove this when the page moves to its sandrowealth.com address. -->
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preload" href="libre-baskerville.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="libre-baskerville-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="dm-sans.woff2" as="font" type="font/woff2" crossorigin />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sandro Business" />
+  <meta property="og:title" content="The Readiness Assessment · Sandro Business" />
+  <meta property="og:description" content="A short assessment for business owners: your provisional track, a readiness read across five dimensions, the moves worth making first, and step one of your application to the Sandro Business community." />
+  <meta property="og:url" content="https://sandro-business-prototype.onrender.com/assessment/" />
+  <meta property="og:image" content="https://sandro-business-prototype.onrender.com/assessment/share-card.png" />
+  <meta property="og:image:width" content="2400" />
+  <meta property="og:image:height" content="1260" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Readiness Assessment · Sandro Business" />
+  <meta name="twitter:description" content="A short assessment for business owners: your provisional track, a readiness read across five dimensions, the moves worth making first, and step one of your application to the Sandro Business community." />
+  <meta name="twitter:image" content="https://sandro-readiness-assessment.onrender.com/share-card.png" />
+  <script>
+  /* Failsafe: if the main script fails to parse or throws, surface a visible
+     message instead of a page that silently does nothing. Resource errors do
+     not reach this listener; only script errors do. */
+  window.addEventListener('error', function () {
+    var f = document.getElementById('jsFallback');
+    if (f) f.hidden = false;
+  });
+  </script>
+  <style>
+@font-face{font-family:'Libre Baskerville';font-style:normal;font-weight:400 700;font-display:swap;src:url(libre-baskerville.woff2) format('woff2')}
+@font-face{font-family:'Libre Baskerville';font-style:italic;font-weight:400 700;font-display:swap;src:url(libre-baskerville-italic.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400 600;font-display:swap;src:url(dm-sans.woff2) format('woff2')}
+</style>
+  <style>
+    :root {
+      --ink: #232B36;
+      --ink-90: rgba(35,43,54,0.90);
+      --ink-80: rgba(35,43,54,0.80);
+      /* ink-60/ink-50 carry functional text at 11-13px, so both must clear the
+         4.5:1 WCAG AA ratio on ivory/offwhite (0.72 -> 5.7:1, 0.66 -> 4.7:1).
+         ink-40 and below are borders and decoration only, never text. */
+      --ink-60: rgba(35,43,54,0.72);
+      --ink-50: rgba(35,43,54,0.66);
+      --ink-40: rgba(35,43,54,0.40);
+      --ink-30: rgba(35,43,54,0.30);
+      --ink-18: rgba(35,43,54,0.18);
+      --ink-12: rgba(35,43,54,0.12);
+      --ink-08: rgba(35,43,54,0.08);
+      --ivory: #FFFCEC;
+      --ivory-warm: #FAF6E2;
+      --ivory-edge: #F2EDD7;
+      --offwhite: #FFFEF6;
+      --signal: #C4A45E;   /* warm brass accent, small doses; decorative only below 16px */
+      --signal-text: #8A6D2F; /* brass for small text: 4.7:1 on ivory, the lightest that passes AA */
+      --signal-soft: rgba(196,164,94,0.16);
+      --serif: 'Libre Baskerville', 'Georgia', serif;
+      --sans: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+      --wrap: 1080px;
+      --col: 720px;
+      --gutter: 32px;
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--offwhite);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    ::selection { background: var(--ink); color: var(--ivory); }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; color: inherit; }
+
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); width: 100%; }
+    .col  { max-width: var(--col);  margin: 0 auto; width: 100%; }
+
+    /* ============ TYPE ============ */
+    .label {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-60);
+    }
+    .label .bar {
+      display: inline-block;
+      width: 22px; height: 1px;
+      background: var(--ink-40);
+      vertical-align: middle;
+      margin-right: 10px;
+      transform: translateY(-2px);
+    }
+    h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; margin: 0; }
+    h1 { font-size: clamp(38px, 5vw, 58px); line-height: 1.06; letter-spacing: -0.014em; }
+    h1 em { font-style: italic; color: var(--ink-60); }
+    .lede { font-size: 18px; line-height: 1.6; color: var(--ink-80); max-width: 54ch; }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      padding: 16px 24px;
+      border: 1px solid transparent;
+      border-radius: 0;
+      cursor: pointer;
+      transition: background .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
+      white-space: nowrap;
+    }
+    .btn .arr { width: 14px; height: 10px; display: inline-block; transition: transform .3s ease; }
+    .btn:hover .arr { transform: translateX(4px); }
+    .btn-primary { background: var(--ink); color: var(--ivory); }
+    .btn-primary:hover { background: #111820; box-shadow: 0 8px 24px rgba(35,43,54,0.22); }
+    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: var(--ivory); }
+    .tiny-link {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-80);
+      display: inline-flex; align-items: center; gap: 10px;
+      padding-top: 10px; /* hit area only; the visual weight stays the underline */
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--ink-30);
+      transition: color .25s, border-color .25s, gap .25s;
+      background: none; border-top: 0; border-left: 0; border-right: 0; cursor: pointer;
+    }
+    .tiny-link:hover { color: var(--ink); border-bottom-color: var(--ink); gap: 14px; }
+    :focus-visible { outline: 2px solid var(--ink-40); outline-offset: 3px; }
+
+    /* ============ MAST + PROGRESS ============ */
+    .mast { border-bottom: 1px solid var(--ink-08); background: var(--offwhite); }
+    .mast-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); }
+    .logo svg.mark { width: 26px; height: 26px; display: block; }
+    .logo .wordmark { font-family: var(--serif); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; line-height: 1; }
+    .mast-right { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-50); }
+    .progress { height: 2px; background: var(--ink-08); }
+    .progress-fill { height: 100%; width: 0%; background: var(--signal); transition: width .35s ease; }
+
+    /* ============ STAGE / SCREENS ============ */
+    .stage { flex: 1; display: flex; flex-direction: column; }
+    section[data-screen] { display: none; padding: 64px 0 72px; }
+    section[data-screen].is-active { display: block; }
+    .screen-enter { animation: screen-in .45s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes screen-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============ INTRO ============ */
+    .intro-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 72px; align-items: center; }
+    .intro-copy h1 { margin: 22px 0 24px; max-width: 16ch; }
+    .intro-meta {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 10px 12px;
+      margin-top: 30px; padding-top: 22px;
+      border-top: 1px solid var(--ink-12);
+      font-size: 13px; color: var(--ink-80);
+    }
+    .intro-meta > span { white-space: nowrap; }
+    .intro-meta strong { color: var(--ink); font-weight: 500; }
+    .intro-meta .sep { width: 4px; height: 4px; background: var(--ink-30); border-radius: 50%; }
+    .intro-card {
+      background: var(--ivory);
+      border: 1px solid var(--ink-12);
+      padding: 36px 36px 30px;
+      border-radius: 2px;
+      box-shadow: 0 24px 56px -22px rgba(35,43,54,0.18);
+    }
+    .ic-eyebrow {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-60);
+      margin-bottom: 26px; display: flex; align-items: center; gap: 10px;
+    }
+    .ic-eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--ink-40); }
+    .ic-list { list-style: none; padding: 0; margin: 0 0 30px; display: grid; gap: 22px; }
+    .ic-list li { display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; }
+    .ic-num { font-family: var(--serif); font-style: italic; font-size: 22px; line-height: 1; color: var(--signal); padding-top: 2px; }
+    .ic-list h3 { font-size: 18px; line-height: 1.25; margin: 0 0 4px; }
+    .ic-list p { font-size: 13.5px; color: var(--ink-80); line-height: 1.55; margin: 0; }
+    .ic-fine { font-size: 11px; color: var(--ink-50); margin: 14px 0 0; text-align: center; letter-spacing: 0.02em; }
+    .btn-block { width: 100%; justify-content: space-between; padding: 18px 26px; }
+
+    /* ============ QUESTION ============ */
+    .q-chrome { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+    .q-part { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--signal-text); }
+    .q-count { font-family: var(--sans); font-size: 12px; color: var(--ink-50); white-space: nowrap; }
+    .q-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: none; border: none; cursor: pointer;
+      padding: 8px 12px 8px 0; margin: -8px 0 26px; /* padding grows the hit area; the margin keeps the layout where it was */
+      font-family: var(--sans); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink-50);
+      transition: color .2s;
+    }
+    .q-back:hover { color: var(--ink); }
+    .q-back svg { width: 14px; height: 10px; transform: rotate(180deg); }
+    .q-title { font-size: clamp(24px, 3.2vw, 34px); line-height: 1.28; letter-spacing: -0.008em; max-width: 24ch; margin: 0 0 12px; }
+    .q-note { font-size: 13px; color: var(--ink-60); margin: 0 0 30px; }
+    .opts { list-style: none; padding: 0; margin: 34px 0 0; display: grid; gap: 12px; }
+    .opt {
+      display: grid; grid-template-columns: 34px 1fr; align-items: center; gap: 16px;
+      width: 100%; text-align: left;
+      background: var(--ivory);
+      border: 1px solid var(--ink-12);
+      border-radius: 2px;
+      padding: 18px 20px;
+      cursor: pointer;
+      font-size: 15.5px; line-height: 1.45;
+      transition: border-color .2s ease, background .2s ease, transform .15s ease;
+    }
+    .opt:hover { border-color: var(--ink-40); }
+    .opt .k {
+      width: 26px; height: 26px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--ink-18);
+      border-radius: 2px;
+      font-family: var(--sans); font-size: 12px; color: var(--ink-50);
+      transition: all .2s ease;
+    }
+    .opt.sel { background: var(--ink); border-color: var(--ink); color: var(--ivory); }
+    .opt.sel .k { background: var(--signal); border-color: var(--signal); color: var(--ink); }
+    .kbd-hint { margin-top: 30px; font-size: 11px; color: var(--ink-50); letter-spacing: 0.04em; }
+
+    /* ============ GATE ============ */
+    .gate-card {
+      max-width: 480px; margin: 0 auto;
+      background: var(--ivory);
+      border: 1px solid var(--ink-12);
+      border-radius: 2px;
+      padding: 44px 40px 36px;
+      box-shadow: 0 24px 56px -22px rgba(35,43,54,0.18);
+    }
+    .gate-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--signal-text); display: block; margin-bottom: 12px; }
+    .gate-card .gate-title { font-size: 30px; line-height: 1.12; letter-spacing: -0.014em; margin: 0 0 12px; }
+    .gate-card > p { font-size: 14.5px; color: var(--ink-80); line-height: 1.55; margin: 0 0 26px; }
+    .gate-fields { display: grid; gap: 18px; }
+    .gate-fields label { display: block; font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-60); margin-bottom: 6px; }
+    .gate-fields label .req { color: var(--signal-text); margin-left: 2px; }
+    .gate-fields label .opt-tag { color: var(--ink-50); letter-spacing: 0.08em; margin-left: 6px; }
+    .gate-fields input {
+      width: 100%; background: transparent; border: none;
+      border-bottom: 1px solid var(--ink-30);
+      padding: 10px 2px 12px; font-size: 16px; color: var(--ink); /* 16px floor: anything smaller makes iOS Safari zoom the viewport on focus */
+      outline: none; transition: border-color .25s; font-family: var(--sans);
+    }
+    .gate-fields input:focus { border-bottom-color: var(--ink); }
+    .gate-fields input[aria-invalid="true"] { border-bottom-color: var(--signal-text); }
+    .gate-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .gate-error { display: none; font-size: 12.5px; color: var(--ink); background: var(--signal-soft); border-left: 2px solid var(--signal-text); padding: 10px 14px; margin: 0; }
+    .gate-error.show { display: block; }
+    .gate-submit { margin-top: 8px; width: 100%; justify-content: center; }
+    .gate-fine { font-size: 11px; color: var(--ink-50); letter-spacing: 0.02em; margin: 4px 0 0; text-align: center; line-height: 1.45; }
+    .gate-back { margin: 22px auto 0; display: block; text-align: center; }
+
+    /* ============ RESULTS ============ */
+    .r-head { padding-bottom: 4px; }
+    .r-track { font-size: clamp(36px, 4.6vw, 54px); line-height: 1.06; letter-spacing: -0.014em; margin: 18px 0 0; }
+    .r-why {
+      margin: 28px 0 0; padding: 30px 34px;
+      background: var(--ink); color: var(--ivory); border-radius: 2px;
+    }
+    .r-why-lab {
+      display: block; margin-bottom: 14px;
+      font-family: var(--sans); font-size: 10.5px; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--signal);
+    }
+    .r-why-quote {
+      margin: 0 0 14px;
+      font-family: var(--serif); font-size: clamp(19px, 2.2vw, 24px); line-height: 1.34;
+      color: var(--ivory);
+    }
+    .r-why-note { margin: 0; font-size: 13.5px; line-height: 1.6; color: rgba(255,252,236,0.72); max-width: 58ch; }
+    .r-plate {
+      display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center;
+      margin: 34px 0; padding: 26px 28px;
+      background: var(--ivory);
+      border: 1px solid var(--ink-12);
+      border-left: 2px solid var(--signal);
+      border-radius: 2px;
+    }
+    .r-entry-mark { font-family: var(--serif); font-size: 46px; line-height: 1; white-space: nowrap; color: var(--signal); letter-spacing: 0.02em; }
+    .r-plate-copy p { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-80); }
+    .r-plate-copy .r-entry-name { font-weight: 500; color: var(--ink); margin-bottom: 5px; font-size: 15px; }
+    .r-dimwrap { margin: 48px 0 0; padding-top: 38px; border-top: 1px solid var(--ink-12); }
+    .r-dim-head { margin-bottom: 26px; }
+    .r-dims { margin: 0; display: grid; gap: 14px; }
+    .r-dim-row { display: grid; grid-template-columns: 220px 1fr auto; gap: 16px; align-items: center; }
+    .r-dim-label { font-size: 13px; color: var(--ink-80); }
+    .r-dim-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .r-dim-seg { height: 6px; background: var(--ink-08); border-radius: 3px; transition: background .5s cubic-bezier(.2,.7,.2,1); }
+    .r-dim-seg.on { background: var(--ink); }
+    .r-dim-state { font-family: var(--sans); font-size: 12px; color: var(--ink-50); white-space: nowrap; }
+    .r-dim-label .m-state { display: none; }
+    .r-dim-note { margin: 16px 0 0; font-size: 13px; color: var(--ink-60); }
+    .r-dim-read { margin: 22px 0 0; display: grid; gap: 9px; }
+    .r-dim-read p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--ink-80); max-width: 62ch; }
+    .r-dim-read strong { font-weight: 500; color: var(--ink); }
+    /* Priority moves */
+    .r-moves { margin: 48px 0 0; padding-top: 38px; border-top: 1px solid var(--ink-12); }
+    .r-moves-head { margin-bottom: 26px; }
+    .r-move-list { display: grid; gap: 20px; }
+    .r-move { display: grid; grid-template-columns: 30px 1fr; gap: 16px; align-items: start; }
+    .r-move-n { font-family: var(--serif); font-size: 16px; color: var(--signal-text); padding-top: 2px; }
+    .r-move h3 { font-size: 17px; margin: 0 0 5px; }
+    .r-move p { font-size: 13.5px; line-height: 1.6; color: var(--ink-80); margin: 0; max-width: 58ch; }
+    .r-moves-none { font-size: 14px; line-height: 1.6; color: var(--ink-60); margin: 0; max-width: 58ch; }
+    .r-msg { margin: 36px 0 0; max-width: 62ch; }
+    .r-msg h2 { font-size: clamp(21px, 2.6vw, 27px); line-height: 1.3; margin: 0 0 14px; }
+    .r-msg p { font-size: 15.5px; line-height: 1.65; color: var(--ink-80); margin: 0; }
+    .r-ctx {
+      margin: 30px 0 0; padding: 16px 20px;
+      background: var(--signal-soft);
+      border-left: 2px solid var(--signal);
+      max-width: 62ch;
+    }
+    .r-ctx .lab { font-family: var(--sans); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-60); display: block; margin-bottom: 6px; }
+    .r-ctx p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--ink-90); }
+    .r-next { margin: 52px 0 0; padding-top: 38px; border-top: 1px solid var(--ink-12); }
+    .r-next-head { margin-bottom: 28px; }
+    .tsteps { display: grid; gap: 24px; }
+    .tstep { display: grid; grid-template-columns: 52px 1fr; gap: 20px; align-items: start; }
+    .tdisc {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--ink); color: var(--ivory);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 16px;
+      box-shadow: inset 0 0 0 1px rgba(255,252,236,0.25);
+    }
+    .tstep h3 { font-size: 18px; margin: 4px 0 6px; }
+    .tstep p { font-size: 14px; line-height: 1.6; color: var(--ink-80); margin: 0; max-width: 56ch; }
+    .r-loop { display: block; margin-top: 22px; font-size: 12px; color: var(--ink-50); font-style: italic; font-family: var(--serif); }
+    .r-cta { margin: 52px 0 0; padding: 34px 36px; background: var(--ink); color: var(--ivory); border-radius: 2px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+    .r-cta-copy h2 { font-size: 22px; margin: 0 0 6px; }
+    .r-cta-copy p { margin: 0; font-size: 13.5px; color: rgba(255,252,236,0.75); }
+    .r-cta .btn { background: var(--ivory); color: var(--ink); }
+    .r-cta .btn:hover { background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .r-foot { margin: 44px 0 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    /* ============ FOOTER ============ */
+    .site-foot { border-top: 1px solid var(--ink-08); background: var(--ivory); padding: 40px 0 46px; margin-top: auto; }
+    .foot-lockup { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 22px; color: var(--ink); }
+    .foot-lockup svg { width: 22px; height: 22px; }
+    .foot-lockup .wordmark { font-family: var(--serif); font-weight: 700; font-size: 17px; }
+    .foot-fine { font-size: 10.5px; line-height: 1.6; color: var(--ink-50); max-width: 860px; margin: 0 auto; }
+
+    /* ============ DEMO PANEL (?demo) — QA-only; REMOVE before embed/production (README go-live list) ============ */
+    .demo-panel {
+      display: none;
+      position: fixed; right: 16px; bottom: 16px; z-index: 90;
+      background: var(--ink); color: var(--ivory);
+      border-radius: 4px; padding: 14px 16px;
+      box-shadow: 0 16px 44px rgba(35,43,54,0.4);
+      max-width: 300px;
+    }
+    .demo-panel.on { display: block; }
+    .demo-panel .dp-lab { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,252,236,0.6); margin: 0 0 10px; }
+    .dp-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+    .dp-btn {
+      background: rgba(255,252,236,0.08);
+      border: 1px solid rgba(255,252,236,0.25);
+      color: var(--ivory);
+      font-size: 11px; padding: 6px 9px; border-radius: 2px; cursor: pointer;
+      transition: background .2s;
+    }
+    .dp-btn:hover { background: rgba(255,252,236,0.2); }
+    .dp-btn.gold { border-color: var(--signal); color: var(--signal); }
+
+    /* ============ FAILSAFE ============ */
+    .js-fallback-note {
+      margin: 40px auto 0; padding: 14px 18px; max-width: 62ch;
+      background: var(--signal-soft); border-left: 2px solid var(--signal-text);
+      font-size: 14px; line-height: 1.55; color: var(--ink);
+    }
+    .js-fallback-note a { text-decoration: underline; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 860px) {
+      .intro-grid { grid-template-columns: 1fr; gap: 44px; }
+      .r-dim-row { grid-template-columns: 1fr; gap: 6px; }
+      .r-dim-state { display: none; }
+      .r-dim-row .r-dim-label { display: flex; justify-content: space-between; }
+      .r-dim-label .m-state { display: inline; color: var(--ink-50); font-size: 12px; }
+      .r-move { grid-template-columns: 24px 1fr; gap: 12px; }
+    }
+    @media (max-width: 640px) {
+      :root { --gutter: 20px; }
+      section[data-screen] { padding: 40px 0 56px; }
+      .mast-right { display: none; }
+      .kbd-hint { display: none; }
+      .opt { padding: 16px 16px; grid-template-columns: 28px 1fr; gap: 12px; font-size: 15px; }
+      .opt .k { width: 24px; height: 24px; font-size: 11px; }
+      .r-plate { grid-template-columns: 1fr; gap: 12px; padding: 22px 22px; }
+      .r-why { padding: 24px 22px; }
+      .r-cta { padding: 26px 24px; }
+      .gate-card { padding: 34px 24px 28px; }
+      .gate-row { grid-template-columns: 1fr; }
+    }
+
+    /* ============ MOTION + PRINT ============ */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+    @media print {
+      .mast, .progress, .q-back, .r-cta .btn, .r-foot, .demo-panel, .kbd-hint { display: none; }
+      body { background: #fff; }
+      section[data-screen] { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ SUNBURST SYMBOL (official mark, lifted verbatim from the v4 LP; never redraw) ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+  <symbol id="sunburst" viewBox="189 129 133 133">
+    <path d="M194.882 261.917H189V258.716L194.882 261.917Z" fill="currentColor"/>
+    <path d="M204.885 261.917H199.691L189 254.986V251.619L189.769 252.116L204.885 261.917Z" fill="currentColor"/>
+    <path d="M212.759 261.917H208.101L189 247.34V243.787L212.759 261.917Z" fill="currentColor"/>
+    <path d="M219.19 261.917H214.942L189 238.773V234.984L219.19 261.917Z" fill="currentColor"/>
+    <path d="M224.589 261.917H220.666L189 228.98V224.903L190.02 225.963L224.589 261.917Z" fill="currentColor"/>
+    <path d="M229.234 261.917H225.571L225.407 261.717L189 217.523V213.076L190.092 214.401L228.341 260.83L229.234 261.917Z" fill="currentColor"/>
+    <path d="M233.325 261.917H229.868L225.341 255.474L189 203.75V198.831L190.158 200.48L233.325 261.917Z" fill="currentColor"/>
+    <path d="M236.982 261.917H233.698L189 186.641V181.102L236.982 261.917Z" fill="currentColor"/>
+    <path d="M240.319 261.917H237.167L225.232 237.78L189 164.498V158.122L240.319 261.917Z" fill="currentColor"/>
+    <path d="M243.402 261.917H240.355L189 134.277V129H189.926L190.312 129.961L243.066 261.077L243.115 261.201L243.402 261.917Z" fill="currentColor"/>
+    <path d="M246.107 261.917H243.141L242.878 261.077L201.171 129H204.136L245.511 260.031L246.107 261.917Z" fill="currentColor"/>
+    <path d="M248.854 261.917H245.95L245.511 260.031L227.513 182.877L214.974 129.132L214.944 129H217.846L230.341 182.555L248.222 259.213L248.735 261.408L248.854 261.917Z" fill="currentColor"/>
+    <path d="M251.687 261.917H248.827L248.411 259.213L228.399 129.026L228.395 129H231.255L251.174 258.584L251.687 261.917Z" fill="currentColor"/>
+    <path d="M254.264 261.917H251.427L251.421 261.834L251.174 258.584L244.274 167.802L241.326 129H244.161L247.095 167.588L253.978 258.138L254.242 261.621L254.264 261.917Z" fill="currentColor"/>
+    <path d="M256.911 129L256.881 166.011L256.806 258.011L256.802 261.731V261.917H253.974V261.729L253.978 258.138L254.053 166.007L254.083 129H256.911Z" fill="currentColor"/>
+    <path d="M322 258.592V261.812L321.806 261.917H315.89L322 258.592Z" fill="currentColor"/>
+    <path d="M322 251.472V254.837L311.081 261.917H305.887L322 251.472Z" fill="currentColor"/>
+    <path d="M322 243.612V247.167L302.671 261.917H298.013L322 243.612Z" fill="currentColor"/>
+    <path d="M322 234.781V238.57L295.829 261.917H291.582L322 234.781Z" fill="currentColor"/>
+    <path d="M322 224.663V228.742L290.106 261.917H286.183L322 224.663Z" fill="currentColor"/>
+    <path d="M322 212.799V217.246L285.199 261.917H281.538L283.182 259.92L320.68 214.401L322 212.799Z" fill="currentColor"/>
+    <path d="M322 198.507V203.426L280.904 261.917H277.447L283.116 253.85L320.614 200.48L322 198.507Z" fill="currentColor"/>
+    <path d="M322 180.718V186.257L277.075 261.917H273.788L274.327 261.009L322 180.718Z" fill="currentColor"/>
+    <path d="M322 157.66V164.036L273.605 261.917H270.453L283.006 236.529L322 157.66Z" fill="currentColor"/>
+    <path d="M322 129V133.71L285.585 224.219L270.417 261.917H267.37L267.657 261.203L267.702 261.088L267.706 261.077L282.961 223.164L320.46 129.961L320.846 129H322Z" fill="currentColor"/>
+    <path d="M309.601 129L309.526 129.237L267.894 261.077L267.891 261.088L267.63 261.917H264.665L264.859 261.303L265.259 260.039L306.636 129H309.601Z" fill="currentColor"/>
+    <path d="M295.829 129L295.797 129.134L283.221 183.037L265.259 260.039L264.82 261.917H261.918L262.037 261.407L262.55 259.204L280.431 182.555L280.469 182.394L292.926 129H295.829Z" fill="currentColor"/>
+    <path d="M282.377 129L282.373 129.028L262.361 259.204L261.945 261.917H259.085L259.147 261.514L259.598 258.579L279.517 129H282.377Z" fill="currentColor"/>
+    <path d="M269.448 129L266.497 167.802L259.597 258.579L259.351 261.836L259.345 261.917H256.508L256.53 261.623L256.805 258.011L263.677 167.588L266.61 129H269.448Z" fill="currentColor"/>
+    <path d="M230.665 261.431L230.075 261.917H226.499V256.37L229.432 259.931L230.665 261.431Z" fill="currentColor"/>
+    <path d="M234.831 261.603L234.383 261.917H228.141L226.499 259.581V249.742L234.831 261.603Z" fill="currentColor"/>
+    <path d="M238.549 261.785L238.327 261.917H232.051L226.499 252.565V241.49L238.549 261.785Z" fill="currentColor"/>
+    <path d="M241.926 261.974L241.875 262L241.848 261.917H235.587L226.499 243.534V230.774L241.762 261.64L241.897 261.917L241.926 261.974Z" fill="currentColor"/>
+    <path d="M241.897 261.917L241.926 261.974L241.875 262L241.848 261.917H238.83L226.499 231.267V216.114L230.616 226.348L244.354 260.493L244.427 260.674L244.925 261.917H241.897Z" fill="currentColor"/>
+    <path d="M247.777 261.917H241.897L241.926 261.974L241.875 262L241.848 261.917L241.762 261.64L230.616 226.348L226.499 213.308V194.771C226.499 194.694 226.499 194.613 226.501 194.535L235.948 224.451L247.033 259.556L247.777 261.917Z" fill="currentColor"/>
+    <path d="M250.496 261.917H244.687L244.354 260.493L235.948 224.451L227.385 187.747C228.175 184.661 229.476 181.778 231.195 179.186L231.943 182.391L241.405 222.951L249.774 258.827L250.302 261.086L250.496 261.917Z" fill="currentColor"/>
+    <path d="M253.118 261.917H247.395L247.033 259.556L241.405 222.951L234.109 175.486C234.341 175.235 234.579 174.988 234.822 174.745C236.147 173.419 237.603 172.219 239.167 171.167L246.968 221.915L252.564 258.304L253.118 261.917Z" fill="currentColor"/>
+    <path d="M255.682 261.917H250.009L249.774 258.827L246.968 221.915L242.949 169.016C243.539 168.733 244.141 168.473 244.753 168.232C245.954 167.759 247.197 167.361 248.473 167.049L248.505 167.48L252.594 221.274L255.386 258.017L255.652 261.514L255.682 261.917Z" fill="currentColor"/>
+    <path d="M258.295 166.323L258.25 220.336L258.219 258.239L258.216 261.731V261.917H252.56V261.729L252.564 258.303L252.594 221.274L252.639 166.338C253.582 166.246 254.536 166.199 255.501 166.197H255.537C256.466 166.197 257.388 166.24 258.295 166.323Z" fill="currentColor"/>
+    <path d="M284.575 256.005V261.917H280.697L280.107 261.431L282.09 259.021L284.575 256.005Z" fill="currentColor"/>
+    <path d="M284.575 249.313V259.151L282.631 261.917H276.389L275.94 261.603L281.958 253.038L284.575 249.313Z" fill="currentColor"/>
+    <path d="M284.575 240.978V252.06L278.721 261.917H272.443L272.221 261.785L273.109 260.287L284.575 240.978Z" fill="currentColor"/>
+    <path d="M284.575 230.163V242.924L275.184 261.917H268.924L268.897 261.998L268.846 261.974L268.875 261.917L269.01 261.642L281.737 235.902L284.575 230.163Z" fill="currentColor"/>
+    <path d="M284.575 215.364V230.519L271.942 261.917H268.924L268.897 261.998L268.846 261.974L268.875 261.917H265.847L266.345 260.676L266.416 260.498L280.154 226.352L281.649 222.636L284.575 215.364Z" fill="currentColor"/>
+    <path d="M284.575 194.771V212.351L280.154 226.352L269.01 261.642L268.924 261.917L268.897 261.998L268.846 261.974L268.875 261.917H262.995L263.323 260.877L263.739 259.556V259.553L274.824 224.451L284.552 193.648C284.567 194.019 284.575 194.394 284.575 194.771Z" fill="currentColor"/>
+    <path d="M283.528 187.14L274.824 224.451L266.416 260.498L266.085 261.917H260.276L260.47 261.084L260.998 258.825L269.365 222.962V222.953L278.829 182.391L278.902 182.072L279.654 178.85C281.368 181.36 282.69 184.152 283.528 187.14Z" fill="currentColor"/>
+    <path d="M276.704 175.211L269.367 222.953V222.962L263.741 259.553V259.556L263.377 261.917H257.654L257.748 261.299L258.219 258.239L263.803 221.905L271.631 170.983C273.23 172.032 274.717 173.234 276.071 174.566L276.135 174.628C276.327 174.819 276.517 175.013 276.704 175.211Z" fill="currentColor"/>
+    <path d="M267.834 168.878L263.803 221.905L260.998 258.823L260.763 261.917H255.09L255.12 261.516L255.386 258.017L258.25 220.336L262.267 167.48L262.305 166.979C263.654 167.294 264.967 167.702 266.235 168.198C266.776 168.409 267.31 168.635 267.834 168.878Z" fill="currentColor"/>
+    <path d="M284.575 210.968H279.899V230.773H284.575V210.968Z" fill="currentColor"/>
+    <path d="M231.174 210.968H226.499V230.773H231.174V210.968Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="arr" viewBox="0 0 14 10">
+    <path d="M1 5h12M9 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<noscript>
+  <div style="max-width:640px; margin:80px auto; padding:0 24px; text-align:center; font-family:Georgia, serif;">
+    <p>The Readiness Assessment needs JavaScript to score your answers.</p>
+    <p>Enable JavaScript and reload this page, or return to <a href="/" style="text-decoration:underline;">the Sandro Business homepage</a>.</p>
+  </div>
+</noscript>
+
+<!-- ============ MAST ============ -->
+<header class="mast">
+  <div class="wrap mast-inner">
+    <a class="logo" href="/">
+      <svg class="mark" aria-hidden="true"><use href="#sunburst"/></svg>
+      <span class="wordmark">SandroBusiness</span>
+    </a>
+    <span class="mast-right">The Business Owner Journey</span>
+  </div>
+</header>
+<div class="progress" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<main class="stage">
+
+  <!-- Hidden unless the failsafe listener in <head> reveals it. -->
+  <div id="jsFallback" hidden>
+    <div class="wrap"><p class="js-fallback-note">Something went wrong loading the assessment. Refresh the page to try again, or return to <a href="/">the Sandro Business homepage</a>.</p></div>
+  </div>
+
+  <!-- ============ SCREEN: INTRO ============ -->
+  <!-- is-active is set statically so a script failure still shows the intro
+       rather than a blank page; the engine takes over the class at boot. -->
+  <section data-screen="intro" class="is-active" aria-label="Introduction">
+    <div class="wrap intro-grid">
+      <div class="intro-copy">
+        <span class="label"><span class="bar"></span>The Business Owner Journey</span>
+        <h1>The Readiness <em>Assessment.</em></h1>
+        <p class="lede">Fifteen questions about your business, your timeline, and your goals. It takes about four minutes and doubles as step one of your membership application: it ends with your track, the moves worth making first, and the application ready to continue.</p>
+        <div class="intro-meta">
+          <span><strong>Complimentary</strong></span>
+          <span class="sep" aria-hidden="true"></span>
+          <span><strong>15 questions</strong></span>
+          <span class="sep" aria-hidden="true"></span>
+          <span><strong>Four minutes</strong></span>
+        </div>
+      </div>
+      <div class="intro-card">
+        <h2 class="ic-eyebrow">What you'll receive</h2>
+        <ul class="ic-list">
+          <li>
+            <span class="ic-num">I.</span>
+            <div>
+              <h3>Your provisional track</h3>
+              <p>Ready to sell, build value first, or still exploring. The plain answer, in one line.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ic-num">II.</span>
+            <div>
+              <h3>A read across five dimensions</h3>
+              <p>Goal clarity, operations and independence, financial and legal readiness, tax and estate, and the wealth picture.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ic-num">III.</span>
+            <div>
+              <h3>Where to start</h3>
+              <p>The two or three things worth working first, and the next steps on your track.</p>
+            </div>
+          </li>
+          <li>
+            <span class="ic-num">IV.</span>
+            <div>
+              <h3>Step one of your application</h3>
+              <p>Your answers carry straight into the membership application. Finishing here means it&rsquo;s already underway.</p>
+            </div>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-primary btn-block" id="beginBtn">
+          Begin the assessment
+          <svg class="arr" viewBox="0 0 14 10" aria-hidden="true"><use href="#arr"/></svg>
+        </button>
+        <p class="ic-fine">Your answers are confidential and used only to prepare your results.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN: QUESTION ============ -->
+  <section data-screen="question" aria-label="Assessment question">
+    <div class="wrap"><div class="col">
+      <button type="button" class="q-back" id="backBtn">
+        <svg viewBox="0 0 14 10" aria-hidden="true"><use href="#arr"/></svg>
+        Back
+      </button>
+      <div id="qBody" tabindex="-1" aria-live="polite"></div>
+      <p class="kbd-hint">Keyboard: press 1 to 4 to answer. Left arrow goes back.</p>
+    </div></div>
+  </section>
+
+  <!-- ============ SCREEN: GATE ============ -->
+  <section data-screen="gate" aria-label="Your details">
+    <div class="wrap">
+      <form class="gate-card" id="gateForm" novalidate>
+        <span class="gate-eyebrow">The Readiness Assessment</span>
+        <h1 class="gate-title">Your results are ready.</h1>
+        <p>Tell us where to send your copy. Your results appear on the next screen.</p>
+        <div class="gate-fields">
+          <div class="gate-row">
+            <div>
+              <label for="gFirst">First name<span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="gFirst" name="first_name" autocomplete="given-name" required />
+            </div>
+            <div>
+              <label for="gLast">Last name<span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="gLast" name="last_name" autocomplete="family-name" required />
+            </div>
+          </div>
+          <div>
+            <label for="gEmail">Email<span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="gEmail" name="email" autocomplete="email" required />
+          </div>
+          <div>
+            <label for="gPhone">Phone<span class="opt-tag">Optional</span></label>
+            <input type="tel" id="gPhone" name="phone" autocomplete="tel" />
+          </div>
+          <p class="gate-error" id="gateError" role="alert"></p>
+          <button type="submit" class="btn btn-primary gate-submit">
+            Show my results
+            <svg class="arr" viewBox="0 0 14 10" aria-hidden="true"><use href="#arr"/></svg>
+          </button>
+          <p class="gate-fine">By continuing you agree to be contacted by SandroWealth. We never share, sell, or spam.</p>
+        </div>
+      </form>
+      <button type="button" class="tiny-link gate-back" id="gateBack">Back to the last question</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN: RESULTS ============ -->
+  <section data-screen="results" aria-label="Your results">
+    <div class="wrap"><div class="col">
+      <div class="r-head">
+        <span class="label"><span class="bar"></span><span id="rEyebrow"></span></span>
+        <h1 class="r-track" id="rTrack" tabindex="-1"></h1>
+      </div>
+
+      <div class="r-why">
+        <span class="r-why-lab">Why this track</span>
+        <p class="r-why-quote" id="rWhyQuote"></p>
+        <p class="r-why-note" id="rWhyNote"></p>
+      </div>
+
+      <div class="r-plate">
+        <div class="r-entry-mark" id="rEntryMark"></div>
+        <div class="r-plate-copy">
+          <p class="r-entry-name" id="rEntryName"></p>
+          <p id="rEntryNote"></p>
+        </div>
+      </div>
+
+      <div class="r-msg">
+        <h2 id="rMsgHead"></h2>
+        <p id="rMsgBody"></p>
+      </div>
+
+      <div class="r-ctx" id="rCtx" hidden>
+        <span class="lab">Worth naming</span>
+        <p>You noted buyer interest in the past year. Unsolicited interest starts a clock whether or not you answer it. It is worth naming in a discovery call.</p>
+      </div>
+
+      <div class="r-dimwrap">
+        <div class="r-dim-head">
+          <span class="label"><span class="bar"></span>Where you stand</span>
+        </div>
+        <div class="r-dims" id="rDims"></div>
+        <p class="r-dim-note" id="rDimNote"></p>
+        <div class="r-dim-read" id="rDimRead"></div>
+      </div>
+
+      <div class="r-moves">
+        <div class="r-moves-head">
+          <span class="label"><span class="bar"></span>Where to start</span>
+        </div>
+        <div class="r-move-list" id="rMoveList"></div>
+        <p class="r-moves-none" id="rMovesNone" hidden></p>
+      </div>
+
+      <div class="r-next">
+        <div class="r-next-head">
+          <span class="label"><span class="bar"></span>What happens next on this track</span>
+        </div>
+        <div class="tsteps" id="rSteps"></div>
+        <span class="r-loop" id="rLoop" hidden></span>
+      </div>
+
+      <div class="r-cta">
+        <div class="r-cta-copy">
+          <h2 id="rCtaHead"></h2>
+          <p id="rCtaSub"></p>
+        </div>
+        <!-- The static href is the no-JS fallback for CTA_URL; keep the two in step. -->
+        <a class="btn" id="rCtaBtn" href="/apply/">
+          <span id="rCtaBtnText"></span>
+          <svg class="arr" viewBox="0 0 14 10" aria-hidden="true"><use href="#arr"/></svg>
+        </a>
+      </div>
+
+      <div class="r-foot">
+        <button type="button" class="tiny-link" id="retakeBtn">Retake the assessment</button>
+        <span style="font-size:11px; color:var(--ink-50);">Your results are confidential.</span>
+      </div>
+    </div></div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-lockup">
+      <svg aria-hidden="true"><use href="#sunburst"/></svg>
+      <span class="wordmark">SandroBusiness</span>
+    </div>
+    <p class="foot-fine">The content provided is not intended as investment, legal, or tax advice, and it does not constitute an offer to buy or sell any financial product. Investment decisions should be made in consultation with a qualified financial or tax adviser. Past performance is not a guarantee of future results. Investments carry risk, including the potential loss of principal. This includes risks tied to market conditions, political or regulatory changes, currency fluctuations, and interest rate movements. Any opinions or information expressed are current as of the date published and may change with market conditions. While information presented is believed to be reliable, Sandro Wealth does not guarantee its accuracy or completeness. Sandro Wealth Management is an independent investment adviser registered with the U.S. Securities and Exchange Commission (SEC). Registration does not imply a certain level of skill or training. You can learn more about our firm, including services, fees, and investment approach, by reviewing our Firm ADV Part 2a.</p>
+  </div>
+</footer>
+
+<!-- ============ DEMO PANEL (?demo) — QA-only during the prototyping phase.
+     REMOVE (this block + its CSS + initDemo) before embed/production: it
+     bypasses the lead gate, which becomes a real capture bypass once the
+     HubSpot phase ships. Tracked in the README's go-live list. ============ -->
+<div class="demo-panel" id="demoPanel" aria-hidden="true">
+  <p class="dp-lab">QA scenarios · track x internal band</p>
+  <div class="dp-grid" id="dpGrid"></div>
+</div>
+
+<script>
+/* =====================================================================
+   CLIENT-EDITABLE CONFIG
+   Every `const` between here and the ENGINE banner is client-editable
+   copy: the questions, tracks, result messages, dimension reads, priority
+   moves, CTA text, and the CTA_URL booking link. Re-wording any of it is
+   a one-line change; nothing below the ENGINE banner needs touching. The
+   engine validates this config at boot, so a typo in a bucket id or a
+   missing message shows a visible error instead of a blank page.
+   No numeric score is shown to the owner anywhere; the 0-10 score and its
+   band are computed internally and only select the message.
+   Scoring: each option carries p (points). Options with no p never score
+   (the timeline router and the context question).
+   Prefer double-quoted strings, and run the node --check recipe in the
+   README after any edit.
+   ===================================================================== */
+
+const BUCKETS = [
+  { id: 'goals',  roman: 'I',   label: 'Timeline and goals',            barLabel: 'Goal clarity' },
+  { id: 'ops',    roman: 'II',  label: 'Operations and independence',   barLabel: 'Operations and independence' },
+  { id: 'fin',    roman: 'III', label: 'Financial and legal readiness', barLabel: 'Financial and legal readiness' },
+  { id: 'tax',    roman: 'IV',  label: 'Tax and estate',                barLabel: 'Tax and estate' },
+  { id: 'wealth', roman: 'V',   label: 'The wealth picture',            barLabel: 'The wealth picture' },
+];
+
+const QUESTIONS = [
+  { id: 'q1', bucket: 'goals', prompt: 'When do you see yourself stepping away from the business?',
+    note: 'Your answer sets your track. Everything after refines it.',
+    options: [
+      { t: 'Within the next 12 to 18 months, or a sale is already in motion', track: 'ready' },
+      { t: 'In the next two to five years', track: 'build' },
+      { t: 'More than five years out', track: 'build', longRunway: true },
+      { t: "No set timeline. I'm gathering information.", track: 'exploring' },
+    ] },
+  { id: 'q2', bucket: 'goals', prompt: 'Have you started talking with potential buyers?',
+    note: 'Context only. This does not affect your score.',
+    options: [
+      { t: 'Yes', ctx: true },
+      { t: 'No' },
+    ] },
+  { id: 'q3', bucket: 'goals', prompt: 'Do you have an amount that you believe you need to retire comfortably?',
+    options: [
+      { t: 'Yes, calculated with an advisor', p: 1 },
+      { t: 'A rough number in my head', p: 0.5 },
+      { t: 'Not yet', p: 0 },
+    ] },
+  { id: 'q4', bucket: 'goals', prompt: 'Do you have a plan for what you want to do after you sell the business?',
+    options: [
+      { t: 'Yes, written', p: 1 },
+      { t: 'A clear idea, nothing written', p: 0.5 },
+      { t: 'I have not gotten there', p: 0 },
+    ] },
+  { id: 'q5', bucket: 'goals', prompt: 'Have the people this decision affects most, such as a spouse, partners, or family, heard your current thinking?',
+    options: [
+      { t: 'Yes, and we are aligned', p: 1 },
+      { t: 'Some conversations, not all', p: 0.5 },
+      { t: 'Not yet', p: 0 },
+      { t: 'This decision is mine alone', p: 1 },
+    ] },
+  { id: 'q6', bucket: 'ops', prompt: 'Do you have a senior management team that could run this business well without you?',
+    options: [
+      { t: 'Yes, they could run it well today', p: 1 },
+      { t: 'For a while, then it would strain', p: 0.5 },
+      { t: 'It would struggle without me', p: 0 },
+    ] },
+  { id: 'q7', bucket: 'ops', prompt: 'Does a capable second-tier management team own day-to-day decisions?',
+    options: [
+      { t: 'Yes, they run daily operations', p: 1 },
+      { t: 'Partly, key calls still come to me', p: 0.5 },
+      { t: 'Decisions run through me', p: 0 },
+    ] },
+  { id: 'q9', bucket: 'ops', prompt: 'How much of your revenue comes from your single largest customer?',
+    options: [
+      { t: 'Under 15 percent', p: 1 },
+      { t: '15 to 25 percent', p: 0.5 },
+      { t: 'Over 25 percent, or I am not sure', p: 0 },
+    ] },
+  { id: 'q10', bucket: 'fin', prompt: 'Do you have audited financial statements?',
+    options: [
+      { t: 'Audited or reviewed statements for the last three years', p: 1 },
+      { t: 'Accountant-prepared, not audited or reviewed', p: 0.5 },
+      { t: 'Internal statements only', p: 0 },
+    ] },
+  { id: 'q11', bucket: 'fin', prompt: 'Do you have a historically steady earnings growth rate for the past 3 years?',
+    options: [
+      { t: 'Yes, steady growth across the last three years', p: 1 },
+      { t: 'Mixed or flat', p: 0.5 },
+      { t: 'Declining, or I am not sure', p: 0 },
+    ] },
+  { id: 'q12', bucket: 'fin', prompt: 'Is there an updated, funded buy-sell agreement governing ownership changes among partners?',
+    options: [
+      { t: 'Yes, updated and funded', p: 1 },
+      { t: 'One exists, but outdated or unfunded', p: 0.5 },
+      { t: 'No', p: 0 },
+      { t: 'I am the sole owner', p: 1 },
+    ] },
+  { id: 'q14', bucket: 'tax', prompt: 'Have you and your advisors modeled how a sale would actually be taxed?',
+    options: [
+      { t: 'Yes, modeled with advisors', p: 1 },
+      { t: 'A rough estimate', p: 0.5 },
+      { t: 'Not yet', p: 0 },
+    ] },
+  { id: 'q15', bucket: 'wealth', prompt: 'When did you last get a market-based read on what the business is worth?',
+    options: [
+      { t: 'A professional valuation within the past two years', p: 1 },
+      { t: 'An older or informal estimate', p: 0.5 },
+      { t: 'I have never had one', p: 0 },
+    ] },
+  { id: 'q16', bucket: 'wealth', prompt: 'How much of your net worth is represented by the value of your business?',
+    options: [
+      { t: 'Less than half', p: 1 },
+      { t: 'Roughly half to three quarters', p: 0.5 },
+      { t: 'Most of my net worth is the business', p: 0 },
+    ] },
+  { id: 'q17', bucket: 'wealth', prompt: 'Do you know the two or three levers that would most increase the value of your company?',
+    options: [
+      { t: 'Yes, and we are working them', p: 1 },
+      { t: 'A sense, nothing prioritized', p: 0.5 },
+      { t: 'Not really', p: 0 },
+    ] },
+];
+
+/* NOTE: `chip` / `chipLong` are the client-approved track descriptions from the
+   journey visual. They are no longer rendered: the results screen now quotes the
+   owner's own Q1 answer instead, which is more specific and made the chip
+   redundant. Retained here so the approved wording is not lost. */
+const TRACKS = {
+  ready: {
+    name: 'Ready to sell',
+    chip: 'Selling in the next 12 to 18 months, or already in a deal',
+  },
+  build: {
+    name: 'Build value first',
+    chip: "Two to five years out. The number isn't there yet.",
+    chipLong: 'Five or more years out. The longest runway, and the most still on the table.',
+  },
+  exploring: {
+    name: 'Still exploring',
+    chip: 'No timeline yet. Learning what the options are.',
+  },
+};
+
+/* Every track is assigned the same way, so the eyebrow is one string. */
+const EYEBROW = 'Where your timeline puts you';
+
+/* The why block quotes the owner's own Q1 answer back to them, then says what it
+   does and does not decide. This is the single most misread thing on the page. */
+const WHY_NOTE = 'That answer, and only that answer, sets your track. It says nothing about how ready you are. The five dimensions below are the readiness read.';
+
+/* Where each track enters the five-phase journey (client journey v2, page 2). */
+const ENTRY = {
+  ready: {
+    mark: 'III',
+    name: 'You enter at Phase III, Put your plans in place.',
+    note: 'A first pass, not a verdict. The discovery call and a current valuation confirm it.',
+  },
+  build: {
+    mark: 'II',
+    name: 'You enter at Phase II, See the full picture.',
+    note: 'A first pass, not a verdict. The discovery call and a current valuation confirm it.',
+  },
+  exploring: {
+    mark: 'I',
+    name: 'You enter at Phase I, Know where you stand.',
+    note: 'A first pass, not a verdict. Nothing here commits you to anything.',
+  },
+};
+
+/* The 3x3 message matrix: track x internal band. The band is never named on screen. */
+const RESULTS_COPY = {
+  ready: {
+    high: { head: 'Your timeline and your readiness agree.',
+      body: 'The foundation is in place. The work now is sequence: estate and tax structures that only count if they are set before a letter of intent, then a structured sale process, then the wealth plan for everything after. A current valuation confirms the number you would be deciding on.' },
+    mid: { head: 'Committed timeline, real gaps, fixable inside your window.',
+      body: 'The core is there. A focused pass on the gaps below changes what a buyer sees in diligence, and 12 to 18 months is enough runway for most of them. The sequence starts now, in the order a buyer will check.' },
+    low: { head: 'Your timeline is set. The readiness work starts now.',
+      body: "Buyers price what they find in diligence, and unprepared businesses get repriced. That's not a reason to wait. It's a reason to sequence the work immediately, starting with the items a buyer will look at first. Your application starts that sequence, this quarter." },
+  },
+  build: {
+    high: { head: 'You are more ready than your timeline requires.',
+      body: "For an owner two to five years out, this readiness is uncommon. The open question is the number: whether today's value already clears your goal. A current valuation tests whether waiting is a choice or a requirement. The gap analysis decides, not the calendar." },
+    mid: { head: 'Real gaps, and enough time to close them.',
+      body: 'This is the most common place to be, and the most workable. The gap is a number, so the work has a finish line. Value grows inside the business while progress is checked against your goal every quarter, and the sale track is already built for the day the number is there.' },
+    low: { head: 'Time is the one thing you have.',
+      body: 'The longest runway, and the most value and tax efficiency still on the table. Owners who start here move the number most, because every lever is still available. The first step is a market-based read on what the business is worth today.' },
+  },
+  exploring: {
+    high: { head: 'For someone with no timeline, this business is unusually ready.',
+      body: "That's worth knowing, because being ready is what gives you choices. Nothing here says sell. It says that if a timeline becomes real, or an offer arrives uninvited, you would be deciding from strength. The application below is there when you want it. No one will call you about these results." },
+    mid: { head: 'You are exploring from a solid base.',
+      body: 'Most owners start exactly here: parts of the foundation in place, parts untouched, and no timeline forcing the issue. The dimensions below show where a buyer would look first, which is useful to know long before it matters. No one will call you about these results.' },
+    low: { head: 'Most owners find more gaps than strengths on a first pass.',
+      body: 'Exploring is the right first step, not a failing. The readiness work has a known order when and if a timeline becomes real. The application below is there when the timeline becomes real. No one will call you about these results.' },
+  },
+};
+
+const LONG_RUNWAY_LEDE = 'With five or more years of runway, every lever is available and compounding works in your favor. ';
+
+/* Track steps, taken from the five-phase client journey v2 at each track's entry
+   phase. Numbering matches the journey's 01 to 12 sequence exactly. */
+const TRACK_STEPS = {
+  ready: [
+    { n: '06', h: 'Estate plan', p: 'Trust and tax structures that only work if they exist before the deal. Beneficiaries, titling, and transfer strategy reviewed while there is still time to act.' },
+    { n: '07', h: 'Wealth plan', p: 'The plan for the proceeds, built before there are proceeds. Post-sale income, cash flow, and drawdown strategy, ready the day the deal closes.' },
+    { n: '08', h: 'The sale begins', p: 'A confidential memorandum, then indications of interest, a letter of intent, and closing. Four milestones, one process, on your timeline.' },
+  ],
+  build: [
+    { n: '04', h: 'Personal financial plan', p: 'What life after the business costs, stated as a number. Cash flow, retirement income, and plan-confidence modeling, with your timeline built in.' },
+    { n: '05', h: 'Wealth gap analysis', p: 'Your valuation against your number, after taxes and debt. If there is a gap, you see exactly how wide it is, across everything you own.' },
+  ],
+  exploring: [
+    { n: '02', h: 'Discovery call', p: 'A structured conversation about the business and the life you want after it. We listen for owner dependency, value drivers, and what you actually want.' },
+    { n: '03', h: 'Valuation', p: 'A market-based value range, benchmarked against your industry. Not a guess, and not a number designed to flatter you.' },
+  ],
+};
+
+const TRACK_LOOPS = {
+  build: 'If the valuation turns up a gap, 90-day sprints close it inside the business. The value gets measured again as you go, and when the number is there, you move to Phase III.',
+  exploring: 'Nothing here is on a clock. The application is how it starts, whenever you decide it should.',
+};
+
+/* The five-dimension read. Three states per dimension, no percentages. */
+const DIM_STATES = { strong: 'In place', mixed: 'Partly there', gap: 'Not yet' };
+
+const DIM_READS = {
+  goals: {
+    strong: 'Your timeline, your number, and the people around you are aligned.',
+    mixed: 'The direction is clear. Some of it is still in your head rather than on paper.',
+    gap: "The goals behind the decision aren't defined yet. That's the first thing to fix.",
+  },
+  ops: {
+    strong: "The business runs without you. That's what a buyer is actually purchasing.",
+    mixed: 'The business leans on you in specific places, and those places are the value gap.',
+    gap: 'The business depends on you day to day. This is the largest single lever on price.',
+  },
+  fin: {
+    strong: 'Your financials and agreements would hold up under diligence.',
+    mixed: 'The books are reasonable. Diligence would still turn up work.',
+    gap: "A buyer's accountant would find questions here before anything else.",
+  },
+  tax: {
+    strong: 'You know what a sale would actually leave you after tax, early enough to plan around it.',
+    mixed: 'There is a rough estimate. The precise number is what changes decisions.',
+    gap: 'The tax picture is unmodeled, and this is the one area with a real deadline. Most tax planning stops working once a letter of intent is signed.',
+  },
+  wealth: {
+    strong: 'You know what the business is worth and what sits outside it.',
+    mixed: 'You have a partial picture. A current valuation is the missing half.',
+    gap: 'The business is the plan. A market-based valuation is the first step to changing that.',
+  },
+};
+
+/* Priority moves: one per scored question, surfaced when that question scores low.
+   Weights are per track, so the same answers produce track-appropriate ordering.
+   Higher weight surfaces first. */
+const MOVES = {
+  q3:  { h: 'Calculate the number.', p: 'The net, after-tax capital it takes to fund the rest of your life. Every other decision gets measured against it.',
+         w: { ready: 70, build: 70, exploring: 95 } },
+  q4:  { h: 'Write down the next act.', p: 'Purpose, time, and identity after the business. The owners who skip this are the ones who regret the sale.',
+         w: { ready: 30, build: 30, exploring: 70 } },
+  q5:  { h: 'Bring the household into it.', p: 'The people this decision affects most should hear your thinking before a buyer does.',
+         w: { ready: 40, build: 25, exploring: 55 } },
+  q6:  { h: 'Make the business run without you.', p: "Thirty days, profitably, with you unreachable. That's the bar buyers price against.",
+         w: { ready: 60, build: 90, exploring: 80 } },
+  q7:  { h: 'Build the second tier.', p: 'A management team that owns daily decisions is most of what transfers when the business changes hands.',
+         w: { ready: 55, build: 85, exploring: 60 } },
+  q9:  { h: 'Reduce customer concentration.', p: 'Revenue that leans on one account gets discounted in diligence, or held back in escrow.',
+         w: { ready: 45, build: 80, exploring: 40 } },
+  q10: { h: 'Upgrade the financial statements.', p: "A buyer's accountant expects three years of reviewed or audited statements, and reads anything less as risk.",
+         w: { ready: 95, build: 60, exploring: 50 } },
+  q11: { h: 'Stabilize the earnings trend.', p: "Buyers pay multiples on earnings they can predict. Three steady years is the record a buyer's accountant wants to see.",
+         w: { ready: 90, build: 65, exploring: 25 } },
+  q12: { h: 'Update and fund the buy-sell.', p: "An agreement that's outdated or unfunded isn't an agreement. It's an argument waiting for a trigger.",
+         w: { ready: 85, build: 20, exploring: 30 } },
+  q14: { h: 'Model what a sale would actually cost in tax.', p: 'The headline price and the money you keep are two different numbers. Plan against the second one.',
+         w: { ready: 80, build: 40, exploring: 25 } },
+  q15: { h: 'Get a current read on what it is worth.', p: 'A market-based valuation, not an estimate. Until you have one, the gap between what you have and what you need is guesswork.',
+         w: { ready: 75, build: 100, exploring: 100 } },
+  q16: { h: 'Build wealth outside the business.', p: 'Concentration is risk, and diversifying before a sale costs less than doing it after one.',
+         w: { ready: 35, build: 55, exploring: 85 } },
+  q17: { h: 'Name the levers that move the number.', p: 'Two or three specific drivers, prioritized and worked. Not a list of everything that could be improved.',
+         w: { ready: 25, build: 95, exploring: 65 } },
+};
+
+const MOVES_NONE = "Nothing in your answers points to an obvious first move. That's rare. Twenty minutes with a senior partner will find what fifteen questions cannot.";
+
+/* One call to action on every track, whatever the result. Kept as a single
+   object rather than a per-track map so the three cannot drift apart again. */
+const CTA = {
+  head: 'Continue your application',
+  sub: 'Your results carry straight into it. Twenty minutes with a senior partner comes next.',
+  btn: 'Continue your application',
+};
+
+/* PLACEHOLDER. Swap for the real booking URL when Sandro provides one. Every
+   CTA on the page reads from this single constant. The static href on the
+   #rCtaBtn anchor in the markup is the no-JS fallback for the same link;
+   change it together with this. */
+const CTA_URL = '/apply/';
+
+/* =====================================================================
+   EMBED MODE  (?embed=1)
+   ---------------------------------------------------------------------
+   Off by default. With no ?embed=1 the standalone page behaves exactly as
+   it always has, including its own history entries.
+
+   Why it exists: inside an iframe, history.pushState writes to the PARENT
+   page's session history, so a visitor's Back button walks backwards through
+   assessment questions instead of leaving the host page. Measured on this
+   build: parent history went from 2 entries to 7 after four answers, which
+   is roughly nineteen phantom entries over a full run.
+
+   The host page is told what is happening by postMessage instead.
+
+   NO PERSONAL DATA MAY EVER BE PUT IN THESE MESSAGES. The gate collects a
+   name, an email and a phone number; none of it appears here, and that is
+   what makes the "*" origin fallback below acceptable. The worst case is
+   that an unknown parent learns a step number and a track name. If anyone
+   proposes adding the email address to the "complete" payload, refuse.
+   ===================================================================== */
+
+const EMBED = /[?&]embed=1\b/.test(location.search);
+
+/* Where to aim postMessages. ?po= is passed by the host; document.referrer
+   is the fallback; "*" is the last resort and is only safe because of the
+   no-PII rule above. */
+const PARENT_ORIGIN = (function () {
+  const m = /[?&]po=([^&]+)/.exec(location.search);
+  if (m) {
+    try { return new URL(decodeURIComponent(m[1])).origin; } catch (e) { /* fall through */ }
+  }
+  try { if (document.referrer) return new URL(document.referrer).origin; } catch (e) { /* fall through */ }
+  return '*';
+})();
+
+function emit(type, extra) {
+  if (!EMBED) return;
+  const msg = { source: 'sandro-assessment', version: 2, type: type };
+  if (extra) Object.keys(extra).forEach(k => { msg[k] = extra[k]; });
+  try { parent.postMessage(msg, PARENT_ORIGIN); } catch (e) { /* never break the flow */ }
+}
+
+/* =====================================================================
+   ENGINE (no client-editable copy below this line)
+   Steps: 0 = intro, 1..N = questions, N+1 = gate, N+2 = results.
+   ===================================================================== */
+
+(function () {
+  const N = QUESTIONS.length;
+  const GATE = N + 1;
+  const RESULTS = N + 2;
+  const SCORED = QUESTIONS.filter(q => q.options.some(o => typeof o.p === 'number'));
+  const MAX_RAW = SCORED.reduce((s, q) => s + Math.max(...q.options.map(o => o.p || 0)), 0);
+  // The router and context questions are found structurally, not by position,
+  // so adding or reordering questions cannot silently misroute anyone.
+  const ROUTER = QUESTIONS.find(q => q.options.some(o => o.track));
+  const CONTEXT = QUESTIONS.find(q => q.options.some(o => o.ctx));
+
+  const state = { step: 0, answers: {}, gateDone: false };
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+  /* Config validation: every mistake here used to render as a silent blank
+     page. Fail loudly instead, before any listener is wired. */
+  function configErrors() {
+    const errs = [];
+    QUESTIONS.forEach(q => { if (!BUCKETS.some(b => b.id === q.bucket)) errs.push('question ' + q.id + ': unknown bucket "' + q.bucket + '"'); });
+    SCORED.forEach(q => { if (!MOVES[q.id]) errs.push('scored question ' + q.id + ' has no MOVES entry'); });
+    if (!ROUTER) errs.push('no router question: one question\'s options must carry track');
+    ['ready', 'build', 'exploring'].forEach(t => {
+      if (!TRACKS[t] || !TRACKS[t].name) errs.push('TRACKS missing ' + t);
+      if (!ENTRY[t]) errs.push('ENTRY missing ' + t);
+      if (!TRACK_STEPS[t]) errs.push('TRACK_STEPS missing ' + t);
+      ['high', 'mid', 'low'].forEach(b => { if (!RESULTS_COPY[t] || !RESULTS_COPY[t][b]) errs.push('RESULTS_COPY missing ' + t + '.' + b); });
+    });
+    BUCKETS.forEach(b => { ['strong', 'mixed', 'gap'].forEach(l => { if (!DIM_READS[b.id] || !DIM_READS[b.id][l]) errs.push('DIM_READS missing ' + b.id + '.' + l); }); });
+    return errs;
+  }
+  const cfgErrs = configErrors();
+  if (cfgErrs.length) {
+    console.error('Assessment config invalid:\n- ' + cfgErrs.join('\n- '));
+    const fb = document.getElementById('jsFallback');
+    if (fb) fb.hidden = false;
+    return;
+  }
+  const screens = {
+    intro: document.querySelector('[data-screen="intro"]'),
+    question: document.querySelector('[data-screen="question"]'),
+    gate: document.querySelector('[data-screen="gate"]'),
+    results: document.querySelector('[data-screen="results"]'),
+  };
+
+  function screenFor(step) {
+    if (step === 0) return 'intro';
+    if (step >= 1 && step <= N) return 'question';
+    if (step === GATE) return 'gate';
+    return 'results';
+  }
+
+  /* ---------- scoring ---------- */
+  function computeResults(answers) {
+    const routeOpt = ROUTER.options[answers[ROUTER.id]];
+    const track = routeOpt ? routeOpt.track : 'exploring';
+    const longRunway = !!(routeOpt && routeOpt.longRunway);
+    let raw = 0;
+    const buckets = BUCKETS.map(b => ({ id: b.id, barLabel: b.barLabel, earned: 0, possible: 0 }));
+    QUESTIONS.forEach(q => {
+      const best = Math.max(...q.options.map(o => o.p || 0));
+      if (best <= 0) return; // unscored question
+      const bucket = buckets.find(b => b.id === q.bucket);
+      bucket.possible += best;
+      const picked = q.options[answers[q.id]];
+      const pts = picked && typeof picked.p === 'number' ? picked.p : 0;
+      bucket.earned += pts;
+      raw += pts;
+    });
+    const score10 = Math.round(raw / MAX_RAW * 10);
+    const band = score10 >= 8 ? 'high' : score10 >= 5 ? 'mid' : 'low';
+    const ctxOpt = CONTEXT && CONTEXT.options[answers[CONTEXT.id]];
+    const ctx = !!(ctxOpt && ctxOpt.ctx === true);
+    buckets.forEach(b => {
+      const ratio = b.possible ? b.earned / b.possible : 0;
+      b.pct = Math.round(ratio * 100);                       // internal only, never shown
+      // One gate for every dimension, independent of how many questions it holds.
+      // "In place" at 75 percent or better; "Not yet" only below a quarter. Both
+      // boundaries are inclusive upward (2026-07-27, Travis): an owner at exactly
+      // a quarter has real half-credit work underway, and the "Partly there"
+      // reads describe them accurately where the "Not yet" reads contradict
+      // their own answers. An 80/40 split behaved very differently across
+      // buckets of 2, 3 and 4 questions (Tax needed a perfect 2/2; Operations
+      // lumped 0/4 with 1.5/4).
+      b.level = ratio >= 0.75 ? 'strong' : ratio >= 0.25 ? 'mixed' : 'gap';
+      b.segs = b.level === 'strong' ? 3 : b.level === 'mixed' ? 2 : 1;
+    });
+    const timelineAnswer = routeOpt ? routeOpt.t : '';
+    return { raw, score10, band, track, longRunway, ctx, buckets, timelineAnswer, moves: rankMoves(answers, track) };
+  }
+
+  /* Priority moves: every scored question answered at zero, ordered by the
+     track's weight. Backfill from half-credit answers when there are fewer
+     than three zeros. One to three, never four. A single imperfect answer
+     renders alone on purpose rather than padding to a minimum of two (spec
+     amendment 2026-07-27: hiding an owner's one real gap to satisfy a
+     minimum helps no one). Returns empty on an all-top run; the caller
+     swaps in MOVES_NONE. */
+  function rankMoves(answers, track) {
+    const at = (target) => SCORED
+      .filter(q => MOVES[q.id])
+      .filter(q => {
+        const picked = q.options[answers[q.id]];
+        return picked && typeof picked.p === 'number' && picked.p === target;
+      })
+      .map(q => ({ id: q.id, ...MOVES[q.id], weight: MOVES[q.id].w[track] || 0 }));
+
+    const byWeight = (a, b) => b.weight - a.weight;
+    const zeros = at(0).sort(byWeight);
+    const halves = at(0.5).sort(byWeight);
+    return zeros.concat(halves).slice(0, 3);
+  }
+
+  /* ---------- resume on reload ----------
+     Answers and position survive an accidental refresh (a real risk in
+     in-app browsers). Nothing the visitor types into the gate is ever
+     stored, and gateDone is not persisted, so results always require the
+     gate again after a reload. */
+  const STORE_KEY = 'sandro-readiness-v2';
+  function saveState() {
+    try {
+      sessionStorage.setItem(STORE_KEY, JSON.stringify({ answers: state.answers, step: Math.min(state.step, GATE) }));
+    } catch (e) { /* storage unavailable: resume simply degrades */ }
+  }
+  function restoreState() {
+    try {
+      const saved = JSON.parse(sessionStorage.getItem(STORE_KEY));
+      if (!saved || typeof saved !== 'object' || !saved.answers || typeof saved.answers !== 'object') return 0;
+      QUESTIONS.forEach(q => {
+        const v = saved.answers[q.id];
+        if (Number.isInteger(v) && v >= 0 && v < q.options.length) state.answers[q.id] = v;
+      });
+      return Number.isInteger(saved.step) ? Math.max(0, Math.min(saved.step, GATE)) : 0;
+    } catch (e) { return 0; }
+  }
+  function clearSaved() {
+    try { sessionStorage.removeItem(STORE_KEY); } catch (e) { /* same degradation as saveState */ }
+  }
+
+  /* ---------- render: question ---------- */
+  function renderQuestion(i) {
+    const q = QUESTIONS[i - 1];
+    const bucket = BUCKETS.find(b => b.id === q.bucket);
+    const picked = state.answers[q.id];
+    const body = $('qBody');
+    body.innerHTML = `
+      <div class="q-chrome">
+        <span class="q-part">Part ${esc(bucket.roman)} of V · ${esc(bucket.label)}</span>
+        <span class="q-count">Question ${i} of ${N}</span>
+      </div>
+      <h2 class="q-title">${esc(q.prompt)}</h2>
+      ${q.note ? `<p class="q-note">${esc(q.note)}</p>` : ''}
+      <ul class="opts" role="list">
+        ${q.options.map((o, idx) => `
+          <li><button type="button" class="opt${picked === idx ? ' sel' : ''}" data-idx="${idx}">
+            <span class="k">${idx + 1}</span><span>${esc(o.t)}</span>
+          </button></li>`).join('')}
+      </ul>`;
+    body.querySelectorAll('.opt').forEach(btn => {
+      btn.addEventListener('click', () => pick(q, parseInt(btn.dataset.idx, 10), btn));
+    });
+    if (!reduced) { body.classList.remove('screen-enter'); void body.offsetWidth; body.classList.add('screen-enter'); }
+    body.focus({ preventScroll: false });
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  }
+
+  let advanceTimer;
+  function pick(q, idx, btn) {
+    state.answers[q.id] = idx;
+    saveState();
+    const body = $('qBody');
+    body.querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
+    btn.classList.add('sel');
+    // One pending advance at a time: a click plus a number key inside the
+    // delay used to queue two, pushing a duplicate history entry.
+    clearTimeout(advanceTimer);
+    advanceTimer = setTimeout(() => setStep(state.step + 1, true), reduced ? 60 : 240);
+  }
+
+  /* ---------- render: results ---------- */
+  function renderResults() {
+    const r = computeResults(state.answers);
+    const t = TRACKS[r.track];
+    $('rTrack').textContent = t.name;
+    $('rWhyQuote').textContent = '\u201C' + r.timelineAnswer + '\u201D';
+    $('rWhyNote').textContent = WHY_NOTE;
+    const entry = ENTRY[r.track];
+    $('rEyebrow').textContent = EYEBROW;
+    $('rEntryMark').textContent = entry.mark;
+    $('rEntryName').textContent = entry.name;
+    $('rEntryNote').textContent = entry.note;
+
+    const dims = $('rDims');
+    const top = r.buckets.reduce((a, b) => (b.pct > a.pct ? b : a), r.buckets[0]);
+    const bottom = r.buckets.reduce((a, b) => (b.pct < a.pct ? b : a), r.buckets[0]);
+    // No standout when everything is level, so the note switches to the level-field wording.
+    const hasStandout = top.pct > bottom.pct;
+    dims.innerHTML = r.buckets.map(b => `
+      <div class="r-dim-row">
+        <span class="r-dim-label">${esc(b.barLabel)}<span class="m-state">${esc(DIM_STATES[b.level])}</span></span>
+        <div class="r-dim-steps" role="img" aria-label="${esc(DIM_STATES[b.level])}">
+          ${[1, 2, 3].map(i => `<span class="r-dim-seg" data-on="${i <= b.segs ? '1' : ''}"></span>`).join('')}
+        </div>
+        <span class="r-dim-state">${esc(DIM_STATES[b.level])}</span>
+      </div>`).join('');
+    $('rDimNote').textContent = !hasStandout
+      ? (top.pct === 100 ? "Every dimension is covered. That's rare on a first pass."
+        : top.pct === 0 ? 'Nothing is in place yet across the five dimensions. That is the honest starting point, and it is a common one.'
+        : 'Even across all five dimensions.')
+      : `Strongest: ${lc(top.barLabel)}. First gap to close: ${lc(bottom.barLabel)}.`;
+    requestAnimationFrame(() => {
+      dims.querySelectorAll('.r-dim-seg').forEach(s => { if (s.dataset.on) s.classList.add('on'); });
+    });
+
+    $('rDimRead').innerHTML = r.buckets.map(b =>
+      `<p><strong>${esc(b.barLabel)}.</strong> ${esc(DIM_READS[b.id][b.level])}</p>`).join('');
+
+    const copy = RESULTS_COPY[r.track][r.band];
+    $('rMsgHead').textContent = copy.head;
+    $('rMsgBody').textContent = (r.track === 'build' && r.longRunway ? LONG_RUNWAY_LEDE : '') + copy.body;
+
+    $('rCtx').hidden = !r.ctx;
+
+    const hasMoves = r.moves.length > 0;
+    // Always write both branches. A hidden element that keeps the previous
+    // render's content is one CSS change away from bleeding across a retake,
+    // which is exactly how the stale r-loop line surfaced during 7/16 QA.
+    $('rMoveList').hidden = !hasMoves;
+    $('rMovesNone').hidden = hasMoves;
+    $('rMoveList').innerHTML = hasMoves ? r.moves.map((m, i) => `
+        <div class="r-move">
+          <span class="r-move-n">${['I', 'II', 'III'][i]}</span>
+          <div><h3>${esc(m.h)}</h3><p>${esc(m.p)}</p></div>
+        </div>`).join('') : '';
+    $('rMovesNone').textContent = hasMoves ? '' : MOVES_NONE;
+
+    $('rSteps').innerHTML = TRACK_STEPS[r.track].map(s => `
+      <div class="tstep">
+        <div class="tdisc">${esc(s.n)}</div>
+        <div><h3>${esc(s.h)}</h3><p>${esc(s.p)}</p></div>
+      </div>`).join('');
+    const loop = TRACK_LOOPS[r.track];
+    $('rLoop').hidden = !loop;
+    $('rLoop').textContent = loop || '';
+
+    $('rCtaHead').textContent = CTA.head;
+    $('rCtaSub').textContent = CTA.sub;
+    $('rCtaBtnText').textContent = CTA.btn;
+    $('rCtaBtn').href = CTA_URL;
+    /* Embedded, a plain link would navigate the IFRAME to CTA_URL. That URL is
+       the Framer page, which refuses to render inside a frame, so the visitor
+       would finish fifteen questions, click the one button on the results
+       screen, and get a blank white rectangle. _top is the no-JS floor; the
+       message lets the host close the overlay gracefully first. */
+    if (EMBED) {
+      $('rCtaBtn').target = '_top';
+      /* onclick assignment, not addEventListener: renderResults runs again on
+         every retake and a listener would stack. The message is a notification
+         only. The navigation is the anchor's own job, so it still happens if
+         the host page's script is broken or blocked. */
+      $('rCtaBtn').onclick = function () { emit('cta', { url: CTA_URL }); };
+    }
+    // Screen readers land on the track name instead of a silent body.
+    $('rTrack').focus({ preventScroll: true });
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    emit('complete', { track: r.track, band: r.band });
+  }
+
+  function lc(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+
+  /* ---------- navigation ---------- */
+  function setStep(step, push) {
+    clearTimeout(advanceTimer); // a pending auto-advance must not fire on top of an explicit move
+    if (step < 0) step = 0;
+    if (step > RESULTS) step = RESULTS;
+    if (step === RESULTS && !state.gateDone) step = GATE;         // no results without the gate
+    if (step > 1 && step <= GATE) {                                // no skipping ahead of the first unanswered question
+      const firstUnanswered = QUESTIONS.findIndex(q => state.answers[q.id] === undefined) + 1;
+      if (firstUnanswered > 0 && step > firstUnanswered) step = firstUnanswered;
+    }
+    state.step = step;
+    const name = screenFor(step);
+    Object.entries(screens).forEach(([k, el]) => el.classList.toggle('is-active', k === name));
+    if (name === 'question') renderQuestion(step);
+    if (name === 'results') renderResults();
+    if (name === 'gate') { const f = $('gFirst'); if (f && !reduced) setTimeout(() => f.focus(), 120); }
+    $('progressFill').style.width = (step / RESULTS * 100) + '%';
+    saveState();
+    /* Embedded, the history entry would land in the host page's history. */
+    if (push && !EMBED) history.pushState({ step }, '', '');
+    emit('step', { step: step, screen: name, total: RESULTS });
+  }
+
+  if (!EMBED) {
+    window.addEventListener('popstate', (e) => {
+      const step = e.state && typeof e.state.step === 'number' ? e.state.step : 0;
+      setStep(step, false);
+    });
+  }
+
+  /* ---------- gate ---------- */
+  $('gateForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const required = ['gFirst', 'gLast', 'gEmail'].map($); // phone is optional
+    const err = $('gateError');
+    const bad = required.filter(f => !f.value.trim());
+    required.forEach(f => f.setAttribute('aria-invalid', bad.includes(f) ? 'true' : 'false'));
+    if (bad.length) { err.textContent = 'Please complete the required fields to continue.'; err.classList.add('show'); return; }
+    const email = $('gEmail');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
+      email.setAttribute('aria-invalid', 'true');
+      err.textContent = 'Please enter a valid email address.'; err.classList.add('show'); return;
+    }
+    err.classList.remove('show');
+    state.gateDone = true;   // HubSpot capture ships next phase; until then the values are read no further and sent nowhere
+    setStep(RESULTS, true);
+  });
+
+  /* ---------- controls ---------- */
+  $('beginBtn').addEventListener('click', () => setStep(1, true));
+  $('backBtn').addEventListener('click', () => setStep(state.step - 1, true));
+  $('gateBack').addEventListener('click', () => setStep(N, true));
+  $('retakeBtn').addEventListener('click', () => {
+    state.answers = {}; state.gateDone = false;
+    clearSaved();
+    ['gFirst', 'gLast', 'gEmail', 'gPhone'].forEach(id => { $(id).value = ''; $(id).setAttribute('aria-invalid', 'false'); });
+    $('gateError').classList.remove('show');
+    setStep(0, true);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const tag = e.target && e.target.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    const name = screenFor(state.step);
+    if (name === 'question') {
+      const q = QUESTIONS[state.step - 1];
+      const num = parseInt(e.key, 10);
+      if (num >= 1 && num <= q.options.length) {
+        const btn = document.querySelector(`.opt[data-idx="${num - 1}"]`);
+        if (btn) { e.preventDefault(); btn.click(); }
+        return;
+      }
+      if (e.key === 'ArrowLeft' || e.key === 'Backspace') { e.preventDefault(); setStep(state.step - 1, true); return; }
+      if ((e.key === 'ArrowRight' || e.key === 'Enter') && state.answers[q.id] !== undefined) {
+        e.preventDefault(); setStep(state.step + 1, true);
+      }
+    } else if (name === 'intro' && e.key === 'Enter') {
+      setStep(1, true);
+    }
+  });
+
+  /* ---------- demo scenario switcher (?demo) ----------
+     QA-only during the prototyping phase; REMOVE before embed/production
+     (README go-live list) — it sets gateDone, a capture bypass once the
+     HubSpot phase ships. */
+  function initDemo() {
+    if (!/[?&]demo\b/.test(location.search)) return;
+    if (SCORED.length !== 13) { console.error('demo vectors assume 13 scored questions; roster has ' + SCORED.length); return; }
+    const panel = $('demoPanel');
+    panel.classList.add('on');
+    panel.setAttribute('aria-hidden', 'false');
+    // Answer vectors over the 13 scored questions (0 = top option, 1 = middle, 2 = bottom).
+    const V = {
+      high: Array(13).fill(0),                                                        // raw 13 -> 10
+      mid:  [0,0,0,0,0, 1,1,1,1,1,1, 2,2],                                            // raw 8  -> 6
+      low:  [0,0, 1,1, 2,2,2,2,2,2,2,2,2],                                            // raw 3  -> 2
+      edge: [0,0,0,0,0,0,0,0,0, 1,1, 2,2],                                            // raw 10 -> 7.69 -> 8
+    };
+    const scenarios = [
+      ['RS 8-10', 0, 'high'], ['RS 5-7', 0, 'mid'], ['RS 0-4', 0, 'low'],
+      ['BV 8-10', 1, 'high'], ['BV 5-7', 1, 'mid'], ['BV 0-4', 1, 'low'],
+      ['BV 5yr+', 2, 'mid'],
+      ['SE 8-10', 3, 'high'], ['SE 5-7', 3, 'mid'], ['SE 0-4', 3, 'low'],
+      ['Edge 7.69 to 8', 0, 'edge'],
+    ];
+    const grid = $('dpGrid');
+    scenarios.forEach(([label, timeline, vec]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'dp-btn' + (vec === 'edge' ? ' gold' : ''); b.textContent = label;
+      b.addEventListener('click', () => {
+        state.answers = {};
+        state.answers[ROUTER.id] = timeline;
+        if (CONTEXT) state.answers[CONTEXT.id] = timeline === 0 ? 0 : 1;
+        SCORED.forEach((q, i) => {
+          const want = V[vec][i];
+          // map 0/1/2 onto this question's point ladder: top / half / bottom
+          const opts = q.options.map((o, idx) => ({ idx, p: o.p || 0 })).sort((a, b2) => b2.p - a.p);
+          const bottomOpts = q.options.map((o, idx) => ({ idx, p: o.p || 0 })).sort((a, b2) => a.p - b2.p);
+          const half = q.options.findIndex(o => o.p === 0.5);
+          state.answers[q.id] = want === 0 ? opts[0].idx : want === 1 && half >= 0 ? half : bottomOpts[0].idx;
+        });
+        state.gateDone = true;
+        setStep(RESULTS, true);
+        clearSaved(); // demo answers must not survive into a reloaded real run
+      });
+      grid.appendChild(b);
+    });
+    const reset = document.createElement('button');
+    reset.type = 'button'; reset.className = 'dp-btn'; reset.textContent = 'Reset';
+    reset.addEventListener('click', () => { $('retakeBtn').click(); });
+    grid.appendChild(reset);
+  }
+  window.computeResults = computeResults; // console QA hook; removed with the panel at go-live
+
+  /* ---------- boot ---------- */
+  setStep(restoreState(), false);
+  if (!EMBED) history.replaceState({ step: state.step }, '', '');
+  initDemo();
+
+  if (EMBED) {
+    /* Escape has to be reported by the child. Once focus is inside a
+       cross-origin iframe the host page never sees the keystroke, so the
+       host's dialog stops closing on Escape the moment someone clicks a
+       question. This is the only way it can know. */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') emit('close');
+    });
+
+    /* Host asking for a fresh run, after a completed one. */
+    window.addEventListener('message', (e) => {
+      if (PARENT_ORIGIN !== '*' && e.origin !== PARENT_ORIGIN) return;
+      if (e.source !== parent) return;
+      const d = e.data;
+      if (!d || d.source !== 'sandro-parent') return;
+      if (d.type === 'reset') $('retakeBtn').click();
+    });
+
+    emit('ready');
+  }
+})();
+</script>
+
+</body>
+</html>
