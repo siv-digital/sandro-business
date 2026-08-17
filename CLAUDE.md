@@ -92,7 +92,18 @@ collapse are all deliberate and documented in `readme.md`.
 
 ## Using this as a Claude Code skill
 
-`design-system/SKILL.md` is already a valid skill definition. To make the brand available in every
-session of a project, copy the `design-system/` folder to `.claude/skills/sandro-business-design/`
-(so `SKILL.md` sits at that folder's root) — Claude Code will then load the brand rules on demand
-rather than needing them pasted in.
+`design-system/SKILL.md` is a valid skill definition and is usable in place for a project that has
+no other copy of this brand.
+
+> **Do NOT copy `design-system/` into `.claude/skills/sandro-business-design/` in the SIV workspace.**
+> That path already holds a skill of the **same `name:`**, so the two are interchangeable to the
+> loader and a copy silently replaces it. The workspace skill is deliberately **a pointer to this
+> repo rather than a copy of it**, so it cannot drift from the source, and since 2026-08-17 it also
+> carries the wealth-skin architecture and routes Sandro Business work by **audience and surface
+> rather than by palette** — none of which survives being overwritten by this folder. An earlier
+> version of this section told you to make that copy. It predates both the skin and the workspace
+> skill; do not follow it.
+>
+> Workspace skill: `.claude/skills/sandro-business-design/SKILL.md` (tracked in
+> `siv-digital/siv-digital-workspace`). Update that one, not this one, for routing and skin rules.
+> This folder stays the design-system source it points at.
