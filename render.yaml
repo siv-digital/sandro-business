@@ -59,8 +59,13 @@ services:
   # rebrand, homepage only, publishing site-v2/ so v1 stays untouched at its
   # own URL. A NEW service rather than a changed publish path, because
   # staticPublishPath is one-shot on an existing service (see header comment).
-  # First deploy needs the Blueprint sync approved at Blueprint → Syncs; the
-  # same curl diagnostic applies:
+  #
+  # TRAP, learned on this service's first deploy (2026-08-25): this Blueprint
+  # AUTO-APPLIES syncs. Pushing a new service block DEPLOYS it immediately —
+  # there was no pending-approval gate at Blueprint → Syncs, despite the
+  # header comment above describing one for first-time repo setup. Do not
+  # push a service definition here unless it is ready to be live. The curl
+  # diagnostic still applies:
   #   curl -sS -o /dev/null -w "%{http_code}\n" https://bvaa-prototype.onrender.com/
   - type: web
     name: bvaa-prototype
