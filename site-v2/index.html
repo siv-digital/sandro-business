@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en" data-skin="wealth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The header is set at the edge too (render.yaml). The meta tag is here
+     because headers cannot be verified on localhost and this can. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Business Value Advisory Alliance</title>
+<meta name="description" content="The Business Value Advisory Alliance connects business owners at any stage to vetted specialists in valuation, M&A, estate planning, lending, and wealth management, with a Sandro senior partner running the engagement.">
+<link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
+<link rel="stylesheet" href="/assets/ds/styles.css?v=4">
+<link rel="stylesheet" href="/assets/app.css?v=37">
+<link rel="stylesheet" href="/assets/skins.css?v=3">
+<link rel="stylesheet" href="/assets/v2.css?v=8">
+</head>
+<body>
+
+<!-- ============================ HEADER ============================
+     v2 (8/25 client round): the page opens on a LIGHT hero, so the header is
+     data-t="light" rather than v1's sb-dark + transparent — glass-light is
+     invisible over the cream field at rest and components.css supplies the
+     scrolled state. The lockup is the Business Value Advisory Alliance name
+     over a "powered by" row carrying SCI and EPI's own marks (Word-doc
+     feedback, verbatim: name top-left, SCI/EPI beneath). The sunburst symbol
+     stays for brand continuity (8/25 meeting).
+
+     Members area / Sign in / the application CTAs point at the v1 prototype
+     service ABSOLUTELY: this service publishes the homepage only, and the
+     funnel behind it still lives on sandro-business-prototype. Known, flagged
+     mismatch: those screens still say Sandro Business. -->
+<header class="sb-header sbp2-header" data-t="light">
+  <a class="sbp2-lockup" href="/" aria-label="Business Value Advisory Alliance, home">
+    <img src="/assets/img/sandro-symbol-titanium.png" alt="">
+    <span class="sbp2-lockup-col">
+      <span class="sbp2-lockup-name">Business Value Advisory Alliance</span>
+      <span class="sbp2-powered">
+        <span class="sbp2-powered-label">Powered by</span>
+        <img src="/assets/img/sci.png" alt="Southern California Institute">
+        <img src="/assets/img/epi.png" alt="Exit Planning Institute">
+      </span>
+    </span>
+  </a>
+
+  <button type="button" class="sb-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+    <span class="sb-ico" data-ico="Menu01" data-size="lg" aria-hidden="true"></span>
+  </button>
+
+  <nav class="sb-nav" id="site-nav" aria-label="Primary">
+    <a class="sb-nav-link" href="/#process">The process</a>
+    <a class="sb-nav-link" href="/#how">How it works</a>
+    <a class="sb-nav-link" href="/#alliance">The alliance</a>
+    <a class="sb-nav-link" href="/#insights">Insights</a>
+    <span class="sbp-nav-divider" aria-hidden="true"></span>
+    <a class="sbp-signin" data-hdr="members" href="https://sandro-business-prototype.onrender.com/members/">Members area</a>
+    <a class="sbp-signin" data-hdr="signin" href="https://sandro-business-prototype.onrender.com/members/sign-in.html">Sign in</a>
+    <a class="sb-btn" data-v="accent" data-size="sm" href="https://sandro-business-prototype.onrender.com/assessment/">Start your application</a>
+  </nav>
+</header>
+
+<main class="sbp-under-header">
+
+<!-- ============================== HERO ==============================
+     Reversed out (8/25 client round): cream ground, titanium display type,
+     the sunrise re-authored as gold rays on light. Same geometry as v1 —
+     Sunburst variant="horizon", type in the clean air above the ray band —
+     only the field flipped. Treatment source: sandrowealth.com/business-owner.
+
+     The sub is the Word-doc premise line, replacing v1's "private alliance"
+     sentence: business owners at ANY stage, world-class expertise, disciplined
+     execution. -->
+<section class="sb-hero sbp2-hero">
+  <span class="sb-sun" data-variant="horizon">
+    <span class="sb-sun-lift">
+      <span class="sb-sun-glow"></span>
+      <span class="sb-sun-rays"><span class="sbp-rays"></span></span>
+      <span class="sb-sun-horizon"></span>
+    </span>
+    <span class="sb-sun-content">
+      <div class="sb-hero-copy">
+        <div class="sb-reveal" data-rv>
+          <div class="sb-kick"><span class="sb-kick-dash"></span><span>For business owners at any stage</span></div>
+        </div>
+
+        <h1 class="sbp-hero-h1">
+          <span class="sb-wipe-inner" data-rv data-rv-i="1">From the business you built to the wealth it becomes.</span>
+        </h1>
+
+        <p class="sb-reveal sbp-hero-sub" data-rv data-rv-i="2">
+          A world-class expertise platform with disciplined execution, open to business
+          owners at any stage. One senior partner runs your engagement, and the alliance
+          behind them covers everything from valuation to wealth management.
+        </p>
+
+        <div class="sb-reveal sb-btn-row sbp-hero-actions" data-rv data-rv-i="3">
+          <a class="sb-btn" data-v="accent" data-size="lg" href="https://sandro-business-prototype.onrender.com/assessment/">
+            Start your application
+            <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+          </a>
+          <a class="sb-btn" data-v="secondary" data-size="lg" href="/#how">See how it works</a>
+        </div>
+      </div>
+    </span>
+  </span>
+
+  <div class="sb-hero-factsbar">
+    <div class="sb-hero-facts sbp-hero-facts">
+      <div class="sb-reveal" data-rv data-rv-d="500">
+        <div class="sb-hero-fact" data-first="1">
+          <span class="sbp-fact-v">Talk to a senior partner</span>
+          <span class="sbp-fact-l">Twenty minutes, no fee</span>
+        </div>
+      </div>
+      <div class="sb-reveal" data-rv data-rv-i="1" data-rv-d="500">
+        <div class="sb-hero-fact">
+          <span class="sbp-fact-v">Four firms, one alliance</span>
+          <span class="sbp-fact-l">Sandro &middot; SCI &middot; Strazzeri &middot; EPI</span>
+        </div>
+      </div>
+      <div class="sb-reveal" data-rv data-rv-i="2" data-rv-d="500">
+        <div class="sb-hero-fact">
+          <span class="sbp-fact-v">Exit on your terms</span>
+          <span class="sbp-fact-l">A disciplined, phased process</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= THE PROCESS =========================
+     8/25 meeting: exit planning is a PROCESS and banking is a SERVICE. The
+     chevron carries the process as the section's primary structure; the
+     bounded row beneath carries the cross-cutting disciplines as CORE, always
+     in play — never "additional" (Travis's own objection in the meeting).
+     Together all seven deck capabilities are on the page.
+
+     The matchmaking line is load-bearing: who you meet is a senior partner's
+     judgment, never an algorithm's (8/25 meeting, confirmed). -->
+<section class="sb-section sb-dark" id="process">
+  <div class="sb-section-inner">
+    <div class="sb-kick"><span class="sb-kick-dash"></span><span>The process</span></div>
+    <h2 class="sbp-display sbp-display-inverse sbp2-head">The exit is a process. One partner runs all of it.</h2>
+    <p class="sbp2-process-sub">
+      A Sandro senior partner leads the discovery, curates the specialists, and
+      drives the work to close. Who you meet, and when, is that partner&rsquo;s
+      judgment, never an algorithm&rsquo;s.
+    </p>
+
+    <ol class="sbp2-chev">
+      <li class="sb-reveal sbp2-chev-seg" data-rv data-depth="1">
+        <span class="sbp2-chev-n">01</span>
+        <h3>Valuation</h3>
+        <p>Know what the business is worth today, and to whom.</p>
+      </li>
+      <li class="sb-reveal sbp2-chev-seg" data-rv data-rv-i="1" data-depth="2">
+        <span class="sbp2-chev-n">02</span>
+        <h3>Value acceleration</h3>
+        <p>Close the gap between today&rsquo;s value and the number you need.</p>
+      </li>
+      <li class="sb-reveal sbp2-chev-seg" data-rv data-rv-i="2" data-depth="3">
+        <span class="sbp2-chev-n">03</span>
+        <h3>M&amp;A</h3>
+        <p>Run the sale as a process, not an event.</p>
+      </li>
+      <li class="sb-reveal sbp2-chev-seg" data-rv data-rv-i="3" data-depth="4">
+        <span class="sbp2-chev-n">04</span>
+        <h3>Estate planning</h3>
+        <p>Set the structures before a buyer names a number.</p>
+      </li>
+      <li class="sb-reveal sbp2-chev-seg" data-rv data-rv-i="4" data-depth="5">
+        <span class="sbp2-chev-n">05</span>
+        <h3>Wealth management</h3>
+        <p>Replace the business&rsquo;s income without taking on new risk.</p>
+      </li>
+    </ol>
+
+    <!-- NOT "additional services": Travis killed that framing in the 8/25
+         meeting ("it makes it feel ancillary... not a core capability").
+         These four are core disciplines that run alongside every stage of the
+         process — continuous, not subordinate. -->
+    <div class="sb-reveal sbp2-svcbar" data-rv>
+      <div class="sb-kick sbp2-svcbar-kick"><span class="sb-kick-dash"></span><span>In play at every stage</span></div>
+      <p class="sbp2-svcbar-lede">Not steps on the path. These four run alongside the whole process, whenever your situation calls for them.</p>
+      <div class="sbp2-svcs">
+        <div class="sbp2-svc">
+          <span class="sb-ico" data-ico="Bank" data-size="lg" aria-hidden="true"></span>
+          <h3>Commercial banking</h3>
+          <p>Credit relationships beyond your local market, priced by competition.</p>
+        </div>
+        <div class="sbp2-svc">
+          <span class="sb-ico" data-ico="Calculator" data-size="lg" aria-hidden="true"></span>
+          <h3>Taxation</h3>
+          <p>What each structure leaves after tax, worked out while it can still change.</p>
+        </div>
+        <div class="sbp2-svc">
+          <span class="sb-ico" data-ico="Shield01" data-size="lg" aria-hidden="true"></span>
+          <h3>Asset protection</h3>
+          <p>Structures that protect what you&rsquo;ve built, before the sale and after it.</p>
+        </div>
+        <div class="sbp2-svc">
+          <span class="sb-ico" data-ico="Scales02" data-size="lg" aria-hidden="true"></span>
+          <h3>Risk management</h3>
+          <p>Key-person, liability and continuity risk, identified and covered.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========================= HOW MEMBERSHIP WORKS =========================
+     Carried from v1. The aside's score line and steps 1-2's score copy are the
+     PARKED open item (Travis, 8/14 QA) — carried verbatim, not resolved here. -->
+<section class="sb-section" id="how">
+  <div class="sb-section-inner">
+    <div class="sb-edcols">
+      <div class="sb-edcols-aside">
+        <div class="sb-kick"><span class="sb-kick-dash"></span><span>How membership works</span></div>
+        <p class="sbp-aside-note">
+          Anyone can apply. It starts with the assessment. Your assessment score is
+          yours to keep.
+        </p>
+      </div>
+      <hr class="sb-rule" data-o="v" data-t="hairline">
+      <div>
+        <h2 class="sbp-display">Four steps, from assessment to admission.</h2>
+
+        <div class="sbp-steps">
+          <div class="sb-reveal" data-rv>
+            <div class="sbp-step">
+              <span class="sbp-step-n">1</span>
+              <span class="sb-ico" data-ico="ClipboardCheck" data-size="lg" aria-hidden="true"></span>
+              <div>
+                <h3>Take your assessment</h3>
+                <span class="sbp-step-label">Assessment</span>
+              </div>
+              <p class="sbp-step-body">
+                15 questions on earnings, growth stage, how your business runs without you,
+                and timing. You get a score, a starting track, and what next steps you
+                should take.
+              </p>
+            </div>
+          </div>
+
+          <div class="sb-reveal" data-rv data-rv-i="1">
+            <div class="sbp-step">
+              <span class="sbp-step-n">2</span>
+              <span class="sb-ico" data-ico="Clock" data-size="lg" aria-hidden="true"></span>
+              <div>
+                <h3>Twenty minutes with a senior partner</h3>
+                <span class="sbp-step-label">Consultation</span>
+              </div>
+              <p class="sbp-step-body">
+                A free call to go through your score, hear how the business runs, and talk
+                through what a baseline valuation would show.
+              </p>
+            </div>
+          </div>
+
+          <div class="sb-reveal" data-rv data-rv-i="2">
+            <div class="sbp-step">
+              <span class="sbp-step-n">3</span>
+              <span class="sb-ico" data-ico="UserCheck01" data-size="lg" aria-hidden="true"></span>
+              <div>
+                <h3>A partner reviews your results</h3>
+                <span class="sbp-step-label">Review</span>
+              </div>
+              <p class="sbp-step-body">
+                Nobody is admitted automatically. This review looks at scale, fit, and how
+                the alliance can help you.
+              </p>
+            </div>
+          </div>
+
+          <div class="sb-reveal" data-rv data-rv-i="3">
+            <div class="sbp-step">
+              <span class="sbp-step-n">4</span>
+              <span class="sb-ico" data-ico="Mail01" data-size="lg" aria-hidden="true"></span>
+              <div>
+                <h3>You hear back either way</h3>
+                <span class="sbp-step-label">Answer</span>
+              </div>
+              <p class="sbp-step-body">
+                An invitation to join, or helpful information you can take with you.
+                Both come from the person who read your results.
+              </p>
+            </div>
+          </div>
+          <hr class="sb-rule" data-o="h" data-t="gradient" data-anim="1">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= PHOTOGRAPHIC BAND =========================
+     Carried from v1. The copy is the client's own H1 from
+     sandrowealth.com/business-owner; composition notes live in v1's index. -->
+<section class="sb-band sbp-band">
+  <img src="/assets/img/brooklyn-bridge-sunset.jpg" loading="lazy" alt="Lower Manhattan at sunset, seen across the East River past the Brooklyn Bridge">
+  <div class="sb-band-scrim"></div>
+  <div class="sb-band-inner sbp-band-inner">
+    <div class="sbp-band-copy">
+      <p class="sbp-band-quote">
+        <span class="sb-wipe-inner" data-rv>
+          You built the business with a great team. Let our team of experts help you
+          build what comes next.
+        </span>
+      </p>
+      <div class="sb-reveal sbp-band-foot" data-rv data-rv-i="1">
+        <span class="sb-band-kicker sbp-band-kicker">The full-cycle approach</span>
+        <span class="sb-band-keyline"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ======================== THE FIVE MEMBER BENEFITS ========================
+     Carried from v1: the concierge/exclusivity positioning stays front and
+     center (8/25 meeting, confirmed). -->
+<section class="sb-section sb-dark" id="membership">
+  <div class="sb-section-inner">
+    <div class="sb-kick"><span class="sb-kick-dash"></span><span>Membership</span></div>
+
+    <div class="sbp-eyebrow-row sbp-pillars-head">
+      <h2 class="sbp-display sbp-display-inverse">Exclusive access for approved members.</h2>
+      <a class="sb-btn" data-v="link" data-size="md" href="https://sandro-business-prototype.onrender.com/assessment/">Start your application</a>
+    </div>
+
+    <div class="sbp-five">
+      <div class="sb-reveal sbp-pillar-cell" data-rv>
+        <div class="sbp-pillar" data-tone="1">
+          <span class="sbp-pillar-wash" data-wash="1"></span>
+          <span class="sb-ico sbp-pillar-ico" data-ico="MessageTextSquare01" data-size="lg" aria-hidden="true"></span>
+          <h3>Concierge request</h3>
+          <p>
+            Tell us what you need, where, and by when. We come back with the ecosystem partners and the reason each one is on the list.
+          </p>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-pillar-cell" data-rv data-rv-i="1">
+        <div class="sbp-pillar" data-tone="2">
+          <span class="sbp-pillar-wash" data-wash="2"></span>
+          <span class="sb-ico sbp-pillar-ico" data-ico="Building02" data-size="lg" aria-hidden="true"></span>
+          <h3>The partner directory</h3>
+          <p>
+            Every firm we work with, by discipline. When one fits, ask and Sandro makes the introduction.
+          </p>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-pillar-cell" data-rv data-rv-i="2">
+        <div class="sbp-pillar" data-tone="3">
+          <span class="sbp-pillar-wash" data-wash="3"></span>
+          <span class="sb-ico sbp-pillar-ico" data-ico="Lock01" data-size="lg" aria-hidden="true"></span>
+          <h3>Cases and intelligence</h3>
+          <p>
+            Guides on the four inflection points: value acceleration, capital and growth, M&amp;A, and estate and wealth. Plus anonymized case work with the numbers left in.
+          </p>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-pillar-cell" data-rv data-rv-i="3">
+        <div class="sbp-pillar" data-tone="2">
+          <span class="sbp-pillar-wash" data-wash="2"></span>
+          <span class="sb-ico sbp-pillar-ico" data-ico="Users01" data-size="lg" aria-hidden="true"></span>
+          <h3>Events, forums and chapters</h3>
+          <p>
+            Webinars, topic forums and local chapters, grouped by where you are in the process, so what is worth your time is easy to find.
+          </p>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-pillar-cell" data-rv data-rv-i="4">
+        <div class="sbp-pillar" data-tone="3">
+          <span class="sbp-pillar-wash" data-wash="3"></span>
+          <span class="sb-ico sbp-pillar-ico" data-ico="Route" data-size="lg" aria-hidden="true"></span>
+          <h3>The exit-readiness process</h3>
+          <p>
+            Direct access to the five-step process Sandro runs with business owners, and the partner who walks you through it.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ THE ALLIANCE ============================
+     New in v2, from the CEO's own deck (slide 4): four firms, four distinct
+     contributions. Sandro appears here as a FIRM in the alliance; the brand on
+     the page is the alliance itself. -->
+<section class="sb-section" id="alliance">
+  <div class="sb-section-inner">
+    <div class="sb-kick"><span class="sb-kick-dash"></span><span>The alliance</span></div>
+    <h2 class="sbp-display sbp2-head">Four firms, four distinct contributions.</h2>
+
+    <div class="sb-cols sbp2-firms" data-cols="4">
+      <div class="sb-reveal sbp2-firm-cell" data-rv>
+        <div class="sbp2-firm">
+          <h3>Sandro</h3>
+          <span class="sbp2-firm-role">Orchestration &amp; investment management</span>
+          <p>
+            35 years building high-net-worth investment management, operationalized
+            across dozens of independent broker-dealer and RIA platforms. A Sandro
+            senior partner leads every engagement.
+          </p>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp2-firm-cell" data-rv data-rv-i="1">
+        <div class="sbp2-firm">
+          <h3>SCI</h3>
+          <span class="sbp2-firm-role">Content, curriculum &amp; community</span>
+          <p>
+            The Southern California Institute: business estate planning and value
+            acceleration education, and the community of practitioners built around it.
+          </p>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp2-firm-cell" data-rv data-rv-i="2">
+        <div class="sbp2-firm">
+          <h3>Strazzeri</h3>
+          <span class="sbp2-firm-role">Estate planning depth</span>
+          <p>
+            Decades of technical estate and tax expertise, and an engaged network of
+            advisors and experts serving business owners.
+          </p>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp2-firm-cell" data-rv data-rv-i="3">
+        <div class="sbp2-firm">
+          <h3>EPI</h3>
+          <span class="sbp2-firm-role">Reach &amp; brand</span>
+          <p>
+            The Exit Planning Institute: a nationwide network of 10,000 advisors
+            already focused on one thing, the business owner.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="sbp2-firms-foot">
+      Four firms joining their respective talents into one business-owner advisory platform.
+    </p>
+  </div>
+</section>
+
+
+<!-- ================= HOW WE BUILD THE PARTNER ECOSYSTEM =================
+     Carried from v1: the zero-compensation terms, the concierge nucleus, and
+     the CEO-named directory sample (a sanctioned named-firm surface). -->
+<section class="sb-section sbp-ivory">
+  <div class="sb-section-inner">
+    <div class="sb-cols sbp-statement" data-split="a">
+      <div class="sb-reveal" data-rv>
+        <div class="sb-kick"><span class="sb-kick-dash"></span><span>How we build our partner ecosystem</span></div>
+        <h2 class="sbp-display sbp-statement-h2">No provider pays to be here.</h2>
+        <p class="sbp-body">
+          In most business-owner networks the firms inside are paying for their place, which
+          makes the referral list a roster of advertisers. Sandro takes no money from any
+          provider. A place here cannot be bought, so a firm reaches you because it fits
+          the problem in front of you and for no other reason. Every firm we introduce
+          agrees to the same terms, in writing.
+        </p>
+
+        <div class="sbp-checks">
+          <div class="sbp-check-row">
+            <span class="sb-ico" data-ico="CheckCircle" aria-hidden="true"></span>
+            <span>A free twenty-minute consult, taken by a senior partner and not an associate.</span>
+          </div>
+          <div class="sbp-check-row">
+            <span class="sb-ico" data-ico="CheckCircle" aria-hidden="true"></span>
+            <span>A fixed fee agreed in writing before any work starts.</span>
+          </div>
+          <div class="sbp-check-row">
+            <span class="sb-ico" data-ico="CheckCircle" aria-hidden="true"></span>
+            <span>A redacted sample of real work, so you can judge it yourself.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sb-reveal sbp-eco" data-rv data-rv-i="1">
+        <svg class="sbp-eco-svg" viewBox="0 0 820 620" role="img" aria-labelledby="ecoTitle">
+          <title id="ecoTitle">Sandro sits at the centre as concierge, with valuation, M&amp;A advisory, attorneys, lending, growth partners, and estate and tax specialists around it.</title>
+
+          <defs>
+            <linearGradient id="sbEcoCore" x1="0.5" y1="0" x2="0.5" y2="1">
+              <stop offset="0%" stop-color="var(--sb-titanium-900)"/>
+              <stop offset="45%" stop-color="var(--sb-aqua-800)"/>
+              <stop offset="100%" stop-color="var(--sb-aqua-600)"/>
+            </linearGradient>
+            <radialGradient id="sbEcoGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="var(--sb-aqua-500)" stop-opacity="0.22"/>
+              <stop offset="55%" stop-color="var(--sb-aqua-500)" stop-opacity="0.08"/>
+              <stop offset="100%" stop-color="var(--sb-aqua-500)" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <circle cx="410" cy="310" r="300" fill="url(#sbEcoGlow)"/>
+          <circle class="sbp-eco-ring" cx="410" cy="310" r="290"/>
+          <circle class="sbp-eco-ring" cx="410" cy="310" r="215"/>
+          <circle class="sbp-eco-ring" data-solid="1" cx="410" cy="310" r="145"/>
+
+          <g class="sbp-eco-lines">
+            <line x1="410" y1="310" x2="155" y2="150"/>
+            <line x1="410" y1="310" x2="665" y2="150"/>
+            <line x1="410" y1="310" x2="95"  y2="310"/>
+            <line x1="410" y1="310" x2="725" y2="310"/>
+            <line x1="410" y1="310" x2="155" y2="470"/>
+            <line x1="410" y1="310" x2="665" y2="470"/>
+          </g>
+
+          <circle class="sbp-eco-core" cx="410" cy="310" r="100" fill="url(#sbEcoCore)"/>
+          <image href="/assets/img/sandro-symbol-ivory.png" x="388" y="252" width="44" height="44"/>
+          <text class="sbp-eco-core-name" x="410" y="330">Sandro</text>
+          <text class="sbp-eco-core-role" x="410" y="356">Concierge</text>
+
+          <g class="sbp-eco-node">
+            <rect x="90"  y="128" width="130" height="44" rx="22"/><text x="155" y="150">Valuation</text>
+            <rect x="585" y="128" width="160" height="44" rx="22"/><text x="665" y="150">M&amp;A advisory</text>
+            <rect x="30"  y="288" width="130" height="44" rx="22"/><text x="95"  y="310">Attorneys</text>
+            <rect x="670" y="288" width="110" height="44" rx="22"/><text x="725" y="310">Lending</text>
+            <rect x="60"  y="448" width="190" height="44" rx="22"/><text x="155" y="470">Growth partners</text>
+            <rect x="575" y="448" width="180" height="44" rx="22"/><text x="665" y="470">Estate and tax</text>
+          </g>
+        </svg>
+
+        <div class="sbp-eco-list">
+          <div class="sbp-eco-mini-core">
+            <span class="sbp-eco-mini-name">Sandro</span>
+            <span class="sbp-eco-mini-role">Concierge</span>
+          </div>
+          <span class="sbp-eco-mini-stem" aria-hidden="true"></span>
+          <div class="sbp-eco-mini-tags">
+            <span class="sb-tag">Valuation</span>
+            <span class="sb-tag">M&amp;A advisory</span>
+            <span class="sb-tag">Attorneys</span>
+            <span class="sb-tag">Lending</span>
+            <span class="sb-tag">Growth partners</span>
+            <span class="sb-tag">Estate and tax</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sbp-directory">
+      <hr class="sb-rule" data-o="h" data-t="hairline">
+
+      <div class="sbp-eyebrow-row sbp-directory-head">
+        <div>
+          <div class="sb-kick"><span class="sb-kick-dash"></span><span>Partner directory</span></div>
+          <h3 class="sbp-directory-h3">Every specialist you&rsquo;ll need, vetted the same way.</h3>
+        </div>
+      </div>
+
+      <div class="sb-cols sbp-dircats" data-cols="2">
+      <div class="sb-reveal sbp-dircat-cell" data-rv>
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Business value acceleration</h4>
+          <p class="sbp-dircat-blurb">Grow the transferable value of the business before you sell, and close the gap between what it&rsquo;s worth today and what you need it to be worth.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/exitology.png" alt="Exitology" loading="lazy"></span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/quest-valuation.png" alt="Quest Valuation &amp; Advisors" loading="lazy"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="1">
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">M&amp;A and investment banking</h4>
+          <p class="sbp-dircat-blurb">Sell-side representation and buyer processes built for owner-led companies, run by bankers who do this and nothing else.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/edgepoint.png" alt="EdgePoint Capital" loading="lazy"></span>
+            <span class="sbp-logo-plate" data-firm><img src="/assets/img/directory/cornerstone.png" alt="Cornerstone Business Services" loading="lazy"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="2">
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Estate planning</h4>
+          <p class="sbp-dircat-blurb">Trust, estate and transaction structures, set well before a buyer appears.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP" loading="lazy"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="3">
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Taxes</h4>
+          <p class="sbp-dircat-blurb">What the tax bill looks like under each structure, and what it takes to change it while there&rsquo;s still time to.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP" loading="lazy"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-dircat-cell" data-rv>
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Asset protection</h4>
+          <p class="sbp-dircat-blurb">Structures that protect what you&rsquo;ve built, before the sale and after it.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm data-ground="dark"><img src="/assets/img/directory/strazzeri-mancini.png" alt="Strazzeri Mancini, LLP" loading="lazy"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="1">
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Commercial banking</h4>
+          <p class="sbp-dircat-blurb">Credit and banking relationships for a company you intend to grow or sell, including multi-state and SBA lending.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
+            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
+            <span class="sbp-logo-plate" aria-hidden="true">Logo</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp-dircat-cell" data-rv data-rv-i="2">
+        <div class="sbp-dircat">
+          <h4 class="sbp-dircat-name">Investment management</h4>
+          <p class="sbp-dircat-blurb">Replace the business&rsquo;s income without taking on new risk.</p>
+          <div class="sbp-logos">
+            <span class="sbp-logo-plate" data-firm role="img" aria-label="Sandro Wealth Management">
+              <span class="sb-logo" aria-hidden="true">
+                <img src="/assets/img/sandro-symbol-titanium.png" loading="lazy" alt="">
+                <span class="sb-logo-word">SandroWealth</span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================= AN ILLUSTRATIVE CASE =========================
+     New in v2 (Word-doc feedback): the lending matchmaking case — access,
+     pricing competition, and the P&L effect. No real case studies exist yet,
+     so this is labeled "for illustration purposes only", verbatim per the
+     8/25 meeting. NO testimonials: regulators treat them as endorsements.
+     The numbers show a mechanism (competition narrows a spread), never a
+     promised outcome, and the ledger's foot says so. -->
+<section class="sb-section" id="case">
+  <div class="sb-section-inner">
+    <div class="sb-cols sbp-statement" data-split="a">
+      <div class="sb-reveal" data-rv>
+        <div class="sb-kick"><span class="sb-kick-dash"></span><span>An illustrative case</span></div>
+        <p class="sbp2-case-q">&ldquo;Why does the business next door borrow cheaper than we do?&rdquo;</p>
+        <span class="sbp2-case-label">Lending access</span>
+        <p class="sbp-body">
+          Because banks and borrowers mostly meet by geography. The lender that knows
+          your industry and wants your profile may be two states away, and the one
+          local quote you hold has no competition. Access is the first problem;
+          price is the second. The alliance&rsquo;s banking relationships span markets,
+          so your loan is priced by lenders competing for it, not by proximity. The
+          shortlist is a senior partner&rsquo;s call, made for your situation.
+        </p>
+      </div>
+
+      <div class="sb-reveal" data-rv data-rv-i="1">
+        <div class="sbp2-ledger">
+          <div class="sbp2-ledger-row">
+            <span class="sbp2-ledger-k">The company</span>
+            <span class="sbp2-ledger-v">A $14M distribution business<small>One banking relationship, in state</small></span>
+          </div>
+          <div class="sbp2-ledger-row">
+            <span class="sbp2-ledger-k">The need</span>
+            <span class="sbp2-ledger-v">A $6.5M facility<small>Expansion capital plus a refinance</small></span>
+          </div>
+          <div class="sbp2-ledger-row">
+            <span class="sbp2-ledger-k">The local quote</span>
+            <span class="sbp2-ledger-v">Prime + 1.75%<small>Personal guarantee, uncapped</small></span>
+          </div>
+          <!-- 50 basis points is the spread from Alok's own telling of this
+               case in the 8/25 meeting — do not widen it for effect. -->
+          <div class="sbp2-ledger-row">
+            <span class="sbp2-ledger-k">The matched quotes</span>
+            <span class="sbp2-ledger-v">Three term sheets, best at Prime + 1.25%<small>Guarantee steps off at 18 months</small></span>
+          </div>
+          <div class="sbp2-ledger-row" data-sum="1">
+            <span class="sbp2-ledger-k">The P&amp;L effect</span>
+            <span class="sbp2-ledger-v">$32,500 a year<small>50 basis points on $6.5M, before tax</small></span>
+          </div>
+          <p class="sbp2-ledger-foot">
+            For illustration purposes only. The numbers show the mechanism, not a
+            promised outcome.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================= INSIGHTS =============================
+     RESTORED as a full editorial section (Travis, 8/25 review: the first v2
+     pass cut it to bare headlines, which went further than the meeting did).
+     The meeting's actual resolution: the deep library — fuzzy search, filter
+     by revenue/state/need, the thousand-piece hub — lives BEHIND the login;
+     the homepage insights section stays, "categorized so that it shows up
+     differently on this page" — BY CAPABILITY (Alok: "yes, by capability").
+     So the v1 card section returns with capability chips instead of format
+     chips; format survives as each card's metadata tag. The chips reuse
+     initFilters() verbatim — data-format carries the capability slug, the one
+     vocabulary driving both the chip and the card's kicker.
+
+     The podcast chip AND its feature panel were then removed together
+     (Travis, 8/25, round 4): podcast is a content type, not a capability,
+     and the chips are the capability vocabulary. The podcast survives as the
+     lede's mention. The Word doc's podcast-page vision is a members/content
+     iteration, not a homepage chip.
+
+     CASE-STUDY cards still describe the artifact, never a client narrative or
+     an outcome — an SEC-registered adviser cannot publish invented client
+     stories. -->
+<section class="sb-section" data-size="sm" id="insights">
+  <div class="sb-section-inner">
+    <div class="sbp-eyebrow-row">
+      <div>
+        <div class="sb-kick"><span class="sb-kick-dash"></span><span>Insights</span></div>
+        <h2 class="sbp-display sbp-briefings-h2">Business owner resources, free and open to anyone.</h2>
+      </div>
+    </div>
+    <p class="sbp-blockbody sbp2-library-lede">
+      Guides, case work, webinars and the podcast, organized by the alliance&rsquo;s
+      capabilities. Members get the full library, filtered to their stage, their
+      revenue, and the problem on their desk.
+    </p>
+
+    <!-- No Podcast chip: podcast is a CONTENT TYPE, not a capability, and the
+         chips are the capability vocabulary (Travis, 8/25 review — the chip
+         and its filter panel were removed together). The row never wraps:
+         one line at desktop, horizontal scroll where the viewport is
+         narrower than the row. -->
+    <div class="sbp-filters sbp2-chips" role="group" aria-label="Filter insights by capability">
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="value-acceleration" aria-pressed="false">Value acceleration</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="ma" aria-pressed="false">M&amp;A</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="estate-planning" aria-pressed="false">Estate planning</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="banking" aria-pressed="false">Commercial banking</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="taxation" aria-pressed="false">Taxation</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="asset-protection" aria-pressed="false">Asset protection</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="risk" aria-pressed="false">Risk management</button>
+      <button type="button" class="sb-tag" data-clickable="1" data-filter="wealth" aria-pressed="false">Wealth management</button>
+    </div>
+
+    <div class="sb-cols sbp-briefings" data-cols="3" data-filter-grid data-filter-full>
+      <div class="sb-reveal sbp-card-cell" data-rv data-format="value-acceleration">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the live library.">
+          <div class="sb-card-media">
+            <img src="/assets/img/advisors-tablet.jpg" loading="lazy" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <span class="sbp-media-tag">Guide</span>
+            </div>
+            <h3>What a buyer marks down</h3>
+            <p class="sbp-card-body-text">How much of the company runs without you, and what that costs at close.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-format="ma">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the live library.">
+          <div class="sb-card-media">
+            <img src="/assets/img/city-architecture.jpg" loading="lazy" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>M&amp;A</span></div>
+              <span class="sbp-media-tag">Case study</span>
+            </div>
+            <h3>A letter of intent, read clause by clause</h3>
+            <p class="sbp-card-body-text">What each term commits you to, on a real deal with the identifying details removed.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-format="estate-planning">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the live library.">
+          <div class="sb-card-media">
+            <img src="/assets/img/working-session.jpg" loading="lazy" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Estate planning</span></div>
+              <span class="sbp-media-tag">Guide</span>
+            </div>
+            <h3>The work that only counts if it is early</h3>
+            <p class="sbp-card-body-text">Why the tax and estate structures have to exist before a buyer names a number.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-format="banking">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the live library.">
+          <div class="sb-card-media">
+            <img src="/assets/img/working-session.jpg" loading="lazy" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Commercial banking</span></div>
+              <span class="sbp-media-tag">Guide</span>
+            </div>
+            <h3>Borrowing against a business you plan to sell</h3>
+            <p class="sbp-card-body-text">What a lender looks at, and why a buyer will look at the same thing.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-format="taxation">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the live library.">
+          <div class="sb-card-media">
+            <img src="/assets/img/city-architecture.jpg" loading="lazy" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Taxation</span></div>
+              <span class="sbp-media-tag">Guide</span>
+            </div>
+            <h3>The same deal, three tax outcomes</h3>
+            <p class="sbp-card-body-text">What the structure decides before the price does.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-format="asset-protection">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the live library.">
+          <div class="sb-card-media">
+            <img src="/assets/img/advisors-tablet.jpg" loading="lazy" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Asset protection</span></div>
+              <span class="sbp-media-tag">Case study</span>
+            </div>
+            <h3>What stays yours if the deal goes wrong</h3>
+            <p class="sbp-card-body-text">A redacted protection structure, and the order its pieces went in.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-format="risk">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the live library.">
+          <div class="sb-card-media">
+            <img src="/assets/img/city-architecture.jpg" loading="lazy" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Risk management</span></div>
+              <span class="sbp-media-tag">Webinar</span>
+            </div>
+            <h3>Key-person risk, and what covering it costs</h3>
+            <p class="sbp-card-body-text">Where the business leans on one person, and how a buyer prices that.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-format="wealth">
+        <a class="sb-card" data-interactive="1" href="/insights/" data-stub="This piece publishes with the live library.">
+          <div class="sb-card-media">
+            <img src="/assets/img/advisors-tablet.jpg" loading="lazy" alt="">
+          </div>
+          <div class="sb-card-body">
+            <div class="sbp-card-meta">
+              <div class="sb-kick"><span>Wealth management</span></div>
+              <span class="sbp-media-tag">Webinar</span>
+            </div>
+            <h3>Replacing the income the business paid you</h3>
+            <p class="sbp-card-body-text">What the proceeds have to do, and the risk they don&rsquo;t have to take.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- The podcast panel was removed WITH its chip (Travis, 8/25): with no
+         Podcast filter there is no state that shows it. The podcast survives
+         as the lede's mention only. -->
+
+    <!-- The connect panel ("tell us which of these sounds like your company")
+         was REMOVED outright (Travis, 8/25 review) — not stubbed, not moved.
+         It was the Word doc's "call us and we'll connect you" ask; the hero's
+         senior-partner fact and the application funnel carry that job now. -->
+  </div>
+</section>
+
+
+<!-- ========================= INSIGHTS BY EMAIL =========================
+     Carried from v1, de-branded: the heading no longer names Sandro Business. -->
+<section class="sb-section sbp-ivory sbp-capture" data-size="sm" id="newsletter">
+  <div class="sb-section-inner">
+    <div class="sb-cols sbp-capture-cols" data-split="b">
+      <div class="sb-reveal" data-rv>
+        <div class="sb-kick"><span class="sb-kick-dash"></span><span>Insights by email</span></div>
+        <h2 class="sbp-blockhead sbp-capture-h2">Business owner insights, in your inbox.</h2>
+        <p class="sbp-blockbody sbp-capture-body">
+          Valuation, deal structure, estate work, and the questions business owners
+          bring us most. No membership, no cost.
+        </p>
+      </div>
+
+      <div class="sb-reveal" data-rv data-rv-i="1">
+        <form class="sbp-capture-form" data-subscribe="1" novalidate>
+          <div class="sb-field">
+            <label class="sb-field-label" for="sbp-sub-email">Email address</label>
+            <div class="sb-input-wrap" data-size="md">
+              <span class="sb-ico" data-ico="Mail01" aria-hidden="true"></span>
+              <input class="sb-input" id="sbp-sub-email" name="email" type="email"
+                     autocomplete="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <button class="sb-btn" data-v="accent" data-size="md" data-ink="light" type="submit">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ THE ADVISOR PATH ============================
+     Carried from v1, de-branded. The kitces-modeled advisor site is a later
+     workstream (Word doc); this card routes to the existing v1 advisor page. -->
+<section class="sb-section sbp-advisor" data-size="sm">
+  <div class="sb-section-inner">
+    <div class="sb-reveal" data-rv>
+      <div class="sbp-advisor-panel">
+        <div>
+          <div class="sb-kick"><span class="sb-kick-dash"></span><span>For advisors</span></div>
+          <h2 class="sbp-blockhead sbp-advisor-title">Advisors earn access by referral.</h2>
+          <p class="sbp-blockbody sbp-advisor-note">
+            The alliance is built for business owners, so advisors do not apply for
+            membership. Access is earned by referring qualified business owners, and
+            advisor membership eligibility is reviewed annually.
+          </p>
+        </div>
+        <a class="sb-btn sbp-advisor-cta" data-v="secondary" data-size="lg" href="https://sandro-business-prototype.onrender.com/advisors/">
+          See the advisor path
+          <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CLOSING FIELD ============================
+     Carried from v1: bloom variant, dark. -->
+<section class="sb-dark sbp-closing">
+  <span class="sb-sun" data-variant="bloom">
+    <span class="sb-sun-bloom-wash"></span>
+    <span class="sb-sun-bloom-field">
+      <span class="sb-sun-bloom-glow"></span>
+      <span class="sb-sun-bloom"><span class="sbp-rays"></span></span>
+    </span>
+  </span>
+
+  <div class="sbp-closing-inner">
+    <h2 class="sbp-display sbp-display-inverse sbp-closing-h2">
+      <span class="sb-wipe-inner" data-rv>Find out where your business stands.</span>
+    </h2>
+    <p class="sb-reveal sbp-closing-sub" data-rv data-rv-i="1">
+      Get started with the assessment; it takes about four minutes. A consultant
+      will review your results and reach out with next steps. Assessment results are yours to keep.
+    </p>
+    <div class="sb-reveal sb-btn-row sbp-closing-actions" data-rv data-rv-i="2">
+      <a class="sb-btn" data-v="accent" data-size="lg" href="https://sandro-business-prototype.onrender.com/assessment/">
+        Start your application
+        <span class="sb-ico" data-ico="ArrowRight" aria-hidden="true"></span>
+      </a>
+      <a class="sb-btn" data-v="secondary" data-size="lg" href="/#insights">View insights</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ============================== FOOTER ==============================
+     No disclosure line, same rule as v1: Sandro's approved language has to
+     come from Sandro. The powered-by credit is TEXT here, not marks: SCI's
+     grey wordmark dies on a titanium ground and partner marks are never
+     tinted, so the header carries the marks and the footer carries the words. -->
+<footer class="sb-footer sb-dark">
+  <div class="sb-footer-top sbp-footer-top">
+    <div class="sbp-footer-brand">
+      <span class="sb-logo sbp-logo">
+        <img src="/assets/img/sandro-symbol-ivory.png" loading="lazy" alt="">
+        <span class="sb-logo-word">Business Value Advisory Alliance</span>
+      </span>
+      <p class="sbp-footer-note">A world-class expertise platform for business owners at any stage.</p>
+      <p class="sbp-footer-note">Powered by the Southern California Institute and the Exit Planning Institute.</p>
+    </div>
+
+    <div class="sb-footer-cols">
+      <div class="sbp-footer-col">
+        <div class="sb-kicker">The alliance</div>
+        <a href="/#process">The process</a>
+        <a href="/#how">How it works</a>
+        <a href="/#alliance">The alliance</a>
+        <a href="/#insights">Insights</a>
+      </div>
+      <div class="sbp-footer-col">
+        <div class="sb-kicker">Members</div>
+        <a href="https://sandro-business-prototype.onrender.com/members/">Members area</a>
+        <a href="https://sandro-business-prototype.onrender.com/members/sign-in.html">Sign in</a>
+        <a href="https://sandro-business-prototype.onrender.com/assessment/">Start your application</a>
+      </div>
+      <div class="sbp-footer-col">
+        <div class="sb-kicker">Sandro</div>
+        <a href="https://sandro-business-prototype.onrender.com/advisors/">For advisors</a>
+        <a href="/about/" data-inert="1">About the alliance</a>
+        <a href="/contact/" data-inert="1">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sbp-footer-bottom-wrap">
+    <hr class="sb-rule" data-o="h" data-t="hairline">
+    <div class="sbp-footer-bottom">
+      <span class="sbp-footer-note">Prototype environment. Not a public destination, and not indexed.</span>
+      <span class="sbp-footer-note">&copy; <span data-year>2026</span> Sandro Wealth Management</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/app.js?v=16"></script>
+</body>
+</html>

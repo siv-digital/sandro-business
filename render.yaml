@@ -54,3 +54,31 @@ services:
       - path: /*
         name: X-Robots-Tag
         value: noindex, nofollow
+
+  # BVAA homepage v2 (8/25 client round): the Business Value Advisory Alliance
+  # rebrand, homepage only, publishing site-v2/ so v1 stays untouched at its
+  # own URL. A NEW service rather than a changed publish path, because
+  # staticPublishPath is one-shot on an existing service (see header comment).
+  # First deploy needs the Blueprint sync approved at Blueprint → Syncs; the
+  # same curl diagnostic applies:
+  #   curl -sS -o /dev/null -w "%{http_code}\n" https://bvaa-prototype.onrender.com/
+  - type: web
+    name: bvaa-prototype
+    runtime: static
+    buildCommand: 'for f in site-v2/*.md site-v2/*/*.md; do if [ -e "$f" ]; then echo Not found. > "$f"; fi; done; rm -rf site-v2/.claude site-v2/.remember'
+    staticPublishPath: ./site-v2
+    autoDeploy: true
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex, nofollow

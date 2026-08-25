@@ -53,6 +53,11 @@ const NAMES = [
   "Podcast",
   "Route",
   "PlayCircle",
+  /* v2 homepage (site-v2/) additions — 8/25 */
+  "Bank",
+  "Calculator",
+  "Shield01",
+  "PhoneCall01",
 ];
 
 /* Header + base rules emitted verbatim ahead of the glyph rules. */

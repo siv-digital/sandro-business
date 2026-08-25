@@ -1,0 +1,35 @@
+/* Sandro Business — fonts, SELF-HOSTED.
+
+   The design system's own tokens/fonts.css links fonts.googleapis.com. That host
+   is unreachable from this workstation and it fails SILENTLY: no console error,
+   no network warning, just Georgia and Arial standing in for Libre Baskerville
+   and DM Sans while you build an entire site believing it looks right. This file
+   replaces it. Never restore the CDN link.
+
+   The ?v= is load-bearing, not decoration. On this repo's first deploy Render's
+   edge negative-cached /assets/fonts/libre-baskerville.woff2 and served a 404
+   (x-render-routing: no-server) while the same path WITH a query string returned
+   200 from the origin. The file was published; the cached path was poisoned.
+   Render's CDN only invalidates CHANGED files, so redeploying does not clear it,
+   and changing the URL does. Bump the version on any font swap.
+   Full write-up: systems/render.md, "Negative-Cache Gotcha".
+
+   Sub-trap: dm-sans.woff2 declares `font-weight: 400 600`. A 300 weight
+   synthesizes rather than failing, so it looks plausible and is wrong. Keep the
+   UI scale at 400 / 500 / 600. */
+
+@font-face{
+  font-family:'Libre Baskerville';
+  src:url('/assets/fonts/libre-baskerville.woff2?v=1') format('woff2');
+  font-weight:400 700;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Libre Baskerville';
+  src:url('/assets/fonts/libre-baskerville-italic.woff2?v=1') format('woff2');
+  font-weight:400 700;font-style:italic;font-display:swap;
+}
+@font-face{
+  font-family:'DM Sans';
+  src:url('/assets/fonts/dm-sans.woff2?v=1') format('woff2');
+  font-weight:400 600;font-style:normal;font-display:swap;
+}

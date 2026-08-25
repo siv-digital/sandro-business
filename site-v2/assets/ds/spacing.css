@@ -1,0 +1,86 @@
+/* Sandro Business — spacing, layout and radii.
+   Named steps mirror the Figma Variable collection exactly
+   (spacing-none/sm/md/lg/xl/2xl/3xl, radius-none/sm/md, icon-sm/md). */
+:root{
+  --space-0:0px;
+  --space-1:4px;
+  --space-2:6px;   /* Figma --spacing-sm */
+  --space-3:8px;   /* Figma --spacing-md */
+  --space-4:12px;  /* Figma --spacing-lg */
+  --space-5:16px;  /* Figma --spacing-xl */
+  --space-6:24px;  /* Figma --spacing-2xl */
+  --space-8:32px;  /* Figma --spacing-3xl */
+  --space-10:40px;
+  --space-12:48px;
+  --space-14:56px;
+  --space-16:64px;
+  --space-20:80px;
+  --space-24:96px;
+  --space-32:128px;
+  --space-40:160px;
+
+  /* Layout */
+  --container-max:1240px;
+  --container-narrow:760px;
+  --container-wide:1495px; /* the file's own content block width */
+  --gutter:24px;
+  --gutter-lg:40px;
+  --section-y:112px;
+  --section-y-sm:90px; /* the file's CTA block vertical padding */
+  --grid-columns:12; /* @kind other */
+  --header-h:76px;
+  /* Height of the hero sunrise band, measured from the bottom of the frame.
+     .sb-sun-rays, .sb-sun-horizon AND the hero copy block all derive from this
+     single value — the copy reserves it as padding-bottom so display type and
+     CTAs can never land on the horizon hairline.
+
+     This is a LENGTH, not a percentage, and both halves of that matter:
+     (1) a percentage of the hero grows as the hero grows, so a tall window
+         raised the horizon into the CTAs even though the hero was taller;
+     (2) a percentage in padding-bottom resolves against WIDTH, so the copy
+         could not reserve the band at all. A length fixes both, and makes the
+         band the same physical size on every screen — which is what a horizon
+         should be. */
+  --horizon-band:clamp(210px,36svh,480px); /* @kind spacing */ /* 4K note: this is a LENGTH on purpose, so the band is the same physical size on a laptop and a 4K panel. */
+  /* Air between the CTAs and the horizon hairline. Because the copy reserves
+     the band + this value as real padding, the hero simply grows when the sum
+     exceeds --hero-min-h — so this is the clearance you get, exactly, at every
+     viewport, rather than whatever a percentage happened to leave over.
+     Deliberately tight: the sunrise should feel close under the CTAs, not
+     fenced off at the bottom of the frame. Tightened once more so the horizon
+     line reads as part of the CTA group rather than a separate strip below it. */
+  --horizon-clearance:clamp(18px,2.6svh,34px); /* @kind spacing */
+  /* Air between the header and the hero kicker. The copy block is anchored to
+     its top edge, so this value is the gap you actually see. Height-relative,
+     because on a short laptop viewport fixed top air is the single largest
+     reason the horizon gets pushed below the fold. */
+  --hero-top-clearance:clamp(36px,7svh,92px); /* @kind spacing */
+  /* The sunrise hero targets the FOLD, not a fixed canvas. A 980px floor meant
+     that on a short laptop viewport the hero was taller than the window and the
+     band — which is anchored to the hero's bottom — sat entirely below the fold,
+     so the sunburst simply never appeared on load. Sizing to the viewport keeps
+     the horizon on screen; the copy can still grow the hero past it if it must. */
+  --hero-min-h:max(600px,100svh); /* @kind spacing */
+
+  /* Radii — Figma: radius-none 0, radius-sm 4, radius-md 10.
+     Buttons are 5px in the file, which is not on the token scale; the file
+     wins, so it is recorded as its own token rather than snapped to 4. */
+  --radius-0:0px;
+  --radius-xs:2px;
+  --radius-sm:4px;
+  --radius-button:5px;
+  --radius-md:10px;
+  --radius-lg:10px;
+  --radius-xl:16px;
+  --radius-pill:999px;
+
+  /* Icon sizes — Figma: icon-sm 16, icon-md 18 */
+  --icon-sm-px:16px;
+  --icon-md-px:18px;
+  --icon-lg-px:24px;
+
+  /* Control heights — from the file's Button and CTA blocks */
+  --control-h-sm:34px;
+  --control-h:46px;
+  --control-h-lg:51px;
+}

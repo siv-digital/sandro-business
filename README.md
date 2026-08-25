@@ -8,7 +8,8 @@ Sandro Business is the unit spinning off from Sandro Wealth Management. This rep
 
 | Path | What | Published? |
 |---|---|---|
-| `site/` | The prototype. Everything here is served at the public URL. | **Yes** |
+| `site/` | The v1 prototype (Sandro Business branding). Everything here is served at the v1 public URL. | **Yes** |
+| `site-v2/` | The **Business Value Advisory Alliance** homepage (8/25 rebrand round). Publishes as its OWN Render service, `bvaa-prototype`; v1 stays untouched. Its `assets/` are copied from `site/assets/` plus a `v2.css` layer (`.sbp2-`) — the copies are read-only siblings, never edits to `site/`. | **Yes** (own service) |
 | `qa/` | Per-page QA sweep and screenshot helper. See `qa/README.md`. | No |
 | `design-system/` | Tokens, 22 components with `.d.ts` contracts, logo lockups, sunburst, photography, `SKILL.md`. Read `design-system/readme.md` in full before writing UI. | No |
 | `marketing-site/` | Four design-reference screens (Home, The Journey, Tracks, Assessment). Browser-transpiled prototypes showing intended look, not production code. | No |
@@ -75,7 +76,7 @@ python3 -m http.server 4325 --directory marketing-site
 
 ## Deploy
 
-One Render service, `sandro-business-prototype`, Blueprint-managed from `render.yaml`. Push to `main` and it deploys. Full mechanics, and the traps, are in the comments at the top of `render.yaml`.
+Two Render services, Blueprint-managed from `render.yaml`: `sandro-business-prototype` (publishes `site/`, the v1 prototype) and `bvaa-prototype` (publishes `site-v2/`, the BVAA homepage). Push to `main` and existing services deploy. **A service newly added to `render.yaml` does NOT exist until its pending Blueprint sync is approved in the dashboard** (Blueprint → Syncs) — diagnose with the curl below, not by hunting for buttons. Full mechanics, and the traps, are in the comments at the top of `render.yaml`.
 
 Verify headers after any header change, because local preview sends none:
 
