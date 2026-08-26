@@ -145,15 +145,12 @@
    authored at .8 for the small type, ~8:1 on #A5A9AB); the two deep segments
    take ivory, stepping the small type to the .82 on-dark body value, the same
    rule the eco diagram's role label follows. Ivory on #6E717A is 4.75:1. */
-.sbp2-chev-n{
-  font:var(--type-small);letter-spacing:var(--tracking-kicker);
-  color:rgba(20,21,23,.66);display:block;
-}
-.sbp2-chev-seg h3{font:var(--type-h3);margin-top:var(--space-3);color:var(--sb-titanium-900)}
+/* No 01-05 label since 8/26 (client), so the heading opens the segment and
+   takes no top margin — the segment's own padding sets the inset. */
+.sbp2-chev-seg h3{font:var(--type-h3);color:var(--sb-titanium-900)}
 .sbp2-chev-seg p{font:var(--type-p3);color:rgba(20,21,23,.80);margin-top:var(--space-3)}
 .sbp2-chev-seg[data-depth="3"] h3,.sbp2-chev-seg[data-depth="4"] h3,.sbp2-chev-seg[data-depth="5"] h3{color:var(--sb-offwhite)}
-.sbp2-chev-seg[data-depth="3"] p,.sbp2-chev-seg[data-depth="4"] p,.sbp2-chev-seg[data-depth="5"] p,
-.sbp2-chev-seg[data-depth="3"] .sbp2-chev-n,.sbp2-chev-seg[data-depth="4"] .sbp2-chev-n,.sbp2-chev-seg[data-depth="5"] .sbp2-chev-n{
+.sbp2-chev-seg[data-depth="3"] p,.sbp2-chev-seg[data-depth="4"] p,.sbp2-chev-seg[data-depth="5"] p{
   color:rgba(255,254,246,.82);
 }
 @media (max-width:980px){
@@ -227,8 +224,7 @@
 /* Ink follows the shifted grounds: seg 3 is now light (#A5A9AB) and takes ink;
    segs 4-5 keep ivory from the base rules. */
 .sb-dark .sbp2-chev-seg[data-depth="3"] h3{color:var(--sb-titanium-900)}
-.sb-dark .sbp2-chev-seg[data-depth="3"] p,
-.sb-dark .sbp2-chev-seg[data-depth="3"] .sbp2-chev-n{color:rgba(20,21,23,.80)}
+.sb-dark .sbp2-chev-seg[data-depth="3"] p{color:rgba(20,21,23,.80)}
 /* The services card flips to the dark card surface via the semantic layer;
    only the type and the glyphs need explicit dark values. Sand-400 (pale
    brass under the skin) is the same choice the membership pillars make. */
@@ -245,6 +241,8 @@
    lift, the sanctioned card-hover hairline (aqua-300 = brass-300 under the
    skin), shadow rising. No pointer cursor — these are not links, so the
    hover deliberately stops short of promising navigation. */
+/* The four founding firms now sit inside the partner directory (8/26), under
+   its h3 rather than their own section heading. Same cards, same rhythm. */
 .sbp2-firms{margin-top:var(--space-12);gap:var(--space-6)}
 .sbp2-firm-cell{height:100%}
 .sbp2-firm{
@@ -283,11 +281,6 @@
   color:var(--sw-brass-700);display:block;margin-top:var(--space-3);
 }
 .sbp2-firm p{font:var(--type-p3);color:var(--text-muted);margin-top:var(--space-5)}
-.sbp2-firms-foot{
-  font-family:var(--font-display);font-style:italic;font-size:17px;line-height:1.5;
-  color:var(--text-muted);margin-top:var(--space-8);
-}
-
 /* ---------- The illustrative case ----------
    Editorial split: the owner's question in the house device on the left, the
    P&L effect as a ledger card on the right. */

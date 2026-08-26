@@ -543,12 +543,13 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
    .sbp-dirfirm-plate rule arriving at card scale), dashed = a slot the roster
    has not filled. The dashed plate must stay unmistakable as a placeholder —
    a client reading this must not think an unnamed slot is a firm that signed. */
-/* Always three columns, never auto-fit. With auto-fit a two-firm category
-   divides the row between two plates instead of three, so its marks render
-   larger than the three-firm categories beside them and the cards stop
-   matching. The empty third slot is honest anyway: this is a sample roster. */
+/* A FIXED column count, never auto-fit. With auto-fit a two-firm category
+   divides the row between two plates, so its marks render larger than the
+   fuller categories beside it and the cards stop matching. Four since 8/26,
+   when the homepage categories went placeholder-only at the client's request;
+   the number is the slot count, not a roster claim. */
 .sbp-logos{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
   gap:var(--space-4);margin:var(--space-6) 0 0;
 }
 /* Inside a category card the logo row anchors to the card FOOT (the card is a
@@ -582,7 +583,7 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
 .sbp-logo-plate .sb-logo-word{font-size:13px;color:var(--sb-titanium-800);text-transform:none}
 @media (max-width:480px){
   .sbp-logo-plate[data-firm]{padding:var(--space-2) var(--space-3)}
-  /* 22px is the tallest a mark can be without a tall-ratio logo (Quest, 2.3:1)
+  /* 22px is the tallest a mark can be without a tall-ratio logo (Quist, 2.95:1)
      pushing its plate past the 16/7 aspect height and unlining the row. */
   .sbp-logo-plate[data-firm] img{max-height:22px}
   .sbp-logo-plate .sb-logo img{width:12px;height:12px}
