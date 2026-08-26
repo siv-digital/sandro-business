@@ -332,8 +332,10 @@
    photography (three brand-book crops across seven shelves would visibly
    repeat; the same verdict the members library reached on 8/14). Real cover
    art later replaces the plate with an <img> and nothing fights it. */
+/* Three across, not four: nine shelves since 8/26 divide 3/3/3 and leave no
+   orphan card in the last row. The 2-up and 1-up steps below are unchanged. */
 .sbp2-shelves{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-5);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5);
   margin-top:var(--space-8);
 }
 .sbp2-shelf-cell{height:100%}

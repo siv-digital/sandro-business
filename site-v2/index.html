@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/assets/ds/styles.css?v=5">
 <link rel="stylesheet" href="/assets/app.css?v=39">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
-<link rel="stylesheet" href="/assets/v2.css?v=16">
+<link rel="stylesheet" href="/assets/v2.css?v=17">
 </head>
 <body>
 
@@ -430,8 +430,17 @@
       </div>
 
       <div class="sb-reveal sbp-eco" data-rv data-rv-i="1">
-        <svg class="sbp-eco-svg" viewBox="0 0 820 620" role="img" aria-labelledby="ecoTitle">
-          <title id="ecoTitle">Sandro Business sits at the centre as concierge, with value acceleration, commercial banking, taxation, asset protection, estate planning and risk management specialists around it.</title>
+        <!-- NINE satellites since 8/26, one per directory category, in the
+             process's order clockwise from the top. They sit ON the r=290 ring
+             at 40-degree steps; the widest labels land where there is room and
+             M&A/Taxation/Valuation take the tight positions. Pill widths are
+             the measured 19px DM Sans text width + 30px each side — measure,
+             do not guess, or a label overflows its plate.
+             Portfolio management IS a satellite now: the directory gives it
+             partner slots, so the core can no longer be the only place it
+             lives. viewBox grew to 980x700 to fit the extra three. -->
+        <svg class="sbp-eco-svg" viewBox="0 0 980 700" role="img" aria-labelledby="ecoTitle">
+          <title id="ecoTitle">Sandro Business sits at the centre as concierge, with valuation, portfolio management, value acceleration, estate planning, M&amp;A, commercial banking, taxation, asset protection and risk management specialists around it.</title>
 
           <defs>
             <linearGradient id="sbEcoCore" x1="0.5" y1="0" x2="0.5" y2="1">
@@ -446,35 +455,38 @@
             </radialGradient>
           </defs>
 
-          <circle cx="410" cy="310" r="300" fill="url(#sbEcoGlow)"/>
-          <circle class="sbp-eco-ring" cx="410" cy="310" r="290"/>
-          <circle class="sbp-eco-ring" cx="410" cy="310" r="215"/>
-          <circle class="sbp-eco-ring" data-solid="1" cx="410" cy="310" r="145"/>
+          <circle cx="490" cy="340" r="300" fill="url(#sbEcoGlow)"/>
+          <circle class="sbp-eco-ring" cx="490" cy="340" r="290"/>
+          <circle class="sbp-eco-ring" cx="490" cy="340" r="215"/>
+          <circle class="sbp-eco-ring" data-solid="1" cx="490" cy="340" r="145"/>
 
           <g class="sbp-eco-lines">
-            <line x1="410" y1="310" x2="155" y2="150"/>
-            <line x1="410" y1="310" x2="665" y2="150"/>
-            <line x1="410" y1="310" x2="110" y2="310"/>
-            <line x1="410" y1="310" x2="700" y2="310"/>
-            <line x1="410" y1="310" x2="155" y2="470"/>
-            <line x1="410" y1="310" x2="665" y2="470"/>
+            <line x1="490" y1="340" x2="490" y2="50"/>
+            <line x1="490" y1="340" x2="676" y2="118"/>
+            <line x1="490" y1="340" x2="776" y2="290"/>
+            <line x1="490" y1="340" x2="741" y2="485"/>
+            <line x1="490" y1="340" x2="589" y2="612"/>
+            <line x1="490" y1="340" x2="391" y2="612"/>
+            <line x1="490" y1="340" x2="239" y2="485"/>
+            <line x1="490" y1="340" x2="204" y2="290"/>
+            <line x1="490" y1="340" x2="304" y2="118"/>
           </g>
 
-          <circle class="sbp-eco-core" cx="410" cy="310" r="100" fill="url(#sbEcoCore)"/>
-          <image href="/assets/img/sandro-symbol-ivory.png" x="388" y="252" width="44" height="44"/>
-          <text class="sbp-eco-core-name" x="410" y="330">Sandro Business</text>
-          <text class="sbp-eco-core-role" x="410" y="356">Concierge</text>
+          <circle class="sbp-eco-core" cx="490" cy="340" r="100" fill="url(#sbEcoCore)"/>
+          <image href="/assets/img/sandro-symbol-ivory.png" x="468" y="282" width="44" height="44"/>
+          <text class="sbp-eco-core-name" x="490" y="360">Sandro Business</text>
+          <text class="sbp-eco-core-role" x="490" y="386">Concierge</text>
 
-          <!-- The six satellites are the deck's capabilities (8/25 follow-up:
-               one vocabulary site-wide). Investment management is not a
-               satellite — Sandro Business runs it from the core. -->
           <g class="sbp-eco-node">
-            <rect x="42"  y="128" width="226" height="44" rx="22"/><text x="155" y="150">Value acceleration</text>
-            <rect x="546" y="128" width="238" height="44" rx="22"/><text x="665" y="150">Commercial banking</text>
-            <rect x="54"  y="288" width="112" height="44" rx="22"/><text x="110" y="310">Taxation</text>
-            <rect x="594" y="288" width="212" height="44" rx="22"/><text x="700" y="310">Asset protection</text>
-            <rect x="55"  y="448" width="200" height="44" rx="22"/><text x="155" y="470">Estate planning</text>
-            <rect x="565" y="448" width="200" height="44" rx="22"/><text x="665" y="470">Risk management</text>
+            <rect x="419" y="28" width="142" height="44" rx="22"/><text x="490" y="50">Valuation</text>
+            <rect x="549" y="96" width="254" height="44" rx="22"/><text x="676" y="118">Portfolio management</text>
+            <rect x="665" y="268" width="222" height="44" rx="22"/><text x="776" y="290">Value acceleration</text>
+            <rect x="644" y="463" width="194" height="44" rx="22"/><text x="741" y="485">Estate planning</text>
+            <rect x="534" y="590" width="110" height="44" rx="22"/><text x="589" y="612">M&amp;A</text>
+            <rect x="271" y="590" width="240" height="44" rx="22"/><text x="391" y="612">Commercial banking</text>
+            <rect x="172" y="463" width="134" height="44" rx="22"/><text x="239" y="485">Taxation</text>
+            <rect x="101" y="268" width="206" height="44" rx="22"/><text x="204" y="290">Asset protection</text>
+            <rect x="196" y="96" width="216" height="44" rx="22"/><text x="304" y="118">Risk management</text>
           </g>
         </svg>
 
@@ -485,11 +497,14 @@
           </div>
           <span class="sbp-eco-mini-stem" aria-hidden="true"></span>
           <div class="sbp-eco-mini-tags">
+            <span class="sb-tag">Valuation</span>
+            <span class="sb-tag">Portfolio management</span>
             <span class="sb-tag">Value acceleration</span>
+            <span class="sb-tag">Estate planning</span>
+            <span class="sb-tag">M&amp;A</span>
             <span class="sb-tag">Commercial banking</span>
             <span class="sb-tag">Taxation</span>
             <span class="sb-tag">Asset protection</span>
-            <span class="sb-tag">Estate planning</span>
             <span class="sb-tag">Risk management</span>
           </div>
         </div>
@@ -804,36 +819,45 @@
       </div>
     </div>
     <p class="sbp-blockbody sbp2-library-lede">
-      Guides, case work, webinars and the podcast, organized by the seven
+      Guides, case work, webinars and the podcast, organized by the nine
       capabilities the alliance is built on.
     </p>
 
-    <!-- Shelf order is the DECK's order (top row then bottom row), not the
-         process chevron's — Garrett reviews this against his own slide. -->
+    <!-- NINE shelves since 8/26, one per capability, in the PROCESS's order —
+         the same order the chevron, the eco diagram and the partner directory
+         use. This replaced the deck's grid order: the deck has no Valuation or
+         M&A slide, so it could not order nine, and three surfaces disagreeing
+         on sequence was the thing being fixed. If Garrett needs to read this
+         against his own slide, the order is the thing to change, not the set.
+
+         Valuation takes FileCheck02 and M&A takes Route — both already in the
+         icons.css subset. A truer glyph (a handshake for M&A) means
+         regenerating the subset and bumping BOTH icons.css and ds/styles.css,
+         so it is a deliberate follow-up, not a quiet edit. -->
     <div class="sbp2-shelves">
       <div class="sb-reveal sbp2-shelf-cell" data-rv>
         <div class="sbp2-shelf">
           <div class="sbp2-shelf-plate" aria-hidden="true">
             <span class="sbp-rays"></span>
-            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="Bank" data-size="lg"></span></span>
+            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
           </div>
-          <h3 class="sbp2-shelf-name">Commercial banking</h3>
+          <h3 class="sbp2-shelf-name">Valuation</h3>
           <ul class="sbp2-shelf-list">
             <li>
               <a href="/insights/" data-stub="This piece publishes with the live library.">
                 <span class="sbp2-shelf-tag">Guide</span>
-                <span class="sbp2-shelf-title">Borrowing against a business you plan to sell</span>
+                <span class="sbp2-shelf-title">What an independent opinion of value actually examines</span>
               </a>
             </li>
             <li>
               <a href="/insights/" data-stub="This piece publishes with the live library.">
                 <span class="sbp2-shelf-tag">Webinar</span>
-                <span class="sbp2-shelf-title">Pricing a loan when the lender isn&rsquo;t local</span>
+                <span class="sbp2-shelf-title">Why two valuations of the same company disagree</span>
               </a>
             </li>
           </ul>
           <div class="sbp2-shelf-foot">
-            <span class="sbp2-shelf-count">14 pieces</span>
+            <span class="sbp2-shelf-count">19 pieces</span>
             <a href="https://sandro-business-prototype.onrender.com/members/insights.html">Browse the Full Library</a>
           </div>
         </div>
@@ -843,25 +867,25 @@
         <div class="sbp2-shelf">
           <div class="sbp2-shelf-plate" aria-hidden="true">
             <span class="sbp-rays"></span>
-            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="Feather" data-size="lg"></span></span>
+            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="PieChart01" data-size="lg"></span></span>
           </div>
-          <h3 class="sbp2-shelf-name">Estate planning</h3>
+          <h3 class="sbp2-shelf-name">Portfolio management</h3>
           <ul class="sbp2-shelf-list">
             <li>
               <a href="/insights/" data-stub="This piece publishes with the live library.">
-                <span class="sbp2-shelf-tag">Guide</span>
-                <span class="sbp2-shelf-title">The work that only counts if it is early</span>
+                <span class="sbp2-shelf-tag">Webinar</span>
+                <span class="sbp2-shelf-title">Replacing the income the business paid you</span>
               </a>
             </li>
             <li>
               <a href="/insights/" data-stub="This piece publishes with the live library.">
-                <span class="sbp2-shelf-tag">Case study</span>
-                <span class="sbp2-shelf-title">A redacted estate structure, piece by piece</span>
+                <span class="sbp2-shelf-tag">Guide</span>
+                <span class="sbp2-shelf-title">The first twelve months after the wire clears</span>
               </a>
             </li>
           </ul>
           <div class="sbp2-shelf-foot">
-            <span class="sbp2-shelf-count">21 pieces</span>
+            <span class="sbp2-shelf-count">17 pieces</span>
             <a href="https://sandro-business-prototype.onrender.com/members/insights.html">Browse the Full Library</a>
           </div>
         </div>
@@ -895,29 +919,85 @@
         </div>
       </div>
 
-      <div class="sb-reveal sbp2-shelf-cell" data-rv data-rv-i="3">
+      <div class="sb-reveal sbp2-shelf-cell" data-rv>
         <div class="sbp2-shelf">
           <div class="sbp2-shelf-plate" aria-hidden="true">
             <span class="sbp-rays"></span>
-            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="PieChart01" data-size="lg"></span></span>
+            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="Feather" data-size="lg"></span></span>
           </div>
-          <h3 class="sbp2-shelf-name">Investment management</h3>
+          <h3 class="sbp2-shelf-name">Estate planning</h3>
           <ul class="sbp2-shelf-list">
             <li>
               <a href="/insights/" data-stub="This piece publishes with the live library.">
-                <span class="sbp2-shelf-tag">Webinar</span>
-                <span class="sbp2-shelf-title">Replacing the income the business paid you</span>
+                <span class="sbp2-shelf-tag">Guide</span>
+                <span class="sbp2-shelf-title">The work that only counts if it is early</span>
               </a>
             </li>
             <li>
               <a href="/insights/" data-stub="This piece publishes with the live library.">
-                <span class="sbp2-shelf-tag">Guide</span>
-                <span class="sbp2-shelf-title">The first twelve months after the wire clears</span>
+                <span class="sbp2-shelf-tag">Case study</span>
+                <span class="sbp2-shelf-title">A redacted estate structure, piece by piece</span>
               </a>
             </li>
           </ul>
           <div class="sbp2-shelf-foot">
-            <span class="sbp2-shelf-count">17 pieces</span>
+            <span class="sbp2-shelf-count">21 pieces</span>
+            <a href="https://sandro-business-prototype.onrender.com/members/insights.html">Browse the Full Library</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp2-shelf-cell" data-rv data-rv-i="1">
+        <div class="sbp2-shelf">
+          <div class="sbp2-shelf-plate" aria-hidden="true">
+            <span class="sbp-rays"></span>
+            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="Route" data-size="lg"></span></span>
+          </div>
+          <h3 class="sbp2-shelf-name">M&amp;A</h3>
+          <ul class="sbp2-shelf-list">
+            <li>
+              <a href="/insights/" data-stub="This piece publishes with the live library.">
+                <span class="sbp2-shelf-tag">Guide</span>
+                <span class="sbp2-shelf-title">What diligence asks for, and when to have it ready</span>
+              </a>
+            </li>
+            <li>
+              <a href="/insights/" data-stub="This piece publishes with the live library.">
+                <span class="sbp2-shelf-tag">Case study</span>
+                <span class="sbp2-shelf-title">A redacted deal timeline, stage by stage</span>
+              </a>
+            </li>
+          </ul>
+          <div class="sbp2-shelf-foot">
+            <span class="sbp2-shelf-count">16 pieces</span>
+            <a href="https://sandro-business-prototype.onrender.com/members/insights.html">Browse the Full Library</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-reveal sbp2-shelf-cell" data-rv data-rv-i="2">
+        <div class="sbp2-shelf">
+          <div class="sbp2-shelf-plate" aria-hidden="true">
+            <span class="sbp-rays"></span>
+            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="Bank" data-size="lg"></span></span>
+          </div>
+          <h3 class="sbp2-shelf-name">Commercial banking</h3>
+          <ul class="sbp2-shelf-list">
+            <li>
+              <a href="/insights/" data-stub="This piece publishes with the live library.">
+                <span class="sbp2-shelf-tag">Guide</span>
+                <span class="sbp2-shelf-title">Borrowing against a business you plan to sell</span>
+              </a>
+            </li>
+            <li>
+              <a href="/insights/" data-stub="This piece publishes with the live library.">
+                <span class="sbp2-shelf-tag">Webinar</span>
+                <span class="sbp2-shelf-title">Pricing a loan when the lender isn&rsquo;t local</span>
+              </a>
+            </li>
+          </ul>
+          <div class="sbp2-shelf-foot">
+            <span class="sbp2-shelf-count">14 pieces</span>
             <a href="https://sandro-business-prototype.onrender.com/members/insights.html">Browse the Full Library</a>
           </div>
         </div>
@@ -1006,18 +1086,7 @@
           </div>
         </div>
       </div>
-
-      <!-- The eighth slot is EMPTY on purpose (8/25 follow-up round 3): the
-           deck's italic premise note was removed in round 2, and the
-           library-depth panel that replaced it was removed in round 3 — do
-           not restore either. The per-shelf counts and Browse the Full
-           Library links carry the depth story. -->
     </div>
-
-    <!-- The connect panel ("tell us which of these sounds like your company")
-         stays REMOVED (Travis, 8/25 review) — not stubbed, not moved. It was
-         the Word doc's "call us and we'll connect you" ask; the hero's
-         senior-partner fact and the application funnel carry that job now. -->
   </div>
 </section>
 
