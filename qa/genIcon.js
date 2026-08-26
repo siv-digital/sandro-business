@@ -17,7 +17,11 @@
  *
  * Usage:
  *   node qa/genIcon.js                     # full icons.css to stdout
- *   node qa/genIcon.js > site/assets/ds/icons.css
+ *   node qa/genIcon.js > site-v2/assets/ds/icons.css   # NAMES tracks site-v2
+ *
+ * NOTE: site/assets/ds/icons.css was generated from an EARLIER, smaller NAMES
+ * list and is not a rebuild target — regenerating over it adds ~66KB of v2-only
+ * glyphs to every v1 page for no benefit. NAMES below tracks site-v2/.
  *   node qa/genIcon.js Clock PlayCircle    # just those glyph rules (spot checks)
  *
  * No dependencies. Paths resolve relative to this script, so cwd does not matter.
@@ -62,6 +66,10 @@ const NAMES = [
   "Feather",
   "TrendUp01",
   "PieChart01",
+  /* M&A shelf, 8/26. "Route" was standing in and read as a journey rather
+     than a transaction; GitMerge is two lines converging into one, which is
+     the merger itself. The name is developer-flavoured, the mark is not. */
+  "GitMerge",
 ];
 
 /* Header + base rules emitted verbatim ahead of the glyph rules. */

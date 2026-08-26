@@ -9,7 +9,7 @@
 <title>Business Value Advisory Alliance</title>
 <meta name="description" content="The Business Value Advisory Alliance connects business owners at any stage to vetted specialists across nine capabilities, from valuation to investment management, with a Sandro Business senior partner running the engagement.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
-<link rel="stylesheet" href="/assets/ds/styles.css?v=5">
+<link rel="stylesheet" href="/assets/ds/styles.css?v=6">
 <link rel="stylesheet" href="/assets/app.css?v=39">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
 <link rel="stylesheet" href="/assets/v2.css?v=17">
@@ -578,10 +578,14 @@
             <span class="sbp2-firm-mark"><img src="/assets/img/epi.png" alt=""></span>
             <h3>Exit Planning Institute</h3>
           </div>
-          <span class="sbp2-firm-role">Reach &amp; brand</span>
+          <span class="sbp2-firm-role">Rigorous exit methodology</span>
+          <!-- Client copy, 8/26. Replaces the "nationwide network of 10,000
+               advisors" line: EPI's contribution is now stated as its
+               METHODOLOGY rather than its reach, which also retires a headcount
+               claim compliance would have asked us to substantiate. -->
           <p>
-            A nationwide network of 10,000 advisors already focused on one
-            thing, the business owner.
+            The Value Acceleration Methodology (VAM) creating effective exits
+            for business owners.
           </p>
         </div>
       </div>
@@ -830,10 +834,13 @@
          on sequence was the thing being fixed. If Garrett needs to read this
          against his own slide, the order is the thing to change, not the set.
 
-         Valuation takes FileCheck02 and M&A takes Route — both already in the
-         icons.css subset. A truer glyph (a handshake for M&A) means
-         regenerating the subset and bumping BOTH icons.css and ds/styles.css,
-         so it is a deliberate follow-up, not a quiet edit. -->
+         Valuation takes FileCheck02. M&A took Route as a stand-in and now takes
+         GitMerge (8/26) — two lines converging into one, which is the merger
+         itself; Route read as a journey. There is no handshake glyph in the
+         1,172-icon source. Adding it meant regenerating the subset via
+         qa/genIcon.js and bumping BOTH icons.css (inside the styles.css
+         @import) and ds/styles.css on this page — trap 13; a stale cached
+         icons.css paints the new glyph as a solid box. -->
     <div class="sbp2-shelves">
       <div class="sb-reveal sbp2-shelf-cell" data-rv>
         <div class="sbp2-shelf">
@@ -951,7 +958,7 @@
         <div class="sbp2-shelf">
           <div class="sbp2-shelf-plate" aria-hidden="true">
             <span class="sbp-rays"></span>
-            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="Route" data-size="lg"></span></span>
+            <span class="sbp2-shelf-plate-mark"><span class="sb-ico" data-ico="GitMerge" data-size="lg"></span></span>
           </div>
           <h3 class="sbp2-shelf-name">M&amp;A</h3>
           <ul class="sbp2-shelf-list">
