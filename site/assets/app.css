@@ -606,7 +606,7 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
 .sbp-logo-plate .sb-logo-word{font-size:13px;color:var(--sb-titanium-800);text-transform:none}
 @media (max-width:480px){
   .sbp-logo-plate[data-firm]{padding:var(--space-2) var(--space-3)}
-  /* 22px is the tallest a mark can be without a tall-ratio logo (Quest, 2.3:1)
+  /* 22px is the tallest a mark can be without a tall-ratio logo (Quist, 2.95:1)
      pushing its plate past the 16/7 aspect height and unlining the row. */
   .sbp-logo-plate[data-firm] img{max-height:22px}
   .sbp-logo-plate .sb-logo img{width:12px;height:12px}
