@@ -8,7 +8,7 @@
 <meta name="description" content="The Sandro Business library: guides, case studies and webinar recordings across the four inflection points of an owner's exit.">
 <link rel="icon" href="/assets/img/sandro-symbol-titanium.png">
 <link rel="stylesheet" href="/assets/ds/styles.css?v=3">
-<link rel="stylesheet" href="/assets/app.css?v=37">
+<link rel="stylesheet" href="/assets/app.css?v=38">
 <link rel="stylesheet" href="/assets/skins.css?v=3">
 </head>
 <body>
@@ -18,33 +18,40 @@
      shell as the roadmap; the rail is identical except that Insights carries
      the marker and Roadmap is a plain link.
 
-     THE ROSTER IS THE CLIENT DOC'S §5, not a guess: 8 flagship guides mapped
-     to the four inflection points (value acceleration, capital and growth,
-     M&A, estate and wealth), 3 anonymized case studies including the redacted
-     valuation snapshot and the redacted estate structure, plus the webinar
-     recordings. Titles already shown on the homepage and the dashboard appear
-     here under the SAME title, because a member will see both screens.
+     THE ROSTER is the client doc's §5 plus the client's real webinars:
+     8 flagship guides, 3 anonymized case studies (the redacted valuation
+     snapshot and the redacted estate structure among them), and all 7
+     recordings published on sandrowealth.com/video-webinars. Titles already
+     shown on the homepage and the dashboard appear here under the SAME title,
+     because a member will see both screens.
 
-     Filters are by FORMAT, topics stay as each card's kicker (locked 8/13),
-     and "All" on this grid means all: data-filter-full opts out of the home
-     page's featured-only curation. The podcast filter shows the feature panel
-     instead of the grid, because nothing is recorded and three invented
-     episodes would read as a back catalogue with the covers missing.
+     KICKERS ARE THE NINE CAPABILITIES (8/26). They used to be the client
+     doc's four inflection points (value acceleration, capital and growth,
+     M&A, estate and wealth), which meant the homepage named nine things and
+     this screen named four different ones. Filters stay by FORMAT, and "All"
+     on this grid means all: data-filter-full opts out of the home page's
+     featured-only curation. Three of the nine (taxation, asset protection,
+     risk management) have no piece yet; that is honest, not an omission.
 
-     THUMBNAILS ARE DESIGNED PLATES, not photographs (Travis, 8/14): format
-     mark over a quiet ray fan, presentation driven entirely by data-format
-     and data-access. Real cover art later replaces the plate with a plain
-     .sb-card-media img. The minutes figure on every card is placeholder
-     editorial like the titles around it, format-aware on purpose: a guide is
-     read, a webinar is watched, an episode is listened to. -->
+     THUMBNAILS ARE REAL (8/26), replacing the designed plates from 8/14.
+     Article art is pulled from sandrowealth.com/articles: abstract editorial
+     illustration, no text and no lockup, so it carries no claim. Webinar
+     thumbnails are the client's own title cards and DO carry the SandroWealth
+     wordmark and the speakers, used as-is at Travis's call. .sbp-plate is now
+     unused here but stays in app.css until the home page's cards move too.
+
+     The minutes figure on every card is placeholder editorial, including on
+     the real webinars: sandrowealth.com publishes no runtime and the videos
+     sit behind a gate. Format-aware on purpose: a guide is read, a webinar is
+     watched, an episode is listened to. -->
 <div class="sbp-console">
 
   <div class="sbp-rail-col">
   <aside class="sb-rail sb-dark">
     <div class="sb-rail-brand">
-      <a class="sb-logo sbp-logo" href="/" aria-label="SandroBusiness, home">
+      <a class="sb-logo sbp-logo" href="/" aria-label="Business Value Advisory Alliance, home">
         <img src="/assets/img/sandro-symbol-ivory.png" alt="">
-        <span class="sb-logo-word sbp-rail-word">SandroBusiness</span>
+        <span class="sb-logo-word sbp-rail-word">Business Value Advisory Alliance</span>
       </a>
     </div>
 
@@ -116,6 +123,7 @@
         <button type="button" class="sb-tag" data-clickable="1" data-filter="case-study" aria-pressed="false">Case studies</button>
         <button type="button" class="sb-tag" data-clickable="1" data-filter="webinar" aria-pressed="false">Webinars</button>
         <button type="button" class="sb-tag" data-clickable="1" data-filter="podcast" aria-pressed="false">Podcast</button>
+        <button type="button" class="sb-tag" data-clickable="1" data-filter="epi" aria-pressed="false">EPI chapter presentations</button>
       </div>
 
       <h2 class="sbp-vh">The library</h2>
@@ -124,9 +132,8 @@
         <div class="sb-reveal sbp-card-cell" data-rv data-access="free" data-format="guide">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="The full guide opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-01.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
               <div class="sb-kick"><span>Value acceleration</span></div>
@@ -146,12 +153,11 @@
         <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="member" data-format="case-study">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="Members-only. The full case study opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="Scales02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-02.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>Value acceleration</span></div>
+              <div class="sb-kick"><span>Valuation</span></div>
               <h3>A redacted valuation snapshot</h3>
               <p class="sbp-card-body-text">The valuation and gap analysis from a finished engagement, with the identifying detail removed.</p>
               <div class="sbp-ins-foot">
@@ -167,19 +173,18 @@
 
         <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="free" data-format="webinar">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
-             data-stub="The recording plays here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="PlayCircle" data-size="lg"></span></span>
+             data-stub="The recording opens here when the library goes live.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/webinar-assessing-business-value.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>Capital and growth</span></div>
-              <h3>Your building is part of the deal</h3>
-              <p class="sbp-card-body-text">What happens to the real estate when the operating business sells.</p>
+              <div class="sb-kick"><span>Valuation</span></div>
+              <h3>Assessing Business Value</h3>
+              <p class="sbp-card-body-text">What goes into an opinion of value, and what an owner should expect to be asked for.</p>
               <div class="sbp-ins-foot">
                 <span class="sbp-lib-meta">
                   <span class="sbp-media-tag">Webinar</span>
-                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>52 min watch</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>48 min watch</span>
                 </span>
                 <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
               </div>
@@ -190,9 +195,8 @@
         <div class="sb-reveal sbp-card-cell" data-rv data-access="free" data-format="guide">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="The full guide opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-03.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
               <div class="sb-kick"><span>M&amp;A</span></div>
@@ -209,15 +213,35 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="guide">
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="webinar">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
-             data-stub="The full guide opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+             data-stub="The recording opens here when the library goes live.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/webinar-commercial-real-estate-exit-options.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>Estate and wealth</span></div>
+              <div class="sb-kick"><span>M&amp;A</span></div>
+              <h3>How Commercial Real Estate Can Strengthen &ndash; Or Limit &ndash; Your Exit Options</h3>
+              <p class="sbp-card-body-text">What happens to the real estate when the operating business sells.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Webinar</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>52 min watch</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-04.jpg" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Estate planning</span></div>
               <h3>The work that only counts if it is early</h3>
               <p class="sbp-card-body-text">Why the tax and estate structures have to exist before a buyer names a number.</p>
               <div class="sbp-ins-foot">
@@ -231,15 +255,14 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="member" data-format="case-study">
+        <div class="sb-reveal sbp-card-cell" data-rv data-access="member" data-format="case-study">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="Members-only. The full case study opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="Scales02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-05.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>Estate and wealth</span></div>
+              <div class="sb-kick"><span>Estate planning</span></div>
               <h3>A redacted estate structure</h3>
               <p class="sbp-card-body-text">The gifting and trust structure behind a sale, stripped of anything that identifies the owner.</p>
               <div class="sbp-ins-foot">
@@ -253,21 +276,20 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-access="free" data-format="webinar">
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="webinar">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
-             data-stub="The recording plays here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="PlayCircle" data-size="lg"></span></span>
+             data-stub="The recording opens here when the library goes live.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/webinar-art-and-science-of-business-succession.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>M&amp;A</span></div>
-              <h3>Reading an offer past the headline number</h3>
-              <p class="sbp-card-body-text">Earnouts, escrow and working capital, and where the value actually lands.</p>
+              <div class="sb-kick"><span>Estate planning</span></div>
+              <h3>The Art And Science of Business Succession</h3>
+              <p class="sbp-card-body-text">Passing the company on: the structures, the timing, and the conversations that precede both.</p>
               <div class="sbp-ins-foot">
                 <span class="sbp-lib-meta">
                   <span class="sbp-media-tag">Webinar</span>
-                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>47 min watch</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>57 min watch</span>
                 </span>
                 <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
               </div>
@@ -275,12 +297,11 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="guide">
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="free" data-format="guide">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="The full guide opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-06.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
               <div class="sb-kick"><span>Value acceleration</span></div>
@@ -297,15 +318,35 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="free" data-format="guide">
+        <div class="sb-reveal sbp-card-cell" data-rv data-access="free" data-format="webinar">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
-             data-stub="The full guide opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+             data-stub="The recording opens here when the library goes live.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/webinar-five-limitations-exit-planning.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>Estate and wealth</span></div>
+              <div class="sb-kick"><span>Value acceleration</span></div>
+              <h3>5 Limitations to Progress in Exit Planning</h3>
+              <p class="sbp-card-body-text">The five things that most often stall an exit plan before it starts.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Webinar</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>44 min watch</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="guide">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The full guide opens here when it publishes.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-07.jpg" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Portfolio management</span></div>
               <h3>The number the sale has to clear</h3>
               <p class="sbp-card-body-text">What the proceeds have to fund, for how long, and the gap most owners find late.</p>
               <div class="sbp-ins-foot">
@@ -319,12 +360,11 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-access="member" data-format="case-study">
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="member" data-format="case-study">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="Members-only. The full case study opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="Scales02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-08.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
               <div class="sb-kick"><span>M&amp;A</span></div>
@@ -341,15 +381,14 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="guide">
+        <div class="sb-reveal sbp-card-cell" data-rv data-access="free" data-format="guide">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="The full guide opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-09.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>Capital and growth</span></div>
+              <div class="sb-kick"><span>Commercial banking</span></div>
               <h3>Borrowing against a business you plan to sell</h3>
               <p class="sbp-card-body-text">What a lender looks at, and why a buyer will look at the same thing.</p>
               <div class="sbp-ins-foot">
@@ -363,21 +402,20 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="free" data-format="webinar">
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="webinar">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
-             data-stub="The recording plays here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="PlayCircle" data-size="lg"></span></span>
+             data-stub="The recording opens here when the library goes live.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/webinar-unlocking-private-markets.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>Value acceleration</span></div>
-              <h3>The year before you go to market</h3>
-              <p class="sbp-card-body-text">What to fix while there is still time for the fix to count.</p>
+              <div class="sb-kick"><span>Portfolio management</span></div>
+              <h3>Unlocking Private Markets: Position Your Practice for HNW Growth</h3>
+              <p class="sbp-card-body-text">How private markets fit a portfolio, from the advisor&rsquo;s side of the table.</p>
               <div class="sbp-ins-foot">
                 <span class="sbp-lib-meta">
                   <span class="sbp-media-tag">Webinar</span>
-                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>58 min watch</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>46 min watch</span>
                 </span>
                 <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
               </div>
@@ -385,15 +423,14 @@
           </a>
         </div>
 
-        <div class="sb-reveal sbp-card-cell" data-rv data-access="free" data-format="guide">
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="free" data-format="guide">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="The full guide opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-10.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
-              <div class="sb-kick"><span>Capital and growth</span></div>
+              <div class="sb-kick"><span>Commercial banking</span></div>
               <h3>Taking on capital without losing the company</h3>
               <p class="sbp-card-body-text">What growth capital costs in control, and the terms that decide it.</p>
               <div class="sbp-ins-foot">
@@ -407,12 +444,32 @@
           </a>
         </div>
 
+        <div class="sb-reveal sbp-card-cell" data-rv data-access="free" data-format="webinar">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The recording opens here when the library goes live.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/webinar-case-for-private-credit.jpg" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Portfolio management</span></div>
+              <h3>Unlocking Opportunity: The Case for Private Credit in Modern Portfolios</h3>
+              <p class="sbp-card-body-text">Where private credit sits in a portfolio, and the risk that comes with the yield.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Webinar</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>51 min watch</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
         <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="1" data-access="free" data-format="guide">
           <a class="sb-card" data-interactive="1" href="/members/insights.html"
              data-stub="The full guide opens here when it publishes.">
-            <div class="sbp-plate" aria-hidden="true">
-              <span class="sbp-rays"></span>
-              <span class="sbp-plate-mark"><span class="sb-ico" data-ico="FileCheck02" data-size="lg"></span></span>
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/editorial-11.jpg" alt="" loading="lazy" decoding="async">
             </div>
             <div class="sb-card-body">
               <div class="sb-kick"><span>M&amp;A</span></div>
@@ -429,6 +486,27 @@
           </a>
         </div>
 
+        <div class="sb-reveal sbp-card-cell" data-rv data-rv-i="2" data-access="free" data-format="webinar">
+          <a class="sb-card" data-interactive="1" href="/members/insights.html"
+             data-stub="The recording opens here when the library goes live.">
+            <div class="sb-card-media">
+              <img src="/assets/img/insights/webinar-tariffs-trends-and-tactics.jpg" alt="" loading="lazy" decoding="async">
+            </div>
+            <div class="sb-card-body">
+              <div class="sb-kick"><span>Portfolio management</span></div>
+              <h3>Tariffs, Trends, and Tactics: Investing in Uncertain Times</h3>
+              <p class="sbp-card-body-text">Investing through policy uncertainty, and what actually warrants a change.</p>
+              <div class="sbp-ins-foot">
+                <span class="sbp-lib-meta">
+                  <span class="sbp-media-tag">Webinar</span>
+                  <span class="sbp-time"><span class="sb-ico" data-ico="Clock" data-size="sm" aria-hidden="true"></span>39 min watch</span>
+                </span>
+                <span class="sbp-access"><span class="sb-ico" data-ico="Lock01" data-size="sm" aria-hidden="true"></span>Members</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
       </div>
 
       <!-- The podcast filter shows this INSTEAD of the grid, same contract as
@@ -436,7 +514,11 @@
            one honest panel beats three fabricated episodes. No CTA here, unlike
            home: a member is already on the list, so the panel says so rather
            than asking for an address it has. -->
-      <div class="sbp-podcast">
+      <!-- .sbp-podcast is the EMPTY-STATE PANEL component; the class family is
+           named for its first user. A filter whose category has no content
+           shows one of these INSTEAD of an empty grid, matched on
+           data-empty-for. Two of them now (8/26). -->
+      <div class="sbp-podcast" data-empty-for="podcast">
         <div class="sbp-podcast-mark" aria-hidden="true">
           <span class="sb-ico" data-ico="Podcast" data-size="lg"></span>
         </div>
@@ -447,6 +529,27 @@
             Conversations with business owners about the decisions that shaped what
             came next, and what they would do differently. Nothing is recorded yet.
             Episode one lands here first, and you&rsquo;ll get it in your inbox.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- EPI chapter presentations, requested by Garrett via Arianna's notes
+           (8/26 meeting). The category exists so the platform can carry them;
+           nothing is adapted yet. Shelley's position on record is that the
+           decks are written for ADVISORS, so the honest panel says the work
+           is the adaptation, not the upload. -->
+      <div class="sbp-podcast" data-empty-for="epi">
+        <div class="sbp-podcast-mark" aria-hidden="true">
+          <span class="sb-ico" data-ico="Users01" data-size="lg"></span>
+        </div>
+        <div class="sbp-podcast-copy">
+          <div class="sb-kick"><span class="sb-kick-dash"></span><span>In development</span></div>
+          <h3 class="sbp-podcast-h3">EPI chapter presentations, rewritten for the owner in the room.</h3>
+          <p class="sbp-podcast-body">
+            Exit Planning Institute chapter material covers the ground owners ask
+            about, but it was written for the advisers who present it. Adapting it
+            is the work, and none of it is posted yet.
           </p>
         </div>
       </div>
@@ -481,6 +584,6 @@
   </div>
 </div>
 
-<script src="/assets/app.js?v=16"></script>
+<script src="/assets/app.js?v=17"></script>
 </body>
 </html>
