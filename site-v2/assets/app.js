@@ -418,7 +418,13 @@
     var chips = document.querySelectorAll('.sbp-filters [data-filter]');
     if (!chips.length) return;
     var grid = document.querySelector('[data-filter-grid]');
-    var panel = document.querySelector('.sbp-podcast');
+    /* Any filter whose category has no content declares an empty-state panel
+       with data-empty-for="<filter>", and that panel shows INSTEAD of an empty
+       grid. Was a hardcoded podcast check until 8/26, when EPI chapter
+       presentations became a second empty category. Every panel must carry the
+       attribute — the old selector was .sbp-podcast, so the home page's panel
+       needed it too. */
+    var panels = document.querySelectorAll('[data-empty-for]');
     if (!grid) return;
 
     /* ONE vocabulary: data-format drives the plate/badge presentation AND this
@@ -432,11 +438,15 @@
     var full = grid.hasAttribute('data-filter-full');
 
     function apply(which) {
-      /* The podcast has no episodes, so its filter shows the panel INSTEAD of
-         the grid rather than an empty three-up. */
-      var podcast = which === 'podcast';
-      grid.toggleAttribute('data-off', podcast);
-      if (panel) panel.toggleAttribute('data-off', !podcast);
+      /* A category with nothing in it shows its panel rather than an empty
+         three-up; the grid goes dark only when one actually matches. */
+      var matched = false;
+      Array.prototype.forEach.call(panels, function (panel) {
+        var on = panel.getAttribute('data-empty-for') === which;
+        panel.toggleAttribute('data-off', !on);
+        if (on) matched = true;
+      });
+      grid.toggleAttribute('data-off', matched);
 
       Array.prototype.forEach.call(cells, function (cell) {
         var show = which === 'all'

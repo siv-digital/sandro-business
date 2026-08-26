@@ -48,9 +48,14 @@
    match: the parent's letterfit is tighter than Libre Baskerville produces,
    which suggests custom lettering. Flagged in the design system as the largest
    remaining fidelity gap. */
+/* The lockup carries the ALLIANCE name since 8/26, not the SandroBusiness
+   wordmark. "Business Value Advisory Alliance" sets 323px at the old 20px and
+   "SandroBusiness" set 157px, so every size here steps down and the header
+   gains a squeeze band it did not need before (below). The rail is the one
+   place the name cannot fit on a line at any usable size, so it wraps. */
 .sbp-logo{gap:7px}
 .sbp-logo img{height:28px;width:28px}
-.sbp-logo .sb-logo-word{font-size:20px}
+.sbp-logo .sb-logo-word{font-size:15px;line-height:1.1}
 .sb-header[data-t="light"] .sbp-logo .sb-logo-word{color:var(--sb-titanium-800)}
 .sb-header[data-t="dark"] .sbp-logo .sb-logo-word,
 .sb-header[data-t="transparent"] .sbp-logo .sb-logo-word,
@@ -63,7 +68,7 @@
 .sbp-signin-logo .sb-logo-word{color:var(--sb-ivory)}
 .sb-footer .sbp-logo{gap:8px}
 .sb-footer .sbp-logo img{height:30px;width:30px}
-.sb-footer .sbp-logo .sb-logo-word{font-size:22px}
+.sb-footer .sbp-logo .sb-logo-word{font-size:17px}
 
 /* The header composition. The system's Header ships logo + nav + one CTA; this
    site also needs a quiet sign-in affordance, because the whole argument of the
@@ -87,9 +92,18 @@
    squeezed the CTA's padding and wrapped the sign-in labels. One step tighter
    through the band only — above 1100 the desktop rhythm returns, below 821
    the sheet takes over. */
-@media (min-width:821px) and (max-width:1100px){
+/* The alliance lockup is ~85px wider than the old wordmark even at 15px, so
+   the band starts one step earlier than it used to (was 1100). Same lesson v2
+   recorded when the same name landed in its header. */
+@media (min-width:821px) and (max-width:1280px){
   .sb-header{gap:var(--space-6)}
   .sb-nav{gap:var(--space-2)}
+}
+@media (min-width:821px) and (max-width:1100px){
+  .sb-header{gap:var(--space-5)}
+  .sb-nav{gap:var(--space-1)}
+  .sb-nav .sb-nav-link{font-size:15px;padding:4px 6px}
+  .sb-nav .sbp-signin{font-size:15px;padding:4px 6px}
 }
 /* The narrow half of that band needs more: with the labels no longer allowed
    to wrap, the full menu is ~940px of content, so between the sheet's 820 and
@@ -101,6 +115,16 @@
   .sb-nav .sb-nav-link{font-size:15px;padding:4px 5px}
   .sb-nav .sbp-signin{font-size:15px;padding:4px 4px}
   .sb-nav .sb-btn[data-size="sm"]{padding-left:14px;padding-right:14px}
+  /* The alliance lockup costs ~85px the old wordmark did not, and tightening
+     alone leaves the row 78px over at 821. So the quiet links yield one at a
+     time, exactly as v2 does: both stay reachable in the footer and in the
+     mobile sheet below 821, where the nav collapses and the name has room. */
+  .sb-header .sbp-logo .sb-logo-word{font-size:13px}
+  .sb-header .sbp-signin[data-hdr="members"]{display:none}
+}
+@media (min-width:821px) and (max-width:900px){
+  .sb-header .sbp-signin[data-hdr="signin"]{display:none}
+  .sb-header .sbp-nav-divider{display:none}
 }
 
 /* Set by app.js while the mobile sheet is open: without the lock, a same-page
@@ -544,12 +568,11 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
    has not filled. The dashed plate must stay unmistakable as a placeholder —
    a client reading this must not think an unnamed slot is a firm that signed. */
 /* A FIXED column count, never auto-fit. With auto-fit a two-firm category
-   divides the row between two plates, so its marks render larger than the
-   fuller categories beside it and the cards stop matching. Four since 8/26,
-   when the homepage categories went placeholder-only at the client's request;
-   the number is the slot count, not a roster claim. */
+   divides the row between two plates instead of three, so its marks render
+   larger than the three-firm categories beside them and the cards stop
+   matching. The empty third slot is honest anyway: this is a sample roster. */
 .sbp-logos{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
   gap:var(--space-4);margin:var(--space-6) 0 0;
 }
 /* Inside a category card the logo row anchors to the card FOOT (the card is a
@@ -558,6 +581,12 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
    space-6 minimum when there is none. Scoped: the /directory/ pending block
    is not a flex context and keeps the plain margin above. */
 .sbp-dircat .sbp-logos{margin-top:auto;padding-top:var(--space-6)}
+/* FOUR across, but only on the home page's category cards: that is where the
+   client asked for four dashed placeholder slots (8/26). Scoped rather than
+   changed at the base, because /directory/'s roster-pending block is a
+   different context and its three plates would sit in a four-column grid with
+   a hole in it. One sheet now serves both pages, so the scope is load-bearing. */
+.sbp-dircat .sbp-logos{grid-template-columns:repeat(4,minmax(0,1fr))}
 .sbp-logo-plate{
   display:grid;place-items:center;aspect-ratio:16/7;
   background:var(--surface-sunken);
@@ -863,7 +892,15 @@ html[data-sb-motion="1"] .sb-sun-bloom .sbp-rays{animation:sb-drift var(--dur-am
   .sbp-mmain .sb-btn[data-size="sm"]{min-height:44px}
 }
 
-.sbp-rail-word{font-size:18px}
+/* The console rail measures 263px and the name needs 323px on one line at the
+   old size, so this is the one lockup that WRAPS (Travis, 8/26). Overriding
+   .sb-logo-word's white-space:nowrap is the whole point; the max-width makes
+   the break land after "Value" rather than orphaning "Alliance". */
+.sbp-rail-word{
+  font-size:15px;line-height:1.2;
+  white-space:normal;max-width:150px;
+}
+.sb-rail-brand .sbp-logo{align-items:center}
 .sbp-rail-link-ico{flex:none}
 /* .sb-rail-link is authored for a <button>; as an <a> it needs the underline
    base.css gives every anchor removed. */

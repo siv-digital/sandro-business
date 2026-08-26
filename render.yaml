@@ -67,6 +67,12 @@ services:
   # push a service definition here unless it is ready to be live. The curl
   # diagnostic still applies:
   #   curl -sS -o /dev/null -w "%{http_code}\n" https://bvaa-prototype.onrender.com/
+  # CONSOLIDATED 8/26: this service publishes the WHOLE prototype, not just the
+  # homepage. The old split put the funnel on sandro-business-prototype, so a
+  # click from the homepage into the members area changed hostname and the way
+  # back landed on a second, older homepage. The folder is still called
+  # site-v2 and has to stay that way: staticPublishPath is one-shot on an
+  # existing service, so renaming the directory would silently break this.
   - type: web
     name: bvaa-prototype
     runtime: static
