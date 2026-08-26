@@ -11,31 +11,31 @@
    (light hero, dark serif display, monochrome buttons), read live 8/25. */
 
 /* ---------- Header ----------
-   data-t="light" instead of v1's sb-dark + transparent: the field behind it is
-   cream, so the glass-light rest state is invisible and the scrolled state
-   arrives from components.css untouched. The rest-state hairline is cleared so
-   the header does not draw a line across the hero it is floating on. */
-.sb-header.sbp2-header{border-bottom-color:transparent}
-.sb-header.sbp2-header[data-scrolled="1"]{border-bottom-color:var(--border-hairline)}
+   The "this is a different thing" signal (8/25 meeting, asked for twice):
+   the header is a visible chrome band, not v1's transparent glass — a solid
+   sunken ground in BOTH states (khaki-000 reads distinctly against the cream
+   hero; warm-soft/ivory does NOT, it is near-identical to the hero and was
+   skipped for that reason) with the brass keyline gradient as its bottom
+   edge, the device the footer's top edge already wears, so the page is
+   bookended by it. The hairline border stays transparent in both states —
+   the keyline replaces it. Scrolled keeps its components.css shadow. */
+.sb-header.sbp2-header{background:var(--surface-sunken);border-bottom-color:transparent}
+.sb-header.sbp2-header[data-scrolled="1"]{background:var(--surface-sunken);border-bottom-color:transparent}
+.sb-header.sbp2-header::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--sb-gradient-keyline);
+}
 
-/* The BVAA lockup: symbol + a two-deck word column (name over the powered-by
-   row). The name is one line of Baskerville; the marks beneath are the
-   partners' own PNGs, shipped untouched (never tint a partner's mark). */
+/* The BVAA lockup: symbol + the name, one line of Baskerville. (The 8/25
+   "powered by" SCI/EPI row beneath the name was an error in the client notes —
+   removed 8/25 follow-up, do not reintroduce.) */
 .sbp2-lockup{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-bottom:0}
 .sbp2-lockup img{display:block}
 .sbp2-lockup > img{width:30px;height:30px}
-.sbp2-lockup-col{display:flex;flex-direction:column;gap:4px;min-width:0}
 .sbp2-lockup-name{
   font-family:var(--font-display);font-size:15px;line-height:1.1;
   color:var(--sb-titanium-800);white-space:nowrap;
 }
-.sbp2-powered{display:inline-flex;align-items:center;gap:8px}
-.sbp2-powered-label{
-  font-family:var(--font-sans);font-size:9px;font-weight:var(--weight-medium);
-  letter-spacing:var(--tracking-kicker);text-transform:uppercase;
-  color:var(--text-subtle);white-space:nowrap;
-}
-.sbp2-powered img{height:16px;width:auto}
 /* The squeeze band, v2 edition. The BVAA lockup is ~140px wider than v1's and
    the menu carries four links, so v1's 821-1100 band starts overflowing at
    ~1280 here. Four graduated steps, each measured against the row's content:
@@ -48,8 +48,6 @@
   .sbp2-header .sb-nav .sb-nav-link{font-size:15px;padding:4px 6px}
   .sbp2-header .sb-nav .sbp-signin{font-size:15px;padding:4px 6px}
   .sbp2-lockup-name{font-size:13px}
-  .sbp2-powered img{height:13px}
-  .sbp2-powered-label{font-size:8px}
 }
 @media (min-width:821px) and (max-width:1100px){
   .sb-header.sbp2-header{gap:var(--space-4);padding:0 var(--space-5)}
@@ -72,7 +70,6 @@
 }
 @media (max-width:480px){
   .sbp2-lockup-name{font-size:13px}
-  .sbp2-powered img{height:13px}
 }
 
 /* Display headline directly under a kicker: the space-4 step every display
@@ -265,7 +262,22 @@
   transform:translateY(-3px);
   box-shadow:var(--shadow-md);
 }
-.sbp2-firm h3{font:var(--type-h2)}
+/* Full firm names + marks (8/25 follow-up round 4): h2-size Baskerville fit
+   the short names ("SCI"); the full names wrap beside a mark, so the heading
+   steps down to h3 with a wrapping line-height. The mark plates share one
+   height; widths differ because the lockups do (Sandro square, Strazzeri
+   5:1). Strazzeri's white-only mark takes the dark ground — never tint a
+   partner's logo (directory precedent). */
+.sbp2-firm-head{display:flex;align-items:center;gap:var(--space-4)}
+.sbp2-firm h3{font:var(--type-h3);font-weight:var(--weight-bold);line-height:1.2}
+.sbp2-firm-mark{
+  flex:none;height:48px;display:grid;place-items:center;
+  padding:0 8px;
+  background:var(--surface-card);
+  border:1px solid var(--border-hairline);border-radius:var(--radius-sm);
+}
+.sbp2-firm-mark img{display:block;max-height:34px;max-width:84px;width:auto;height:auto}
+.sbp2-firm-mark[data-ground="dark"]{background:var(--sb-titanium-800);border-color:var(--sb-titanium-800)}
 .sbp2-firm-role{
   font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
   color:var(--sw-brass-700);display:block;margin-top:var(--space-3);
@@ -320,24 +332,84 @@
    and its feature panel went the same way (round 4): podcast is a content
    type, not a capability. */
 
-/* ---------- The capability chip row ----------
-   ONE line, never wrapping (Travis, 8/25: the wrapped tail read as a hang).
-   At desktop the row is sized to fit the container outright; where the
-   viewport is narrower than the row it scrolls sideways instead of stacking
-   — the same rule dense tables follow in this system. Padding steps down
-   from the v1 chip spec to buy the fit; type is untouched. */
-.sbp2-chips{
-  flex-wrap:nowrap;overflow-x:auto;
-  scrollbar-width:none;
-  padding-bottom:2px; /* keeps the focus ring's offset from being clipped */
+/* ---------- Insights: the seven capability shelves ----------
+   The deck's 7-box grid as library shelves; a shelf is a container, its rows
+   and foot link are the interactive things. The plate band is the members
+   library's designed-plate at reduced height — a visual thumbnail without
+   photography (three brand-book crops across seven shelves would visibly
+   repeat; the same verdict the members library reached on 8/14). Real cover
+   art later replaces the plate with an <img> and nothing fights it. */
+.sbp2-shelves{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-5);
+  margin-top:var(--space-8);
 }
-.sbp2-chips::-webkit-scrollbar{display:none}
-.sbp2-chips .sb-tag{
-  flex:none;white-space:nowrap;
-  /* space-3, one step under the v1 chip spec: measured, the nine chips run
-     1240px at space-4 padding — an exact fill at 1440 and a 31px clip at
-     1280. This step fits both. */
-  padding-left:var(--space-3);padding-right:var(--space-3);
+.sbp2-shelf-cell{height:100%}
+.sbp2-shelf{
+  height:100%;box-sizing:border-box;display:flex;flex-direction:column;
+  overflow:hidden;
+  background:var(--surface-card);
+  border:1px solid var(--border-hairline);border-radius:var(--radius-md);
+  box-shadow:var(--shadow-xs);
+}
+.sbp2-shelf-plate{
+  position:relative;overflow:hidden;height:84px;flex:none;
+  display:grid;place-items:center;
+  background:var(--surface-sunken);color:var(--text-warm);
+  border-bottom:1px solid var(--border-hairline);
+}
+/* Same fan the members plates use, no ambient drift (no reader for it). The
+   fan is a SQUARE sized by width and anchored by bottom, so on an 84px band
+   the offsets are small: -45% keeps the radiant core just under the plate's
+   bottom edge with the ray tips rising behind the mark. */
+.sbp2-shelf-plate .sbp-rays{left:28%;bottom:-45%;width:44%;--ray-color:currentColor;opacity:.18}
+html[data-sb-motion="1"] .sbp2-shelf-plate .sbp-rays{animation:none}
+/* The outlined mark carries the capability glyph — the deck's own icon
+   treatment. Brass-700, the text-safe step, one brass for the section. */
+.sbp2-shelf-plate-mark{
+  position:relative;z-index:1;
+  width:44px;height:44px;display:grid;place-items:center;
+  background:var(--surface-card);color:var(--sw-brass-700);
+  border:1px solid var(--border-hairline);border-radius:var(--radius-sm);
+}
+.sbp2-shelf-name{font:var(--type-h4);padding:var(--space-5) var(--space-6) 0}
+.sbp2-shelf-list{list-style:none;margin:var(--space-4) var(--space-6) 0;padding:0}
+.sbp2-shelf-list li{border-top:1px solid var(--border-hairline)}
+.sbp2-shelf-list a{display:block;padding:var(--space-4) 0;text-decoration:none;border-bottom:0}
+.sbp2-shelf-tag{
+  font:var(--type-small);letter-spacing:var(--tracking-kicker);text-transform:uppercase;
+  color:var(--text-subtle);display:block;
+}
+.sbp2-shelf-title{font:var(--type-p3);color:var(--text-display);display:block;margin-top:var(--space-1)}
+.sbp2-shelf-list a:hover .sbp2-shelf-title,
+.sbp2-shelf-list a:focus-visible .sbp2-shelf-title{text-decoration:underline}
+/* The depth indicator: the count is placeholder editorial, the same status
+   as the library's "9 min read", and the link is the way in. */
+.sbp2-shelf-foot{
+  margin-top:auto;
+  display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);
+  padding:var(--space-4) var(--space-6) var(--space-5);
+}
+.sbp2-shelf-count{font:var(--type-small);color:var(--text-subtle);white-space:nowrap}
+.sbp2-shelf-foot a{
+  font:var(--type-p3);color:var(--text-display);
+  padding:10px 0; /* keeps the touch target at 40px+ */
+  text-decoration:underline;text-underline-offset:3px;border-bottom:0;
+}
+@media (max-width:1180px){
+  .sbp2-shelves{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .sbp2-shelves{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---------- Page-scoped fixes to the v1 eco diagram ----------
+   (v2.css loads only on this page.) The core name is now "Sandro Business"
+   (8/25 follow-up) and v1's 30px Baskerville overflows the r=100 disc; 22px
+   keeps the name inside the chord. The phone mini-core is 118px wide, so the
+   name stacks to two centred lines instead. */
+.sbp-eco-svg .sbp-eco-core-name{font-size:22px}
+.sbp-eco-list .sbp-eco-mini-name{
+  font-size:18px;line-height:1.15;text-align:center;max-width:96px;
 }
 
 /* ---------- Anchor targets ---------- */

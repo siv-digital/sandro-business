@@ -58,6 +58,10 @@ const NAMES = [
   "Calculator",
   "Shield01",
   "PhoneCall01",
+  /* v2 insights capability shelves — 8/25 follow-up */
+  "Feather",
+  "TrendUp01",
+  "PieChart01",
 ];
 
 /* Header + base rules emitted verbatim ahead of the glyph rules. */
