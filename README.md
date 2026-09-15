@@ -76,7 +76,7 @@ python3 -m http.server 4325 --directory marketing-site
 
 ## Deploy
 
-Two Render services, Blueprint-managed from `render.yaml`: `sandro-business-prototype` (publishes `site/`, the v1 prototype) and `bvaa-prototype` (publishes `site-v2/`, the BVAA homepage). Push to `main` and existing services deploy. **A service newly added to `render.yaml` does NOT exist until its pending Blueprint sync is approved in the dashboard** (Blueprint → Syncs) — diagnose with the curl below, not by hunting for buttons. Full mechanics, and the traps, are in the comments at the top of `render.yaml`.
+One Render service, Blueprint-managed from `render.yaml`: `bvaa-prototype` (publishes `site-v2/`, the whole prototype since the 8/26 consolidation). The v1 service `sandro-business-prototype` (publishes `site/`) was deleted 2026-09-15; `site/` stays as history. Push to `main` and existing services deploy. **A service newly added to `render.yaml` does NOT exist until its pending Blueprint sync is approved in the dashboard** (Blueprint → Syncs) — diagnose with the curl below, not by hunting for buttons. Full mechanics, and the traps, are in the comments at the top of `render.yaml`.
 
 Verify headers after any header change, because local preview sends none:
 
