@@ -24,36 +24,10 @@
 # THAT is when you approve the pending sync at Blueprint → Syncs.
 
 services:
-  - type: web
-    name: sandro-business-prototype
-    runtime: static
-    # Overwrite internal markdown rather than deleting it: Render's CDN keeps
-    # serving a path deleted in a new deploy (invalidation only covers CHANGED
-    # files), so a removed file stays live. Two levels, because site/ has
-    # subdirectories — the one-level glob used in sandro-pages would publish a
-    # nested README at a real URL.
-    buildCommand: 'for f in site/*.md site/*/*.md; do if [ -e "$f" ]; then echo Not found. > "$f"; fi; done; rm -rf site/.claude site/.remember'
-    staticPublishPath: ./site
-    autoDeploy: true
-    pullRequestPreviewsEnabled: false
-    headers:
-      # SAMEORIGIN, not DENY. DENY forbids same-origin framing too, which broke
-      # the cta-demo overlay in sandro-pages on 2026-07-27 — and this site will
-      # frame its own assessment copy.
-      - path: /*
-        name: X-Frame-Options
-        value: SAMEORIGIN
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
-        name: Referrer-Policy
-        value: strict-origin-when-cross-origin
-      # This is a mock the client clicks through. It must never compete with
-      # sandrowealth.com in search.
-      - path: /*
-        name: X-Robots-Tag
-        value: noindex, nofollow
+  # sandro-business-prototype (the v1 prototype, publish path ./site) was removed
+  # from this Blueprint and deleted from Render on 2026-09-15: it had served only
+  # a "this prototype has moved" stub pointing at bvaa-prototype since 8/26 and
+  # had no inbound links or traffic. site/ stays in the repo as source history.
 
   # BVAA homepage v2 (8/25 client round): the Business Value Advisory Alliance
   # rebrand, homepage only, publishing site-v2/ so v1 stays untouched at its
