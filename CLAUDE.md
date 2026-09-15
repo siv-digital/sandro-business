@@ -1,7 +1,7 @@
 # Sandro Business — project context
 
-This repo contains the **deployed community-platform prototype** (`site/`, served at
-`sandro-business-prototype.onrender.com`), the **Sandro Business design system** it is built on,
+This repo contains the **deployed community-platform prototype** (`site-v2/`, served at
+`bvaa-prototype.onrender.com`; the v1 `site/` folder is history, its Render service was deleted 2026-09-15), the **Sandro Business design system** it is built on,
 and a **marketing-site design reference**.
 Read `design-system/readme.md` in full before writing any UI. It is the source of truth for
 colour, type, spacing, motion, interaction states, accessibility and copy voice, and it records
